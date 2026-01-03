@@ -1,0 +1,157 @@
+{
+    "$schema": "https://json-schema.org/draft-07/schema#",
+    "title": "Multilingual Auto-i18n Configuration",
+    "description": "Configuration file for multilingual-auto-i18n",
+    "type": "object",
+    "properties": {
+        "sourceLanguage": {
+            "type": "string",
+            "description": "The source language of your content",
+            "default": "en",
+            "examples": [
+                "en",
+                "es",
+                "fr",
+                "de"
+            ]
+        },
+        "targetLanguages": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "Languages to translate to",
+            "default": [],
+            "examples": [
+                [
+                    "es",
+                    "fr",
+                    "de",
+                    "ja"
+                ]
+            ]
+        },
+        "translationService": {
+            "type": "string",
+            "enum": [
+                "deepl",
+                "google",
+                "none"
+            ],
+            "description": "Translation service to use",
+            "default": "none"
+        },
+        "outputDir": {
+            "type": "string",
+            "description": "Directory to output translation files",
+            "default": "./locales"
+        },
+        "outputFormat": {
+            "type": "string",
+            "enum": [
+                "json",
+                "ts",
+                "js"
+            ],
+            "description": "Format for translation files",
+            "default": "json"
+        },
+        "include": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "Glob patterns for files to scan",
+            "default": [
+                "src/**/*",
+                "app/**/*",
+                "pages/**/*",
+                "components/**/*",
+                "views/**/*"
+            ]
+        },
+        "exclude": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "Glob patterns for files to ignore",
+            "default": [
+                "node_modules/**",
+                "dist/**",
+                "build/**",
+                ".git/**",
+                "*.test.*",
+                "*.spec.*"
+            ]
+        },
+        "fileTypes": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "File extensions to scan",
+            "default": [
+                ".js",
+                ".jsx",
+                ".ts",
+                ".tsx",
+                ".vue",
+                ".svelte",
+                ".html"
+            ]
+        },
+        "flatKeys": {
+            "type": "boolean",
+            "description": "Use flat key structure instead of nested",
+            "default": false
+        },
+        "keyStyle": {
+            "type": "string",
+            "enum": [
+                "nested",
+                "flat",
+                "auto"
+            ],
+            "description": "Style for translation keys",
+            "default": "auto"
+        },
+        "autoMode": {
+            "type": "boolean",
+            "description": "Enable automatic translation mode",
+            "default": false
+        },
+        "githubActions": {
+            "type": "boolean",
+            "description": "Enable GitHub Actions integration",
+            "default": false
+        },
+        "preserveExisting": {
+            "type": "boolean",
+            "description": "Preserve existing translations when updating",
+            "default": true
+        },
+        "sortKeys": {
+            "type": "boolean",
+            "description": "Sort translation keys alphabetically",
+            "default": true
+        },
+        "minStringLength": {
+            "type": "number",
+            "description": "Minimum string length to extract",
+            "default": 2
+        },
+        "maxStringLength": {
+            "type": "number",
+            "description": "Maximum string length to extract",
+            "default": 5000
+        },
+        "ignorePatterns": {
+            "type": "array",
+            "items": {
+                "type": "string"
+            },
+            "description": "Regex patterns for strings to ignore"
+        }
+    }
+}

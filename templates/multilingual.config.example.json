@@ -1,0 +1,44 @@
+{
+    "sourceLanguage": "en",
+    "targetLanguages": [
+        "es",
+        "fr",
+        "de",
+        "ja",
+        "zh"
+    ],
+    "translationService": "deepl",
+    "outputDir": "./locales",
+    "outputFormat": "json",
+    "include": [
+        "src/**/*",
+        "app/**/*",
+        "pages/**/*",
+        "components/**/*"
+    ],
+    "exclude": [
+        "node_modules/**",
+        "dist/**",
+        "build/**",
+        ".git/**",
+        "*.test.*",
+        "*.spec.*"
+    ],
+    "fileTypes": [
+        ".js",
+        ".jsx",
+        ".ts",
+        ".tsx",
+        ".vue",
+        ".svelte",
+        ".html"
+    ],
+    "flatKeys": false,
+    "keyStyle": "auto",
+    "autoMode": false,
+    "githubActions": false,
+    "preserveExisting": true,
+    "sortKeys": true,
+    "minStringLength": 2,
+    "maxStringLength": 5000
+}
