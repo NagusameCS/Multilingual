@@ -1,55 +1,55 @@
 {
-  "title": "Multilingual",
-  "nav": {
-    "features": "Features",
-    "languages": "Languages",
-    "docs": "Documentation",
-    "github": "GitHub"
-  },
-  "hero": {
-    "title": "🌐 Multilingual Auto-i18n",
-    "subtitle": "Auto-detect user-facing content and translate with DeepL or Google Translate. The easiest way to internationalize any project.",
-    "getStarted": "Get Started",
-    "viewNpm": "View on npm"
-  },
-  "features": {
-    "title": "✨ Features",
-    "autoDetect": {
-      "title": "Auto-Detection",
-      "desc": "Scans your entire project for user-facing strings in JS, TS, JSX, TSX, Vue, Svelte, HTML, and more."
+    "title": "Multilingual",
+    "nav": {
+        "features": "Features",
+        "languages": "Languages",
+        "docs": "Documentation",
+        "github": "GitHub"
     },
-    "languages": {
-      "title": "37+ Languages",
-      "desc": "Support for all major languages including RTL languages like Arabic and Hebrew."
+    "hero": {
+        "title": "🌐 Multilingual Auto-i18n",
+        "subtitle": "Auto-detect user-facing content and translate with DeepL or Google Translate. The easiest way to internationalize any project.",
+        "getStarted": "Get Started",
+        "viewNpm": "View on npm"
     },
-    "translation": {
-      "title": "DeepL & Google",
-      "desc": "Integrate with DeepL or Google Translate APIs for high-quality automatic translations."
+    "features": {
+        "title": "✨ Features",
+        "autoDetect": {
+            "title": "Auto-Detection",
+            "desc": "Scans your entire project for user-facing strings in JS, TS, JSX, TSX, Vue, Svelte, HTML, and more."
+        },
+        "languages": {
+            "title": "37+ Languages",
+            "desc": "Support for all major languages including RTL languages like Arabic and Hebrew."
+        },
+        "translation": {
+            "title": "DeepL & Google",
+            "desc": "Integrate with DeepL or Google Translate APIs for high-quality automatic translations."
+        },
+        "github": {
+            "title": "GitHub Actions",
+            "desc": "Automatic translation on every push. Set it and forget it."
+        },
+        "frameworks": {
+            "title": "Framework Agnostic",
+            "desc": "Works with React, Vue, Svelte, Angular, Node.js, Python, Ruby, Go, PHP, and more."
+        },
+        "typescript": {
+            "title": "TypeScript Support",
+            "desc": "Full TypeScript definitions included for type-safe development."
+        }
     },
-    "github": {
-      "title": "GitHub Actions",
-      "desc": "Automatic translation on every push. Set it and forget it."
+    "code": {
+        "title": "🚀 Quick Start",
+        "cli": "CLI Usage",
+        "programmatic": "Programmatic Usage"
     },
-    "frameworks": {
-      "title": "Framework Agnostic",
-      "desc": "Works with React, Vue, Svelte, Angular, Node.js, Python, Ruby, Go, PHP, and more."
+    "languages_section": {
+        "title": "🌍 Supported Languages"
     },
-    "typescript": {
-      "title": "TypeScript Support",
-      "desc": "Full TypeScript definitions included for type-safe development."
+    "cta": {
+        "title": "Ready to go global?",
+        "subtitle": "Start translating your project in minutes, not days.",
+        "button": "Get Started Free"
     }
-  },
-  "code": {
-    "title": "🚀 Quick Start",
-    "cli": "CLI Usage",
-    "programmatic": "Programmatic Usage"
-  },
-  "languages_section": {
-    "title": "🌍 Supported Languages"
-  },
-  "cta": {
-    "title": "Ready to go global?",
-    "subtitle": "Start translating your project in minutes, not days.",
-    "button": "Get Started Free"
-  }
 }

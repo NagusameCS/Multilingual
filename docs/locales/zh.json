@@ -1,55 +1,55 @@
 {
-  "title": "多语言",
-  "nav": {
-    "features": "功能",
-    "languages": "语言",
-    "docs": "文档",
-    "github": "GitHub"
-  },
-  "hero": {
-    "title": "🌐 多语言 Auto-i18n",
-    "subtitle": "自动检测面向用户的内容并使用DeepL或Google翻译进行翻译。国际化任何项目的最简单方式。",
-    "getStarted": "开始使用",
-    "viewNpm": "在npm上查看"
-  },
-  "features": {
-    "title": "✨ 功能",
-    "autoDetect": {
-      "title": "自动检测",
-      "desc": "扫描整个项目以查找JS、TS、JSX、TSX、Vue、Svelte、HTML等文件中面向用户的字符串。"
+    "title": "多语言",
+    "nav": {
+        "features": "功能",
+        "languages": "语言",
+        "docs": "文档",
+        "github": "GitHub"
     },
-    "languages": {
-      "title": "37+种语言",
-      "desc": "支持所有主要语言，包括阿拉伯语和希伯来语等RTL语言。"
+    "hero": {
+        "title": "🌐 多语言 Auto-i18n",
+        "subtitle": "自动检测面向用户的内容并使用DeepL或Google翻译进行翻译。国际化任何项目的最简单方式。",
+        "getStarted": "开始使用",
+        "viewNpm": "在npm上查看"
     },
-    "translation": {
-      "title": "DeepL & Google",
-      "desc": "集成DeepL或Google Translate API进行高质量自动翻译。"
+    "features": {
+        "title": "✨ 功能",
+        "autoDetect": {
+            "title": "自动检测",
+            "desc": "扫描整个项目以查找JS、TS、JSX、TSX、Vue、Svelte、HTML等文件中面向用户的字符串。"
+        },
+        "languages": {
+            "title": "37+种语言",
+            "desc": "支持所有主要语言，包括阿拉伯语和希伯来语等RTL语言。"
+        },
+        "translation": {
+            "title": "DeepL & Google",
+            "desc": "集成DeepL或Google Translate API进行高质量自动翻译。"
+        },
+        "github": {
+            "title": "GitHub Actions",
+            "desc": "每次推送自动翻译。设置后即可忘记。"
+        },
+        "frameworks": {
+            "title": "框架无关",
+            "desc": "适用于React、Vue、Svelte、Angular、Node.js、Python、Ruby、Go、PHP等。"
+        },
+        "typescript": {
+            "title": "TypeScript支持",
+            "desc": "包含完整的TypeScript定义，实现类型安全开发。"
+        }
     },
-    "github": {
-      "title": "GitHub Actions",
-      "desc": "每次推送自动翻译。设置后即可忘记。"
+    "code": {
+        "title": "🚀 快速开始",
+        "cli": "CLI用法",
+        "programmatic": "程序化用法"
     },
-    "frameworks": {
-      "title": "框架无关",
-      "desc": "适用于React、Vue、Svelte、Angular、Node.js、Python、Ruby、Go、PHP等。"
+    "languages_section": {
+        "title": "🌍 支持的语言"
     },
-    "typescript": {
-      "title": "TypeScript支持",
-      "desc": "包含完整的TypeScript定义，实现类型安全开发。"
+    "cta": {
+        "title": "准备好走向全球了吗？",
+        "subtitle": "几分钟而不是几天内开始翻译您的项目。",
+        "button": "免费开始"
     }
-  },
-  "code": {
-    "title": "🚀 快速开始",
-    "cli": "CLI用法",
-    "programmatic": "程序化用法"
-  },
-  "languages_section": {
-    "title": "🌍 支持的语言"
-  },
-  "cta": {
-    "title": "准备好走向全球了吗？",
-    "subtitle": "几分钟而不是几天内开始翻译您的项目。",
-    "button": "免费开始"
-  }
 }

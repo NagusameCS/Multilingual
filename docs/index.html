@@ -1,11 +1,14 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Multilingual Auto-i18n | Automated Internationalization</title>
-    <meta name="description" content="Auto-detect user-facing content and translate with DeepL or Google Translate. The easiest way to internationalize any project.">
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌐</text></svg>">
+    <meta name="description"
+        content="Auto-detect user-facing content and translate with DeepL or Google Translate. The easiest way to internationalize any project.">
+    <link rel="icon"
+        href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌐</text></svg>">
     <style>
         :root {
             --primary: #4f46e5;
@@ -18,26 +21,26 @@
             --success: #22c55e;
             --border: #334155;
         }
-        
+
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
         }
-        
+
         body {
             font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
             background: var(--bg);
             color: var(--text);
             line-height: 1.6;
         }
-        
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
-        
+
         /* Header */
         header {
             padding: 20px 0;
@@ -48,13 +51,13 @@
             backdrop-filter: blur(10px);
             z-index: 100;
         }
-        
+
         nav {
             display: flex;
             justify-content: space-between;
             align-items: center;
         }
-        
+
         .logo {
             font-size: 1.5rem;
             font-weight: bold;
@@ -64,28 +67,28 @@
             text-decoration: none;
             color: var(--text);
         }
-        
+
         .nav-links {
             display: flex;
             gap: 30px;
             list-style: none;
         }
-        
+
         .nav-links a {
             color: var(--text-muted);
             text-decoration: none;
             transition: color 0.2s;
         }
-        
+
         .nav-links a:hover {
             color: var(--text);
         }
-        
+
         /* Language Selector */
         .language-selector {
             position: relative;
         }
-        
+
         .language-selector select {
             appearance: none;
             background: var(--bg-light);
@@ -96,7 +99,7 @@
             cursor: pointer;
             font-size: 0.9rem;
         }
-        
+
         .language-selector::after {
             content: '▼';
             font-size: 0.7rem;
@@ -107,13 +110,13 @@
             pointer-events: none;
             color: var(--text-muted);
         }
-        
+
         /* Hero */
         .hero {
             padding: 100px 0;
             text-align: center;
         }
-        
+
         .hero h1 {
             font-size: 3.5rem;
             margin-bottom: 20px;
@@ -122,7 +125,7 @@
             -webkit-text-fill-color: transparent;
             background-clip: text;
         }
-        
+
         .hero .subtitle {
             font-size: 1.5rem;
             color: var(--text-muted);
@@ -131,14 +134,14 @@
             margin-left: auto;
             margin-right: auto;
         }
-        
+
         .hero-buttons {
             display: flex;
             gap: 20px;
             justify-content: center;
             flex-wrap: wrap;
         }
-        
+
         .btn {
             padding: 15px 30px;
             border-radius: 8px;
@@ -150,27 +153,27 @@
             align-items: center;
             gap: 8px;
         }
-        
+
         .btn-primary {
             background: var(--primary);
             color: white;
         }
-        
+
         .btn-primary:hover {
             background: var(--primary-dark);
             transform: translateY(-2px);
         }
-        
+
         .btn-secondary {
             background: var(--bg-light);
             color: var(--text);
             border: 1px solid var(--border);
         }
-        
+
         .btn-secondary:hover {
             border-color: var(--primary);
         }
-        
+
         /* Install command */
         .install-cmd {
             margin-top: 40px;
@@ -183,11 +186,11 @@
             gap: 15px;
             font-family: 'Monaco', 'Menlo', monospace;
         }
-        
+
         .install-cmd code {
             color: var(--secondary);
         }
-        
+
         .copy-btn {
             background: none;
             border: none;
@@ -196,28 +199,28 @@
             padding: 5px;
             transition: color 0.2s;
         }
-        
+
         .copy-btn:hover {
             color: var(--text);
         }
-        
+
         /* Features */
         .features {
             padding: 100px 0;
         }
-        
+
         .section-title {
             text-align: center;
             font-size: 2.5rem;
             margin-bottom: 60px;
         }
-        
+
         .features-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
         }
-        
+
         .feature-card {
             background: var(--bg-light);
             border: 1px solid var(--border);
@@ -225,86 +228,105 @@
             padding: 30px;
             transition: transform 0.2s, border-color 0.2s;
         }
-        
+
         .feature-card:hover {
             transform: translateY(-5px);
             border-color: var(--primary);
         }
-        
+
         .feature-icon {
             font-size: 2.5rem;
             margin-bottom: 15px;
         }
-        
+
         .feature-card h3 {
             font-size: 1.3rem;
             margin-bottom: 10px;
         }
-        
+
         .feature-card p {
             color: var(--text-muted);
         }
-        
+
         /* Code example */
         .code-section {
             padding: 100px 0;
             background: var(--bg-light);
         }
-        
+
         .code-container {
             display: grid;
             grid-template-columns: 1fr 1fr;
             gap: 40px;
             align-items: start;
         }
-        
+
         @media (max-width: 900px) {
             .code-container {
                 grid-template-columns: 1fr;
             }
         }
-        
+
         .code-block {
             background: var(--bg);
             border: 1px solid var(--border);
             border-radius: 12px;
             overflow: hidden;
         }
-        
+
         .code-header {
             background: var(--border);
             padding: 10px 15px;
             display: flex;
             gap: 8px;
         }
-        
+
         .code-dot {
             width: 12px;
             height: 12px;
             border-radius: 50%;
         }
-        
-        .code-dot.red { background: #ef4444; }
-        .code-dot.yellow { background: #eab308; }
-        .code-dot.green { background: #22c55e; }
-        
+
+        .code-dot.red {
+            background: #ef4444;
+        }
+
+        .code-dot.yellow {
+            background: #eab308;
+        }
+
+        .code-dot.green {
+            background: #22c55e;
+        }
+
         .code-content {
             padding: 20px;
             font-family: 'Monaco', 'Menlo', monospace;
             font-size: 0.9rem;
             overflow-x: auto;
         }
-        
-        .code-content .comment { color: #6b7280; }
-        .code-content .keyword { color: #c084fc; }
-        .code-content .string { color: #4ade80; }
-        .code-content .function { color: #60a5fa; }
-        
+
+        .code-content .comment {
+            color: #6b7280;
+        }
+
+        .code-content .keyword {
+            color: #c084fc;
+        }
+
+        .code-content .string {
+            color: #4ade80;
+        }
+
+        .code-content .function {
+            color: #60a5fa;
+        }
+
         /* Languages */
         .languages {
             padding: 100px 0;
         }
-        
+
         .language-grid {
             display: flex;
             flex-wrap: wrap;
@@ -312,7 +334,7 @@
             justify-content: center;
             margin-top: 40px;
         }
-        
+
         .language-tag {
             background: var(--bg-light);
             border: 1px solid var(--border);
@@ -321,40 +343,40 @@
             font-size: 0.9rem;
             transition: all 0.2s;
         }
-        
+
         .language-tag:hover {
             border-color: var(--primary);
             transform: scale(1.05);
         }
-        
+
         /* CTA */
         .cta {
             padding: 100px 0;
             text-align: center;
             background: linear-gradient(135deg, var(--primary), var(--secondary));
         }
-        
+
         .cta h2 {
             font-size: 2.5rem;
             margin-bottom: 20px;
         }
-        
+
         .cta p {
             font-size: 1.2rem;
             margin-bottom: 30px;
             opacity: 0.9;
         }
-        
+
         .cta .btn {
             background: white;
             color: var(--primary);
         }
-        
+
         .cta .btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
         }
-        
+
         /* Footer */
         footer {
             padding: 40px 0;
@@ -362,25 +384,37 @@
             text-align: center;
             color: var(--text-muted);
         }
-        
+
         footer a {
             color: var(--text);
             text-decoration: none;
         }
-        
+
         footer a:hover {
             color: var(--primary);
         }
-        
+
         /* Responsive */
         @media (max-width: 768px) {
-            .hero h1 { font-size: 2.5rem; }
-            .hero .subtitle { font-size: 1.2rem; }
-            .nav-links { display: none; }
-            .section-title { font-size: 2rem; }
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .hero .subtitle {
+                font-size: 1.2rem;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
         }
     </style>
 </head>
+
 <body>
     <header>
         <nav class="container">
@@ -412,7 +446,8 @@
         <section class="hero">
             <div class="container">
                 <h1 data-i18n="hero.title">🌐 Multilingual Auto-i18n</h1>
-                <p class="subtitle" data-i18n="hero.subtitle">Auto-detect user-facing content and translate with DeepL or Google Translate. The easiest way to internationalize any project.</p>
+                <p class="subtitle" data-i18n="hero.subtitle">Auto-detect user-facing content and translate with DeepL
+                    or Google Translate. The easiest way to internationalize any project.</p>
                 <div class="hero-buttons">
                     <a href="https://github.com/NagusameCS/Multilingual" class="btn btn-primary">
                         <span data-i18n="hero.getStarted">Get Started</span> →
@@ -435,32 +470,38 @@
                     <div class="feature-card">
                         <div class="feature-icon">🔍</div>
                         <h3 data-i18n="features.autoDetect.title">Auto-Detection</h3>
-                        <p data-i18n="features.autoDetect.desc">Scans your entire project for user-facing strings in JS, TS, JSX, TSX, Vue, Svelte, HTML, and more.</p>
+                        <p data-i18n="features.autoDetect.desc">Scans your entire project for user-facing strings in JS,
+                            TS, JSX, TSX, Vue, Svelte, HTML, and more.</p>
                     </div>
                     <div class="feature-card">
                         <div class="feature-icon">🌍</div>
                         <h3 data-i18n="features.languages.title">37+ Languages</h3>
-                        <p data-i18n="features.languages.desc">Support for all major languages including RTL languages like Arabic and Hebrew.</p>
+                        <p data-i18n="features.languages.desc">Support for all major languages including RTL languages
+                            like Arabic and Hebrew.</p>
                     </div>
                     <div class="feature-card">
                         <div class="feature-icon">🔄</div>
                         <h3 data-i18n="features.translation.title">DeepL & Google</h3>
-                        <p data-i18n="features.translation.desc">Integrate with DeepL or Google Translate APIs for high-quality automatic translations.</p>
+                        <p data-i18n="features.translation.desc">Integrate with DeepL or Google Translate APIs for
+                            high-quality automatic translations.</p>
                     </div>
                     <div class="feature-card">
                         <div class="feature-icon">⚡</div>
                         <h3 data-i18n="features.github.title">GitHub Actions</h3>
-                        <p data-i18n="features.github.desc">Automatic translation on every push. Set it and forget it.</p>
+                        <p data-i18n="features.github.desc">Automatic translation on every push. Set it and forget it.
+                        </p>
                     </div>
                     <div class="feature-card">
                         <div class="feature-icon">🧩</div>
                         <h3 data-i18n="features.frameworks.title">Framework Agnostic</h3>
-                        <p data-i18n="features.frameworks.desc">Works with React, Vue, Svelte, Angular, Node.js, Python, Ruby, Go, PHP, and more.</p>
+                        <p data-i18n="features.frameworks.desc">Works with React, Vue, Svelte, Angular, Node.js, Python,
+                            Ruby, Go, PHP, and more.</p>
                     </div>
                     <div class="feature-card">
                         <div class="feature-icon">📝</div>
                         <h3 data-i18n="features.typescript.title">TypeScript Support</h3>
-                        <p data-i18n="features.typescript.desc">Full TypeScript definitions included for type-safe development.</p>
+                        <p data-i18n="features.typescript.desc">Full TypeScript definitions included for type-safe
+                            development.</p>
                     </div>
                 </div>
             </div>
@@ -479,17 +520,17 @@
                                 <div class="code-dot green"></div>
                             </div>
                             <div class="code-content">
-<span class="comment"># Install globally</span>
-npm install -g multilingual-auto-i18n
+                                <span class="comment"># Install globally</span>
+                                npm install -g multilingual-auto-i18n
 
-<span class="comment"># Initialize in your project</span>
-multilingual init
+                                <span class="comment"># Initialize in your project</span>
+                                multilingual init
 
-<span class="comment"># Scan and translate</span>
-multilingual run
+                                <span class="comment"># Scan and translate</span>
+                                multilingual run
 
-<span class="comment"># Setup GitHub Actions</span>
-multilingual github --setup
+                                <span class="comment"># Setup GitHub Actions</span>
+                                multilingual github --setup
                             </div>
                         </div>
                     </div>
@@ -502,17 +543,20 @@ multilingual github --setup
                                 <div class="code-dot green"></div>
                             </div>
                             <div class="code-content">
-<span class="keyword">import</span> Multilingual <span class="keyword">from</span> <span class="string">'multilingual-auto-i18n'</span>;
+                                <span class="keyword">import</span> Multilingual <span class="keyword">from</span> <span
+                                    class="string">'multilingual-auto-i18n'</span>;
 
-<span class="keyword">const</span> i18n = <span class="keyword">new</span> <span class="function">Multilingual</span>({
-  config: {
-    sourceLanguage: <span class="string">'en'</span>,
-    targetLanguages: [<span class="string">'es'</span>, <span class="string">'fr'</span>, <span class="string">'de'</span>],
-    translationService: <span class="string">'deepl'</span>,
-  }
-});
+                                <span class="keyword">const</span> i18n = <span class="keyword">new</span> <span
+                                    class="function">Multilingual</span>({
+                                config: {
+                                sourceLanguage: <span class="string">'en'</span>,
+                                targetLanguages: [<span class="string">'es'</span>, <span class="string">'fr'</span>,
+                                <span class="string">'de'</span>],
+                                translationService: <span class="string">'deepl'</span>,
+                                }
+                                });
 
-<span class="keyword">await</span> i18n.<span class="function">run</span>();
+                                <span class="keyword">await</span> i18n.<span class="function">run</span>();
                             </div>
                         </div>
                     </div>
@@ -561,16 +605,18 @@ multilingual github --setup
             <div class="container">
                 <h2 data-i18n="cta.title">Ready to go global?</h2>
                 <p data-i18n="cta.subtitle">Start translating your project in minutes, not days.</p>
-                <a href="https://github.com/NagusameCS/Multilingual" class="btn" data-i18n="cta.button">Get Started Free</a>
+                <a href="https://github.com/NagusameCS/Multilingual" class="btn" data-i18n="cta.button">Get Started
+                    Free</a>
             </div>
         </section>
     </main>
 
     <footer>
         <div class="container">
-            <p>Made with ❤️ by <a href="https://github.com/NagusameCS">NagusameCS</a> | 
-            <a href="https://github.com/NagusameCS/Multilingual">GitHub</a> | 
-            <a href="https://www.npmjs.com/package/multilingual-auto-i18n">npm</a></p>
+            <p>Made with ❤️ by <a href="https://github.com/NagusameCS">NagusameCS</a> |
+                <a href="https://github.com/NagusameCS/Multilingual">GitHub</a> |
+                <a href="https://www.npmjs.com/package/multilingual-auto-i18n">npm</a>
+            </p>
         </div>
     </footer>
 
@@ -898,10 +944,10 @@ multilingual github --setup
                     el.textContent = t[key];
                 }
             });
-            
+
             // Set RTL for Arabic
             document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
-            
+
             // Store preference
             localStorage.setItem('lang', lang);
         }
@@ -924,4 +970,5 @@ multilingual github --setup
         });
     </script>
 </body>
+
 </html>

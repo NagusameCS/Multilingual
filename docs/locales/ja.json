@@ -1,55 +1,55 @@
 {
-  "title": "マルチリンガル",
-  "nav": {
-    "features": "機能",
-    "languages": "言語",
-    "docs": "ドキュメント",
-    "github": "GitHub"
-  },
-  "hero": {
-    "title": "🌐 マルチリンガル Auto-i18n",
-    "subtitle": "ユーザー向けコンテンツを自動検出し、DeepLまたはGoogle翻訳で翻訳。あらゆるプロジェクトを国際化する最も簡単な方法。",
-    "getStarted": "始める",
-    "viewNpm": "npmで見る"
-  },
-  "features": {
-    "title": "✨ 機能",
-    "autoDetect": {
-      "title": "自動検出",
-      "desc": "JS、TS、JSX、TSX、Vue、Svelte、HTMLなどのユーザー向け文字列をプロジェクト全体でスキャン。"
+    "title": "マルチリンガル",
+    "nav": {
+        "features": "機能",
+        "languages": "言語",
+        "docs": "ドキュメント",
+        "github": "GitHub"
     },
-    "languages": {
-      "title": "37以上の言語",
-      "desc": "アラビア語やヘブライ語などのRTL言語を含むすべての主要言語をサポート。"
+    "hero": {
+        "title": "🌐 マルチリンガル Auto-i18n",
+        "subtitle": "ユーザー向けコンテンツを自動検出し、DeepLまたはGoogle翻訳で翻訳。あらゆるプロジェクトを国際化する最も簡単な方法。",
+        "getStarted": "始める",
+        "viewNpm": "npmで見る"
     },
-    "translation": {
-      "title": "DeepL & Google",
-      "desc": "高品質な自動翻訳のためにDeepLまたはGoogle Translate APIと統合。"
+    "features": {
+        "title": "✨ 機能",
+        "autoDetect": {
+            "title": "自動検出",
+            "desc": "JS、TS、JSX、TSX、Vue、Svelte、HTMLなどのユーザー向け文字列をプロジェクト全体でスキャン。"
+        },
+        "languages": {
+            "title": "37以上の言語",
+            "desc": "アラビア語やヘブライ語などのRTL言語を含むすべての主要言語をサポート。"
+        },
+        "translation": {
+            "title": "DeepL & Google",
+            "desc": "高品質な自動翻訳のためにDeepLまたはGoogle Translate APIと統合。"
+        },
+        "github": {
+            "title": "GitHub Actions",
+            "desc": "プッシュごとに自動翻訳。設定したら忘れる。"
+        },
+        "frameworks": {
+            "title": "フレームワーク非依存",
+            "desc": "React、Vue、Svelte、Angular、Node.js、Python、Ruby、Go、PHPなどで動作。"
+        },
+        "typescript": {
+            "title": "TypeScriptサポート",
+            "desc": "型安全な開発のための完全なTypeScript定義を含む。"
+        }
     },
-    "github": {
-      "title": "GitHub Actions",
-      "desc": "プッシュごとに自動翻訳。設定したら忘れる。"
+    "code": {
+        "title": "🚀 クイックスタート",
+        "cli": "CLI使用法",
+        "programmatic": "プログラム使用法"
     },
-    "frameworks": {
-      "title": "フレームワーク非依存",
-      "desc": "React、Vue、Svelte、Angular、Node.js、Python、Ruby、Go、PHPなどで動作。"
+    "languages_section": {
+        "title": "🌍 対応言語"
     },
-    "typescript": {
-      "title": "TypeScriptサポート",
-      "desc": "型安全な開発のための完全なTypeScript定義を含む。"
+    "cta": {
+        "title": "グローバルになる準備はできましたか？",
+        "subtitle": "数日ではなく数分でプロジェクトの翻訳を開始。",
+        "button": "無料で始める"
     }
-  },
-  "code": {
-    "title": "🚀 クイックスタート",
-    "cli": "CLI使用法",
-    "programmatic": "プログラム使用法"
-  },
-  "languages_section": {
-    "title": "🌍 対応言語"
-  },
-  "cta": {
-    "title": "グローバルになる準備はできましたか？",
-    "subtitle": "数日ではなく数分でプロジェクトの翻訳を開始。",
-    "button": "無料で始める"
-  }
 }

@@ -1,55 +1,55 @@
 {
-  "title": "멀티링구얼",
-  "nav": {
-    "features": "기능",
-    "languages": "언어",
-    "docs": "문서",
-    "github": "GitHub"
-  },
-  "hero": {
-    "title": "🌐 멀티링구얼 Auto-i18n",
-    "subtitle": "사용자 대면 콘텐츠를 자동 감지하고 DeepL 또는 Google 번역으로 번역. 모든 프로젝트를 국제화하는 가장 쉬운 방법.",
-    "getStarted": "시작하기",
-    "viewNpm": "npm에서 보기"
-  },
-  "features": {
-    "title": "✨ 기능",
-    "autoDetect": {
-      "title": "자동 감지",
-      "desc": "JS, TS, JSX, TSX, Vue, Svelte, HTML 등의 사용자 대면 문자열을 전체 프로젝트에서 스캔."
+    "title": "멀티링구얼",
+    "nav": {
+        "features": "기능",
+        "languages": "언어",
+        "docs": "문서",
+        "github": "GitHub"
     },
-    "languages": {
-      "title": "37개 이상 언어",
-      "desc": "아랍어, 히브리어 등 RTL 언어를 포함한 모든 주요 언어 지원."
+    "hero": {
+        "title": "🌐 멀티링구얼 Auto-i18n",
+        "subtitle": "사용자 대면 콘텐츠를 자동 감지하고 DeepL 또는 Google 번역으로 번역. 모든 프로젝트를 국제화하는 가장 쉬운 방법.",
+        "getStarted": "시작하기",
+        "viewNpm": "npm에서 보기"
     },
-    "translation": {
-      "title": "DeepL & Google",
-      "desc": "고품질 자동 번역을 위해 DeepL 또는 Google Translate API와 통합."
+    "features": {
+        "title": "✨ 기능",
+        "autoDetect": {
+            "title": "자동 감지",
+            "desc": "JS, TS, JSX, TSX, Vue, Svelte, HTML 등의 사용자 대면 문자열을 전체 프로젝트에서 스캔."
+        },
+        "languages": {
+            "title": "37개 이상 언어",
+            "desc": "아랍어, 히브리어 등 RTL 언어를 포함한 모든 주요 언어 지원."
+        },
+        "translation": {
+            "title": "DeepL & Google",
+            "desc": "고품질 자동 번역을 위해 DeepL 또는 Google Translate API와 통합."
+        },
+        "github": {
+            "title": "GitHub Actions",
+            "desc": "모든 푸시에서 자동 번역. 설정 후 잊어버리세요."
+        },
+        "frameworks": {
+            "title": "프레임워크 독립적",
+            "desc": "React, Vue, Svelte, Angular, Node.js, Python, Ruby, Go, PHP 등에서 작동."
+        },
+        "typescript": {
+            "title": "TypeScript 지원",
+            "desc": "타입 안전 개발을 위한 완전한 TypeScript 정의 포함."
+        }
     },
-    "github": {
-      "title": "GitHub Actions",
-      "desc": "모든 푸시에서 자동 번역. 설정 후 잊어버리세요."
+    "code": {
+        "title": "🚀 빠른 시작",
+        "cli": "CLI 사용법",
+        "programmatic": "프로그래밍 사용법"
     },
-    "frameworks": {
-      "title": "프레임워크 독립적",
-      "desc": "React, Vue, Svelte, Angular, Node.js, Python, Ruby, Go, PHP 등에서 작동."
+    "languages_section": {
+        "title": "🌍 지원 언어"
     },
-    "typescript": {
-      "title": "TypeScript 지원",
-      "desc": "타입 안전 개발을 위한 완전한 TypeScript 정의 포함."
+    "cta": {
+        "title": "글로벌 진출 준비 되셨나요?",
+        "subtitle": "며칠이 아닌 몇 분 만에 프로젝트 번역을 시작하세요.",
+        "button": "무료로 시작"
     }
-  },
-  "code": {
-    "title": "🚀 빠른 시작",
-    "cli": "CLI 사용법",
-    "programmatic": "프로그래밍 사용법"
-  },
-  "languages_section": {
-    "title": "🌍 지원 언어"
-  },
-  "cta": {
-    "title": "글로벌 진출 준비 되셨나요?",
-    "subtitle": "며칠이 아닌 몇 분 만에 프로젝트 번역을 시작하세요.",
-    "button": "무료로 시작"
-  }
 }

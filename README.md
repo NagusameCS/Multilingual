@@ -1,11 +1,11 @@
-# 🌐 Multilingual Auto-i18n
+# 🌐 Multilingual
 
 > **Automated internationalization (i18n) for any project** - Auto-detect user-facing content and translate with DeepL or Google Translate.
 
-[![npm version](https://img.shields.io/npm/v/multilingual-auto-i18n.svg)](https://www.npmjs.com/package/multilingual-auto-i18n)
+[![npm version](https://img.shields.io/npm/v/multilingual-cli.svg)](https://www.npmjs.com/package/multilingual-cli)
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 
-Multilingual Auto-i18n is a powerful NPM package that automatically scans your project for user-facing strings, extracts them into i18n translation files, and optionally translates them using DeepL or Google Translate. It supports **GitHub Actions** for fully automated translation on every push!
+Multilingual is a powerful CLI tool and NPM package that automatically scans your project for user-facing strings, extracts them into i18n translation files, and optionally translates them using DeepL or Google Translate. It supports **GitHub Actions** for fully automated translation on every push!
 
 ## ✨ Features
 
@@ -23,16 +23,16 @@ Multilingual Auto-i18n is a powerful NPM package that automatically scans your p
 
 ```bash
 # Global installation (recommended for CLI usage)
-npm install -g multilingual-auto-i18n
+npm install -g multilingual-cli
 
 # Or as a project dependency
-npm install multilingual-auto-i18n --save-dev
+npm install multilingual-cli --save-dev
 
 # Using yarn
-yarn add -D multilingual-auto-i18n
+yarn add -D multilingual-cli
 
 # Using pnpm
-pnpm add -D multilingual-auto-i18n
+pnpm add -D multilingual-cli
 ```
 
 ## 🚀 Quick Start
@@ -144,10 +144,10 @@ multilingual clean --force   # Skip confirmation
 
 ## 🔧 Programmatic Usage
 
-You can also use Multilingual Auto-i18n as a library in your code:
+You can also use Multilingual as a library in your code:
 
 ```typescript
-import Multilingual from 'multilingual-auto-i18n';
+import Multilingual from 'multilingual-cli';
 
 // Create instance
 const i18n = new Multilingual({
@@ -333,7 +333,7 @@ jobs:
           node-version: '20'
       
       - run: npm ci
-      - run: npm install -g multilingual-auto-i18n
+      - run: npm install -g multilingual-cli
       
       - run: multilingual run --auto
         env:

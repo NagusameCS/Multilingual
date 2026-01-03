@@ -1,55 +1,55 @@
 {
-  "title": "Multilingue",
-  "nav": {
-    "features": "Fonctionnalités",
-    "languages": "Langues",
-    "docs": "Documentation",
-    "github": "GitHub"
-  },
-  "hero": {
-    "title": "🌐 Multilingue Auto-i18n",
-    "subtitle": "Détectez automatiquement le contenu utilisateur et traduisez avec DeepL ou Google Translate. Le moyen le plus simple d'internationaliser tout projet.",
-    "getStarted": "Commencer",
-    "viewNpm": "Voir sur npm"
-  },
-  "features": {
-    "title": "✨ Fonctionnalités",
-    "autoDetect": {
-      "title": "Auto-Détection",
-      "desc": "Scanne l'ensemble de votre projet pour les chaînes utilisateur en JS, TS, JSX, TSX, Vue, Svelte, HTML et plus."
+    "title": "Multilingue",
+    "nav": {
+        "features": "Fonctionnalités",
+        "languages": "Langues",
+        "docs": "Documentation",
+        "github": "GitHub"
     },
-    "languages": {
-      "title": "37+ Langues",
-      "desc": "Support pour toutes les langues principales, y compris les langues RTL comme l'arabe et l'hébreu."
+    "hero": {
+        "title": "🌐 Multilingue Auto-i18n",
+        "subtitle": "Détectez automatiquement le contenu utilisateur et traduisez avec DeepL ou Google Translate. Le moyen le plus simple d'internationaliser tout projet.",
+        "getStarted": "Commencer",
+        "viewNpm": "Voir sur npm"
     },
-    "translation": {
-      "title": "DeepL & Google",
-      "desc": "Intégration avec DeepL ou Google Translate pour des traductions automatiques de haute qualité."
+    "features": {
+        "title": "✨ Fonctionnalités",
+        "autoDetect": {
+            "title": "Auto-Détection",
+            "desc": "Scanne l'ensemble de votre projet pour les chaînes utilisateur en JS, TS, JSX, TSX, Vue, Svelte, HTML et plus."
+        },
+        "languages": {
+            "title": "37+ Langues",
+            "desc": "Support pour toutes les langues principales, y compris les langues RTL comme l'arabe et l'hébreu."
+        },
+        "translation": {
+            "title": "DeepL & Google",
+            "desc": "Intégration avec DeepL ou Google Translate pour des traductions automatiques de haute qualité."
+        },
+        "github": {
+            "title": "GitHub Actions",
+            "desc": "Traduction automatique à chaque push. Configurez et oubliez."
+        },
+        "frameworks": {
+            "title": "Agnostique Framework",
+            "desc": "Fonctionne avec React, Vue, Svelte, Angular, Node.js, Python, Ruby, Go, PHP et plus."
+        },
+        "typescript": {
+            "title": "Support TypeScript",
+            "desc": "Définitions TypeScript complètes incluses pour un développement type-safe."
+        }
     },
-    "github": {
-      "title": "GitHub Actions",
-      "desc": "Traduction automatique à chaque push. Configurez et oubliez."
+    "code": {
+        "title": "🚀 Démarrage Rapide",
+        "cli": "Utilisation CLI",
+        "programmatic": "Utilisation Programmatique"
     },
-    "frameworks": {
-      "title": "Agnostique Framework",
-      "desc": "Fonctionne avec React, Vue, Svelte, Angular, Node.js, Python, Ruby, Go, PHP et plus."
+    "languages_section": {
+        "title": "🌍 Langues Supportées"
     },
-    "typescript": {
-      "title": "Support TypeScript",
-      "desc": "Définitions TypeScript complètes incluses pour un développement type-safe."
+    "cta": {
+        "title": "Prêt à devenir mondial?",
+        "subtitle": "Commencez à traduire votre projet en minutes, pas en jours.",
+        "button": "Commencer Gratuitement"
     }
-  },
-  "code": {
-    "title": "🚀 Démarrage Rapide",
-    "cli": "Utilisation CLI",
-    "programmatic": "Utilisation Programmatique"
-  },
-  "languages_section": {
-    "title": "🌍 Langues Supportées"
-  },
-  "cta": {
-    "title": "Prêt à devenir mondial?",
-    "subtitle": "Commencez à traduire votre projet en minutes, pas en jours.",
-    "button": "Commencer Gratuitement"
-  }
 }
