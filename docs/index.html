@@ -1,0 +1,927 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multilingual Auto-i18n | Automated Internationalization</title>
+    <meta name="description" content="Auto-detect user-facing content and translate with DeepL or Google Translate. The easiest way to internationalize any project.">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🌐</text></svg>">
+    <style>
+        :root {
+            --primary: #4f46e5;
+            --primary-dark: #4338ca;
+            --secondary: #06b6d4;
+            --bg: #0f172a;
+            --bg-light: #1e293b;
+            --text: #f8fafc;
+            --text-muted: #94a3b8;
+            --success: #22c55e;
+            --border: #334155;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header */
+        header {
+            padding: 20px 0;
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 100;
+        }
+        
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .logo {
+            font-size: 1.5rem;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            text-decoration: none;
+            color: var(--text);
+        }
+        
+        .nav-links {
+            display: flex;
+            gap: 30px;
+            list-style: none;
+        }
+        
+        .nav-links a {
+            color: var(--text-muted);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        
+        .nav-links a:hover {
+            color: var(--text);
+        }
+        
+        /* Language Selector */
+        .language-selector {
+            position: relative;
+        }
+        
+        .language-selector select {
+            appearance: none;
+            background: var(--bg-light);
+            border: 1px solid var(--border);
+            color: var(--text);
+            padding: 8px 30px 8px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+        }
+        
+        .language-selector::after {
+            content: '▼';
+            font-size: 0.7rem;
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            pointer-events: none;
+            color: var(--text-muted);
+        }
+        
+        /* Hero */
+        .hero {
+            padding: 100px 0;
+            text-align: center;
+        }
+        
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 20px;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        
+        .hero .subtitle {
+            font-size: 1.5rem;
+            color: var(--text-muted);
+            margin-bottom: 40px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        
+        .hero-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        
+        .btn {
+            padding: 15px 30px;
+            border-radius: 8px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            text-decoration: none;
+            transition: all 0.2s;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+        
+        .btn-primary {
+            background: var(--primary);
+            color: white;
+        }
+        
+        .btn-primary:hover {
+            background: var(--primary-dark);
+            transform: translateY(-2px);
+        }
+        
+        .btn-secondary {
+            background: var(--bg-light);
+            color: var(--text);
+            border: 1px solid var(--border);
+        }
+        
+        .btn-secondary:hover {
+            border-color: var(--primary);
+        }
+        
+        /* Install command */
+        .install-cmd {
+            margin-top: 40px;
+            background: var(--bg-light);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 15px 25px;
+            display: inline-flex;
+            align-items: center;
+            gap: 15px;
+            font-family: 'Monaco', 'Menlo', monospace;
+        }
+        
+        .install-cmd code {
+            color: var(--secondary);
+        }
+        
+        .copy-btn {
+            background: none;
+            border: none;
+            color: var(--text-muted);
+            cursor: pointer;
+            padding: 5px;
+            transition: color 0.2s;
+        }
+        
+        .copy-btn:hover {
+            color: var(--text);
+        }
+        
+        /* Features */
+        .features {
+            padding: 100px 0;
+        }
+        
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 60px;
+        }
+        
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .feature-card {
+            background: var(--bg-light);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 30px;
+            transition: transform 0.2s, border-color 0.2s;
+        }
+        
+        .feature-card:hover {
+            transform: translateY(-5px);
+            border-color: var(--primary);
+        }
+        
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+        }
+        
+        .feature-card h3 {
+            font-size: 1.3rem;
+            margin-bottom: 10px;
+        }
+        
+        .feature-card p {
+            color: var(--text-muted);
+        }
+        
+        /* Code example */
+        .code-section {
+            padding: 100px 0;
+            background: var(--bg-light);
+        }
+        
+        .code-container {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            align-items: start;
+        }
+        
+        @media (max-width: 900px) {
+            .code-container {
+                grid-template-columns: 1fr;
+            }
+        }
+        
+        .code-block {
+            background: var(--bg);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            overflow: hidden;
+        }
+        
+        .code-header {
+            background: var(--border);
+            padding: 10px 15px;
+            display: flex;
+            gap: 8px;
+        }
+        
+        .code-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+        }
+        
+        .code-dot.red { background: #ef4444; }
+        .code-dot.yellow { background: #eab308; }
+        .code-dot.green { background: #22c55e; }
+        
+        .code-content {
+            padding: 20px;
+            font-family: 'Monaco', 'Menlo', monospace;
+            font-size: 0.9rem;
+            overflow-x: auto;
+        }
+        
+        .code-content .comment { color: #6b7280; }
+        .code-content .keyword { color: #c084fc; }
+        .code-content .string { color: #4ade80; }
+        .code-content .function { color: #60a5fa; }
+        
+        /* Languages */
+        .languages {
+            padding: 100px 0;
+        }
+        
+        .language-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 40px;
+        }
+        
+        .language-tag {
+            background: var(--bg-light);
+            border: 1px solid var(--border);
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+            transition: all 0.2s;
+        }
+        
+        .language-tag:hover {
+            border-color: var(--primary);
+            transform: scale(1.05);
+        }
+        
+        /* CTA */
+        .cta {
+            padding: 100px 0;
+            text-align: center;
+            background: linear-gradient(135deg, var(--primary), var(--secondary));
+        }
+        
+        .cta h2 {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+        }
+        
+        .cta p {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            opacity: 0.9;
+        }
+        
+        .cta .btn {
+            background: white;
+            color: var(--primary);
+        }
+        
+        .cta .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+        
+        /* Footer */
+        footer {
+            padding: 40px 0;
+            border-top: 1px solid var(--border);
+            text-align: center;
+            color: var(--text-muted);
+        }
+        
+        footer a {
+            color: var(--text);
+            text-decoration: none;
+        }
+        
+        footer a:hover {
+            color: var(--primary);
+        }
+        
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero h1 { font-size: 2.5rem; }
+            .hero .subtitle { font-size: 1.2rem; }
+            .nav-links { display: none; }
+            .section-title { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <a href="#" class="logo">🌐 <span data-i18n="title">Multilingual</span></a>
+            <ul class="nav-links">
+                <li><a href="#features" data-i18n="nav.features">Features</a></li>
+                <li><a href="#languages" data-i18n="nav.languages">Languages</a></li>
+                <li><a href="https://github.com/NagusameCS/Multilingual" data-i18n="nav.docs">Documentation</a></li>
+                <li><a href="https://github.com/NagusameCS/Multilingual" data-i18n="nav.github">GitHub</a></li>
+            </ul>
+            <div class="language-selector">
+                <select id="lang-select" onchange="changeLanguage(this.value)">
+                    <option value="en">🇺🇸 English</option>
+                    <option value="es">🇪🇸 Español</option>
+                    <option value="fr">🇫🇷 Français</option>
+                    <option value="de">🇩🇪 Deutsch</option>
+                    <option value="ja">🇯🇵 日本語</option>
+                    <option value="zh">🇨🇳 中文</option>
+                    <option value="ko">🇰🇷 한국어</option>
+                    <option value="pt">🇧🇷 Português</option>
+                    <option value="ru">🇷🇺 Русский</option>
+                    <option value="ar">🇸🇦 العربية</option>
+                </select>
+            </div>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="container">
+                <h1 data-i18n="hero.title">🌐 Multilingual Auto-i18n</h1>
+                <p class="subtitle" data-i18n="hero.subtitle">Auto-detect user-facing content and translate with DeepL or Google Translate. The easiest way to internationalize any project.</p>
+                <div class="hero-buttons">
+                    <a href="https://github.com/NagusameCS/Multilingual" class="btn btn-primary">
+                        <span data-i18n="hero.getStarted">Get Started</span> →
+                    </a>
+                    <a href="https://www.npmjs.com/package/multilingual-auto-i18n" class="btn btn-secondary">
+                        <span data-i18n="hero.viewNpm">View on npm</span>
+                    </a>
+                </div>
+                <div class="install-cmd">
+                    <code>npm install -g multilingual-auto-i18n</code>
+                    <button class="copy-btn" onclick="copyInstall()" title="Copy">📋</button>
+                </div>
+            </div>
+        </section>
+
+        <section class="features" id="features">
+            <div class="container">
+                <h2 class="section-title" data-i18n="features.title">✨ Features</h2>
+                <div class="features-grid">
+                    <div class="feature-card">
+                        <div class="feature-icon">🔍</div>
+                        <h3 data-i18n="features.autoDetect.title">Auto-Detection</h3>
+                        <p data-i18n="features.autoDetect.desc">Scans your entire project for user-facing strings in JS, TS, JSX, TSX, Vue, Svelte, HTML, and more.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🌍</div>
+                        <h3 data-i18n="features.languages.title">37+ Languages</h3>
+                        <p data-i18n="features.languages.desc">Support for all major languages including RTL languages like Arabic and Hebrew.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🔄</div>
+                        <h3 data-i18n="features.translation.title">DeepL & Google</h3>
+                        <p data-i18n="features.translation.desc">Integrate with DeepL or Google Translate APIs for high-quality automatic translations.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">⚡</div>
+                        <h3 data-i18n="features.github.title">GitHub Actions</h3>
+                        <p data-i18n="features.github.desc">Automatic translation on every push. Set it and forget it.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">🧩</div>
+                        <h3 data-i18n="features.frameworks.title">Framework Agnostic</h3>
+                        <p data-i18n="features.frameworks.desc">Works with React, Vue, Svelte, Angular, Node.js, Python, Ruby, Go, PHP, and more.</p>
+                    </div>
+                    <div class="feature-card">
+                        <div class="feature-icon">📝</div>
+                        <h3 data-i18n="features.typescript.title">TypeScript Support</h3>
+                        <p data-i18n="features.typescript.desc">Full TypeScript definitions included for type-safe development.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="code-section">
+            <div class="container">
+                <h2 class="section-title" data-i18n="code.title">🚀 Quick Start</h2>
+                <div class="code-container">
+                    <div>
+                        <h3 style="margin-bottom: 20px;" data-i18n="code.cli">CLI Usage</h3>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <div class="code-dot red"></div>
+                                <div class="code-dot yellow"></div>
+                                <div class="code-dot green"></div>
+                            </div>
+                            <div class="code-content">
+<span class="comment"># Install globally</span>
+npm install -g multilingual-auto-i18n
+
+<span class="comment"># Initialize in your project</span>
+multilingual init
+
+<span class="comment"># Scan and translate</span>
+multilingual run
+
+<span class="comment"># Setup GitHub Actions</span>
+multilingual github --setup
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <h3 style="margin-bottom: 20px;" data-i18n="code.programmatic">Programmatic Usage</h3>
+                        <div class="code-block">
+                            <div class="code-header">
+                                <div class="code-dot red"></div>
+                                <div class="code-dot yellow"></div>
+                                <div class="code-dot green"></div>
+                            </div>
+                            <div class="code-content">
+<span class="keyword">import</span> Multilingual <span class="keyword">from</span> <span class="string">'multilingual-auto-i18n'</span>;
+
+<span class="keyword">const</span> i18n = <span class="keyword">new</span> <span class="function">Multilingual</span>({
+  config: {
+    sourceLanguage: <span class="string">'en'</span>,
+    targetLanguages: [<span class="string">'es'</span>, <span class="string">'fr'</span>, <span class="string">'de'</span>],
+    translationService: <span class="string">'deepl'</span>,
+  }
+});
+
+<span class="keyword">await</span> i18n.<span class="function">run</span>();
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="languages" id="languages">
+            <div class="container">
+                <h2 class="section-title" data-i18n="languages.title">🌍 Supported Languages</h2>
+                <div class="language-grid">
+                    <span class="language-tag">🇺🇸 English</span>
+                    <span class="language-tag">🇪🇸 Español</span>
+                    <span class="language-tag">🇫🇷 Français</span>
+                    <span class="language-tag">🇩🇪 Deutsch</span>
+                    <span class="language-tag">🇮🇹 Italiano</span>
+                    <span class="language-tag">🇧🇷 Português</span>
+                    <span class="language-tag">🇷🇺 Русский</span>
+                    <span class="language-tag">🇨🇳 中文</span>
+                    <span class="language-tag">🇯🇵 日本語</span>
+                    <span class="language-tag">🇰🇷 한국어</span>
+                    <span class="language-tag">🇸🇦 العربية</span>
+                    <span class="language-tag">🇮🇳 हिन्दी</span>
+                    <span class="language-tag">🇳🇱 Nederlands</span>
+                    <span class="language-tag">🇵🇱 Polski</span>
+                    <span class="language-tag">🇸🇪 Svenska</span>
+                    <span class="language-tag">🇩🇰 Dansk</span>
+                    <span class="language-tag">🇫🇮 Suomi</span>
+                    <span class="language-tag">🇳🇴 Norsk</span>
+                    <span class="language-tag">🇹🇷 Türkçe</span>
+                    <span class="language-tag">🇨🇿 Čeština</span>
+                    <span class="language-tag">🇬🇷 Ελληνικά</span>
+                    <span class="language-tag">🇮🇱 עברית</span>
+                    <span class="language-tag">🇭🇺 Magyar</span>
+                    <span class="language-tag">🇮🇩 Bahasa Indonesia</span>
+                    <span class="language-tag">🇲🇾 Bahasa Melayu</span>
+                    <span class="language-tag">🇹🇭 ไทย</span>
+                    <span class="language-tag">🇻🇳 Tiếng Việt</span>
+                    <span class="language-tag">🇺🇦 Українська</span>
+                    <span class="language-tag">+ more</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="cta">
+            <div class="container">
+                <h2 data-i18n="cta.title">Ready to go global?</h2>
+                <p data-i18n="cta.subtitle">Start translating your project in minutes, not days.</p>
+                <a href="https://github.com/NagusameCS/Multilingual" class="btn" data-i18n="cta.button">Get Started Free</a>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="container">
+            <p>Made with ❤️ by <a href="https://github.com/NagusameCS">NagusameCS</a> | 
+            <a href="https://github.com/NagusameCS/Multilingual">GitHub</a> | 
+            <a href="https://www.npmjs.com/package/multilingual-auto-i18n">npm</a></p>
+        </div>
+    </footer>
+
+    <script>
+        // Translation data for the site itself
+        const translations = {
+            en: {
+                "title": "Multilingual",
+                "nav.features": "Features",
+                "nav.languages": "Languages",
+                "nav.docs": "Documentation",
+                "nav.github": "GitHub",
+                "hero.title": "🌐 Multilingual Auto-i18n",
+                "hero.subtitle": "Auto-detect user-facing content and translate with DeepL or Google Translate. The easiest way to internationalize any project.",
+                "hero.getStarted": "Get Started",
+                "hero.viewNpm": "View on npm",
+                "features.title": "✨ Features",
+                "features.autoDetect.title": "Auto-Detection",
+                "features.autoDetect.desc": "Scans your entire project for user-facing strings in JS, TS, JSX, TSX, Vue, Svelte, HTML, and more.",
+                "features.languages.title": "37+ Languages",
+                "features.languages.desc": "Support for all major languages including RTL languages like Arabic and Hebrew.",
+                "features.translation.title": "DeepL & Google",
+                "features.translation.desc": "Integrate with DeepL or Google Translate APIs for high-quality automatic translations.",
+                "features.github.title": "GitHub Actions",
+                "features.github.desc": "Automatic translation on every push. Set it and forget it.",
+                "features.frameworks.title": "Framework Agnostic",
+                "features.frameworks.desc": "Works with React, Vue, Svelte, Angular, Node.js, Python, Ruby, Go, PHP, and more.",
+                "features.typescript.title": "TypeScript Support",
+                "features.typescript.desc": "Full TypeScript definitions included for type-safe development.",
+                "code.title": "🚀 Quick Start",
+                "code.cli": "CLI Usage",
+                "code.programmatic": "Programmatic Usage",
+                "languages.title": "🌍 Supported Languages",
+                "cta.title": "Ready to go global?",
+                "cta.subtitle": "Start translating your project in minutes, not days.",
+                "cta.button": "Get Started Free"
+            },
+            es: {
+                "title": "Multilingüe",
+                "nav.features": "Características",
+                "nav.languages": "Idiomas",
+                "nav.docs": "Documentación",
+                "nav.github": "GitHub",
+                "hero.title": "🌐 Multilingüe Auto-i18n",
+                "hero.subtitle": "Detecta automáticamente el contenido visible para el usuario y traduce con DeepL o Google Translate. La forma más fácil de internacionalizar cualquier proyecto.",
+                "hero.getStarted": "Comenzar",
+                "hero.viewNpm": "Ver en npm",
+                "features.title": "✨ Características",
+                "features.autoDetect.title": "Auto-Detección",
+                "features.autoDetect.desc": "Escanea todo tu proyecto buscando cadenas de texto en JS, TS, JSX, TSX, Vue, Svelte, HTML y más.",
+                "features.languages.title": "37+ Idiomas",
+                "features.languages.desc": "Soporte para todos los idiomas principales incluyendo idiomas RTL como árabe y hebreo.",
+                "features.translation.title": "DeepL y Google",
+                "features.translation.desc": "Integración con DeepL o Google Translate para traducciones automáticas de alta calidad.",
+                "features.github.title": "GitHub Actions",
+                "features.github.desc": "Traducción automática en cada push. Configúralo y olvídate.",
+                "features.frameworks.title": "Agnóstico de Framework",
+                "features.frameworks.desc": "Funciona con React, Vue, Svelte, Angular, Node.js, Python, Ruby, Go, PHP y más.",
+                "features.typescript.title": "Soporte TypeScript",
+                "features.typescript.desc": "Definiciones TypeScript completas incluidas para desarrollo con tipos seguros.",
+                "code.title": "🚀 Inicio Rápido",
+                "code.cli": "Uso CLI",
+                "code.programmatic": "Uso Programático",
+                "languages.title": "🌍 Idiomas Soportados",
+                "cta.title": "¿Listo para ser global?",
+                "cta.subtitle": "Comienza a traducir tu proyecto en minutos, no días.",
+                "cta.button": "Comenzar Gratis"
+            },
+            fr: {
+                "title": "Multilingue",
+                "nav.features": "Fonctionnalités",
+                "nav.languages": "Langues",
+                "nav.docs": "Documentation",
+                "nav.github": "GitHub",
+                "hero.title": "🌐 Multilingue Auto-i18n",
+                "hero.subtitle": "Détectez automatiquement le contenu utilisateur et traduisez avec DeepL ou Google Translate. Le moyen le plus simple d'internationaliser tout projet.",
+                "hero.getStarted": "Commencer",
+                "hero.viewNpm": "Voir sur npm",
+                "features.title": "✨ Fonctionnalités",
+                "features.autoDetect.title": "Auto-Détection",
+                "features.autoDetect.desc": "Scanne l'ensemble de votre projet pour les chaînes utilisateur en JS, TS, JSX, TSX, Vue, Svelte, HTML et plus.",
+                "features.languages.title": "37+ Langues",
+                "features.languages.desc": "Support pour toutes les langues principales, y compris les langues RTL comme l'arabe et l'hébreu.",
+                "features.translation.title": "DeepL & Google",
+                "features.translation.desc": "Intégration avec DeepL ou Google Translate pour des traductions automatiques de haute qualité.",
+                "features.github.title": "GitHub Actions",
+                "features.github.desc": "Traduction automatique à chaque push. Configurez et oubliez.",
+                "features.frameworks.title": "Agnostique Framework",
+                "features.frameworks.desc": "Fonctionne avec React, Vue, Svelte, Angular, Node.js, Python, Ruby, Go, PHP et plus.",
+                "features.typescript.title": "Support TypeScript",
+                "features.typescript.desc": "Définitions TypeScript complètes incluses pour un développement type-safe.",
+                "code.title": "🚀 Démarrage Rapide",
+                "code.cli": "Utilisation CLI",
+                "code.programmatic": "Utilisation Programmatique",
+                "languages.title": "🌍 Langues Supportées",
+                "cta.title": "Prêt à devenir mondial?",
+                "cta.subtitle": "Commencez à traduire votre projet en minutes, pas en jours.",
+                "cta.button": "Commencer Gratuitement"
+            },
+            de: {
+                "title": "Mehrsprachig",
+                "nav.features": "Funktionen",
+                "nav.languages": "Sprachen",
+                "nav.docs": "Dokumentation",
+                "nav.github": "GitHub",
+                "hero.title": "🌐 Mehrsprachig Auto-i18n",
+                "hero.subtitle": "Erkennen Sie automatisch benutzerorientierte Inhalte und übersetzen Sie mit DeepL oder Google Translate. Der einfachste Weg, jedes Projekt zu internationalisieren.",
+                "hero.getStarted": "Loslegen",
+                "hero.viewNpm": "Auf npm ansehen",
+                "features.title": "✨ Funktionen",
+                "features.autoDetect.title": "Auto-Erkennung",
+                "features.autoDetect.desc": "Scannt Ihr gesamtes Projekt nach Benutzer-Strings in JS, TS, JSX, TSX, Vue, Svelte, HTML und mehr.",
+                "features.languages.title": "37+ Sprachen",
+                "features.languages.desc": "Unterstützung für alle wichtigen Sprachen einschließlich RTL-Sprachen wie Arabisch und Hebräisch.",
+                "features.translation.title": "DeepL & Google",
+                "features.translation.desc": "Integration mit DeepL oder Google Translate APIs für hochwertige automatische Übersetzungen.",
+                "features.github.title": "GitHub Actions",
+                "features.github.desc": "Automatische Übersetzung bei jedem Push. Einrichten und vergessen.",
+                "features.frameworks.title": "Framework-Agnostisch",
+                "features.frameworks.desc": "Funktioniert mit React, Vue, Svelte, Angular, Node.js, Python, Ruby, Go, PHP und mehr.",
+                "features.typescript.title": "TypeScript-Unterstützung",
+                "features.typescript.desc": "Vollständige TypeScript-Definitionen für typsichere Entwicklung enthalten.",
+                "code.title": "🚀 Schnellstart",
+                "code.cli": "CLI-Nutzung",
+                "code.programmatic": "Programmatische Nutzung",
+                "languages.title": "🌍 Unterstützte Sprachen",
+                "cta.title": "Bereit global zu werden?",
+                "cta.subtitle": "Beginnen Sie mit der Übersetzung Ihres Projekts in Minuten, nicht Tagen.",
+                "cta.button": "Kostenlos Starten"
+            },
+            ja: {
+                "title": "マルチリンガル",
+                "nav.features": "機能",
+                "nav.languages": "言語",
+                "nav.docs": "ドキュメント",
+                "nav.github": "GitHub",
+                "hero.title": "🌐 マルチリンガル Auto-i18n",
+                "hero.subtitle": "ユーザー向けコンテンツを自動検出し、DeepLまたはGoogle翻訳で翻訳。あらゆるプロジェクトを国際化する最も簡単な方法。",
+                "hero.getStarted": "始める",
+                "hero.viewNpm": "npmで見る",
+                "features.title": "✨ 機能",
+                "features.autoDetect.title": "自動検出",
+                "features.autoDetect.desc": "JS、TS、JSX、TSX、Vue、Svelte、HTMLなどのユーザー向け文字列をプロジェクト全体でスキャン。",
+                "features.languages.title": "37以上の言語",
+                "features.languages.desc": "アラビア語やヘブライ語などのRTL言語を含むすべての主要言語をサポート。",
+                "features.translation.title": "DeepL & Google",
+                "features.translation.desc": "高品質な自動翻訳のためにDeepLまたはGoogle Translate APIと統合。",
+                "features.github.title": "GitHub Actions",
+                "features.github.desc": "プッシュごとに自動翻訳。設定したら忘れる。",
+                "features.frameworks.title": "フレームワーク非依存",
+                "features.frameworks.desc": "React、Vue、Svelte、Angular、Node.js、Python、Ruby、Go、PHPなどで動作。",
+                "features.typescript.title": "TypeScriptサポート",
+                "features.typescript.desc": "型安全な開発のための完全なTypeScript定義を含む。",
+                "code.title": "🚀 クイックスタート",
+                "code.cli": "CLI使用法",
+                "code.programmatic": "プログラム使用法",
+                "languages.title": "🌍 対応言語",
+                "cta.title": "グローバルになる準備はできましたか？",
+                "cta.subtitle": "数日ではなく数分でプロジェクトの翻訳を開始。",
+                "cta.button": "無料で始める"
+            },
+            zh: {
+                "title": "多语言",
+                "nav.features": "功能",
+                "nav.languages": "语言",
+                "nav.docs": "文档",
+                "nav.github": "GitHub",
+                "hero.title": "🌐 多语言 Auto-i18n",
+                "hero.subtitle": "自动检测面向用户的内容，使用DeepL或Google翻译进行翻译。国际化任何项目的最简单方法。",
+                "hero.getStarted": "开始使用",
+                "hero.viewNpm": "在npm上查看",
+                "features.title": "✨ 功能特性",
+                "features.autoDetect.title": "自动检测",
+                "features.autoDetect.desc": "扫描整个项目中JS、TS、JSX、TSX、Vue、Svelte、HTML等文件中的用户字符串。",
+                "features.languages.title": "37+ 种语言",
+                "features.languages.desc": "支持所有主要语言，包括阿拉伯语和希伯来语等RTL语言。",
+                "features.translation.title": "DeepL 和 Google",
+                "features.translation.desc": "与DeepL或Google翻译API集成，实现高质量自动翻译。",
+                "features.github.title": "GitHub Actions",
+                "features.github.desc": "每次推送自动翻译。设置后无需管理。",
+                "features.frameworks.title": "框架无关",
+                "features.frameworks.desc": "适用于React、Vue、Svelte、Angular、Node.js、Python、Ruby、Go、PHP等。",
+                "features.typescript.title": "TypeScript 支持",
+                "features.typescript.desc": "包含完整的TypeScript类型定义，用于类型安全开发。",
+                "code.title": "🚀 快速开始",
+                "code.cli": "CLI 使用",
+                "code.programmatic": "编程使用",
+                "languages.title": "🌍 支持的语言",
+                "cta.title": "准备好走向全球了吗？",
+                "cta.subtitle": "几分钟内开始翻译您的项目，而不是几天。",
+                "cta.button": "免费开始"
+            },
+            ko: {
+                "title": "다국어",
+                "nav.features": "기능",
+                "nav.languages": "언어",
+                "nav.docs": "문서",
+                "nav.github": "GitHub",
+                "hero.title": "🌐 다국어 Auto-i18n",
+                "hero.subtitle": "사용자 대상 콘텐츠를 자동 감지하고 DeepL 또는 Google 번역으로 번역하세요. 모든 프로젝트를 국제화하는 가장 쉬운 방법.",
+                "hero.getStarted": "시작하기",
+                "hero.viewNpm": "npm에서 보기",
+                "features.title": "✨ 기능",
+                "features.autoDetect.title": "자동 감지",
+                "features.autoDetect.desc": "JS, TS, JSX, TSX, Vue, Svelte, HTML 등에서 사용자 문자열을 프로젝트 전체에서 스캔합니다.",
+                "features.languages.title": "37개 이상 언어",
+                "features.languages.desc": "아랍어와 히브리어 같은 RTL 언어를 포함한 모든 주요 언어 지원.",
+                "features.translation.title": "DeepL & Google",
+                "features.translation.desc": "고품질 자동 번역을 위해 DeepL 또는 Google 번역 API와 통합.",
+                "features.github.title": "GitHub Actions",
+                "features.github.desc": "모든 푸시에서 자동 번역. 설정하고 잊어버리세요.",
+                "features.frameworks.title": "프레임워크 무관",
+                "features.frameworks.desc": "React, Vue, Svelte, Angular, Node.js, Python, Ruby, Go, PHP 등에서 작동합니다.",
+                "features.typescript.title": "TypeScript 지원",
+                "features.typescript.desc": "타입 안전한 개발을 위한 완전한 TypeScript 정의 포함.",
+                "code.title": "🚀 빠른 시작",
+                "code.cli": "CLI 사용법",
+                "code.programmatic": "프로그래밍 방식 사용",
+                "languages.title": "🌍 지원 언어",
+                "cta.title": "글로벌화할 준비가 되셨나요?",
+                "cta.subtitle": "며칠이 아닌 몇 분 안에 프로젝트 번역을 시작하세요.",
+                "cta.button": "무료로 시작하기"
+            },
+            pt: {
+                "title": "Multilíngue",
+                "nav.features": "Recursos",
+                "nav.languages": "Idiomas",
+                "nav.docs": "Documentação",
+                "nav.github": "GitHub",
+                "hero.title": "🌐 Multilíngue Auto-i18n",
+                "hero.subtitle": "Detecte automaticamente conteúdo voltado ao usuário e traduza com DeepL ou Google Translate. A maneira mais fácil de internacionalizar qualquer projeto.",
+                "hero.getStarted": "Começar",
+                "hero.viewNpm": "Ver no npm",
+                "features.title": "✨ Recursos",
+                "features.autoDetect.title": "Auto-Detecção",
+                "features.autoDetect.desc": "Escaneia todo o seu projeto em busca de strings de usuário em JS, TS, JSX, TSX, Vue, Svelte, HTML e mais.",
+                "features.languages.title": "37+ Idiomas",
+                "features.languages.desc": "Suporte para todos os principais idiomas, incluindo idiomas RTL como árabe e hebraico.",
+                "features.translation.title": "DeepL & Google",
+                "features.translation.desc": "Integração com APIs do DeepL ou Google Translate para traduções automáticas de alta qualidade.",
+                "features.github.title": "GitHub Actions",
+                "features.github.desc": "Tradução automática em cada push. Configure e esqueça.",
+                "features.frameworks.title": "Agnóstico de Framework",
+                "features.frameworks.desc": "Funciona com React, Vue, Svelte, Angular, Node.js, Python, Ruby, Go, PHP e mais.",
+                "features.typescript.title": "Suporte TypeScript",
+                "features.typescript.desc": "Definições TypeScript completas incluídas para desenvolvimento type-safe.",
+                "code.title": "🚀 Início Rápido",
+                "code.cli": "Uso CLI",
+                "code.programmatic": "Uso Programático",
+                "languages.title": "🌍 Idiomas Suportados",
+                "cta.title": "Pronto para ser global?",
+                "cta.subtitle": "Comece a traduzir seu projeto em minutos, não dias.",
+                "cta.button": "Começar Grátis"
+            },
+            ru: {
+                "title": "Мультиязычный",
+                "nav.features": "Возможности",
+                "nav.languages": "Языки",
+                "nav.docs": "Документация",
+                "nav.github": "GitHub",
+                "hero.title": "🌐 Мультиязычный Auto-i18n",
+                "hero.subtitle": "Автоматическое обнаружение пользовательского контента и перевод с помощью DeepL или Google Translate. Самый простой способ интернационализации любого проекта.",
+                "hero.getStarted": "Начать",
+                "hero.viewNpm": "Смотреть на npm",
+                "features.title": "✨ Возможности",
+                "features.autoDetect.title": "Авто-обнаружение",
+                "features.autoDetect.desc": "Сканирует весь проект на наличие пользовательских строк в JS, TS, JSX, TSX, Vue, Svelte, HTML и других.",
+                "features.languages.title": "37+ Языков",
+                "features.languages.desc": "Поддержка всех основных языков, включая RTL языки, такие как арабский и иврит.",
+                "features.translation.title": "DeepL и Google",
+                "features.translation.desc": "Интеграция с DeepL или Google Translate API для высококачественного автоматического перевода.",
+                "features.github.title": "GitHub Actions",
+                "features.github.desc": "Автоматический перевод при каждом пуше. Настройте и забудьте.",
+                "features.frameworks.title": "Независимость от фреймворка",
+                "features.frameworks.desc": "Работает с React, Vue, Svelte, Angular, Node.js, Python, Ruby, Go, PHP и другими.",
+                "features.typescript.title": "Поддержка TypeScript",
+                "features.typescript.desc": "Полные определения TypeScript для типобезопасной разработки.",
+                "code.title": "🚀 Быстрый старт",
+                "code.cli": "Использование CLI",
+                "code.programmatic": "Программное использование",
+                "languages.title": "🌍 Поддерживаемые языки",
+                "cta.title": "Готовы стать глобальными?",
+                "cta.subtitle": "Начните переводить свой проект за минуты, а не дни.",
+                "cta.button": "Начать бесплатно"
+            },
+            ar: {
+                "title": "متعدد اللغات",
+                "nav.features": "الميزات",
+                "nav.languages": "اللغات",
+                "nav.docs": "التوثيق",
+                "nav.github": "GitHub",
+                "hero.title": "🌐 متعدد اللغات Auto-i18n",
+                "hero.subtitle": "اكتشف تلقائيًا المحتوى الموجه للمستخدم وترجم باستخدام DeepL أو Google Translate. أسهل طريقة لتدويل أي مشروع.",
+                "hero.getStarted": "ابدأ الآن",
+                "hero.viewNpm": "عرض على npm",
+                "features.title": "✨ الميزات",
+                "features.autoDetect.title": "الكشف التلقائي",
+                "features.autoDetect.desc": "يفحص مشروعك بالكامل بحثًا عن سلاسل المستخدم في JS و TS و JSX و TSX و Vue و Svelte و HTML والمزيد.",
+                "features.languages.title": "37+ لغة",
+                "features.languages.desc": "دعم جميع اللغات الرئيسية بما في ذلك لغات RTL مثل العربية والعبرية.",
+                "features.translation.title": "DeepL و Google",
+                "features.translation.desc": "التكامل مع DeepL أو Google Translate APIs للترجمة التلقائية عالية الجودة.",
+                "features.github.title": "GitHub Actions",
+                "features.github.desc": "ترجمة تلقائية مع كل push. قم بإعداده وانسه.",
+                "features.frameworks.title": "مستقل عن الإطار",
+                "features.frameworks.desc": "يعمل مع React و Vue و Svelte و Angular و Node.js و Python و Ruby و Go و PHP والمزيد.",
+                "features.typescript.title": "دعم TypeScript",
+                "features.typescript.desc": "تعريفات TypeScript كاملة مضمنة للتطوير الآمن من حيث النوع.",
+                "code.title": "🚀 بداية سريعة",
+                "code.cli": "استخدام CLI",
+                "code.programmatic": "الاستخدام البرمجي",
+                "languages.title": "🌍 اللغات المدعومة",
+                "cta.title": "مستعد للعالمية؟",
+                "cta.subtitle": "ابدأ بترجمة مشروعك في دقائق، وليس أيام.",
+                "cta.button": "ابدأ مجانًا"
+            }
+        };
+
+        // Language change function
+        function changeLanguage(lang) {
+            const t = translations[lang] || translations.en;
+            document.querySelectorAll('[data-i18n]').forEach(el => {
+                const key = el.getAttribute('data-i18n');
+                if (t[key]) {
+                    el.textContent = t[key];
+                }
+            });
+            
+            // Set RTL for Arabic
+            document.documentElement.dir = lang === 'ar' ? 'rtl' : 'ltr';
+            
+            // Store preference
+            localStorage.setItem('lang', lang);
+        }
+
+        // Copy install command
+        function copyInstall() {
+            navigator.clipboard.writeText('npm install -g multilingual-auto-i18n');
+            const btn = document.querySelector('.copy-btn');
+            btn.textContent = '✓';
+            setTimeout(() => btn.textContent = '📋', 2000);
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            const saved = localStorage.getItem('lang');
+            if (saved && translations[saved]) {
+                document.getElementById('lang-select').value = saved;
+                changeLanguage(saved);
+            }
+        });
+    </script>
+</body>
+</html>
