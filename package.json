@@ -1,7 +1,7 @@
 {
-    "name": "multilingual-auto-i18n",
+    "name": "multilingual",
     "version": "1.0.0",
-    "description": "Automated i18n detection and translation tool - Auto-detect user-facing content and translate with DeepL or Google Translate",
+    "description": "Multilingual - Automated i18n detection and translation tool. Auto-detect user-facing content and translate with DeepL or Google Translate.",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
     "bin": {

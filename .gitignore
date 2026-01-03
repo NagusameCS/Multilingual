@@ -28,8 +28,8 @@ yarn-error.log*
 # Test coverage
 coverage/
 
-# Generated translation files (for development)
-locales/
+# Generated translation files (for development, not docs)
+/locales/
 
 # Package lock files for development (publish uses npm)
 yarn.lock

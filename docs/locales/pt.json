@@ -1,0 +1,55 @@
+{
+  "title": "Multilíngue",
+  "nav": {
+    "features": "Recursos",
+    "languages": "Idiomas",
+    "docs": "Documentação",
+    "github": "GitHub"
+  },
+  "hero": {
+    "title": "🌐 Multilíngue Auto-i18n",
+    "subtitle": "Detecta automaticamente conteúdo voltado ao usuário e traduz usando DeepL ou Google Translate. A maneira mais fácil de internacionalizar qualquer projeto.",
+    "getStarted": "Começar",
+    "viewNpm": "Ver no npm"
+  },
+  "features": {
+    "title": "✨ Recursos",
+    "autoDetect": {
+      "title": "Detecção Automática",
+      "desc": "Escaneia todo o seu projeto em busca de strings voltadas ao usuário em JS, TS, JSX, TSX, Vue, Svelte, HTML e mais."
+    },
+    "languages": {
+      "title": "37+ Idiomas",
+      "desc": "Suporta todos os principais idiomas, incluindo idiomas RTL como árabe e hebraico."
+    },
+    "translation": {
+      "title": "DeepL & Google",
+      "desc": "Integra com APIs DeepL ou Google Translate para traduções automáticas de alta qualidade."
+    },
+    "github": {
+      "title": "GitHub Actions",
+      "desc": "Tradução automática em cada push. Configure e esqueça."
+    },
+    "frameworks": {
+      "title": "Agnóstico de Framework",
+      "desc": "Funciona com React, Vue, Svelte, Angular, Node.js, Python, Ruby, Go, PHP e mais."
+    },
+    "typescript": {
+      "title": "Suporte TypeScript",
+      "desc": "Inclui definições TypeScript completas para desenvolvimento type-safe."
+    }
+  },
+  "code": {
+    "title": "🚀 Início Rápido",
+    "cli": "Uso CLI",
+    "programmatic": "Uso Programático"
+  },
+  "languages_section": {
+    "title": "🌍 Idiomas Suportados"
+  },
+  "cta": {
+    "title": "Pronto para se Tornar Global?",
+    "subtitle": "Comece a traduzir seu projeto em minutos, não dias.",
+    "button": "Comece Gratuitamente"
+  }
+}
