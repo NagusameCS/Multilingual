@@ -1,12 +1,12 @@
 {
-    "name": "multilingual",
-    "version": "1.0.0",
+    "name": "multilingual-cli",
+    "version": "1.0.1",
     "description": "Multilingual - Automated i18n detection and translation tool. Auto-detect user-facing content and translate with DeepL or Google Translate.",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
     "bin": {
-        "multilingual": "./dist/cli/index.js",
-        "ml-i18n": "./dist/cli/index.js"
+        "multilingual": "dist/cli/index.js",
+        "ml-i18n": "dist/cli/index.js"
     },
     "scripts": {
         "build": "tsc",
