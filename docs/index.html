@@ -1012,7 +1012,6 @@
             { code: 'de', name: 'German', nativeName: 'Deutsch' },
             { code: 'it', name: 'Italian', nativeName: 'Italiano' },
             { code: 'pt', name: 'Portuguese', nativeName: 'Português' },
-            { code: 'pt-BR', name: 'Portuguese (Brazil)', nativeName: 'Português (Brasil)' },
             { code: 'ru', name: 'Russian', nativeName: 'Русский' },
             { code: 'zh', name: 'Chinese (Simplified)', nativeName: '中文(简体)' },
             { code: 'ja', name: 'Japanese', nativeName: '日本語' },
@@ -1212,16 +1211,16 @@
 
             // Use MyMemory API (free, CORS-friendly, works from browsers)
             const url = `https://api.mymemory.translated.net/get?q=${encodeURIComponent(text)}&langpair=${sourceLang}|${targetLang}`;
-            
+
             try {
                 const response = await fetch(url);
-                
+
                 if (!response.ok) {
                     throw new Error(`HTTP ${response.status}`);
                 }
-                
+
                 const data = await response.json();
-                
+
                 if (data.responseData && data.responseData.translatedText) {
                     const translation = data.responseData.translatedText;
                     demoCache[cacheKey] = translation;
