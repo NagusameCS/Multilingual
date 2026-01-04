@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Language Selector Examples | multilingual-cli</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary: #3b82f6;
+            --primary-dark: #2563eb;
+            --bg: #0f172a;
+            --card: #1e293b;
+            --text: #f1f5f9;
+            --text-muted: #94a3b8;
+            --border: #334155;
+            --success: #10b981;
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Inter', system-ui, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+
+        header {
+            text-align: center;
+            padding: 3rem 0;
+            border-bottom: 1px solid var(--border);
+            margin-bottom: 3rem;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        header p {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--primary);
+            text-decoration: none;
+            margin-bottom: 2rem;
+        }
+
+        .back-link:hover {
+            color: var(--primary-dark);
+        }
+
+        .examples-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+
+        .example-card {
+            background: var(--card);
+            border-radius: 12px;
+            padding: 1.5rem;
+            border: 1px solid var(--border);
+        }
+
+        .example-card h3 {
+            font-size: 1.25rem;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .example-card .preview {
+            background: #0f172a;
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 1rem;
+            min-height: 80px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .code-block {
+            background: #0f172a;
+            border-radius: 8px;
+            padding: 1rem;
+            overflow-x: auto;
+            font-family: 'Monaco', 'Menlo', monospace;
+            font-size: 0.85rem;
+            color: #a5f3fc;
+        }
+
+        .code-block .comment {
+            color: #6b7280;
+        }
+
+        .code-block .string {
+            color: #a7f3d0;
+        }
+
+        .code-block .keyword {
+            color: #c4b5fd;
+        }
+
+        /* Language Dropdown Styles */
+        
+        /* Style 1: Simple Dropdown */
+        .lang-simple {
+            padding: 0.5rem 1rem;
+            font-size: 1rem;
+            border-radius: 6px;
+            border: 1px solid var(--border);
+            background: var(--card);
+            color: var(--text);
+            cursor: pointer;
+            min-width: 200px;
+        }
+
+        .lang-simple:focus {
+            outline: none;
+            border-color: var(--primary);
+            box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
+        }
+
+        /* Style 2: Flags with Names */
+        .lang-flags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .lang-flag-btn {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            color: var(--text);
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .lang-flag-btn:hover {
+            border-color: var(--primary);
+            background: rgba(59, 130, 246, 0.1);
+        }
+
+        .lang-flag-btn.active {
+            border-color: var(--primary);
+            background: rgba(59, 130, 246, 0.2);
+        }
+
+        .lang-flag-btn .flag {
+            font-size: 1.25rem;
+        }
+
+        /* Style 3: Minimal Icons */
+        .lang-icons {
+            display: flex;
+            gap: 0.25rem;
+        }
+
+        .lang-icon-btn {
+            width: 36px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.25rem;
+            background: transparent;
+            border: 1px solid transparent;
+            border-radius: 6px;
+            cursor: pointer;
+            transition: all 0.2s;
+        }
+
+        .lang-icon-btn:hover {
+            background: rgba(59, 130, 246, 0.1);
+            border-color: var(--primary);
+        }
+
+        .lang-icon-btn.active {
+            background: rgba(59, 130, 246, 0.2);
+            border-color: var(--primary);
+        }
+
+        /* Style 4: Floating Globe */
+        .lang-globe-container {
+            position: relative;
+        }
+
+        .lang-globe-btn {
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            background: var(--primary);
+            border: none;
+            color: white;
+            font-size: 1.25rem;
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: all 0.2s;
+        }
+
+        .lang-globe-btn:hover {
+            transform: scale(1.1);
+            box-shadow: 0 4px 12px rgba(59, 130, 246, 0.4);
+        }
+
+        .lang-globe-dropdown {
+            position: absolute;
+            top: 50px;
+            right: 0;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 0.5rem;
+            min-width: 180px;
+            box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+            display: none;
+        }
+
+        .lang-globe-dropdown.show {
+            display: block;
+        }
+
+        .lang-globe-option {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 0.75rem;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background 0.2s;
+        }
+
+        .lang-globe-option:hover {
+            background: rgba(59, 130, 246, 0.1);
+        }
+
+        /* Style 5: Modern Pill Selector */
+        .lang-pills {
+            display: flex;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 50px;
+            padding: 4px;
+        }
+
+        .lang-pill {
+            padding: 0.5rem 1rem;
+            border-radius: 50px;
+            border: none;
+            background: transparent;
+            color: var(--text-muted);
+            cursor: pointer;
+            transition: all 0.2s;
+            font-size: 0.9rem;
+        }
+
+        .lang-pill:hover {
+            color: var(--text);
+        }
+
+        .lang-pill.active {
+            background: var(--primary);
+            color: white;
+        }
+
+        /* Style 6: Full Page Modal */
+        .lang-modal-trigger {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.5rem 1rem;
+            background: var(--card);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            color: var(--text);
+            cursor: pointer;
+        }
+
+        .integration-section {
+            background: var(--card);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-top: 2rem;
+        }
+
+        .integration-section h2 {
+            margin-bottom: 1rem;
+        }
+
+        .copy-btn {
+            position: absolute;
+            top: 0.5rem;
+            right: 0.5rem;
+            padding: 0.25rem 0.5rem;
+            background: var(--border);
+            border: none;
+            border-radius: 4px;
+            color: var(--text-muted);
+            cursor: pointer;
+            font-size: 0.75rem;
+        }
+
+        .copy-btn:hover {
+            background: var(--primary);
+            color: white;
+        }
+
+        .code-wrapper {
+            position: relative;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            color: var(--text-muted);
+            border-top: 1px solid var(--border);
+            margin-top: 3rem;
+        }
+
+        footer a {
+            color: var(--primary);
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <a href="index.html" class="back-link">← Back to Home</a>
+
+        <header>
+            <h1>🌐 Language Selector Examples</h1>
+            <p>Copy-paste these UI components for your i18n implementation</p>
+        </header>
+
+        <div class="examples-grid">
+            <!-- Style 1: Simple Dropdown -->
+            <div class="example-card">
+                <h3>📋 Simple Dropdown</h3>
+                <div class="preview">
+                    <select class="lang-simple" onchange="changeLanguage(this.value)">
+                        <option value="en">🇺🇸 English</option>
+                        <option value="es">🇪🇸 Español</option>
+                        <option value="fr">🇫🇷 Français</option>
+                        <option value="de">🇩🇪 Deutsch</option>
+                        <option value="ja">🇯🇵 日本語</option>
+                        <option value="zh">🇨🇳 中文</option>
+                    </select>
+                </div>
+                <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1rem;">
+                    Best for: Settings pages, minimal footprint
+                </p>
+            </div>
+
+            <!-- Style 2: Flag Buttons -->
+            <div class="example-card">
+                <h3>🎌 Flag Buttons</h3>
+                <div class="preview">
+                    <div class="lang-flags">
+                        <button class="lang-flag-btn active" onclick="selectLang(this)">
+                            <span class="flag">🇺🇸</span>
+                            <span>EN</span>
+                        </button>
+                        <button class="lang-flag-btn" onclick="selectLang(this)">
+                            <span class="flag">🇪🇸</span>
+                            <span>ES</span>
+                        </button>
+                        <button class="lang-flag-btn" onclick="selectLang(this)">
+                            <span class="flag">🇫🇷</span>
+                            <span>FR</span>
+                        </button>
+                    </div>
+                </div>
+                <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1rem;">
+                    Best for: Headers, 3-5 languages
+                </p>
+            </div>
+
+            <!-- Style 3: Minimal Icons -->
+            <div class="example-card">
+                <h3>🔘 Minimal Icons</h3>
+                <div class="preview">
+                    <div class="lang-icons">
+                        <button class="lang-icon-btn active" title="English">🇺🇸</button>
+                        <button class="lang-icon-btn" title="Español">🇪🇸</button>
+                        <button class="lang-icon-btn" title="Français">🇫🇷</button>
+                        <button class="lang-icon-btn" title="Deutsch">🇩🇪</button>
+                        <button class="lang-icon-btn" title="日本語">🇯🇵</button>
+                    </div>
+                </div>
+                <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1rem;">
+                    Best for: Compact headers, mobile
+                </p>
+            </div>
+
+            <!-- Style 4: Floating Globe -->
+            <div class="example-card">
+                <h3>🌍 Floating Globe</h3>
+                <div class="preview">
+                    <div class="lang-globe-container">
+                        <button class="lang-globe-btn" onclick="toggleGlobeDropdown()">🌐</button>
+                        <div class="lang-globe-dropdown" id="globeDropdown">
+                            <div class="lang-globe-option">🇺🇸 English</div>
+                            <div class="lang-globe-option">🇪🇸 Español</div>
+                            <div class="lang-globe-option">🇫🇷 Français</div>
+                            <div class="lang-globe-option">🇩🇪 Deutsch</div>
+                            <div class="lang-globe-option">🇯🇵 日本語</div>
+                        </div>
+                    </div>
+                </div>
+                <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1rem;">
+                    Best for: Fixed position, many languages
+                </p>
+            </div>
+
+            <!-- Style 5: Pill Selector -->
+            <div class="example-card">
+                <h3>💊 Pill Selector</h3>
+                <div class="preview">
+                    <div class="lang-pills">
+                        <button class="lang-pill active" onclick="selectPill(this)">EN</button>
+                        <button class="lang-pill" onclick="selectPill(this)">ES</button>
+                        <button class="lang-pill" onclick="selectPill(this)">FR</button>
+                        <button class="lang-pill" onclick="selectPill(this)">DE</button>
+                    </div>
+                </div>
+                <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1rem;">
+                    Best for: Modern apps, 3-4 languages
+                </p>
+            </div>
+
+            <!-- Style 6: Modal Trigger -->
+            <div class="example-card">
+                <h3>📱 Modal Trigger</h3>
+                <div class="preview">
+                    <button class="lang-modal-trigger">
+                        <span>🌐</span>
+                        <span>English (US)</span>
+                        <span style="margin-left: auto;">▼</span>
+                    </button>
+                </div>
+                <p style="color: var(--text-muted); font-size: 0.9rem; margin-bottom: 1rem;">
+                    Best for: Full-page modal, many languages
+                </p>
+            </div>
+        </div>
+
+        <!-- Integration Code -->
+        <div class="integration-section">
+            <h2>🔧 React Integration Example</h2>
+            <div class="code-wrapper">
+                <pre class="code-block"><span class="comment">// LanguageSelector.tsx</span>
+<span class="keyword">import</span> { useTranslation } <span class="keyword">from</span> <span class="string">'react-i18next'</span>;
+<span class="keyword">import</span> translations <span class="keyword">from</span> <span class="string">'./locales/en.json'</span>;
+
+<span class="keyword">const</span> languages = [
+  { code: <span class="string">'en'</span>, name: <span class="string">'English'</span>, flag: <span class="string">'🇺🇸'</span> },
+  { code: <span class="string">'es'</span>, name: <span class="string">'Español'</span>, flag: <span class="string">'🇪🇸'</span> },
+  { code: <span class="string">'fr'</span>, name: <span class="string">'Français'</span>, flag: <span class="string">'🇫🇷'</span> },
+];
+
+<span class="keyword">export function</span> LanguageSelector() {
+  <span class="keyword">const</span> { i18n } = useTranslation();
+
+  <span class="keyword">return</span> (
+    &lt;select
+      value={i18n.language}
+      onChange={(e) => i18n.changeLanguage(e.target.value)}
+    &gt;
+      {languages.map((lang) =&gt; (
+        &lt;option key={lang.code} value={lang.code}&gt;
+          {lang.flag} {lang.name}
+        &lt;/option&gt;
+      ))}
+    &lt;/select&gt;
+  );
+}</pre>
+            </div>
+        </div>
+
+        <div class="integration-section" style="margin-top: 1rem;">
+            <h2>🔧 Vanilla JavaScript Example</h2>
+            <div class="code-wrapper">
+                <pre class="code-block"><span class="comment">// language-switcher.js</span>
+<span class="keyword">const</span> translations = {};
+
+<span class="keyword">async function</span> loadTranslations(lang) {
+  <span class="keyword">const</span> response = <span class="keyword">await</span> fetch(<span class="string">`/locales/${lang}.json`</span>);
+  translations[lang] = <span class="keyword">await</span> response.json();
+  applyTranslations(lang);
+}
+
+<span class="keyword">function</span> applyTranslations(lang) {
+  document.querySelectorAll(<span class="string">'[data-i18n]'</span>).forEach(el =&gt; {
+    <span class="keyword">const</span> key = el.dataset.i18n;
+    <span class="keyword">if</span> (translations[lang]?.[key]) {
+      el.textContent = translations[lang][key];
+    }
+  });
+  localStorage.setItem(<span class="string">'language'</span>, lang);
+}
+
+<span class="comment">// Initialize with saved preference or browser language</span>
+<span class="keyword">const</span> savedLang = localStorage.getItem(<span class="string">'language'</span>) 
+  || navigator.language.split(<span class="string">'-'</span>)[0];
+loadTranslations(savedLang);</pre>
+            </div>
+        </div>
+
+        <footer>
+            <p>
+                Generated by <a href="https://github.com/NagusameCS/Multilingual">multilingual-cli</a>
+                <br>
+                <span style="font-size: 0.9rem;">Install with: <code>npx multilingual-cli init</code></span>
+            </p>
+        </footer>
+    </div>
+
+    <script>
+        function changeLanguage(lang) {
+            console.log('Language changed to:', lang);
+            // In a real app, this would update i18n
+        }
+
+        function selectLang(btn) {
+            btn.parentElement.querySelectorAll('.lang-flag-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+        }
+
+        function toggleGlobeDropdown() {
+            const dropdown = document.getElementById('globeDropdown');
+            dropdown.classList.toggle('show');
+        }
+
+        function selectPill(btn) {
+            btn.parentElement.querySelectorAll('.lang-pill').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+        }
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', (e) => {
+            if (!e.target.closest('.lang-globe-container')) {
+                document.getElementById('globeDropdown').classList.remove('show');
+            }
+        });
+    </script>
+</body>
+</html>

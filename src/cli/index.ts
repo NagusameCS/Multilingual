@@ -26,6 +26,7 @@ import { GitHubActionsSetup } from '../github-actions';
 import { calculateStats, formatStatsReport, saveStatsReport } from '../stats';
 import { exportToFile, importFromFile, convertFormat, TranslationDocument } from '../formats';
 import { createTranslationWatchSession, formatWatchStats } from '../watch';
+import { UsageTracker, SERVICE_LIMITS, formatTimeRemaining, formatElapsedTime } from '../usage-tracker';
 import {
     SUPPORTED_LANGUAGES,
     SupportedLanguage,
@@ -37,7 +38,7 @@ const program = new Command();
 // ASCII Art Banner
 const banner = `
 ${chalk.cyan('╔════════════════════════════════════════════════════════════╗')}
-${chalk.cyan('║')}  ${chalk.bold.white('🌐 multilingual-cli')} ${chalk.gray('v2.0.10')}                           ${chalk.cyan('║')}
+${chalk.cyan('║')}  ${chalk.bold.white('🌐 multilingual-cli')} ${chalk.gray('v2.1.0')}                            ${chalk.cyan('║')}
 ${chalk.cyan('║')}  ${chalk.gray('Automated internationalization for any project')}            ${chalk.cyan('║')}
 ${chalk.cyan('╚════════════════════════════════════════════════════════════╝')}
 `;
@@ -45,7 +46,7 @@ ${chalk.cyan('╚═════════════════════
 program
     .name('multilingual')
     .description('Automated i18n detection and translation tool with free translation options')
-    .version('2.0.10');
+    .version('2.1.0');
 
 /**
  * Init command - Interactive setup wizard
@@ -952,6 +953,71 @@ program
         spinner.succeed('Output directory cleaned');
     });
 
+/**
+ * Queue command - Manage translation queue
+ */
+program
+    .command('queue')
+    .description('View and manage translation queue')
+    .option('-p, --process', 'Process pending queue items')
+    .option('-c, --clear', 'Clear completed queue items')
+    .option('-l, --list', 'List all queue items')
+    .action(async (options) => {
+        console.log(banner);
+
+        const multilingual = new Multilingual();
+        await multilingual.init();
+        const config = multilingual.getConfig();
+        const usageTracker = new UsageTracker(config.projectRoot);
+
+        const pendingQueue = usageTracker.getPendingQueue();
+
+        if (options.clear) {
+            usageTracker.clearCompletedQueue();
+            console.log(chalk.green('✅ Cleared completed queue items'));
+            return;
+        }
+
+        if (pendingQueue.length === 0) {
+            console.log(chalk.yellow('\n📋 Translation queue is empty.'));
+            console.log(chalk.gray('   Use "multilingual run" to add items to the queue.'));
+            return;
+        }
+
+        console.log(chalk.blue(`\n📋 Translation Queue (${pendingQueue.length} pending)`));
+        console.log(chalk.gray('─'.repeat(55)));
+
+        for (const item of pendingQueue) {
+            const priority = item.priority === 'high' ? '🔴' : item.priority === 'medium' ? '🟡' : '🟢';
+            console.log(`   ${priority} ${item.languages.length} languages via ${item.service}`);
+            console.log(chalk.gray(`      Est. chars: ${item.estimatedChars.toLocaleString()} | Created: ${new Date(item.createdAt).toLocaleDateString()}`));
+        }
+
+        if (options.process) {
+            console.log(chalk.blue('\n🚀 Processing queue...'));
+
+            for (const item of pendingQueue) {
+                console.log(chalk.cyan(`\n→ Processing: ${item.languages.length} languages via ${item.service}`));
+
+                // Update config for this queue item
+                multilingual.setLanguages(config.sourceLanguage, item.languages as SupportedLanguage[]);
+
+                try {
+                    await runTranslation(multilingual, item.service as ExtendedTranslationService, true);
+                    usageTracker.updateQueueStatus(item.id, 'completed');
+                    console.log(chalk.green(`   ✅ Completed`));
+                } catch (error) {
+                    usageTracker.updateQueueStatus(item.id, 'failed');
+                    console.log(chalk.red(`   ❌ Failed: ${error instanceof Error ? error.message : 'Unknown error'}`));
+                }
+            }
+
+            console.log(chalk.green('\n✅ Queue processing complete'));
+        } else {
+            console.log(chalk.gray('\n   Use --process to translate queued items'));
+        }
+    });
+
 // Helper functions
 
 async function runTranslation(
@@ -960,6 +1026,13 @@ async function runTranslation(
     auto = false
 ): Promise<void> {
     const config = multilingual.getConfig();
+    const usageTracker = new UsageTracker(config.projectRoot);
+
+    // Show last usage info
+    const lastUsed = usageTracker.getLastUsedFormatted();
+    if (lastUsed !== 'Never') {
+        console.log(chalk.gray(`\n📅 Last used: ${lastUsed}`));
+    }
 
     // Validate configuration
     if (config.targetLanguages.length === 0) {
@@ -985,8 +1058,9 @@ async function runTranslation(
     }
 
     // Check if we're using a free service
-    const effectiveService = service || config.translationService;
-    const isFreeService = ['libretranslate', 'lingva', 'mymemory', 'pseudo'].includes(effectiveService);
+    const effectiveService = (service || config.translationService) as ExtendedTranslationService;
+    const isFreeService = ['libretranslate', 'lingva', 'mymemory', 'pseudo', 'dictionary', 'local'].includes(effectiveService);
+    const hasEmail = config.apiKey?.includes('@') || false;
 
     // Check API key for paid services
     if (!isFreeService && config.translationService !== 'none' && !config.apiKey) {
@@ -1006,28 +1080,295 @@ async function runTranslation(
         }
     }
 
-    const spinner = ora();
+    // First, scan to get string count for estimation
+    const spinner = ora('Scanning project for translatable strings...').start();
+    const scanResult = await multilingual.scan();
+    spinner.succeed(`Found ${scanResult.strings.length} strings in ${scanResult.files.length} files`);
+
+    if (scanResult.strings.length === 0) {
+        console.log(chalk.yellow('\n⚠️  No translatable strings found.'));
+        return;
+    }
+
+    // Calculate and show estimate
+    const estimate = usageTracker.calculateEstimate(
+        scanResult.strings,
+        config.targetLanguages,
+        effectiveService,
+        hasEmail
+    );
+
+    // Display estimate
+    console.log(chalk.blue('\n📊 Translation Estimate'));
+    console.log(chalk.gray('═'.repeat(55)));
+    console.log(`   ${chalk.bold('Strings:')}        ${estimate.totalStrings.toLocaleString()}`);
+    console.log(`   ${chalk.bold('Characters:')}     ${estimate.totalCharacters.toLocaleString()}`);
+    console.log(`   ${chalk.bold('Languages:')}      ${estimate.languageCount}`);
+    console.log(`   ${chalk.bold('Total API calls:')} ${estimate.totalApiCalls.toLocaleString()}`);
+    console.log(`   ${chalk.bold('Est. time:')}      ${chalk.cyan(estimate.formattedTime)}`);
+
+    // Service-specific info
+    const limits = SERVICE_LIMITS[effectiveService];
+    if (limits) {
+        console.log(chalk.blue(`\n📈 ${limits.name} Info`));
+        console.log(chalk.gray('─'.repeat(55)));
+        
+        if (limits.dailyLimit === Infinity) {
+            console.log(`   Daily limit:     ${chalk.green('Unlimited')}`);
+        } else {
+            const charsNeeded = estimate.totalCharacters * estimate.languageCount;
+            console.log(`   Daily limit:     ${limits.dailyLimit.toLocaleString()} chars`);
+            console.log(`   Remaining today: ${estimate.remainingToday.toLocaleString()} chars`);
+            console.log(`   Chars needed:    ${charsNeeded.toLocaleString()} chars`);
+
+            // Show email benefit for MyMemory
+            if (effectiveService === 'mymemory' && !hasEmail) {
+                console.log(chalk.yellow(`\n   💡 Add your email for ${chalk.bold('+90,000')} chars/day (100k total)`));
+            }
+
+            if (estimate.exceedsLimit) {
+                console.log(chalk.red(`\n   ⚠️  Exceeds daily limit! Would need ${estimate.daysNeeded} days.`));
+            }
+        }
+    }
+
+    // Show warnings
+    if (estimate.warnings.length > 0) {
+        console.log(chalk.yellow('\n⚠️  Warnings:'));
+        for (const warning of estimate.warnings) {
+            console.log(chalk.yellow(`   ${warning}`));
+        }
+    }
+
+    // Show recommendations
+    if (estimate.recommendations.length > 0) {
+        console.log(chalk.cyan('\n💡 Recommendations:'));
+        for (const rec of estimate.recommendations) {
+            console.log(chalk.cyan(`   ${rec}`));
+        }
+    }
+
+    // Confirmation prompt (unless auto mode)
+    if (!auto) {
+        console.log('');
+        const { proceed } = await inquirer.prompt([
+            {
+                type: 'confirm',
+                name: 'proceed',
+                message: `Proceed with translation? (Est. ${estimate.formattedTime})`,
+                default: !estimate.exceedsLimit,
+            },
+        ]);
+
+        if (!proceed) {
+            // Offer alternatives
+            const { alternative } = await inquirer.prompt([
+                {
+                    type: 'list',
+                    name: 'alternative',
+                    message: 'What would you like to do?',
+                    choices: [
+                        { name: '🎯 Translate fewer languages (recommended for large projects)', value: 'fewer' },
+                        { name: '📋 Add to queue for later', value: 'queue' },
+                        { name: '🔄 Try a different service', value: 'service' },
+                        { name: '🧪 Use pseudo-translation for testing', value: 'pseudo' },
+                        { name: '❌ Cancel', value: 'cancel' },
+                    ],
+                },
+            ]);
+
+            if (alternative === 'fewer') {
+                const { languages } = await inquirer.prompt([
+                    {
+                        type: 'checkbox',
+                        name: 'languages',
+                        message: 'Select languages (top 5 recommended for most users):',
+                        choices: [
+                            new inquirer.Separator('── 🌟 High Impact ──'),
+                            { name: 'Spanish (550M speakers)', value: 'es', checked: true },
+                            { name: 'French (280M speakers)', value: 'fr', checked: true },
+                            { name: 'German (130M speakers)', value: 'de', checked: true },
+                            { name: 'Japanese (125M speakers)', value: 'ja', checked: true },
+                            { name: 'Portuguese (260M speakers)', value: 'pt', checked: true },
+                            new inquirer.Separator('── 📈 Growing Markets ──'),
+                            ...SUPPORTED_LANGUAGES
+                                .filter(l => !['en', 'es', 'fr', 'de', 'ja', 'pt'].includes(l.code))
+                                .map(l => ({ name: `${l.name} (${l.nativeName})`, value: l.code })),
+                        ],
+                        validate: (input) => input.length > 0 || 'Please select at least one language',
+                    },
+                ]);
+                multilingual.setLanguages(config.sourceLanguage, languages);
+                return runTranslation(multilingual, effectiveService, auto);
+            } else if (alternative === 'queue') {
+                const queueId = usageTracker.addToQueue(
+                    config.targetLanguages,
+                    effectiveService,
+                    estimate.totalCharacters * estimate.languageCount,
+                    'medium'
+                );
+                console.log(chalk.green(`\n✅ Added to queue (ID: ${queueId.slice(-8)})`));
+                console.log(chalk.gray('   Run "multilingual queue" to process queued translations'));
+                return;
+            } else if (alternative === 'service') {
+                return handleServiceConfig(multilingual);
+            } else if (alternative === 'pseudo') {
+                return runTranslation(multilingual, 'pseudo', auto);
+            } else {
+                console.log(chalk.gray('\nCancelled.'));
+                return;
+            }
+        }
+    }
+
+    // Run the actual translation with progress tracking
+    const startTime = Date.now();
+    let lastProgressUpdate = 0;
+    let currentLanguage = '';
+    let languagesCompleted = 0;
 
     try {
         const result = await multilingual.run((stage, message, progress) => {
-            spinner.text = `${message} (${progress}%)`;
+            const now = Date.now();
+            
+            // Extract language from message if available
+            const langMatch = message.match(/to (\w+)/);
+            if (langMatch && langMatch[1] !== currentLanguage) {
+                currentLanguage = langMatch[1];
+            }
+
+            // Update spinner with time estimate (throttled to every 500ms)
+            if (now - lastProgressUpdate > 500) {
+                const elapsed = now - startTime;
+                const estimatedTotal = (elapsed / progress) * 100;
+                const remaining = estimatedTotal - elapsed;
+                
+                let timeStr = '';
+                if (remaining > 0 && progress > 5) {
+                    const seconds = Math.round(remaining / 1000);
+                    const minutes = Math.floor(seconds / 60);
+                    if (minutes > 0) {
+                        timeStr = ` • ~${minutes}m ${seconds % 60}s remaining`;
+                    } else {
+                        timeStr = ` • ~${seconds}s remaining`;
+                    }
+                }
+
+                spinner.text = `${message} (${progress}%)${timeStr}`;
+                lastProgressUpdate = now;
+            }
+
             if (!spinner.isSpinning) {
                 spinner.start();
             }
         });
 
+        const totalTime = formatElapsedTime(startTime);
+
         if (result.success) {
-            spinner.succeed('Translation complete!');
+            spinner.succeed(`Translation complete! (${totalTime})`);
+
+            // Record usage
+            const charsUsed = scanResult.strings.reduce((sum, s) => sum + s.value.length, 0) * config.targetLanguages.length;
+            usageTracker.recordUsage(effectiveService, charsUsed, scanResult.strings.length, config.targetLanguages);
 
             console.log(chalk.blue('\n📊 Results:'));
-            console.log(`   Strings found: ${result.scan.stats.totalStrings}`);
-            console.log(`   Files generated: ${result.generation.outputFiles.length}`);
-            console.log(`   New keys: ${result.generation.stats.newKeys}`);
-            console.log(`   Unchanged keys: ${result.generation.stats.unchangedKeys}`);
+            console.log(`   Strings translated: ${result.scan.stats.totalStrings}`);
+            console.log(`   Files generated:    ${result.generation.outputFiles.length}`);
+            console.log(`   New keys:           ${result.generation.stats.newKeys}`);
+            console.log(`   Total time:         ${totalTime}`);
 
             console.log(chalk.blue('\n📁 Generated files:'));
-            for (const file of result.generation.outputFiles) {
+            for (const file of result.generation.outputFiles.slice(0, 10)) {
                 console.log(chalk.gray(`   ${file}`));
+            }
+            if (result.generation.outputFiles.length > 10) {
+                console.log(chalk.gray(`   ... and ${result.generation.outputFiles.length - 10} more`));
+            }
+
+            // Success message with helpful links
+            console.log(chalk.green('\n✨ Translation complete!'));
+            console.log(chalk.blue('\n📚 Next steps:'));
+            console.log(chalk.gray('   • Review translations in your locales folder'));
+            console.log(chalk.gray('   • Use "multilingual validate" to check quality'));
+            console.log(chalk.gray('   • See language dropdown examples at:'));
+            console.log(chalk.cyan('     https://nagusame.github.io/Multilingual/examples'));
+
+            // Ask about queuing more translations
+            if (!auto) {
+                const pendingQueue = usageTracker.getPendingQueue();
+                
+                const { queueMore } = await inquirer.prompt([
+                    {
+                        type: 'confirm',
+                        name: 'queueMore',
+                        message: 'Would you like to queue additional languages for later?',
+                        default: false,
+                    },
+                ]);
+
+                if (queueMore) {
+                    const remainingLanguages = SUPPORTED_LANGUAGES
+                        .filter(l => l.code !== config.sourceLanguage && !config.targetLanguages.includes(l.code as SupportedLanguage));
+
+                    if (remainingLanguages.length === 0) {
+                        console.log(chalk.yellow('All languages already translated!'));
+                    } else {
+                        const { moreLanguages, queueService, priority } = await inquirer.prompt([
+                            {
+                                type: 'checkbox',
+                                name: 'moreLanguages',
+                                message: 'Select additional languages:',
+                                choices: remainingLanguages.map(l => ({
+                                    name: `${l.name} (${l.nativeName})`,
+                                    value: l.code,
+                                })),
+                            },
+                            {
+                                type: 'list',
+                                name: 'queueService',
+                                message: 'Translation service for queued languages:',
+                                choices: [
+                                    { name: `Same (${effectiveService})`, value: effectiveService },
+                                    new inquirer.Separator('── Other ──'),
+                                    { name: 'MyMemory (free)', value: 'mymemory' },
+                                    { name: 'LibreTranslate (free)', value: 'libretranslate' },
+                                    { name: 'DeepL (paid)', value: 'deepl' },
+                                ],
+                            },
+                            {
+                                type: 'list',
+                                name: 'priority',
+                                message: 'Priority:',
+                                choices: [
+                                    { name: 'High (translate ASAP)', value: 'high' },
+                                    { name: 'Medium (when convenient)', value: 'medium' },
+                                    { name: 'Low (background)', value: 'low' },
+                                ],
+                                default: 'medium',
+                            },
+                        ]);
+
+                        if (moreLanguages.length > 0) {
+                            const queueEstimate = usageTracker.calculateEstimate(
+                                scanResult.strings,
+                                moreLanguages,
+                                queueService,
+                                hasEmail
+                            );
+                            
+                            usageTracker.addToQueue(
+                                moreLanguages,
+                                queueService,
+                                queueEstimate.totalCharacters * moreLanguages.length,
+                                priority
+                            );
+                            
+                            console.log(chalk.green(`\n✅ Added ${moreLanguages.length} languages to queue`));
+                            console.log(chalk.gray('   Run "multilingual queue --process" to translate them'));
+                        }
+                    }
+                }
             }
         } else {
             spinner.fail('Translation failed');
