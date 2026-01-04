@@ -42,7 +42,216 @@ interface QualityReport {
 }
 
 // Extended translation service types
-export type ExtendedTranslationService = TranslationService | 'libretranslate' | 'lingva' | 'mymemory' | 'argos' | 'pseudo';
+export type ExtendedTranslationService = 
+    | TranslationService 
+    | 'libretranslate' | 'lingva' | 'mymemory' | 'argos' | 'pseudo'
+    // Local/Offline methods
+    | 'dictionary' | 'local'
+    // Creative/Fun methods  
+    | 'piglatin' | 'emoji' | 'leet' | 'reverse' | 'mirror' | 'uppercase' | 'morse' | 'nato';
+
+// Built-in dictionaries for common phrases (offline translation)
+const BUILT_IN_DICTIONARIES: Record<string, Record<string, Record<string, string>>> = {
+    en: {
+        es: {
+            'hello': 'hola', 'goodbye': 'adiós', 'yes': 'sí', 'no': 'no',
+            'please': 'por favor', 'thank you': 'gracias', 'thanks': 'gracias',
+            'welcome': 'bienvenido', 'sorry': 'lo siento', 'excuse me': 'disculpe',
+            'good morning': 'buenos días', 'good afternoon': 'buenas tardes',
+            'good evening': 'buenas noches', 'good night': 'buenas noches',
+            'how are you': 'cómo estás', 'i am fine': 'estoy bien',
+            'what is your name': 'cómo te llamas', 'my name is': 'me llamo',
+            'nice to meet you': 'mucho gusto', 'see you later': 'hasta luego',
+            'i love you': 'te quiero', 'help': 'ayuda', 'stop': 'pare',
+            'go': 'ir', 'come': 'ven', 'eat': 'comer', 'drink': 'beber',
+            'water': 'agua', 'food': 'comida', 'money': 'dinero',
+            'today': 'hoy', 'tomorrow': 'mañana', 'yesterday': 'ayer',
+            'now': 'ahora', 'later': 'después', 'never': 'nunca', 'always': 'siempre',
+            'here': 'aquí', 'there': 'allí', 'where': 'dónde', 'when': 'cuándo',
+            'why': 'por qué', 'how': 'cómo', 'what': 'qué', 'who': 'quién',
+            'this': 'esto', 'that': 'eso', 'these': 'estos', 'those': 'esos',
+            'i': 'yo', 'you': 'tú', 'he': 'él', 'she': 'ella', 'we': 'nosotros',
+            'they': 'ellos', 'it': 'eso', 'the': 'el', 'a': 'un', 'an': 'un',
+            'and': 'y', 'or': 'o', 'but': 'pero', 'if': 'si', 'then': 'entonces',
+            'because': 'porque', 'so': 'así que', 'very': 'muy', 'too': 'también',
+            'more': 'más', 'less': 'menos', 'many': 'muchos', 'few': 'pocos',
+            'all': 'todos', 'some': 'algunos', 'any': 'cualquier', 'none': 'ninguno',
+            'good': 'bueno', 'bad': 'malo', 'big': 'grande', 'small': 'pequeño',
+            'new': 'nuevo', 'old': 'viejo', 'young': 'joven', 'hot': 'caliente',
+            'cold': 'frío', 'happy': 'feliz', 'sad': 'triste', 'fast': 'rápido',
+            'slow': 'lento', 'easy': 'fácil', 'hard': 'difícil', 'open': 'abrir',
+            'close': 'cerrar', 'start': 'empezar', 'end': 'terminar', 'buy': 'comprar',
+            'sell': 'vender', 'give': 'dar', 'take': 'tomar', 'make': 'hacer',
+            'do': 'hacer', 'say': 'decir', 'speak': 'hablar', 'listen': 'escuchar',
+            'read': 'leer', 'write': 'escribir', 'learn': 'aprender', 'teach': 'enseñar',
+            'work': 'trabajar', 'play': 'jugar', 'run': 'correr', 'walk': 'caminar',
+            'sit': 'sentar', 'stand': 'estar de pie', 'sleep': 'dormir', 'wake': 'despertar',
+            'live': 'vivir', 'die': 'morir', 'love': 'amar', 'hate': 'odiar',
+            'want': 'querer', 'need': 'necesitar', 'like': 'gustar', 'know': 'saber',
+            'think': 'pensar', 'believe': 'creer', 'remember': 'recordar', 'forget': 'olvidar',
+            'try': 'intentar', 'use': 'usar', 'find': 'encontrar', 'get': 'obtener',
+            'put': 'poner', 'tell': 'decir', 'ask': 'preguntar', 'answer': 'responder',
+            'call': 'llamar', 'leave': 'salir', 'enter': 'entrar', 'wait': 'esperar',
+            'stay': 'quedarse', 'begin': 'comenzar', 'seem': 'parecer', 'show': 'mostrar',
+            'hear': 'oír', 'let': 'dejar', 'keep': 'mantener', 'set': 'establecer',
+            'bring': 'traer', 'happen': 'suceder', 'turn': 'girar', 'move': 'mover',
+            'must': 'deber', 'should': 'debería', 'would': 'haría', 'could': 'podría',
+            'can': 'puede', 'may': 'puede', 'will': 'voluntad', 'shall': 'deberá',
+        },
+        fr: {
+            'hello': 'bonjour', 'goodbye': 'au revoir', 'yes': 'oui', 'no': 'non',
+            'please': 's\'il vous plaît', 'thank you': 'merci', 'thanks': 'merci',
+            'welcome': 'bienvenue', 'sorry': 'désolé', 'excuse me': 'excusez-moi',
+            'good morning': 'bonjour', 'good afternoon': 'bon après-midi',
+            'good evening': 'bonsoir', 'good night': 'bonne nuit',
+            'how are you': 'comment allez-vous', 'i am fine': 'je vais bien',
+            'my name is': 'je m\'appelle', 'nice to meet you': 'enchanté',
+            'see you later': 'à plus tard', 'i love you': 'je t\'aime',
+            'help': 'aide', 'stop': 'arrêtez', 'water': 'eau', 'food': 'nourriture',
+            'today': 'aujourd\'hui', 'tomorrow': 'demain', 'yesterday': 'hier',
+        },
+        de: {
+            'hello': 'hallo', 'goodbye': 'auf wiedersehen', 'yes': 'ja', 'no': 'nein',
+            'please': 'bitte', 'thank you': 'danke', 'thanks': 'danke',
+            'welcome': 'willkommen', 'sorry': 'entschuldigung', 'excuse me': 'entschuldigen sie',
+            'good morning': 'guten morgen', 'good afternoon': 'guten tag',
+            'good evening': 'guten abend', 'good night': 'gute nacht',
+            'how are you': 'wie geht es ihnen', 'i am fine': 'mir geht es gut',
+            'my name is': 'ich heiße', 'nice to meet you': 'freut mich',
+            'see you later': 'bis später', 'i love you': 'ich liebe dich',
+            'help': 'hilfe', 'stop': 'halt', 'water': 'wasser', 'food': 'essen',
+        },
+        ja: {
+            'hello': 'こんにちは', 'goodbye': 'さようなら', 'yes': 'はい', 'no': 'いいえ',
+            'please': 'お願いします', 'thank you': 'ありがとう', 'thanks': 'ありがとう',
+            'welcome': 'ようこそ', 'sorry': 'ごめんなさい', 'excuse me': 'すみません',
+            'good morning': 'おはよう', 'good afternoon': 'こんにちは',
+            'good evening': 'こんばんは', 'good night': 'おやすみなさい',
+            'i love you': '愛しています', 'help': '助けて', 'water': '水',
+        },
+        zh: {
+            'hello': '你好', 'goodbye': '再见', 'yes': '是', 'no': '不',
+            'please': '请', 'thank you': '谢谢', 'thanks': '谢谢',
+            'welcome': '欢迎', 'sorry': '对不起', 'excuse me': '打扰一下',
+            'good morning': '早上好', 'good afternoon': '下午好',
+            'good evening': '晚上好', 'good night': '晚安',
+            'i love you': '我爱你', 'help': '帮助', 'water': '水',
+        },
+        ko: {
+            'hello': '안녕하세요', 'goodbye': '안녕히 가세요', 'yes': '네', 'no': '아니요',
+            'please': '제발', 'thank you': '감사합니다', 'thanks': '고마워요',
+            'welcome': '환영합니다', 'sorry': '미안합니다', 'i love you': '사랑해요',
+        },
+        ar: {
+            'hello': 'مرحبا', 'goodbye': 'مع السلامة', 'yes': 'نعم', 'no': 'لا',
+            'please': 'من فضلك', 'thank you': 'شكرا', 'welcome': 'أهلا وسهلا',
+            'sorry': 'آسف', 'i love you': 'أحبك', 'help': 'مساعدة',
+        },
+        ru: {
+            'hello': 'привет', 'goodbye': 'до свидания', 'yes': 'да', 'no': 'нет',
+            'please': 'пожалуйста', 'thank you': 'спасибо', 'welcome': 'добро пожаловать',
+            'sorry': 'извините', 'i love you': 'я тебя люблю', 'help': 'помощь',
+        },
+        pt: {
+            'hello': 'olá', 'goodbye': 'adeus', 'yes': 'sim', 'no': 'não',
+            'please': 'por favor', 'thank you': 'obrigado', 'welcome': 'bem-vindo',
+            'sorry': 'desculpe', 'i love you': 'eu te amo', 'help': 'ajuda',
+        },
+        it: {
+            'hello': 'ciao', 'goodbye': 'arrivederci', 'yes': 'sì', 'no': 'no',
+            'please': 'per favore', 'thank you': 'grazie', 'welcome': 'benvenuto',
+            'sorry': 'mi dispiace', 'i love you': 'ti amo', 'help': 'aiuto',
+        },
+    },
+};
+
+// Emoji mappings for common words
+const EMOJI_MAP: Record<string, string> = {
+    'hello': '👋', 'hi': '👋', 'hey': '👋', 'goodbye': '👋😢', 'bye': '👋',
+    'yes': '✅', 'no': '❌', 'maybe': '🤔', 'ok': '👍', 'okay': '👍',
+    'good': '👍', 'bad': '👎', 'great': '🎉', 'awesome': '🔥', 'amazing': '🤩',
+    'love': '❤️', 'heart': '❤️', 'like': '👍', 'hate': '😡', 'happy': '😊',
+    'sad': '😢', 'angry': '😠', 'laugh': '😂', 'cry': '😭', 'smile': '😊',
+    'think': '🤔', 'idea': '💡', 'question': '❓', 'answer': '💬', 'help': '🆘',
+    'warning': '⚠️', 'error': '❌', 'success': '✅', 'info': 'ℹ️', 'note': '📝',
+    'save': '💾', 'delete': '🗑️', 'edit': '✏️', 'add': '➕', 'remove': '➖',
+    'search': '🔍', 'find': '🔍', 'settings': '⚙️', 'config': '⚙️', 'user': '👤',
+    'users': '👥', 'home': '🏠', 'house': '🏠', 'work': '💼', 'office': '🏢',
+    'email': '📧', 'mail': '📧', 'phone': '📱', 'call': '📞', 'message': '💬',
+    'chat': '💬', 'send': '📤', 'receive': '📥', 'upload': '⬆️', 'download': '⬇️',
+    'file': '📄', 'folder': '📁', 'document': '📄', 'image': '🖼️', 'photo': '📷',
+    'video': '🎬', 'music': '🎵', 'audio': '🔊', 'play': '▶️', 'pause': '⏸️',
+    'stop': '⏹️', 'next': '⏭️', 'previous': '⏮️', 'fast': '⚡', 'slow': '🐢',
+    'time': '⏰', 'clock': '🕐', 'calendar': '📅', 'date': '📅', 'today': '📆',
+    'sun': '☀️', 'moon': '🌙', 'star': '⭐', 'weather': '🌤️', 'rain': '🌧️',
+    'snow': '❄️', 'hot': '🔥', 'cold': '🥶', 'fire': '🔥', 'water': '💧',
+    'food': '🍔', 'eat': '🍽️', 'drink': '🥤', 'coffee': '☕', 'pizza': '🍕',
+    'money': '💰', 'dollar': '💵', 'card': '💳', 'shop': '🛒', 'cart': '🛒',
+    'car': '🚗', 'bus': '🚌', 'train': '🚂', 'plane': '✈️', 'ship': '🚢',
+    'world': '🌍', 'globe': '🌍', 'map': '🗺️', 'location': '📍', 'pin': '📌',
+    'key': '🔑', 'lock': '🔒', 'unlock': '🔓', 'secure': '🔐', 'password': '🔑',
+    'book': '📚', 'read': '📖', 'write': '✍️', 'pen': '🖊️', 'pencil': '✏️',
+    'new': '🆕', 'free': '🆓', 'cool': '😎', 'top': '🔝',
+    'up': '⬆️', 'down': '⬇️', 'left': '⬅️', 'right': '➡️', 'back': '🔙',
+    'loading': '⏳', 'wait': '⏳', 'done': '✅', 'complete': '✅', 'finish': '🏁',
+    'start': '🚀', 'launch': '🚀', 'begin': '▶️', 'end': '🔚', 'exit': '🚪',
+    'dog': '🐕', 'cat': '🐱', 'bird': '🐦', 'fish': '🐟', 'animal': '🐾',
+    'tree': '🌳', 'flower': '🌸', 'plant': '🌱', 'nature': '🌿', 'garden': '🌻',
+    'gift': '🎁', 'party': '🎉', 'celebrate': '🎊', 'birthday': '🎂', 'cake': '🍰',
+    'game': '🎮', 'sport': '⚽', 'ball': '🏀', 'run': '🏃', 'walk': '🚶',
+    'sleep': '😴', 'dream': '💭', 'night': '🌙', 'morning': '🌅', 'day': '☀️',
+    'code': '💻', 'program': '👨‍💻', 'developer': '👨‍💻', 'bug': '🐛', 'fix': '🔧',
+    'rocket': '🚀', 'magic': '✨', 'sparkle': '✨', 'boom': '💥', 'zap': '⚡',
+};
+
+// NATO phonetic alphabet
+const NATO_ALPHABET: Record<string, string> = {
+    'a': 'Alpha', 'b': 'Bravo', 'c': 'Charlie', 'd': 'Delta', 'e': 'Echo',
+    'f': 'Foxtrot', 'g': 'Golf', 'h': 'Hotel', 'i': 'India', 'j': 'Juliet',
+    'k': 'Kilo', 'l': 'Lima', 'm': 'Mike', 'n': 'November', 'o': 'Oscar',
+    'p': 'Papa', 'q': 'Quebec', 'r': 'Romeo', 's': 'Sierra', 't': 'Tango',
+    'u': 'Uniform', 'v': 'Victor', 'w': 'Whiskey', 'x': 'X-ray', 'y': 'Yankee',
+    'z': 'Zulu', '0': 'Zero', '1': 'One', '2': 'Two', '3': 'Three', '4': 'Four',
+    '5': 'Five', '6': 'Six', '7': 'Seven', '8': 'Eight', '9': 'Nine',
+};
+
+// Morse code
+const MORSE_CODE: Record<string, string> = {
+    'a': '.-', 'b': '-...', 'c': '-.-.', 'd': '-..', 'e': '.', 'f': '..-.',
+    'g': '--.', 'h': '....', 'i': '..', 'j': '.---', 'k': '-.-', 'l': '.-..',
+    'm': '--', 'n': '-.', 'o': '---', 'p': '.--.', 'q': '--.-', 'r': '.-.',
+    's': '...', 't': '-', 'u': '..-', 'v': '...-', 'w': '.--', 'x': '-..-',
+    'y': '-.--', 'z': '--..', '0': '-----', '1': '.----', '2': '..---',
+    '3': '...--', '4': '....-', '5': '.....', '6': '-....', '7': '--...',
+    '8': '---..', '9': '----.', ' ': '/', '.': '.-.-.-', ',': '--..--',
+    '?': '..--..', '!': '-.-.--', "'": '.----.', '"': '.-..-.', ':': '---...',
+    ';': '-.-.-.', '=': '-...-', '+': '.-.-.', '-': '-....-', '/': '-..-.',
+    '(': '-.--.', ')': '-.--.-', '&': '.-...', '@': '.--.-.',
+};
+
+// L33t speak mappings
+const LEET_MAP: Record<string, string> = {
+    'a': '4', 'b': '8', 'c': '(', 'd': 'd', 'e': '3', 'f': 'f', 'g': '9',
+    'h': '#', 'i': '1', 'j': 'j', 'k': 'k', 'l': '1', 'm': 'm', 'n': 'n',
+    'o': '0', 'p': 'p', 'q': 'q', 'r': 'r', 's': '5', 't': '7', 'u': 'u',
+    'v': 'v', 'w': 'w', 'x': 'x', 'y': 'y', 'z': '2',
+};
+
+// Mirror/flip text mappings
+const MIRROR_MAP: Record<string, string> = {
+    'a': 'ɐ', 'b': 'q', 'c': 'ɔ', 'd': 'p', 'e': 'ǝ', 'f': 'ɟ', 'g': 'ƃ',
+    'h': 'ɥ', 'i': 'ᴉ', 'j': 'ɾ', 'k': 'ʞ', 'l': 'l', 'm': 'ɯ', 'n': 'u',
+    'o': 'o', 'p': 'd', 'q': 'b', 'r': 'ɹ', 's': 's', 't': 'ʇ', 'u': 'n',
+    'v': 'ʌ', 'w': 'ʍ', 'x': 'x', 'y': 'ʎ', 'z': 'z',
+    'A': '∀', 'B': 'q', 'C': 'Ɔ', 'D': 'p', 'E': 'Ǝ', 'F': 'Ⅎ', 'G': '⅁',
+    'H': 'H', 'I': 'I', 'J': 'ſ', 'K': '⋊', 'L': '˥', 'M': 'W', 'N': 'N',
+    'O': 'O', 'P': 'Ԁ', 'Q': 'Ọ', 'R': 'ᴚ', 'S': 'S', 'T': '⊥', 'U': '∩',
+    'V': 'Λ', 'W': 'M', 'X': 'X', 'Y': '⅄', 'Z': 'Z',
+    '1': 'Ɩ', '2': 'ᄅ', '3': 'Ɛ', '4': 'ㄣ', '5': 'ϛ', '6': '9', '7': 'ㄥ',
+    '8': '8', '9': '6', '0': '0', '.': '˙', ',': "'", '?': '¿', '!': '¡',
+    "'": ',', '"': '„', '(': ')', ')': '(', '[': ']', ']': '[', '{': '}', '}': '{',
+    '<': '>', '>': '<', '&': '⅋', '_': '‾',
+};
 
 export class TranslationManager {
     private config: MultilingualConfig;
@@ -278,6 +487,38 @@ export class TranslationManager {
                     break;
                 case 'pseudo':
                     result = this.generatePseudoTranslation(text);
+                    break;
+                // Local/Offline methods
+                case 'dictionary':
+                    result = this.translateWithDictionary(text, targetLanguage, source);
+                    break;
+                case 'local':
+                    result = this.translateWithLocalDictionary(text, targetLanguage, source);
+                    break;
+                // Creative/Fun methods
+                case 'piglatin':
+                    result = this.translateToPigLatin(text);
+                    break;
+                case 'emoji':
+                    result = this.translateToEmoji(text);
+                    break;
+                case 'leet':
+                    result = this.translateToLeet(text);
+                    break;
+                case 'reverse':
+                    result = this.translateToReverse(text);
+                    break;
+                case 'mirror':
+                    result = this.translateToMirror(text);
+                    break;
+                case 'uppercase':
+                    result = this.translateToUppercase(text);
+                    break;
+                case 'morse':
+                    result = this.translateToMorse(text);
+                    break;
+                case 'nato':
+                    result = this.translateToNato(text);
                     break;
                 default:
                     return {
@@ -572,6 +813,397 @@ export class TranslationManager {
 
         // Wrap in brackets for visibility
         return `[${pseudo}]`;
+    }
+
+    // =========================================================================
+    // LOCAL/OFFLINE TRANSLATION METHODS (NO INTERNET REQUIRED)
+    // =========================================================================
+
+    /**
+     * Translate using built-in dictionaries (completely offline)
+     * Best for common phrases - falls back to original if not found
+     */
+    private translateWithDictionary(
+        text: string,
+        targetLanguage: SupportedLanguage,
+        sourceLanguage: SupportedLanguage
+    ): string {
+        const dictionary = BUILT_IN_DICTIONARIES[sourceLanguage]?.[targetLanguage];
+        if (!dictionary) {
+            // No dictionary for this language pair, return original
+            return text;
+        }
+
+        const lowerText = text.toLowerCase().trim();
+        
+        // Try exact match first
+        if (dictionary[lowerText]) {
+            // Preserve original casing pattern
+            return this.matchCase(text, dictionary[lowerText]);
+        }
+
+        // Try word-by-word translation
+        const words = text.split(/(\s+)/);
+        let translated = '';
+        let anyTranslated = false;
+
+        for (const word of words) {
+            const lowerWord = word.toLowerCase();
+            if (dictionary[lowerWord]) {
+                translated += this.matchCase(word, dictionary[lowerWord]);
+                anyTranslated = true;
+            } else {
+                translated += word;
+            }
+        }
+
+        return anyTranslated ? translated : text;
+    }
+
+    /**
+     * Load and use a local JSON dictionary file
+     */
+    private translateWithLocalDictionary(
+        text: string,
+        targetLanguage: SupportedLanguage,
+        sourceLanguage: SupportedLanguage
+    ): string {
+        // Look for local dictionary files in .multilingual/dictionaries/
+        const dictPath = path.join(
+            this.config.projectRoot || process.cwd(),
+            '.multilingual',
+            'dictionaries',
+            `${sourceLanguage}-${targetLanguage}.json`
+        );
+
+        try {
+            if (fs.existsSync(dictPath)) {
+                const dictionary = JSON.parse(fs.readFileSync(dictPath, 'utf-8'));
+                const lowerText = text.toLowerCase().trim();
+                
+                if (dictionary[lowerText]) {
+                    return this.matchCase(text, dictionary[lowerText]);
+                }
+
+                // Word-by-word
+                const words = text.split(/(\s+)/);
+                let translated = '';
+                
+                for (const word of words) {
+                    const lowerWord = word.toLowerCase();
+                    translated += dictionary[lowerWord] 
+                        ? this.matchCase(word, dictionary[lowerWord]) 
+                        : word;
+                }
+                
+                return translated;
+            }
+        } catch {
+            // Ignore errors, fall back to built-in
+        }
+
+        // Fall back to built-in dictionary
+        return this.translateWithDictionary(text, targetLanguage, sourceLanguage);
+    }
+
+    /**
+     * Match the case pattern of the original text to the translation
+     */
+    private matchCase(original: string, translated: string): string {
+        if (original === original.toUpperCase()) {
+            return translated.toUpperCase();
+        }
+        if (original === original.toLowerCase()) {
+            return translated.toLowerCase();
+        }
+        if (original[0] === original[0].toUpperCase()) {
+            return translated.charAt(0).toUpperCase() + translated.slice(1).toLowerCase();
+        }
+        return translated;
+    }
+
+    // =========================================================================
+    // CREATIVE/FUN TRANSLATION METHODS (FOR TESTING & ENTERTAINMENT)
+    // =========================================================================
+
+    /**
+     * Convert text to Pig Latin
+     * "Hello World" → "Ellohay Orldway"
+     */
+    private translateToPigLatin(text: string): string {
+        const preservePattern = /(\{[^}]+\}|\{\{[^}]+\}\}|<[^>]+>|\$\{[^}]+\}|%[sd]|\$\w+)/g;
+        const preservedSegments: string[] = [];
+        let idx = 0;
+
+        const textWithPlaceholders = text.replace(preservePattern, (match) => {
+            preservedSegments.push(match);
+            return `\x00${idx++}\x00`;
+        });
+
+        const vowels = 'aeiouAEIOU';
+        const words = textWithPlaceholders.split(/(\s+)/);
+        
+        const pigLatinWords = words.map(word => {
+            // Skip whitespace
+            if (/^\s+$/.test(word)) return word;
+            // Skip placeholders
+            if (/^\x00\d+\x00$/.test(word)) return word;
+            
+            // Handle punctuation at end
+            const punctMatch = word.match(/^([a-zA-Z]+)([^a-zA-Z]*)$/);
+            if (!punctMatch) return word;
+            
+            const [, letters, punct] = punctMatch;
+            if (letters.length === 0) return word;
+
+            const isUpperFirst = letters[0] === letters[0].toUpperCase();
+            const lowerLetters = letters.toLowerCase();
+            
+            let result: string;
+            if (vowels.includes(lowerLetters[0])) {
+                result = lowerLetters + 'way';
+            } else {
+                // Find first vowel
+                let firstVowelIdx = -1;
+                for (let i = 0; i < lowerLetters.length; i++) {
+                    if (vowels.toLowerCase().includes(lowerLetters[i])) {
+                        firstVowelIdx = i;
+                        break;
+                    }
+                }
+                if (firstVowelIdx === -1) {
+                    result = lowerLetters + 'ay';
+                } else {
+                    result = lowerLetters.slice(firstVowelIdx) + lowerLetters.slice(0, firstVowelIdx) + 'ay';
+                }
+            }
+
+            if (isUpperFirst) {
+                result = result.charAt(0).toUpperCase() + result.slice(1);
+            }
+
+            return result + punct;
+        });
+
+        let pigLatin = pigLatinWords.join('');
+
+        // Restore preserved segments
+        for (let i = 0; i < preservedSegments.length; i++) {
+            pigLatin = pigLatin.replace(`\x00${i}\x00`, preservedSegments[i]);
+        }
+
+        return pigLatin;
+    }
+
+    /**
+     * Convert text to emoji representation
+     * "Hello World" → "👋 🌍"
+     */
+    private translateToEmoji(text: string): string {
+        const preservePattern = /(\{[^}]+\}|\{\{[^}]+\}\}|<[^>]+>|\$\{[^}]+\}|%[sd]|\$\w+)/g;
+        const preservedSegments: string[] = [];
+        let idx = 0;
+
+        const textWithPlaceholders = text.replace(preservePattern, (match) => {
+            preservedSegments.push(match);
+            return `\x00${idx++}\x00`;
+        });
+
+        const words = textWithPlaceholders.split(/(\s+)/);
+        const emojiWords = words.map(word => {
+            if (/^\s+$/.test(word)) return word;
+            if (/^\x00\d+\x00$/.test(word)) return word;
+            
+            const lowerWord = word.toLowerCase().replace(/[^a-z]/g, '');
+            return EMOJI_MAP[lowerWord] || word;
+        });
+
+        let result = emojiWords.join('');
+
+        // Restore preserved segments
+        for (let i = 0; i < preservedSegments.length; i++) {
+            result = result.replace(`\x00${i}\x00`, preservedSegments[i]);
+        }
+
+        return result;
+    }
+
+    /**
+     * Convert text to l33t speak
+     * "Hello" → "#3110"
+     */
+    private translateToLeet(text: string): string {
+        const preservePattern = /(\{[^}]+\}|\{\{[^}]+\}\}|<[^>]+>|\$\{[^}]+\}|%[sd]|\$\w+)/g;
+        const preservedSegments: string[] = [];
+        let idx = 0;
+
+        const textWithPlaceholders = text.replace(preservePattern, (match) => {
+            preservedSegments.push(match);
+            return `\x00${idx++}\x00`;
+        });
+
+        let leet = '';
+        for (const char of textWithPlaceholders) {
+            const lower = char.toLowerCase();
+            leet += LEET_MAP[lower] || char;
+        }
+
+        // Restore preserved segments
+        for (let i = 0; i < preservedSegments.length; i++) {
+            leet = leet.replace(`\x00${i}\x00`, preservedSegments[i]);
+        }
+
+        return leet;
+    }
+
+    /**
+     * Reverse text (useful for RTL testing)
+     * "Hello" → "olleH"
+     */
+    private translateToReverse(text: string): string {
+        const preservePattern = /(\{[^}]+\}|\{\{[^}]+\}\}|<[^>]+>|\$\{[^}]+\}|%[sd]|\$\w+)/g;
+        const preservedSegments: string[] = [];
+        let idx = 0;
+
+        const textWithPlaceholders = text.replace(preservePattern, (match) => {
+            preservedSegments.push(match);
+            return `\x00${idx++}\x00`;
+        });
+
+        // Reverse while keeping placeholders in order
+        const reversed = textWithPlaceholders.split('').reverse().join('');
+
+        // Restore preserved segments (in reverse order since text is reversed)
+        let result = reversed;
+        for (let i = preservedSegments.length - 1; i >= 0; i--) {
+            result = result.replace(`\x00${i}\x00`, preservedSegments[i]);
+        }
+
+        return result;
+    }
+
+    /**
+     * Mirror/flip text upside down
+     * "Hello" → "oןןǝH"
+     */
+    private translateToMirror(text: string): string {
+        const preservePattern = /(\{[^}]+\}|\{\{[^}]+\}\}|<[^>]+>|\$\{[^}]+\}|%[sd]|\$\w+)/g;
+        const preservedSegments: string[] = [];
+        let idx = 0;
+
+        const textWithPlaceholders = text.replace(preservePattern, (match) => {
+            preservedSegments.push(match);
+            return `\x00${idx++}\x00`;
+        });
+
+        let mirror = '';
+        for (const char of textWithPlaceholders) {
+            mirror += MIRROR_MAP[char] || char;
+        }
+
+        // Reverse the string as well (upside down reading)
+        mirror = mirror.split('').reverse().join('');
+
+        // Restore preserved segments
+        for (let i = 0; i < preservedSegments.length; i++) {
+            mirror = mirror.replace(`\x00${i}\x00`, preservedSegments[i]);
+        }
+
+        return mirror;
+    }
+
+    /**
+     * Convert text to UPPERCASE (for emphasis testing)
+     */
+    private translateToUppercase(text: string): string {
+        const preservePattern = /(\{[^}]+\}|\{\{[^}]+\}\}|<[^>]+>|\$\{[^}]+\}|%[sd]|\$\w+)/g;
+        const preservedSegments: string[] = [];
+        let idx = 0;
+
+        const textWithPlaceholders = text.replace(preservePattern, (match) => {
+            preservedSegments.push(match);
+            return `\x00${idx++}\x00`;
+        });
+
+        let upper = textWithPlaceholders.toUpperCase();
+
+        // Restore preserved segments
+        for (let i = 0; i < preservedSegments.length; i++) {
+            upper = upper.replace(`\x00${i}\x00`, preservedSegments[i]);
+        }
+
+        return upper;
+    }
+
+    /**
+     * Convert text to Morse code
+     * "Hello" → ".... . .-.. .-.. ---"
+     */
+    private translateToMorse(text: string): string {
+        const preservePattern = /(\{[^}]+\}|\{\{[^}]+\}\}|<[^>]+>|\$\{[^}]+\}|%[sd]|\$\w+)/g;
+        const preservedSegments: string[] = [];
+        let idx = 0;
+
+        const textWithPlaceholders = text.replace(preservePattern, (match) => {
+            preservedSegments.push(match);
+            return `\x00${idx++}\x00`;
+        });
+
+        const morseChars: string[] = [];
+        for (const char of textWithPlaceholders.toLowerCase()) {
+            if (char === '\x00') {
+                // Handle placeholder markers
+                morseChars.push(char);
+            } else {
+                morseChars.push(MORSE_CODE[char] || char);
+            }
+        }
+
+        let morse = morseChars.join(' ').replace(/  +/g, ' / ');
+
+        // Restore preserved segments
+        for (let i = 0; i < preservedSegments.length; i++) {
+            morse = morse.replace(`\x00 ${i} \x00`, preservedSegments[i]);
+        }
+
+        return morse;
+    }
+
+    /**
+     * Convert text to NATO phonetic alphabet
+     * "Hello" → "Hotel Echo Lima Lima Oscar"
+     */
+    private translateToNato(text: string): string {
+        const preservePattern = /(\{[^}]+\}|\{\{[^}]+\}\}|<[^>]+>|\$\{[^}]+\}|%[sd]|\$\w+)/g;
+        const preservedSegments: string[] = [];
+        let idx = 0;
+
+        const textWithPlaceholders = text.replace(preservePattern, (match) => {
+            preservedSegments.push(match);
+            return `\x00${idx++}\x00`;
+        });
+
+        const natoWords: string[] = [];
+        for (const char of textWithPlaceholders.toLowerCase()) {
+            if (char === ' ') {
+                natoWords.push('/');
+            } else if (char === '\x00') {
+                natoWords.push(char);
+            } else if (NATO_ALPHABET[char]) {
+                natoWords.push(NATO_ALPHABET[char]);
+            } else {
+                natoWords.push(char);
+            }
+        }
+
+        let nato = natoWords.join(' ');
+
+        // Restore preserved segments
+        for (let i = 0; i < preservedSegments.length; i++) {
+            nato = nato.replace(`\x00 ${i} \x00`, preservedSegments[i]);
+        }
+
+        return nato;
     }
 
     // =========================================================================

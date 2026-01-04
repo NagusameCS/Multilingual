@@ -1,6 +1,6 @@
 # 🌐 Multilingual CLI v2.0
 
-**Automated i18n with FREE translation options** — 6 translation services (4 free!), 37 languages, multiple export formats, watch mode, and more.
+**Automated i18n with FREE translation options** — 15+ translation methods (12 free!), 37 languages, offline mode, multiple export formats, and more.
 
 [![npm version](https://img.shields.io/npm/v/multilingual-cli.svg)](https://www.npmjs.com/package/multilingual-cli)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
@@ -9,7 +9,9 @@
 
 ## ✨ What's New in v2.0
 
-- **🆓 4 Free Translation Services** — No billing required!
+- **🆓 12 Free Translation Methods** — No billing required!
+- **📂 Offline Translation** — Built-in dictionaries, no internet needed
+- **🎨 Creative Modes** — Pig Latin, Emoji, L33t, Morse Code, NATO phonetic
 - **📊 Statistics & Cost Estimation** — Plan before you translate
 - **📦 Multiple Export Formats** — XLIFF, PO/gettext, CSV, Android, iOS, ARB
 - **👀 Watch Mode** — Auto-translate during development

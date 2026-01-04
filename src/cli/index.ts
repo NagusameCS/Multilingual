@@ -303,7 +303,7 @@ program
     .requiredOption('-s, --source <file>', 'Source JSON file path')
     .requiredOption('-o, --output <dir>', 'Output directory for translated files')
     .option('-t, --targets <langs>', 'Comma-separated target language codes')
-    .option('--service <service>', 'Translation service (libretranslate|lingva|mymemory|pseudo|deepl|google)', 'lingva')
+    .option('--service <service>', 'Translation service (lingva|mymemory|libretranslate|pseudo|dictionary|local|piglatin|emoji|leet|reverse|mirror|morse|nato|deepl|google)', 'lingva')
     .option('--api-key <key>', 'API key for translation service (optional for free services)')
     .option('--source-lang <lang>', 'Source language code', 'en')
     .action(async (options) => {
@@ -326,7 +326,12 @@ program
 
         // Show service info
         const service = options.service as ExtendedTranslationService;
-        const isFreeService = ['libretranslate', 'lingva', 'mymemory', 'pseudo'].includes(service);
+        const freeServices = [
+            'libretranslate', 'lingva', 'mymemory', 'pseudo',
+            'dictionary', 'local', 'piglatin', 'emoji', 'leet', 
+            'reverse', 'mirror', 'uppercase', 'morse', 'nato'
+        ];
+        const isFreeService = freeServices.includes(service);
 
         console.log(chalk.blue(`\n📂 Source file: ${chalk.bold(sourcePath)}`));
         console.log(chalk.blue(`📁 Output directory: ${chalk.bold(options.output)}`));
@@ -632,15 +637,39 @@ program
 
         console.log(chalk.blue('\n📋 Available Translation Services\n'));
 
-        console.log(chalk.green.bold('🆓 FREE (No billing required):'));
-        console.log(`   ${chalk.bold('libretranslate')} - Open source, uses public instances`);
-        console.log(chalk.gray('      No API key needed. Unlimited usage via public instances.'));
-        console.log(`   ${chalk.bold('lingva')} - Privacy-focused Google Translate proxy`);
-        console.log(chalk.gray('      No API key needed. No tracking.'));
+        console.log(chalk.green.bold('� FREE ONLINE (No billing required):'));
+        console.log(`   ${chalk.bold('lingva')} - Privacy-focused Google Translate proxy ${chalk.green('[RECOMMENDED]')}`);
+        console.log(chalk.gray('      No API key needed. No tracking. Most reliable.'));
         console.log(`   ${chalk.bold('mymemory')} - Free translation memory`);
         console.log(chalk.gray('      10,000 chars/day free. 100,000 with email registration.'));
-        console.log(`   ${chalk.bold('pseudo')} - Pseudo-localization for testing`);
-        console.log(chalk.gray('      Generates fake translations like [Ḥḛŀŀő Ẇőřŀḓ]'));
+        console.log(`   ${chalk.bold('libretranslate')} - Open source, uses public instances`);
+        console.log(chalk.gray('      No API key needed. May be slow or unavailable.'));
+
+        console.log(chalk.cyan.bold('\n📂 OFFLINE (No internet required):'));
+        console.log(`   ${chalk.bold('dictionary')} - Built-in phrase dictionary`);
+        console.log(chalk.gray('      Common phrases in 10 languages. No API calls.'));
+        console.log(`   ${chalk.bold('local')} - Custom local JSON dictionaries`);
+        console.log(chalk.gray('      Uses .multilingual/dictionaries/*.json files.'));
+
+        console.log(chalk.magenta.bold('\n🎨 CREATIVE (For testing & fun):'));
+        console.log(`   ${chalk.bold('pseudo')} - Pseudo-localization`);
+        console.log(chalk.gray('      [Ḥḛŀŀő Ẇőřŀḓ~~~] - Tests UI string expansion.'));
+        console.log(`   ${chalk.bold('piglatin')} - Pig Latin translation`);
+        console.log(chalk.gray('      "Hello World" → "Ellohay Orldway"'));
+        console.log(`   ${chalk.bold('emoji')} - Emoji translation`);
+        console.log(chalk.gray('      "Hello" → "👋" - Words to emojis.'));
+        console.log(`   ${chalk.bold('leet')} - L33t speak`);
+        console.log(chalk.gray('      "Hello" → "#3110" - Hacker style.'));
+        console.log(`   ${chalk.bold('reverse')} - Reversed text (RTL testing)`);
+        console.log(chalk.gray('      "Hello" → "olleH" - Tests RTL layouts.'));
+        console.log(`   ${chalk.bold('mirror')} - Upside-down text`);
+        console.log(chalk.gray('      "Hello" → "oןןǝH" - Flipped characters.'));
+        console.log(`   ${chalk.bold('morse')} - Morse code`);
+        console.log(chalk.gray('      "Hi" → ".... .." - Dots and dashes.'));
+        console.log(`   ${chalk.bold('nato')} - NATO phonetic alphabet`);
+        console.log(chalk.gray('      "Hi" → "Hotel India" - Aviation alphabet.'));
+        console.log(`   ${chalk.bold('uppercase')} - UPPERCASE transformation`);
+        console.log(chalk.gray('      "Hello" → "HELLO" - Emphasis testing.'));
 
         console.log(chalk.yellow.bold('\n💳 PAID (Free tier available):'));
         console.log(`   ${chalk.bold('deepl')} - High quality neural translation`);
