@@ -1189,13 +1189,23 @@
         let currentDemoLang = 'es';
         let isTranslating = false;
 
+        // Fetch with timeout
+        function fetchWithTimeout(url, timeout = 3000) {
+            return Promise.race([
+                fetch(url),
+                new Promise((_, reject) => 
+                    setTimeout(() => reject(new Error('Timeout')), timeout)
+                )
+            ]);
+        }
+
         async function translateWithLingva(text, targetLang, sourceLang = 'en') {
             const cacheKey = `${sourceLang}:${targetLang}:${text}`;
             if (demoCache[cacheKey]) {
                 return demoCache[cacheKey];
             }
 
-            // Special handling for creative modes
+            // Special handling for creative modes (instant!)
             if (targetLang === 'piglatin') {
                 const result = toPigLatin(text);
                 demoCache[cacheKey] = result;
@@ -1207,31 +1217,31 @@
                 return result;
             }
 
-            // List of Lingva instances to try (lunar.icu works best)
+            // Race multiple instances in parallel - fastest wins!
             const instances = [
                 'lingva.lunar.icu',
-                'lingva.garuber.eu',
-                'translate.plausibility.cloud'
+                'lingva.garuber.eu'
             ];
 
-            for (const instance of instances) {
-                try {
-                    const response = await fetch(`https://${instance}/api/v1/${sourceLang}/${targetLang}/${encodeURIComponent(text)}`);
-                    if (!response.ok) continue;
-                    const data = await response.json();
-                    if (data.translation) {
-                        demoCache[cacheKey] = data.translation;
+            try {
+                const result = await Promise.any(
+                    instances.map(async (instance) => {
+                        const response = await fetchWithTimeout(
+                            `https://${instance}/api/v1/${sourceLang}/${targetLang}/${encodeURIComponent(text)}`,
+                            3000
+                        );
+                        if (!response.ok) throw new Error('Bad response');
+                        const data = await response.json();
+                        if (!data.translation) throw new Error('No translation');
                         return data.translation;
-                    }
-                } catch (error) {
-                    console.error(`Lingva ${instance} error:`, error);
-                    continue;
-                }
+                    })
+                );
+                demoCache[cacheKey] = result;
+                return result;
+            } catch (error) {
+                console.error('All Lingva instances failed:', error);
+                return text;
             }
-
-            // All instances failed, return original
-            console.error('All Lingva instances failed');
-            return text;
         }
 
         function initDemo() {
