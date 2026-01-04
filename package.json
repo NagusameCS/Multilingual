@@ -1,6 +1,6 @@
 {
     "name": "multilingual-cli",
-    "version": "2.0.6",
+    "version": "2.0.7",
     "description": "Multilingual - Automated i18n with FREE translation options. 6 translation services (4 free, 2 paid), 37 languages, multiple export formats, watch mode, translation memory.",
     "main": "dist/index.js",
     "types": "dist/index.d.ts",
