@@ -37,7 +37,7 @@ const program = new Command();
 // ASCII Art Banner
 const banner = `
 ${chalk.cyan('╔════════════════════════════════════════════════════════════╗')}
-${chalk.cyan('║')}  ${chalk.bold.white('🌐 multilingual-cli')} ${chalk.gray('v2.0.3')}                            ${chalk.cyan('║')}
+${chalk.cyan('║')}  ${chalk.bold.white('🌐 multilingual-cli')} ${chalk.gray('v2.0.5')}                            ${chalk.cyan('║')}
 ${chalk.cyan('║')}  ${chalk.gray('Automated internationalization for any project')}            ${chalk.cyan('║')}
 ${chalk.cyan('╚════════════════════════════════════════════════════════════╝')}
 `;
@@ -45,7 +45,7 @@ ${chalk.cyan('╚═════════════════════
 program
     .name('multilingual')
     .description('Automated i18n detection and translation tool with free translation options')
-    .version('2.0.3');
+    .version('2.0.5');
 
 /**
  * Init command - Interactive setup wizard
@@ -404,7 +404,7 @@ program
                     const avgTimePerLang = elapsed / languagesCompleted;
                     const remainingLangs = totalLanguages - languagesCompleted;
                     const eta = Math.round(avgTimePerLang * remainingLangs);
-                    
+
                     const etaText = remainingLangs > 0 ? ` • ETA: ${formatTime(eta)}` : '';
                     spinner.text = `Translating to ${lang}... (${languagesCompleted}/${totalLanguages})${etaText}`;
                 }
@@ -419,7 +419,7 @@ program
         } catch {
             // Silently ignore
         }
-        
+
         // Remove interrupt handler
         process.removeListener('SIGINT', handleInterrupt);
 

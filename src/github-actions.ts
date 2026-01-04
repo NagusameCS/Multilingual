@@ -7,51 +7,51 @@ import * as path from 'path';
 import { MultilingualConfig, DEFAULT_CONFIG } from './types';
 
 export class GitHubActionsSetup {
-    private config: MultilingualConfig;
-    private workflowDir: string;
+  private config: MultilingualConfig;
+  private workflowDir: string;
 
-    constructor(config: Partial<MultilingualConfig> = {}) {
-        this.config = { ...DEFAULT_CONFIG, ...config };
-        this.workflowDir = path.join(this.config.projectRoot, '.github', 'workflows');
+  constructor(config: Partial<MultilingualConfig> = {}) {
+    this.config = { ...DEFAULT_CONFIG, ...config };
+    this.workflowDir = path.join(this.config.projectRoot, '.github', 'workflows');
+  }
+
+  /**
+   * Create GitHub Actions workflow for auto-translation
+   */
+  createWorkflow(): { success: boolean; filePath: string; message: string } {
+    try {
+      // Ensure .github/workflows directory exists
+      this.ensureDirectoryExists(this.workflowDir);
+
+      const workflowPath = path.join(this.workflowDir, 'multilingual-auto-translate.yml');
+      const workflowContent = this.generateWorkflowContent();
+
+      fs.writeFileSync(workflowPath, workflowContent, 'utf-8');
+
+      return {
+        success: true,
+        filePath: workflowPath,
+        message: 'GitHub Actions workflow created successfully!',
+      };
+    } catch (error) {
+      return {
+        success: false,
+        filePath: '',
+        message: `Failed to create workflow: ${error instanceof Error ? error.message : 'Unknown error'}`,
+      };
     }
+  }
 
-    /**
-     * Create GitHub Actions workflow for auto-translation
-     */
-    createWorkflow(): { success: boolean; filePath: string; message: string } {
-        try {
-            // Ensure .github/workflows directory exists
-            this.ensureDirectoryExists(this.workflowDir);
+  /**
+   * Generate the workflow YAML content
+   */
+  private generateWorkflowContent(): string {
+    const serviceName = this.config.translationService === 'deepl' ? 'DeepL' : 'Google';
+    const apiKeyEnvVar = this.config.translationService === 'deepl'
+      ? 'DEEPL_API_KEY'
+      : 'GOOGLE_TRANSLATE_API_KEY';
 
-            const workflowPath = path.join(this.workflowDir, 'multilingual-auto-translate.yml');
-            const workflowContent = this.generateWorkflowContent();
-
-            fs.writeFileSync(workflowPath, workflowContent, 'utf-8');
-
-            return {
-                success: true,
-                filePath: workflowPath,
-                message: 'GitHub Actions workflow created successfully!',
-            };
-        } catch (error) {
-            return {
-                success: false,
-                filePath: '',
-                message: `Failed to create workflow: ${error instanceof Error ? error.message : 'Unknown error'}`,
-            };
-        }
-    }
-
-    /**
-     * Generate the workflow YAML content
-     */
-    private generateWorkflowContent(): string {
-        const serviceName = this.config.translationService === 'deepl' ? 'DeepL' : 'Google';
-        const apiKeyEnvVar = this.config.translationService === 'deepl'
-            ? 'DEEPL_API_KEY'
-            : 'GOOGLE_TRANSLATE_API_KEY';
-
-        return `# multilingual-cli - Automated Translation Workflow
+    return `# multilingual-cli - Automated Translation Workflow
 # This workflow automatically detects new content and translates it on every push
 
 name: Multilingual Auto-Translate
@@ -156,43 +156,43 @@ jobs:
             echo "No changes detected." >> $GITHUB_STEP_SUMMARY
           fi
 `;
+  }
+
+  /**
+   * Create a PR-based workflow (for safer updates)
+   */
+  createPRWorkflow(): { success: boolean; filePath: string; message: string } {
+    try {
+      this.ensureDirectoryExists(this.workflowDir);
+
+      const workflowPath = path.join(this.workflowDir, 'multilingual-translation-pr.yml');
+      const workflowContent = this.generatePRWorkflowContent();
+
+      fs.writeFileSync(workflowPath, workflowContent, 'utf-8');
+
+      return {
+        success: true,
+        filePath: workflowPath,
+        message: 'PR-based workflow created successfully!',
+      };
+    } catch (error) {
+      return {
+        success: false,
+        filePath: '',
+        message: `Failed to create workflow: ${error instanceof Error ? error.message : 'Unknown error'}`,
+      };
     }
+  }
 
-    /**
-     * Create a PR-based workflow (for safer updates)
-     */
-    createPRWorkflow(): { success: boolean; filePath: string; message: string } {
-        try {
-            this.ensureDirectoryExists(this.workflowDir);
+  /**
+   * Generate PR-based workflow content
+   */
+  private generatePRWorkflowContent(): string {
+    const apiKeyEnvVar = this.config.translationService === 'deepl'
+      ? 'DEEPL_API_KEY'
+      : 'GOOGLE_TRANSLATE_API_KEY';
 
-            const workflowPath = path.join(this.workflowDir, 'multilingual-translation-pr.yml');
-            const workflowContent = this.generatePRWorkflowContent();
-
-            fs.writeFileSync(workflowPath, workflowContent, 'utf-8');
-
-            return {
-                success: true,
-                filePath: workflowPath,
-                message: 'PR-based workflow created successfully!',
-            };
-        } catch (error) {
-            return {
-                success: false,
-                filePath: '',
-                message: `Failed to create workflow: ${error instanceof Error ? error.message : 'Unknown error'}`,
-            };
-        }
-    }
-
-    /**
-     * Generate PR-based workflow content
-     */
-    private generatePRWorkflowContent(): string {
-        const apiKeyEnvVar = this.config.translationService === 'deepl'
-            ? 'DEEPL_API_KEY'
-            : 'GOOGLE_TRANSLATE_API_KEY';
-
-        return `# multilingual-cli - Translation PR Workflow
+    return `# multilingual-cli - Translation PR Workflow
 # Creates a pull request with translation updates instead of direct commits
 
 name: Multilingual Translation PR
@@ -269,17 +269,17 @@ jobs:
             translations
             automated
 `;
-    }
+  }
 
-    /**
-     * Create a validation workflow for PRs
-     */
-    createValidationWorkflow(): { success: boolean; filePath: string; message: string } {
-        try {
-            this.ensureDirectoryExists(this.workflowDir);
+  /**
+   * Create a validation workflow for PRs
+   */
+  createValidationWorkflow(): { success: boolean; filePath: string; message: string } {
+    try {
+      this.ensureDirectoryExists(this.workflowDir);
 
-            const workflowPath = path.join(this.workflowDir, 'multilingual-validate.yml');
-            const workflowContent = `# multilingual-cli - Validation Workflow
+      const workflowPath = path.join(this.workflowDir, 'multilingual-validate.yml');
+      const workflowContent = `# multilingual-cli - Validation Workflow
 # Validates translation files and checks for missing translations
 
 name: Validate Translations
@@ -331,64 +331,64 @@ jobs:
             })
 `;
 
-            fs.writeFileSync(workflowPath, workflowContent, 'utf-8');
+      fs.writeFileSync(workflowPath, workflowContent, 'utf-8');
 
-            return {
-                success: true,
-                filePath: workflowPath,
-                message: 'Validation workflow created successfully!',
-            };
-        } catch (error) {
-            return {
-                success: false,
-                filePath: '',
-                message: `Failed to create workflow: ${error instanceof Error ? error.message : 'Unknown error'}`,
-            };
+      return {
+        success: true,
+        filePath: workflowPath,
+        message: 'Validation workflow created successfully!',
+      };
+    } catch (error) {
+      return {
+        success: false,
+        filePath: '',
+        message: `Failed to create workflow: ${error instanceof Error ? error.message : 'Unknown error'}`,
+      };
+    }
+  }
+
+  /**
+   * Check if GitHub Actions is already set up
+   */
+  isSetUp(): boolean {
+    const workflowPath = path.join(this.workflowDir, 'multilingual-auto-translate.yml');
+    return fs.existsSync(workflowPath);
+  }
+
+  /**
+   * Remove GitHub Actions workflow
+   */
+  removeWorkflow(): boolean {
+    try {
+      const files = [
+        'multilingual-auto-translate.yml',
+        'multilingual-translation-pr.yml',
+        'multilingual-validate.yml',
+      ];
+
+      for (const file of files) {
+        const filePath = path.join(this.workflowDir, file);
+        if (fs.existsSync(filePath)) {
+          fs.unlinkSync(filePath);
         }
+      }
+
+      return true;
+    } catch (error) {
+      console.error('Error removing workflows:', error);
+      return false;
     }
+  }
 
-    /**
-     * Check if GitHub Actions is already set up
-     */
-    isSetUp(): boolean {
-        const workflowPath = path.join(this.workflowDir, 'multilingual-auto-translate.yml');
-        return fs.existsSync(workflowPath);
-    }
+  /**
+   * Get setup instructions for repository secrets
+   */
+  getSecretsInstructions(): string {
+    const apiKeyName = this.config.translationService === 'deepl'
+      ? 'DEEPL_API_KEY'
+      : 'GOOGLE_TRANSLATE_API_KEY';
 
-    /**
-     * Remove GitHub Actions workflow
-     */
-    removeWorkflow(): boolean {
-        try {
-            const files = [
-                'multilingual-auto-translate.yml',
-                'multilingual-translation-pr.yml',
-                'multilingual-validate.yml',
-            ];
-
-            for (const file of files) {
-                const filePath = path.join(this.workflowDir, file);
-                if (fs.existsSync(filePath)) {
-                    fs.unlinkSync(filePath);
-                }
-            }
-
-            return true;
-        } catch (error) {
-            console.error('Error removing workflows:', error);
-            return false;
-        }
-    }
-
-    /**
-     * Get setup instructions for repository secrets
-     */
-    getSecretsInstructions(): string {
-        const apiKeyName = this.config.translationService === 'deepl'
-            ? 'DEEPL_API_KEY'
-            : 'GOOGLE_TRANSLATE_API_KEY';
-
-        return `
+    return `
 ╔════════════════════════════════════════════════════════════════════╗
 ║              GitHub Repository Secrets Setup                        ║
 ╠════════════════════════════════════════════════════════════════════╣
@@ -417,37 +417,37 @@ jobs:
 ║                                                                      ║
 ╚════════════════════════════════════════════════════════════════════╝
 `;
-    }
+  }
 
-    /**
-     * Ensure directory exists
-     */
-    private ensureDirectoryExists(dirPath: string): void {
-        if (!fs.existsSync(dirPath)) {
-            fs.mkdirSync(dirPath, { recursive: true });
+  /**
+   * Ensure directory exists
+   */
+  private ensureDirectoryExists(dirPath: string): void {
+    if (!fs.existsSync(dirPath)) {
+      fs.mkdirSync(dirPath, { recursive: true });
+    }
+  }
+
+  /**
+   * Create Dependabot config for keeping the package updated
+   */
+  createDependabotConfig(): { success: boolean; filePath: string } {
+    try {
+      const dependabotDir = path.join(this.config.projectRoot, '.github');
+      this.ensureDirectoryExists(dependabotDir);
+
+      const dependabotPath = path.join(dependabotDir, 'dependabot.yml');
+
+      // Check if file exists and has npm config
+      let content = '';
+      if (fs.existsSync(dependabotPath)) {
+        content = fs.readFileSync(dependabotPath, 'utf-8');
+        if (content.includes('package-ecosystem: "npm"')) {
+          return { success: true, filePath: dependabotPath };
         }
-    }
+      }
 
-    /**
-     * Create Dependabot config for keeping the package updated
-     */
-    createDependabotConfig(): { success: boolean; filePath: string } {
-        try {
-            const dependabotDir = path.join(this.config.projectRoot, '.github');
-            this.ensureDirectoryExists(dependabotDir);
-
-            const dependabotPath = path.join(dependabotDir, 'dependabot.yml');
-
-            // Check if file exists and has npm config
-            let content = '';
-            if (fs.existsSync(dependabotPath)) {
-                content = fs.readFileSync(dependabotPath, 'utf-8');
-                if (content.includes('package-ecosystem: "npm"')) {
-                    return { success: true, filePath: dependabotPath };
-                }
-            }
-
-            const dependabotContent = `version: 2
+      const dependabotContent = `version: 2
 updates:
   - package-ecosystem: "npm"
     directory: "/"
@@ -463,11 +463,11 @@ updates:
           - "multilingual-auto-i18n"
 `;
 
-            fs.writeFileSync(dependabotPath, dependabotContent, 'utf-8');
+      fs.writeFileSync(dependabotPath, dependabotContent, 'utf-8');
 
-            return { success: true, filePath: dependabotPath };
-        } catch (error) {
-            return { success: false, filePath: '' };
-        }
+      return { success: true, filePath: dependabotPath };
+    } catch (error) {
+      return { success: false, filePath: '' };
     }
+  }
 }
