@@ -673,6 +673,8 @@ export class TranslationManager {
     /**
      * Translate using Lingva Translate (FREE, no API key required)
      * Privacy-focused Google Translate frontend
+     * NOTE: Many Lingva instances are now behind Cloudflare protection.
+     * Consider using 'mymemory' as a more reliable free alternative.
      */
     private async translateWithLingva(
         text: string,
@@ -697,7 +699,14 @@ export class TranslationManager {
                 );
 
                 if (response.data?.translation) {
-                    return response.data.translation;
+                    const translated = response.data.translation;
+
+                    // Detect if translation failed (returned same text or HTML)
+                    if (translated === text || translated.includes('<!DOCTYPE') || translated.includes('<html')) {
+                        throw new Error(`Lingva instance ${instance} returned invalid response`);
+                    }
+
+                    return translated;
                 }
             } catch (error) {
                 lastError = error instanceof Error ? error : new Error('Unknown error');
@@ -705,7 +714,7 @@ export class TranslationManager {
             }
         }
 
-        throw lastError || new Error('All Lingva instances failed');
+        throw lastError || new Error('All Lingva instances failed. Try using "mymemory" service instead.');
     }
 
     /**

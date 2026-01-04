@@ -1,0 +1,21 @@
+{
+  "version": "1.0",
+  "entries": [
+    {
+      "source": "Hello World",
+      "target": "Hola mundo",
+      "sourceLang": "en",
+      "targetLang": "es",
+      "service": "mymemory",
+      "timestamp": 1767513500061
+    },
+    {
+      "source": "Goodbye",
+      "target": "Adiós",
+      "sourceLang": "en",
+      "targetLang": "es",
+      "service": "mymemory",
+      "timestamp": 1767513500523
+    }
+  ]
+}

@@ -37,7 +37,7 @@ const program = new Command();
 // ASCII Art Banner
 const banner = `
 ${chalk.cyan('╔════════════════════════════════════════════════════════════╗')}
-${chalk.cyan('║')}  ${chalk.bold.white('🌐 multilingual-cli')} ${chalk.gray('v2.0.6')}                            ${chalk.cyan('║')}
+${chalk.cyan('║')}  ${chalk.bold.white('🌐 multilingual-cli')} ${chalk.gray('v2.0.8')}                            ${chalk.cyan('║')}
 ${chalk.cyan('║')}  ${chalk.gray('Automated internationalization for any project')}            ${chalk.cyan('║')}
 ${chalk.cyan('╚════════════════════════════════════════════════════════════╝')}
 `;
@@ -45,7 +45,7 @@ ${chalk.cyan('╚═════════════════════
 program
     .name('multilingual')
     .description('Automated i18n detection and translation tool with free translation options')
-    .version('2.0.6');
+    .version('2.0.8');
 
 /**
  * Init command - Interactive setup wizard
@@ -110,9 +110,9 @@ program
                 message: 'Which translation service would you like to use?',
                 choices: [
                     new inquirer.Separator('── 🆓 FREE (No billing required) ──'),
+                    { name: '💾 MyMemory - 10k chars/day free [RECOMMENDED]', value: 'mymemory' },
                     { name: '🌐 LibreTranslate - Open source, no API key', value: 'libretranslate' },
-                    { name: '🔒 Lingva - Privacy-focused, no API key', value: 'lingva' },
-                    { name: '💾 MyMemory - 10k chars/day free', value: 'mymemory' },
+                    { name: '🔒 Lingva - Privacy-focused (may be blocked)', value: 'lingva' },
                     { name: '🧪 Pseudo - Fake translations for testing', value: 'pseudo' },
                     new inquirer.Separator('── 💳 PAID (Free tier available) ──'),
                     { name: '🔷 DeepL - High quality (500k/month free)', value: 'deepl' },
@@ -127,10 +127,10 @@ program
                 message: (answers: { translationService: ExtendedTranslationService }) => {
                     if (answers.translationService === 'deepl') return 'Enter your DeepL API key:';
                     if (answers.translationService === 'google') return 'Enter your Google API key:';
-                    if (answers.translationService === 'mymemory') return 'Enter your email for higher limits (optional):';
+                    if (answers.translationService === 'mymemory') return 'Enter your email for 10x higher limits (optional, press Enter to skip):';
                     return 'Enter custom instance URL (optional):';
                 },
-                when: (answers) => !['none', 'pseudo', 'libretranslate', 'lingva'].includes(answers.translationService),
+                when: (answers) => !['none', 'pseudo', 'libretranslate', 'lingva', 'mymemory'].includes(answers.translationService) || answers.translationService === 'mymemory',
             },
             {
                 type: 'input',
@@ -303,7 +303,7 @@ program
     .requiredOption('-s, --source <file>', 'Source JSON file path')
     .requiredOption('-o, --output <dir>', 'Output directory for translated files')
     .option('-t, --targets <langs>', 'Comma-separated target language codes')
-    .option('--service <service>', 'Translation service (lingva|mymemory|libretranslate|pseudo|dictionary|local|piglatin|emoji|leet|reverse|mirror|morse|nato|deepl|google)', 'lingva')
+    .option('--service <service>', 'Translation service (mymemory|lingva|libretranslate|pseudo|dictionary|local|piglatin|emoji|leet|reverse|mirror|morse|nato|deepl|google)', 'mymemory')
     .option('--api-key <key>', 'API key for translation service (optional for free services)')
     .option('--source-lang <lang>', 'Source language code', 'en')
     .action(async (options) => {
@@ -694,11 +694,11 @@ program
 
         console.log(chalk.blue('\n📋 Available Translation Services\n'));
 
-        console.log(chalk.green.bold('� FREE ONLINE (No billing required):'));
-        console.log(`   ${chalk.bold('lingva')} - Privacy-focused Google Translate proxy ${chalk.green('[RECOMMENDED]')}`);
-        console.log(chalk.gray('      No API key needed. No tracking. Most reliable.'));
-        console.log(`   ${chalk.bold('mymemory')} - Free translation memory`);
+        console.log(chalk.green.bold('🌐 FREE ONLINE (No billing required):'));
+        console.log(`   ${chalk.bold('mymemory')} - Free translation memory ${chalk.green('[RECOMMENDED]')}`);
         console.log(chalk.gray('      10,000 chars/day free. 100,000 with email registration.'));
+        console.log(`   ${chalk.bold('lingva')} - Privacy-focused Google Translate proxy`);
+        console.log(chalk.gray('      No API key. May be blocked by Cloudflare.'));
         console.log(`   ${chalk.bold('libretranslate')} - Open source, uses public instances`);
         console.log(chalk.gray('      No API key needed. May be slow or unavailable.'));
 

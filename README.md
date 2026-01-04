@@ -42,9 +42,9 @@ npx multilingual-cli init
 
 | Service | Description | Limit |
 |---------|-------------|-------|
-| **Lingva** | Privacy-focused Google Translate proxy (recommended) | Unlimited |
-| **MyMemory** | Crowd-sourced + machine translation | 10k chars/day |
+| **MyMemory** | Crowd-sourced + machine translation (recommended) | 10k chars/day (100k with email) |
 | **LibreTranslate** | Open source, self-hostable | Unlimited |
+| **Lingva** | Privacy-focused (may be blocked by Cloudflare) | Unlimited |
 
 ### 📂 Offline (No Internet Required)
 
