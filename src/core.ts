@@ -32,7 +32,7 @@ export interface RunResult {
 export class Multilingual {
     private configManager: ConfigManager;
     private scanner: ContentScanner;
-    private translationManager: TranslationManager;
+    public translationManager: TranslationManager;
     private generator: I18nGenerator;
     private githubActions: GitHubActionsSetup;
     private config: MultilingualConfig;
@@ -314,6 +314,108 @@ export class Multilingual {
 
         // For now, return empty - actual implementation would read files
         return result;
+    }
+
+    /**
+     * Translate an existing JSON file to all target languages
+     */
+    async translateFile(
+        sourceFilePath: string,
+        outputDir: string,
+        onProgress?: (lang: string, progress: number) => void
+    ): Promise<{ success: boolean; files: string[]; errors: string[] }> {
+        const fs = await import('fs');
+        const path = await import('path');
+
+        const files: string[] = [];
+        const errors: string[] = [];
+
+        // Read source JSON
+        let sourceData: Record<string, any>;
+        try {
+            const content = fs.readFileSync(sourceFilePath, 'utf-8');
+            sourceData = JSON.parse(content);
+        } catch (e) {
+            return { success: false, files: [], errors: [`Failed to read source file: ${e}`] };
+        }
+
+        // Flatten nested object for translation
+        const flatten = (obj: any, prefix = ''): Record<string, string> => {
+            const result: Record<string, string> = {};
+            for (const [key, value] of Object.entries(obj)) {
+                const newKey = prefix ? `${prefix}.${key}` : key;
+                if (typeof value === 'string') {
+                    result[newKey] = value;
+                } else if (typeof value === 'object' && value !== null) {
+                    Object.assign(result, flatten(value, newKey));
+                }
+            }
+            return result;
+        };
+
+        // Unflatten back to nested object
+        const unflatten = (flat: Record<string, string>): Record<string, any> => {
+            const result: Record<string, any> = {};
+            for (const [key, value] of Object.entries(flat)) {
+                const parts = key.split('.');
+                let current = result;
+                for (let i = 0; i < parts.length - 1; i++) {
+                    if (!current[parts[i]]) current[parts[i]] = {};
+                    current = current[parts[i]];
+                }
+                current[parts[parts.length - 1]] = value;
+            }
+            return result;
+        };
+
+        const flatSource = flatten(sourceData);
+        const sourceStrings = Object.values(flatSource);
+        const sourceKeys = Object.keys(flatSource);
+
+        // Ensure output dir exists
+        if (!fs.existsSync(outputDir)) {
+            fs.mkdirSync(outputDir, { recursive: true });
+        }
+
+        // Copy source file to output
+        const sourceFileName = path.basename(sourceFilePath);
+        const sourceOutPath = path.join(outputDir, sourceFileName);
+        fs.writeFileSync(sourceOutPath, JSON.stringify(sourceData, null, 2));
+        files.push(sourceOutPath);
+
+        // Translate to each target language
+        const total = this.config.targetLanguages.length;
+        for (let i = 0; i < total; i++) {
+            const targetLang = this.config.targetLanguages[i];
+            onProgress?.(targetLang, Math.round((i / total) * 100));
+
+            try {
+                const translations = await this.translationManager.translateBatch(
+                    sourceStrings,
+                    targetLang,
+                    this.config.sourceLanguage
+                );
+
+                // Build translated object
+                const translatedFlat: Record<string, string> = {};
+                for (let j = 0; j < sourceKeys.length; j++) {
+                    const key = sourceKeys[j];
+                    const original = sourceStrings[j];
+                    const result = translations.get(original);
+                    translatedFlat[key] = result?.success && result.text ? result.text : original;
+                }
+
+                const translatedData = unflatten(translatedFlat);
+                const outPath = path.join(outputDir, `${targetLang}.json`);
+                fs.writeFileSync(outPath, JSON.stringify(translatedData, null, 2));
+                files.push(outPath);
+            } catch (e) {
+                errors.push(`Failed to translate to ${targetLang}: ${e}`);
+            }
+        }
+
+        onProgress?.('done', 100);
+        return { success: errors.length === 0, files, errors };
     }
 }
 

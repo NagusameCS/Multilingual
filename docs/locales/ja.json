@@ -1,55 +1,65 @@
 {
-    "title": "マルチリンガル",
     "nav": {
-        "features": "機能",
-        "languages": "言語",
-        "docs": "ドキュメント",
-        "github": "GitHub"
+        "features": "Features",
+        "quickstart": "Quick Start",
+        "languages": "Languages"
     },
     "hero": {
-        "title": "🌐 マルチリンガル Auto-i18n",
-        "subtitle": "ユーザー向けコンテンツを自動検出し、DeepLまたはGoogle翻訳で翻訳。あらゆるプロジェクトを国際化する最も簡単な方法。",
-        "getStarted": "始める",
-        "viewNpm": "npmで見る"
+        "badge": "Build-time i18n extraction & translation",
+        "title": "Internationalize any project in minutes",
+        "subtitle": "Extract user-facing strings from your codebase, translate them with DeepL or Google Translate, and generate production-ready i18n files. No runtime overhead.",
+        "install": "npm install -g multilingual-cli",
+        "github": "View on GitHub",
+        "notice": "Multilingual is a build-time tool. It scans your source files, extracts translatable strings, and generates static translation files. It does not provide runtime translation or live language switching."
     },
     "features": {
-        "title": "✨ 機能",
-        "autoDetect": {
-            "title": "自動検出",
-            "desc": "JS、TS、JSX、TSX、Vue、Svelte、HTMLなどのユーザー向け文字列をプロジェクト全体でスキャン。"
+        "title": "How it works",
+        "subtitle": "A streamlined workflow for project internationalization",
+        "scan": {
+            "title": "Scan",
+            "desc": "Automatically detects user-facing strings in JavaScript, TypeScript, Vue, Svelte, React, HTML, PHP, Python, Ruby, Go, and Java files."
         },
-        "languages": {
-            "title": "37以上の言語",
-            "desc": "アラビア語やヘブライ語などのRTL言語を含むすべての主要言語をサポート。"
+        "translate": {
+            "title": "Translate",
+            "desc": "Integrates with DeepL or Google Cloud Translation APIs for high-quality machine translation with batch processing and caching."
         },
-        "translation": {
-            "title": "DeepL & Google",
-            "desc": "高品質な自動翻訳のためにDeepLまたはGoogle Translate APIと統合。"
+        "generate": {
+            "title": "Generate",
+            "desc": "Outputs translation files in JSON, TypeScript, or JavaScript format. Preserves existing translations and supports nested or flat key structures."
         },
-        "github": {
-            "title": "GitHub Actions",
-            "desc": "プッシュごとに自動翻訳。設定したら忘れる。"
+        "preserve": {
+            "title": "Preserve",
+            "desc": "Never overwrites manually edited translations. Merges new strings intelligently while keeping your customizations intact."
         },
-        "frameworks": {
-            "title": "フレームワーク非依存",
-            "desc": "React、Vue、Svelte、Angular、Node.js、Python、Ruby、Go、PHPなどで動作。"
+        "ci": {
+            "title": "Automate",
+            "desc": "Generate GitHub Actions workflows for automated translation on every push. Direct commit or pull request based workflows."
         },
-        "typescript": {
-            "title": "TypeScriptサポート",
-            "desc": "型安全な開発のための完全なTypeScript定義を含む。"
+        "typed": {
+            "title": "Type Safe",
+            "desc": "Full TypeScript support with generated type definitions. Get autocomplete and compile-time checking for translation keys."
         }
     },
     "code": {
-        "title": "🚀 クイックスタート",
-        "cli": "CLI使用法",
-        "programmatic": "プログラム使用法"
+        "title": "Quick Start",
+        "subtitle": "Get started in under a minute",
+        "tab": {
+            "cli": "CLI",
+            "api": "Programmatic"
+        }
     },
-    "languages_section": {
-        "title": "🌍 対応言語"
+    "languages": {
+        "title": "37+ Supported Languages",
+        "subtitle": "All major languages with RTL support for Arabic and Hebrew"
     },
     "cta": {
-        "title": "グローバルになる準備はできましたか？",
-        "subtitle": "数日ではなく数分でプロジェクトの翻訳を開始。",
-        "button": "無料で始める"
-    }
+        "title": "Ready to go global?",
+        "subtitle": "Start translating your project today.",
+        "button": "Get Started"
+    },
+    "footer": {
+        "text": "Built by NagusameCS. MIT License.",
+        "translated": "This page was translated using Multilingual."
+    },
+    "tooltip": "Translated by this package"
 }

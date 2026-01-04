@@ -1,55 +1,65 @@
 {
-    "title": "Multilingüe",
     "nav": {
-        "features": "Características",
-        "languages": "Idiomas",
-        "docs": "Documentación",
-        "github": "GitHub"
+        "features": "Features",
+        "quickstart": "Quick Start",
+        "languages": "Languages"
     },
     "hero": {
-        "title": "🌐 Multilingüe Auto-i18n",
-        "subtitle": "Detecta automáticamente el contenido visible para el usuario y traduce con DeepL o Google Translate. La forma más fácil de internacionalizar cualquier proyecto.",
-        "getStarted": "Comenzar",
-        "viewNpm": "Ver en npm"
+        "badge": "Build-time i18n extraction & translation",
+        "title": "Internationalize any project in minutes",
+        "subtitle": "Extract user-facing strings from your codebase, translate them with DeepL or Google Translate, and generate production-ready i18n files. No runtime overhead.",
+        "install": "npm install -g multilingual-cli",
+        "github": "View on GitHub",
+        "notice": "Multilingual is a build-time tool. It scans your source files, extracts translatable strings, and generates static translation files. It does not provide runtime translation or live language switching."
     },
     "features": {
-        "title": "✨ Características",
-        "autoDetect": {
-            "title": "Auto-Detección",
-            "desc": "Escanea todo tu proyecto buscando cadenas de texto en JS, TS, JSX, TSX, Vue, Svelte, HTML y más."
+        "title": "How it works",
+        "subtitle": "A streamlined workflow for project internationalization",
+        "scan": {
+            "title": "Scan",
+            "desc": "Automatically detects user-facing strings in JavaScript, TypeScript, Vue, Svelte, React, HTML, PHP, Python, Ruby, Go, and Java files."
         },
-        "languages": {
-            "title": "37+ Idiomas",
-            "desc": "Soporte para todos los idiomas principales incluyendo idiomas RTL como árabe y hebreo."
+        "translate": {
+            "title": "Translate",
+            "desc": "Integrates with DeepL or Google Cloud Translation APIs for high-quality machine translation with batch processing and caching."
         },
-        "translation": {
-            "title": "DeepL y Google",
-            "desc": "Integración con DeepL o Google Translate para traducciones automáticas de alta calidad."
+        "generate": {
+            "title": "Generate",
+            "desc": "Outputs translation files in JSON, TypeScript, or JavaScript format. Preserves existing translations and supports nested or flat key structures."
         },
-        "github": {
-            "title": "GitHub Actions",
-            "desc": "Traducción automática en cada push. Configúralo y olvídate."
+        "preserve": {
+            "title": "Preserve",
+            "desc": "Never overwrites manually edited translations. Merges new strings intelligently while keeping your customizations intact."
         },
-        "frameworks": {
-            "title": "Agnóstico de Framework",
-            "desc": "Funciona con React, Vue, Svelte, Angular, Node.js, Python, Ruby, Go, PHP y más."
+        "ci": {
+            "title": "Automate",
+            "desc": "Generate GitHub Actions workflows for automated translation on every push. Direct commit or pull request based workflows."
         },
-        "typescript": {
-            "title": "Soporte TypeScript",
-            "desc": "Definiciones TypeScript completas incluidas para desarrollo con tipos seguros."
+        "typed": {
+            "title": "Type Safe",
+            "desc": "Full TypeScript support with generated type definitions. Get autocomplete and compile-time checking for translation keys."
         }
     },
     "code": {
-        "title": "🚀 Inicio Rápido",
-        "cli": "Uso CLI",
-        "programmatic": "Uso Programático"
+        "title": "Quick Start",
+        "subtitle": "Get started in under a minute",
+        "tab": {
+            "cli": "CLI",
+            "api": "Programmatic"
+        }
     },
-    "languages_section": {
-        "title": "🌍 Idiomas Soportados"
+    "languages": {
+        "title": "37+ Supported Languages",
+        "subtitle": "All major languages with RTL support for Arabic and Hebrew"
     },
     "cta": {
-        "title": "¿Listo para ser global?",
-        "subtitle": "Comienza a traducir tu proyecto en minutos, no días.",
-        "button": "Comenzar Gratis"
-    }
+        "title": "Ready to go global?",
+        "subtitle": "Start translating your project today.",
+        "button": "Get Started"
+    },
+    "footer": {
+        "text": "Built by NagusameCS. MIT License.",
+        "translated": "This page was translated using Multilingual."
+    },
+    "tooltip": "Translated by this package"
 }

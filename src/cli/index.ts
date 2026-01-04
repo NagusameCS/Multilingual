@@ -1,18 +1,31 @@
 #!/usr/bin/env node
 
 /**
- * Multilingual Auto-i18n CLI
+ * Multilingual Auto-i18n CLI v2.0
  * Interactive command-line interface for automated internationalization
+ * 
+ * Features:
+ * - 6 translation services (4 free, 2 paid)
+ * - Multiple export formats (JSON, XLIFF, PO, CSV, Android, iOS, ARB)
+ * - Watch mode for development
+ * - Translation memory with fuzzy matching
+ * - Statistics and cost estimation
+ * - Pseudo-localization for testing
  */
 
 import { Command } from 'commander';
 import inquirer from 'inquirer';
 import chalk from 'chalk';
 import ora from 'ora';
+import * as fs from 'fs';
+import * as path from 'path';
 import { Multilingual } from '../core';
 import { ConfigManager } from '../config';
-import { getApiKeyInstructions } from '../translation';
+import { getApiKeyInstructions, ExtendedTranslationService, SecurityUtils, TranslationManager } from '../translation';
 import { GitHubActionsSetup } from '../github-actions';
+import { calculateStats, formatStatsReport, saveStatsReport } from '../stats';
+import { exportToFile, importFromFile, convertFormat, TranslationDocument } from '../formats';
+import { createTranslationWatchSession, formatWatchStats } from '../watch';
 import {
     SUPPORTED_LANGUAGES,
     SupportedLanguage,
@@ -24,15 +37,15 @@ const program = new Command();
 // ASCII Art Banner
 const banner = `
 ${chalk.cyan('╔══════════════════════════════════════════════════════════════╗')}
-${chalk.cyan('║')}  ${chalk.bold.white('🌐 Multilingual Auto-i18n')}                                  ${chalk.cyan('║')}
+${chalk.cyan('║')}  ${chalk.bold.white('🌐 Multilingual Auto-i18n')} ${chalk.gray('v2.0')}                           ${chalk.cyan('║')}
 ${chalk.cyan('║')}  ${chalk.gray('Automated internationalization for any project')}              ${chalk.cyan('║')}
 ${chalk.cyan('╚══════════════════════════════════════════════════════════════╝')}
 `;
 
 program
     .name('multilingual')
-    .description('Automated i18n detection and translation tool')
-    .version('1.0.0');
+    .description('Automated i18n detection and translation tool with free translation options')
+    .version('2.0.0');
 
 /**
  * Init command - Interactive setup wizard
@@ -55,18 +68,17 @@ program
         }
 
         if (options.yes) {
-            // Use defaults
             const config = await multilingual.init();
             await multilingual.saveConfig();
             console.log(chalk.green('\n✅ Configuration saved with defaults!'));
             return;
         }
 
-        // Interactive setup
+        // Interactive setup with all service options
         const answers = await inquirer.prompt<{
             sourceLanguage: SupportedLanguage;
             targetLanguages: SupportedLanguage[];
-            translationService: TranslationService;
+            translationService: ExtendedTranslationService;
             apiKey?: string;
             outputDir: string;
             outputFormat: 'json' | 'ts' | 'js';
@@ -97,18 +109,28 @@ program
                 name: 'translationService',
                 message: 'Which translation service would you like to use?',
                 choices: [
-                    { name: '🔷 DeepL - High quality translations (recommended)', value: 'deepl' },
-                    { name: '🔵 Google Translate - Wide language support', value: 'google' },
+                    new inquirer.Separator('── 🆓 FREE (No billing required) ──'),
+                    { name: '🌐 LibreTranslate - Open source, no API key', value: 'libretranslate' },
+                    { name: '🔒 Lingva - Privacy-focused, no API key', value: 'lingva' },
+                    { name: '💾 MyMemory - 10k chars/day free', value: 'mymemory' },
+                    { name: '🧪 Pseudo - Fake translations for testing', value: 'pseudo' },
+                    new inquirer.Separator('── 💳 PAID (Free tier available) ──'),
+                    { name: '🔷 DeepL - High quality (500k/month free)', value: 'deepl' },
+                    { name: '🔵 Google - Wide support (500k/month free)', value: 'google' },
+                    new inquirer.Separator('──────────────────────────────────'),
                     { name: '⬜ None - I\'ll translate manually', value: 'none' },
                 ],
             },
             {
                 type: 'input',
                 name: 'apiKey',
-                message: (answers: { translationService: TranslationService }) =>
-                    `Enter your ${answers.translationService === 'deepl' ? 'DeepL' : 'Google'} API key:`,
-                when: (answers) => answers.translationService !== 'none',
-                validate: (input) => input.length > 0 || 'API key is required',
+                message: (answers: { translationService: ExtendedTranslationService }) => {
+                    if (answers.translationService === 'deepl') return 'Enter your DeepL API key:';
+                    if (answers.translationService === 'google') return 'Enter your Google API key:';
+                    if (answers.translationService === 'mymemory') return 'Enter your email for higher limits (optional):';
+                    return 'Enter custom instance URL (optional):';
+                },
+                when: (answers) => !['none', 'pseudo', 'libretranslate', 'lingva'].includes(answers.translationService),
             },
             {
                 type: 'input',
@@ -136,7 +158,7 @@ program
         ]);
 
         // Show API key instructions if needed
-        if (answers.translationService !== 'none' && !answers.apiKey) {
+        if (['deepl', 'google'].includes(answers.translationService) && !answers.apiKey) {
             console.log(getApiKeyInstructions(answers.translationService));
 
             const apiKeyAnswer = await inquirer.prompt([
@@ -153,22 +175,21 @@ program
         multilingual.updateConfig({
             sourceLanguage: answers.sourceLanguage,
             targetLanguages: answers.targetLanguages,
-            translationService: answers.translationService,
+            translationService: ['deepl', 'google', 'none'].includes(answers.translationService) 
+                ? answers.translationService as TranslationService 
+                : 'none',
             apiKey: answers.apiKey,
             outputDir: answers.outputDir,
             outputFormat: answers.outputFormat,
         });
 
         // Validate API key if provided
-        if (answers.apiKey) {
+        if (answers.apiKey && ['deepl', 'google'].includes(answers.translationService)) {
             const spinner = ora('Validating API key...').start();
             const validation = await multilingual.validateApiKey();
 
             if (validation.valid) {
                 spinner.succeed('API key is valid!');
-                if (validation.usage) {
-                    console.log(chalk.gray(`   Usage: ${JSON.stringify(validation.usage)}`));
-                }
             } else {
                 spinner.warn(`API key validation failed: ${validation.error}`);
             }
@@ -198,7 +219,7 @@ program
         ]);
 
         if (runNow) {
-            await runTranslation(multilingual);
+            await runTranslation(multilingual, answers.translationService);
         } else {
             console.log(chalk.blue('\n💡 Run "multilingual run" when you\'re ready to scan and translate.'));
         }
@@ -212,13 +233,14 @@ program
     .description('Scan project and generate translations')
     .option('-a, --auto', 'Run in non-interactive mode')
     .option('-f, --force', 'Force re-translation of all strings')
+    .option('-s, --service <service>', 'Translation service to use')
     .action(async (options) => {
         console.log(banner);
 
         const multilingual = new Multilingual();
         await multilingual.init();
 
-        await runTranslation(multilingual, options.auto);
+        await runTranslation(multilingual, options.service, options.auto);
     });
 
 /**
@@ -250,7 +272,6 @@ program
             }
 
             if (options.output) {
-                const fs = await import('fs');
                 fs.writeFileSync(options.output, JSON.stringify(result, null, 2));
                 console.log(chalk.green(`\n📄 Results saved to: ${options.output}`));
             }
@@ -274,20 +295,425 @@ program
     });
 
 /**
- * Translate command - Translate existing keys
+ * Translate-file command - Translate an existing JSON file
  */
 program
-    .command('translate')
-    .description('Translate scanned strings to target languages')
-    .option('-a, --auto', 'Run in non-interactive mode')
-    .option('-l, --language <lang>', 'Translate to specific language only')
+    .command('translate-file')
+    .description('Translate an existing JSON translation file')
+    .requiredOption('-s, --source <file>', 'Source JSON file path')
+    .requiredOption('-o, --output <dir>', 'Output directory for translated files')
+    .option('-t, --targets <langs>', 'Comma-separated target language codes')
+    .option('--service <service>', 'Translation service (libretranslate|lingva|mymemory|pseudo|deepl|google)', 'lingva')
+    .option('--api-key <key>', 'API key for translation service (optional for free services)')
+    .option('--source-lang <lang>', 'Source language code', 'en')
     .action(async (options) => {
+        console.log(banner);
+
+        const sourcePath = path.resolve(options.source);
+        if (!fs.existsSync(sourcePath)) {
+            console.log(chalk.red(`\n❌ Source file not found: ${sourcePath}`));
+            process.exit(1);
+        }
+
+        let targetLangs: SupportedLanguage[] = [];
+        if (options.targets) {
+            targetLangs = options.targets.split(',').map((l: string) => l.trim()) as SupportedLanguage[];
+        } else {
+            targetLangs = SUPPORTED_LANGUAGES
+                .map(l => l.code)
+                .filter(c => c !== options.sourceLang) as SupportedLanguage[];
+        }
+
+        // Show service info
+        const service = options.service as ExtendedTranslationService;
+        const isFreeService = ['libretranslate', 'lingva', 'mymemory', 'pseudo'].includes(service);
+
+        console.log(chalk.blue(`\n📂 Source file: ${chalk.bold(sourcePath)}`));
+        console.log(chalk.blue(`📁 Output directory: ${chalk.bold(options.output)}`));
+        console.log(chalk.blue(`🌐 Source language: ${chalk.bold(options.sourceLang)}`));
+        console.log(chalk.blue(`🎯 Target languages: ${chalk.bold(targetLangs.length)} languages`));
+        console.log(chalk.blue(`🔧 Translation service: ${chalk.bold(service)} ${isFreeService ? chalk.green('(FREE)') : ''}`));
+
+        if (!isFreeService && !options.apiKey) {
+            console.log(chalk.yellow(`\n⚠️  ${service} requires an API key. Use --api-key <key>`));
+            console.log(getApiKeyInstructions(service));
+            process.exit(1);
+        }
+
+        const multilingual = new Multilingual({
+            config: {
+                sourceLanguage: options.sourceLang as SupportedLanguage,
+                targetLanguages: targetLangs,
+                translationService: ['deepl', 'google'].includes(service) ? service as TranslationService : 'none',
+                apiKey: options.apiKey,
+            }
+        });
+
+        // Set extended service
+        (multilingual as any).translationManager?.setExtendedService?.(service);
+
+        const spinner = ora('Translating...').start();
+
+        const result = await multilingual.translateFile(
+            sourcePath,
+            path.resolve(options.output),
+            (lang, progress) => {
+                spinner.text = lang === 'done' ? 'Finalizing...' : `Translating to ${lang}... (${progress}%)`;
+            }
+        );
+
+        if (result.success) {
+            spinner.succeed(`Successfully translated to ${result.files.length} files`);
+            console.log(chalk.green('\n✅ Generated files:'));
+            result.files.forEach(f => console.log(`   ${chalk.gray(f)}`));
+        } else {
+            spinner.fail('Translation completed with errors');
+            result.errors.forEach(e => console.log(chalk.red(`   ❌ ${e}`)));
+        }
+    });
+
+/**
+ * Pseudo command - Generate pseudo-translations for testing
+ */
+program
+    .command('pseudo')
+    .description('Generate pseudo-translations for UI testing')
+    .option('-s, --source <file>', 'Source JSON file path')
+    .option('-o, --output <file>', 'Output file path')
+    .action(async (options) => {
+        console.log(banner);
+        console.log(chalk.blue('\n🧪 Pseudo-localization Generator\n'));
+
+        const manager = new TranslationManager();
+
+        if (options.source) {
+            const sourcePath = path.resolve(options.source);
+            if (!fs.existsSync(sourcePath)) {
+                console.log(chalk.red(`❌ Source file not found: ${sourcePath}`));
+                process.exit(1);
+            }
+
+            const content = JSON.parse(fs.readFileSync(sourcePath, 'utf-8'));
+            const pseudo: Record<string, string> = {};
+
+            const processObject = (obj: Record<string, unknown>, prefix = '') => {
+                for (const [key, value] of Object.entries(obj)) {
+                    const fullKey = prefix ? `${prefix}.${key}` : key;
+                    if (typeof value === 'string') {
+                        pseudo[fullKey] = manager.generatePseudoTranslation(value);
+                    } else if (typeof value === 'object' && value !== null) {
+                        processObject(value as Record<string, unknown>, fullKey);
+                    }
+                }
+            };
+
+            processObject(content);
+
+            const outputPath = options.output || sourcePath.replace('.json', '.pseudo.json');
+            fs.writeFileSync(outputPath, JSON.stringify(pseudo, null, 2));
+
+            console.log(chalk.green(`✅ Generated: ${outputPath}`));
+            console.log(chalk.gray('\nSample:'));
+            const samples = Object.entries(pseudo).slice(0, 3);
+            for (const [key, value] of samples) {
+                console.log(chalk.gray(`   ${key}: ${value}`));
+            }
+        } else {
+            // Interactive mode
+            const { text } = await inquirer.prompt([
+                {
+                    type: 'input',
+                    name: 'text',
+                    message: 'Enter text to pseudo-translate:',
+                },
+            ]);
+
+            const result = manager.generatePseudoTranslation(text);
+            console.log(chalk.green(`\n   Original: ${text}`));
+            console.log(chalk.blue(`   Pseudo:   ${result}`));
+        }
+    });
+
+/**
+ * Watch command - Watch for file changes
+ */
+program
+    .command('watch')
+    .description('Watch for file changes and auto-translate')
+    .option('-d, --dir <directory>', 'Directory to watch', 'src')
+    .action(async (options) => {
+        console.log(banner);
+        console.log(chalk.blue('\n👀 Watch Mode\n'));
+        console.log(chalk.gray('Watching for file changes. Press Ctrl+C to stop.\n'));
+
+        const multilingual = new Multilingual();
+        await multilingual.init();
+
+        const session = createTranslationWatchSession(
+            process.cwd(),
+            async (filePath) => {
+                console.log(chalk.blue(`\n📝 File changed: ${filePath}`));
+                // Trigger translation
+                const result = await multilingual.run();
+                if (result.success) {
+                    console.log(chalk.green(`   ✅ Updated ${result.generation.outputFiles.length} files`));
+                }
+            },
+            {
+                paths: [path.join(process.cwd(), options.dir)],
+            }
+        );
+
+        await session.start();
+
+        // Handle shutdown
+        process.on('SIGINT', () => {
+            console.log(chalk.yellow('\n\n👋 Stopping watch mode...'));
+            session.stop();
+            console.log(formatWatchStats(session.getStats()));
+            process.exit(0);
+        });
+    });
+
+/**
+ * Stats command - Show translation statistics
+ */
+program
+    .command('stats')
+    .description('Show translation statistics and cost estimates')
+    .option('--report', 'Generate detailed report files')
+    .option('--format <format>', 'Report format (text|json|markdown|all)', 'text')
+    .action(async (options) => {
+        console.log(banner);
+
+        const multilingual = new Multilingual();
+        const config = await multilingual.init();
+
+        const spinner = ora('Calculating statistics...').start();
+
+        try {
+            const scanResult = await multilingual.scan();
+            const existingTranslations = new Map<SupportedLanguage, Record<string, string>>();
+
+            // Load existing translations
+            for (const lang of config.targetLanguages) {
+                const filePath = path.join(config.outputDir, `${lang}.json`);
+                if (fs.existsSync(filePath)) {
+                    existingTranslations.set(lang, JSON.parse(fs.readFileSync(filePath, 'utf-8')));
+                }
+            }
+
+            const stats = calculateStats(scanResult.strings, existingTranslations, config.targetLanguages);
+            spinner.succeed('Statistics calculated');
+
+            console.log('\n' + formatStatsReport(stats));
+
+            if (options.report) {
+                const reportDir = path.join(process.cwd(), '.multilingual', 'reports');
+                const files = saveStatsReport(stats, reportDir, options.format);
+                console.log(chalk.green('\n📊 Reports saved:'));
+                files.forEach(f => console.log(`   ${chalk.gray(f)}`));
+            }
+        } catch (error) {
+            spinner.fail('Failed to calculate statistics');
+            console.error(chalk.red(error instanceof Error ? error.message : 'Unknown error'));
+        }
+    });
+
+/**
+ * Export command - Export translations to different formats
+ */
+program
+    .command('export')
+    .description('Export translations to different formats (XLIFF, PO, CSV, etc.)')
+    .requiredOption('-i, --input <file>', 'Target translations JSON file')
+    .requiredOption('-o, --output <file>', 'Output file path')
+    .option('--source-file <file>', 'Source translations JSON file (for proper bilingual export)')
+    .option('-f, --format <format>', 'Output format (xliff|xliff2|po|csv|android|ios|arb)', 'xliff')
+    .option('-s, --source-lang <lang>', 'Source language', 'en')
+    .option('-t, --target-lang <lang>', 'Target language', 'en')
+    .action(async (options) => {
+        console.log(banner);
+
+        const inputPath = path.resolve(options.input);
+        if (!fs.existsSync(inputPath)) {
+            console.log(chalk.red(`❌ Input file not found: ${inputPath}`));
+            process.exit(1);
+        }
+
+        // Read target translations
+        const targetContent = fs.readFileSync(inputPath, 'utf-8');
+        const targetData = JSON.parse(targetContent);
+
+        // Read source translations if provided
+        let sourceData: Record<string, string> | null = null;
+        if (options.sourceFile) {
+            const sourceFilePath = path.resolve(options.sourceFile);
+            if (fs.existsSync(sourceFilePath)) {
+                const sourceContent = fs.readFileSync(sourceFilePath, 'utf-8');
+                sourceData = JSON.parse(sourceContent);
+            }
+        }
+
+        const spinner = ora('Exporting...').start();
+
+        try {
+            // Build translation document with proper source/target
+            const doc: TranslationDocument = {
+                sourceLanguage: options.sourceLang,
+                targetLanguage: options.targetLang,
+                units: Object.entries(targetData).map(([key, value]) => ({
+                    key,
+                    source: sourceData ? (sourceData[key] || String(value)) : String(value),
+                    target: String(value),
+                })),
+            };
+
+            exportToFile(doc, options.output, options.format);
+
+            spinner.succeed(`Exported to: ${options.output}`);
+            console.log(chalk.gray(`   Format: ${options.format.toUpperCase()}`));
+            console.log(chalk.gray(`   Units: ${doc.units.length}`));
+            if (sourceData) {
+                console.log(chalk.gray(`   Source file: ${options.sourceFile}`));
+            }
+        } catch (error) {
+            spinner.fail('Export failed');
+            console.error(chalk.red(error instanceof Error ? error.message : 'Unknown error'));
+        }
+    });
+
+/**
+ * Import command - Import translations from different formats
+ */
+program
+    .command('import')
+    .description('Import translations from different formats')
+    .requiredOption('-i, --input <file>', 'Input file (XLIFF, PO, CSV, etc.)')
+    .requiredOption('-o, --output <file>', 'Output JSON file')
+    .action(async (options) => {
+        console.log(banner);
+
+        const inputPath = path.resolve(options.input);
+        if (!fs.existsSync(inputPath)) {
+            console.log(chalk.red(`❌ Input file not found: ${inputPath}`));
+            process.exit(1);
+        }
+
+        const spinner = ora('Importing...').start();
+
+        try {
+            const doc = importFromFile(inputPath);
+            exportToFile(doc, options.output, 'json');
+
+            spinner.succeed(`Imported to: ${options.output}`);
+            console.log(chalk.gray(`   Units: ${doc.units.length}`));
+            console.log(chalk.gray(`   Language: ${doc.targetLanguage}`));
+        } catch (error) {
+            spinner.fail('Import failed');
+            console.error(chalk.red(error instanceof Error ? error.message : 'Unknown error'));
+        }
+    });
+
+/**
+ * Services command - List available translation services
+ */
+program
+    .command('services')
+    .description('List available translation services')
+    .option('--details <service>', 'Show detailed setup instructions for a service')
+    .action((options) => {
+        console.log(banner);
+
+        if (options.details) {
+            console.log(getApiKeyInstructions(options.details as ExtendedTranslationService));
+            return;
+        }
+
+        console.log(chalk.blue('\n📋 Available Translation Services\n'));
+
+        console.log(chalk.green.bold('🆓 FREE (No billing required):'));
+        console.log(`   ${chalk.bold('libretranslate')} - Open source, uses public instances`);
+        console.log(chalk.gray('      No API key needed. Unlimited usage via public instances.'));
+        console.log(`   ${chalk.bold('lingva')} - Privacy-focused Google Translate proxy`);
+        console.log(chalk.gray('      No API key needed. No tracking.'));
+        console.log(`   ${chalk.bold('mymemory')} - Free translation memory`);
+        console.log(chalk.gray('      10,000 chars/day free. 100,000 with email registration.'));
+        console.log(`   ${chalk.bold('pseudo')} - Pseudo-localization for testing`);
+        console.log(chalk.gray('      Generates fake translations like [Ḥḛŀŀő Ẇőřŀḓ]'));
+
+        console.log(chalk.yellow.bold('\n💳 PAID (Free tier available):'));
+        console.log(`   ${chalk.bold('deepl')} - High quality neural translation`);
+        console.log(chalk.gray('      500,000 chars/month free. Best quality.'));
+        console.log(`   ${chalk.bold('google')} - Google Cloud Translation`);
+        console.log(chalk.gray('      500,000 chars/month free (first year).'));
+
+        console.log(chalk.gray('\n💡 Use --details <service> for setup instructions'));
+    });
+
+/**
+ * Languages command - List all supported languages
+ */
+program
+    .command('languages')
+    .description('List all supported languages')
+    .option('--json', 'Output as JSON')
+    .action((options) => {
+        if (options.json) {
+            console.log(JSON.stringify(SUPPORTED_LANGUAGES, null, 2));
+            return;
+        }
+
+        console.log(banner);
+        console.log(chalk.blue('\n🌍 Supported Languages:\n'));
+
+        for (const lang of SUPPORTED_LANGUAGES) {
+            const rtlBadge = lang.rtl ? chalk.yellow(' [RTL]') : '';
+            console.log(`   ${chalk.bold(lang.code.padEnd(6))} ${lang.name} (${lang.nativeName})${rtlBadge}`);
+        }
+    });
+
+/**
+ * Validate command - Validate translation files
+ */
+program
+    .command('validate')
+    .description('Validate translation files for completeness and quality')
+    .action(async () => {
         console.log(banner);
 
         const multilingual = new Multilingual();
         await multilingual.init();
 
-        await runTranslation(multilingual, options.auto);
+        const spinner = ora('Validating translations...').start();
+
+        try {
+            const result = await multilingual.checkMissing();
+
+            if (result.missing.length === 0) {
+                spinner.succeed('All translations are complete!');
+            } else {
+                spinner.warn('Some translations are missing');
+
+                for (const lang of result.missing) {
+                    console.log(chalk.yellow(`\n${lang.language}: ${lang.keys.length} missing keys`));
+                    for (const key of lang.keys.slice(0, 5)) {
+                        console.log(chalk.gray(`   - ${key}`));
+                    }
+                    if (lang.keys.length > 5) {
+                        console.log(chalk.gray(`   ... and ${lang.keys.length - 5} more`));
+                    }
+                }
+            }
+
+            if (result.complete.length > 0) {
+                console.log(chalk.green(`\n✅ Complete languages: ${result.complete.join(', ')}`));
+            }
+        } catch (error) {
+            spinner.fail('Validation failed');
+            console.error(chalk.red(error instanceof Error ? error.message : 'Unknown error'));
+            process.exit(1);
+        }
     });
 
 /**
@@ -298,15 +724,37 @@ program
     .description('View or modify configuration')
     .option('-e, --edit', 'Edit configuration interactively')
     .option('--show', 'Show current configuration')
+    .option('--key <key>', 'Get specific config value')
+    .option('--set <key=value>', 'Set a config value')
     .action(async (options) => {
         console.log(banner);
 
         const multilingual = new Multilingual();
         const config = await multilingual.init();
 
+        if (options.key) {
+            const value = (config as any)[options.key];
+            console.log(value !== undefined ? value : chalk.red(`Unknown key: ${options.key}`));
+            return;
+        }
+
+        if (options.set) {
+            const [key, ...valueParts] = options.set.split('=');
+            const value = valueParts.join('=');
+            multilingual.updateConfig({ [key]: value });
+            await multilingual.saveConfig();
+            console.log(chalk.green(`✅ Set ${key} = ${SecurityUtils.looksLikeApiKey(value) ? '[REDACTED]' : value}`));
+            return;
+        }
+
         if (options.show || !options.edit) {
             console.log(chalk.blue('\n📋 Current Configuration:\n'));
-            console.log(chalk.gray(JSON.stringify(config, null, 2)));
+            // Mask API key in output
+            const safeConfig = { ...config };
+            if (safeConfig.apiKey) {
+                safeConfig.apiKey = SecurityUtils.maskApiKey(safeConfig.apiKey);
+            }
+            console.log(chalk.gray(JSON.stringify(safeConfig, null, 2)));
             return;
         }
 
@@ -328,7 +776,6 @@ program
             },
         ]);
 
-        // Handle each field
         switch (answers.field) {
             case 'sourceLanguage':
             case 'targetLanguages':
@@ -367,7 +814,6 @@ program
     .description('Setup or manage GitHub Actions integration')
     .option('--setup', 'Setup GitHub Actions workflows')
     .option('--remove', 'Remove GitHub Actions workflows')
-    .option('--pr-based', 'Use PR-based workflow instead of direct commits')
     .action(async (options) => {
         console.log(banner);
 
@@ -385,87 +831,7 @@ program
             return;
         }
 
-        await setupGitHubActionsInteractive(multilingual, options.prBased);
-    });
-
-/**
- * Validate command - Validate translation files
- */
-program
-    .command('validate')
-    .description('Validate translation files for completeness')
-    .action(async () => {
-        console.log(banner);
-
-        const multilingual = new Multilingual();
-        const config = await multilingual.init();
-
-        const spinner = ora('Validating translations...').start();
-
-        try {
-            const result = await multilingual.checkMissing();
-
-            if (result.missing.length === 0) {
-                spinner.succeed('All translations are complete!');
-            } else {
-                spinner.warn('Some translations are missing');
-
-                for (const lang of result.missing) {
-                    console.log(chalk.yellow(`\n${lang.language}: ${lang.keys.length} missing keys`));
-                    for (const key of lang.keys.slice(0, 5)) {
-                        console.log(chalk.gray(`   - ${key}`));
-                    }
-                    if (lang.keys.length > 5) {
-                        console.log(chalk.gray(`   ... and ${lang.keys.length - 5} more`));
-                    }
-                }
-            }
-
-            if (result.complete.length > 0) {
-                console.log(chalk.green(`\n✅ Complete languages: ${result.complete.join(', ')}`));
-            }
-        } catch (error) {
-            spinner.fail('Validation failed');
-            console.error(chalk.red(error instanceof Error ? error.message : 'Unknown error'));
-            process.exit(1);
-        }
-    });
-
-/**
- * Check command - Show translation statistics
- */
-program
-    .command('check')
-    .description('Check translation status and statistics')
-    .option('--report', 'Generate detailed report')
-    .action(async (options) => {
-        console.log(banner);
-
-        const multilingual = new Multilingual();
-        const config = await multilingual.init();
-
-        console.log(chalk.blue('\n📊 Translation Status:\n'));
-        console.log(`   Source language: ${config.sourceLanguage}`);
-        console.log(`   Target languages: ${config.targetLanguages.join(', ')}`);
-        console.log(`   Translation service: ${config.translationService}`);
-        console.log(`   Output directory: ${config.outputDir}`);
-        console.log(`   GitHub Actions: ${config.githubActions ? 'enabled' : 'disabled'}`);
-    });
-
-/**
- * Languages command - List available languages
- */
-program
-    .command('languages')
-    .description('List all supported languages')
-    .action(() => {
-        console.log(banner);
-        console.log(chalk.blue('\n🌍 Supported Languages:\n'));
-
-        for (const lang of SUPPORTED_LANGUAGES) {
-            const rtlBadge = lang.rtl ? chalk.yellow(' [RTL]') : '';
-            console.log(`   ${chalk.bold(lang.code.padEnd(6))} ${lang.name} (${lang.nativeName})${rtlBadge}`);
-        }
+        await setupGitHubActionsInteractive(multilingual);
     });
 
 /**
@@ -504,7 +870,11 @@ program
 
 // Helper functions
 
-async function runTranslation(multilingual: Multilingual, auto = false): Promise<void> {
+async function runTranslation(
+    multilingual: Multilingual,
+    service?: ExtendedTranslationService,
+    auto = false
+): Promise<void> {
     const config = multilingual.getConfig();
 
     // Validate configuration
@@ -530,8 +900,12 @@ async function runTranslation(multilingual: Multilingual, auto = false): Promise
         }
     }
 
-    // Check API key
-    if (config.translationService !== 'none' && !config.apiKey) {
+    // Check if we're using a free service
+    const effectiveService = service || config.translationService;
+    const isFreeService = ['libretranslate', 'lingva', 'mymemory', 'pseudo'].includes(effectiveService);
+
+    // Check API key for paid services
+    if (!isFreeService && config.translationService !== 'none' && !config.apiKey) {
         console.log(chalk.yellow(`\n⚠️  No API key configured for ${config.translationService}.`));
         if (!auto) {
             console.log(getApiKeyInstructions(config.translationService));
@@ -629,14 +1003,21 @@ async function handleServiceConfig(multilingual: Multilingual): Promise<void> {
             name: 'service',
             message: 'Select translation service:',
             choices: [
+                new inquirer.Separator('── 🆓 FREE ──'),
+                { name: '🌐 LibreTranslate', value: 'libretranslate' },
+                { name: '🔒 Lingva', value: 'lingva' },
+                { name: '💾 MyMemory', value: 'mymemory' },
+                { name: '🧪 Pseudo', value: 'pseudo' },
+                new inquirer.Separator('── 💳 PAID ──'),
                 { name: '🔷 DeepL', value: 'deepl' },
-                { name: '🔵 Google Translate', value: 'google' },
+                { name: '🔵 Google', value: 'google' },
+                new inquirer.Separator('────────────'),
                 { name: '⬜ None', value: 'none' },
             ],
         },
     ]);
 
-    if (service !== 'none') {
+    if (['deepl', 'google'].includes(service)) {
         console.log(getApiKeyInstructions(service));
         const { apiKey } = await inquirer.prompt([
             {
@@ -647,7 +1028,7 @@ async function handleServiceConfig(multilingual: Multilingual): Promise<void> {
         ]);
         multilingual.setTranslationService(service, apiKey);
     } else {
-        multilingual.setTranslationService('none');
+        multilingual.setTranslationService(['deepl', 'google', 'none'].includes(service) ? service : 'none');
     }
 }
 
@@ -664,9 +1045,10 @@ async function handleApiKeyConfig(multilingual: Multilingual): Promise<void> {
 
     const { apiKey } = await inquirer.prompt([
         {
-            type: 'input',
+            type: 'password',
             name: 'apiKey',
             message: 'Enter your API key:',
+            mask: '*',
         },
     ]);
 
@@ -688,58 +1070,49 @@ async function setupGitHubActionsInteractive(
     multilingual: Multilingual,
     prBased = false
 ): Promise<void> {
-    const config = multilingual.getConfig();
+    const answers = await inquirer.prompt([
+        {
+            type: 'list',
+            name: 'workflowType',
+            message: 'What type of GitHub Actions workflow would you like?',
+            choices: [
+                {
+                    name: '🚀 Direct commit - Automatically commit translations to branch',
+                    value: 'direct'
+                },
+                {
+                    name: '🔀 PR-based - Create pull request with translations (safer)',
+                    value: 'pr'
+                },
+            ],
+        },
+        {
+            type: 'confirm',
+            name: 'addValidation',
+            message: 'Add validation workflow to check translations on PRs?',
+            default: true,
+        },
+    ]);
 
-    if (!prBased) {
-        const answers = await inquirer.prompt([
-            {
-                type: 'list',
-                name: 'workflowType',
-                message: 'What type of GitHub Actions workflow would you like?',
-                choices: [
-                    {
-                        name: '🚀 Direct commit - Automatically commit translations to branch',
-                        value: 'direct'
-                    },
-                    {
-                        name: '🔀 PR-based - Create pull request with translations (safer)',
-                        value: 'pr'
-                    },
-                ],
-            },
-            {
-                type: 'confirm',
-                name: 'addValidation',
-                message: 'Add validation workflow to check translations on PRs?',
-                default: true,
-            },
-        ]);
+    prBased = answers.workflowType === 'pr';
 
-        prBased = answers.workflowType === 'pr';
+    const spinner = ora('Setting up GitHub Actions...').start();
 
-        const spinner = ora('Setting up GitHub Actions...').start();
+    const result = multilingual.setupGitHubActions({
+        prBased,
+        validation: answers.addValidation,
+    });
 
-        const result = multilingual.setupGitHubActions({
-            prBased,
-            validation: answers.addValidation,
-        });
+    spinner.succeed('GitHub Actions configured!');
 
-        spinner.succeed('GitHub Actions configured!');
-
-        console.log(chalk.blue('\n📁 Created workflows:'));
-        for (const file of result.workflows) {
-            console.log(chalk.gray(`   ${file}`));
-        }
-
-        console.log(result.secrets);
-
-        await multilingual.saveConfig();
-    } else {
-        const spinner = ora('Setting up GitHub Actions...').start();
-        const result = multilingual.setupGitHubActions({ prBased: true });
-        spinner.succeed('GitHub Actions configured!');
-        console.log(result.secrets);
+    console.log(chalk.blue('\n📁 Created workflows:'));
+    for (const file of result.workflows) {
+        console.log(chalk.gray(`   ${file}`));
     }
+
+    console.log(result.secrets);
+
+    await multilingual.saveConfig();
 }
 
 // Parse arguments and run
