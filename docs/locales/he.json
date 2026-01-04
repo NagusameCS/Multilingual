@@ -3,7 +3,7 @@
     "features": "Features",
     "quickstart": "Quick Start",
     "languages": "Languages",
-    "examples": "Examples"
+    "examples": "דוגמאות"
   },
   "hero": {
     "badge": "Build-time i18n extraction & translation",
@@ -64,39 +64,55 @@
   },
   "tooltip": "Translated by this package",
   "examples": {
-    "badge": "Interactive Components",
-    "title": "Language Selector Examples",
-    "subtitle": "Copy-paste these UI components for your i18n implementation. All selectors are synchronized - try clicking any one!",
-    "back": "Back to Home",
-    "currentLang": "Current Language",
-    "selectorsTitle": "Choose Your Style",
-    "selectorsSubtitle": "6 different ways to let users switch languages",
+    "badge": "רכיבים אינטראקטיביים",
+    "title": "דוגמאות לבורר שפות",
+    "subtitle": "העתק והדבק רכיבי ממשק משתמש אלה ליישום i18n שלך. כל הבוחרים מסונכרנים - נסו ללחוץ על כל אחד מהם!",
+    "back": "חזור לדף הבית",
+    "currentLang": "שפה נוכחית",
+    "selectorsTitle": "בחירת הסגנון שלך",
+    "selectorsSubtitle": "6 דרכים שונות לאפשר למשתמשים להחליף שפות",
     "simple": {
-      "title": "Simple Dropdown",
-      "desc": "Best for settings pages and minimal footprint."
+      "title": "תפריט נפתח פשוט",
+      "desc": "מומלץ עבור דפי הגדרות וטביעת רגל מינימלית."
     },
     "flags": {
-      "title": "Flag Buttons",
-      "desc": "Best for headers with 3-6 primary languages."
+      "title": "לחצני סימון",
+      "desc": "מומלץ לכותרות עם 3 -6 שפות עיקריות."
     },
     "icons": {
-      "title": "Icon Grid",
-      "desc": "Best for compact headers and mobile navigation."
+      "title": "רשת הסמל",
+      "desc": "מומלץ לכותרות קומפקטיות ולניווט במכשירים ניידים."
     },
     "globe": {
-      "title": "Floating Globe",
-      "desc": "Best for fixed position with many languages."
+      "title": "גלובוס צף",
+      "desc": "מומלץ למיקום קבוע עם שפות רבות."
     },
     "pills": {
-      "title": "Pill Selector",
-      "desc": "Best for modern apps with 3-5 languages."
+      "title": "בורר הגלולות",
+      "desc": "מומלץ לאפליקציות מודרניות עם 3 -5 שפות."
     },
     "carousel": {
-      "title": "Carousel",
-      "desc": "Best for interactive browsing of all languages."
+      "title": "קרוסלה",
+      "desc": "מומלץ לגלישה אינטראקטיבית בכל השפות."
     },
-    "codeTitle": "Integration Code",
-    "codeSubtitle": "Copy this code to add language switching to your project",
-    "footerText": "Generated with"
+    "codeTitle": "קוד אינטגרציה",
+    "codeSubtitle": "העתק קוד זה כדי להוסיף מעבר שפה לפרויקט שלך",
+    "footerText": "נוצר עם"
+  },
+  "stats": {
+    "methods": "שיטות תרגום",
+    "languages": "שפות נתמכות",
+    "free": "אפשרויות חינמיות",
+    "formats": "ייצוא תבניות"
+  },
+  "demo": {
+    "title": "נסה את זה בשידור חי",
+    "subtitle": "ראה תרגומים המתבצעים בזמן אמת",
+    "preview": "תצוגה מקדימה של התרגום",
+    "source": "אנגלית (מקור)",
+    "translation": "תרגום",
+    "placeholder": "יש להקליד משהו...",
+    "translating": "תרגום",
+    "error": "התרגום נכשל. נסה שוב."
   }
 }

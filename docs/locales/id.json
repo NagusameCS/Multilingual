@@ -3,7 +3,7 @@
     "features": "Fitur",
     "quickstart": "Mulai Cepat",
     "languages": "Bahasa",
-    "examples": "Examples"
+    "examples": "Contoh"
   },
   "hero": {
     "badge": "Ekstraksi & terjemahan i18n waktu pembuatan",
@@ -64,39 +64,55 @@
   },
   "tooltip": "Diterjemahkan oleh paket ini",
   "examples": {
-    "badge": "Interactive Components",
-    "title": "Language Selector Examples",
-    "subtitle": "Copy-paste these UI components for your i18n implementation. All selectors are synchronized - try clicking any one!",
-    "back": "Back to Home",
-    "currentLang": "Current Language",
-    "selectorsTitle": "Choose Your Style",
-    "selectorsSubtitle": "6 different ways to let users switch languages",
+    "badge": "Komponen Interaktif",
+    "title": "Contoh Pemilih Bahasa",
+    "subtitle": "Salin tempel komponen UI ini untuk implementasi i18n Anda. Semua pemilih disinkronkan - coba klik salah satu!",
+    "back": "Kembali ke Home",
+    "currentLang": "Bahasa Saat Ini",
+    "selectorsTitle": "Pilih Gaya Anda",
+    "selectorsSubtitle": "6 cara berbeda untuk membiarkan pengguna beralih bahasa",
     "simple": {
-      "title": "Simple Dropdown",
-      "desc": "Best for settings pages and minimal footprint."
+      "title": "Dropdown Sederhana",
+      "desc": "Cocok untuk halaman pengaturan dan footprint minimal."
     },
     "flags": {
-      "title": "Flag Buttons",
-      "desc": "Best for headers with 3-6 primary languages."
+      "title": "Tombol Bendera",
+      "desc": "Terbaik untuk header dengan 3 -6 bahasa utama."
     },
     "icons": {
-      "title": "Icon Grid",
-      "desc": "Best for compact headers and mobile navigation."
+      "title": "Ikon Grid",
+      "desc": "Cocok untuk header ringkas dan navigasi seluler."
     },
     "globe": {
       "title": "Floating Globe",
-      "desc": "Best for fixed position with many languages."
+      "desc": "Terbaik untuk posisi tetap dengan banyak bahasa."
     },
     "pills": {
-      "title": "Pill Selector",
-      "desc": "Best for modern apps with 3-5 languages."
+      "title": "Pemilih Pil",
+      "desc": "Terbaik untuk aplikasi modern dengan 3 -5 bahasa."
     },
     "carousel": {
-      "title": "Carousel",
-      "desc": "Best for interactive browsing of all languages."
+      "title": "Karusel",
+      "desc": "Terbaik untuk penjelajahan interaktif semua bahasa."
     },
-    "codeTitle": "Integration Code",
-    "codeSubtitle": "Copy this code to add language switching to your project",
-    "footerText": "Generated with"
+    "codeTitle": "Kode Integrasi",
+    "codeSubtitle": "Salin kode ini untuk menambahkan pengalihan bahasa ke proyek Anda",
+    "footerText": "Dibuat dengan"
+  },
+  "stats": {
+    "methods": "Metode Penerjemhaan",
+    "languages": "Bahasa yang didukung",
+    "free": "Opsi Gratis",
+    "formats": "Ekspor Format"
+  },
+  "demo": {
+    "title": "Coba Langsung",
+    "subtitle": "Lihat terjemahan terjadi secara real - time",
+    "preview": "Pratinjau Terjemahan",
+    "source": "Teks Sumber Bahasa Inggris",
+    "translation": "Terjemahan",
+    "placeholder": "Ketikkan sesuatu",
+    "translating": "Translating",
+    "error": "Terjemahan gagal. Coba lagi."
   }
 }

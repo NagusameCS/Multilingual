@@ -2,8 +2,7 @@
   "nav": {
     "features": "Características",
     "quickstart": "Início rápido",
-    "languages": "Idiomas",
-    "examples": "Exemplos"
+    "languages": "Idiomas"
   },
   "hero": {
     "badge": "Extração e tradução i18n em tempo de construção",
@@ -78,41 +77,5 @@
     "text": "Construído por NagugameCS. Licença MIT.",
     "translated": "Esta página foi traduzida usando Multilingual."
   },
-  "tooltip": "Traduzido por este pacote",
-  "examples": {
-    "badge": "Componentes Interativos",
-    "title": "Exemplos de Seletores de Idioma",
-    "subtitle": "Copie e cole estes componentes UI. Todos estão sincronizados!",
-    "back": "Voltar",
-    "currentLang": "Idioma Atual",
-    "selectorsTitle": "Escolha Seu Estilo",
-    "selectorsSubtitle": "6 formas de trocar de idioma",
-    "simple": {
-      "title": "Menu Simples",
-      "desc": "Ideal para configurações."
-    },
-    "flags": {
-      "title": "Botões com Bandeiras",
-      "desc": "Ideal para cabeçalhos."
-    },
-    "icons": {
-      "title": "Grade de Ícones",
-      "desc": "Ideal para móvel."
-    },
-    "globe": {
-      "title": "Globo Flutuante",
-      "desc": "Ideal para muitos idiomas."
-    },
-    "pills": {
-      "title": "Seletor de Pílulas",
-      "desc": "Ideal para apps modernos."
-    },
-    "carousel": {
-      "title": "Carrossel",
-      "desc": "Ideal para navegar."
-    },
-    "codeTitle": "Código de Integração",
-    "codeSubtitle": "Copie este código",
-    "footerText": "Gerado com"
-  }
+  "tooltip": "Traduzido por este pacote"
 }

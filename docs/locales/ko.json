@@ -3,7 +3,7 @@
     "features": "특징",
     "quickstart": "빠른 시작",
     "languages": "언어",
-    "examples": "예제"
+    "examples": "예"
   },
   "hero": {
     "badge": "빌드 타임 i18n 추출 및 번역",
@@ -80,39 +80,39 @@
   },
   "tooltip": "이 패키지로 번역됨",
   "examples": {
-    "badge": "인터랙티브 컴포넌트",
+    "badge": "대화형 구성 요소",
     "title": "언어 선택기 예제",
-    "subtitle": "i18n 구현을 위한 UI 컴포넌트. 모두 동기화됩니다!",
-    "back": "홈으로",
+    "subtitle": "I18n 구현을 위해 이러한 UI 구성 요소를 복사하여 붙여넣습니다. 모든 선택기가 동기화되었습니다. 아무거나 클릭해 보세요!",
+    "back": "집으로 돌아가기",
     "currentLang": "현재 언어",
     "selectorsTitle": "스타일 선택",
-    "selectorsSubtitle": "언어 전환 6가지 방법",
+    "selectorsSubtitle": "사용자가 언어를 변경할 수 있는 6가지 방법",
     "simple": {
       "title": "간단한 드롭다운",
-      "desc": "설정에 적합."
+      "desc": "설정 페이지와 최소 설치 공간에 가장 적합합니다."
     },
     "flags": {
       "title": "플래그 버튼",
-      "desc": "헤더에 적합."
+      "desc": "기본 언어가 3 ~ 6개인 헤더에 가장 적합합니다."
     },
     "icons": {
-      "title": "아이콘 그리드",
-      "desc": "모바일에 적합."
+      "title": "아이콘 격자",
+      "desc": "컴팩트한 헤더와 모바일 내비게이션에 적합합니다."
     },
     "globe": {
       "title": "플로팅 글로브",
-      "desc": "다국어에 적합."
+      "desc": "다양한 언어로 고정된 위치에 가장 적합합니다."
     },
     "pills": {
-      "title": "필 선택기",
-      "desc": "모던 앱에 적합."
+      "title": "알약 선택기",
+      "desc": "3 ~ 5개 언어를 지원하는 최신 앱에 적합합니다."
     },
     "carousel": {
       "title": "캐러셀",
-      "desc": "탐색에 적합."
+      "desc": "모든 언어의 대화형 브라우징에 적합합니다."
     },
     "codeTitle": "통합 코드",
-    "codeSubtitle": "이 코드를 복사하세요",
-    "footerText": "생성:"
+    "codeSubtitle": "프로젝트에 언어 전환을 추가하려면 이 코드를 복사하세요",
+    "footerText": "다음으로 생성됨"
   }
 }

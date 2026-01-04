@@ -80,39 +80,39 @@
   },
   "tooltip": "Traducido por este paquete",
   "examples": {
-    "badge": "Componentes Interactivos",
-    "title": "Ejemplos de Selectores de Idioma",
-    "subtitle": "Copia y pega estos componentes UI. Todos están sincronizados - ¡prueba a hacer clic!",
+    "badge": "Componentes interactivos",
+    "title": "Ejemplos de selectores de idioma",
+    "subtitle": "Copia y pega estos componentes de la interfaz de usuario para tu implementación de i18n. Todos los selectores están sincronizados, ¡intente hacer clic en cualquiera!",
     "back": "Volver al Inicio",
-    "currentLang": "Idioma Actual",
-    "selectorsTitle": "Elige Tu Estilo",
-    "selectorsSubtitle": "6 formas de cambiar de idioma",
+    "currentLang": "Idioma actual",
+    "selectorsTitle": "Escoge tu estilo",
+    "selectorsSubtitle": "6 formas diferentes de permitir que los usuarios cambien de idioma",
     "simple": {
-      "title": "Desplegable Simple",
-      "desc": "Ideal para configuración."
+      "title": "Despliegue simple",
+      "desc": "Ideal para páginas de configuración y huella mínima."
     },
     "flags": {
-      "title": "Botones con Banderas",
-      "desc": "Ideal para cabeceras."
+      "title": "Botones de bandera",
+      "desc": "Ideal para encabezados con 3-6 idiomas principales."
     },
     "icons": {
-      "title": "Cuadrícula de Iconos",
-      "desc": "Ideal para móvil."
+      "title": "Rejilla de icono",
+      "desc": "Ideal para encabezados compactos y navegación móvil."
     },
     "globe": {
-      "title": "Globo Flotante",
-      "desc": "Ideal para muchos idiomas."
+      "title": "Globo flotante",
+      "desc": "Ideal para una posición fija con muchos idiomas."
     },
     "pills": {
-      "title": "Selector de Píldoras",
-      "desc": "Ideal para apps modernas."
+      "title": "Selector de píldoras",
+      "desc": "Ideal para aplicaciones modernas con 3-5 idiomas."
     },
     "carousel": {
-      "title": "Carrusel",
-      "desc": "Ideal para explorar idiomas."
+      "title": "Carousel",
+      "desc": "Ideal para la navegación interactiva en todos los idiomas."
     },
-    "codeTitle": "Código de Integración",
-    "codeSubtitle": "Copia este código para tu proyecto",
+    "codeTitle": "Código de integración",
+    "codeSubtitle": "Copia este código para añadir el cambio de idioma a tu proyecto",
     "footerText": "Generado con"
   }
 }

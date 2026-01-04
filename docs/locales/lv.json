@@ -3,7 +3,7 @@
     "features": "Funkcijas",
     "quickstart": "Ātrais sākums",
     "languages": "Valodas",
-    "examples": "Examples"
+    "examples": "Piemēri"
   },
   "hero": {
     "badge": "Veidošanas laika i18n izvilkšana un tulkošana",
@@ -64,12 +64,12 @@
   },
   "tooltip": "Tulkots ar šo pakotni",
   "examples": {
-    "badge": "Interactive Components",
-    "title": "Language Selector Examples",
-    "subtitle": "Copy-paste these UI components for your i18n implementation. All selectors are synchronized - try clicking any one!",
-    "back": "Back to Home",
-    "currentLang": "Current Language",
-    "selectorsTitle": "Choose Your Style",
+    "badge": "Interaktīvie komponenti",
+    "title": "Valodas atlasītāja piemēri",
+    "subtitle": "Kopējiet un ielīmējiet šos lietotāja interfeisa komponentus savai i18n ieviešanai. Visi atlasītāji ir sinhronizēti - mēģiniet noklikšķināt uz jebkura no tiem!",
+    "back": "ATPAKAĻ UZ SĀKUMU",
+    "currentLang": "Pašreizējā valoda",
+    "selectorsTitle": "Izvēlieties savu stilu",
     "selectorsSubtitle": "6 different ways to let users switch languages",
     "simple": {
       "title": "Simple Dropdown",
@@ -98,5 +98,21 @@
     "codeTitle": "Integration Code",
     "codeSubtitle": "Copy this code to add language switching to your project",
     "footerText": "Generated with"
+  },
+  "stats": {
+    "methods": "Translation Methods",
+    "languages": "Supported Languages",
+    "free": "Free Options",
+    "formats": "Export Formats"
+  },
+  "demo": {
+    "title": "Try it Live",
+    "subtitle": "See translations happen in real-time",
+    "preview": "Translation Preview",
+    "source": "English (Source)",
+    "translation": "Translation",
+    "placeholder": "Type something...",
+    "translating": "Translating...",
+    "error": "Translation failed. Try again."
   }
 }

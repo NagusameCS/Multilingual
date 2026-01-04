@@ -2,8 +2,7 @@
   "nav": {
     "features": "特征",
     "quickstart": "快速入门",
-    "languages": "语言",
-    "examples": "示例"
+    "languages": "语言"
   },
   "hero": {
     "badge": "构建时 i18n 提取和翻译",
@@ -78,41 +77,5 @@
     "text": "由 NagusameCS 建造。麻省理工学院许可证。",
     "translated": "此页面已使用多语言翻译。"
   },
-  "tooltip": "由该包翻译",
-  "examples": {
-    "badge": "交互式组件",
-    "title": "语言选择器示例",
-    "subtitle": "复制粘贴这些UI组件。所有选择器都同步！",
-    "back": "返回首页",
-    "currentLang": "当前语言",
-    "selectorsTitle": "选择您的风格",
-    "selectorsSubtitle": "6种切换语言的方式",
-    "simple": {
-      "title": "简单下拉菜单",
-      "desc": "适合设置页面。"
-    },
-    "flags": {
-      "title": "国旗按钮",
-      "desc": "适合头部。"
-    },
-    "icons": {
-      "title": "图标网格",
-      "desc": "适合移动端。"
-    },
-    "globe": {
-      "title": "浮动地球",
-      "desc": "适合多语言。"
-    },
-    "pills": {
-      "title": "药丸选择器",
-      "desc": "适合现代应用。"
-    },
-    "carousel": {
-      "title": "轮播",
-      "desc": "适合浏览。"
-    },
-    "codeTitle": "集成代码",
-    "codeSubtitle": "复制此代码",
-    "footerText": "生成者"
-  }
+  "tooltip": "由该包翻译"
 }

@@ -105,25 +105,25 @@ export interface TranslationEstimate {
     totalCharacters: number;
     languageCount: number;
     totalApiCalls: number;
-    
+
     // Time estimates
     estimatedSeconds: number;
     estimatedMinutes: number;
     estimatedHours: number;
     formattedTime: string;
-    
+
     // Limit analysis
     service: string;
     dailyLimit: number;
     remainingToday: number;
     exceedsLimit: boolean;
     daysNeeded: number;
-    
+
     // Email benefit
     emailBenefit: number;
     limitWithEmail: number;
     wouldExceedWithEmail: boolean;
-    
+
     // Recommendations
     recommendations: string[];
     warnings: string[];
@@ -194,7 +194,7 @@ export class UsageTracker {
         if (diffHours < 24) return `${diffHours} hour${diffHours > 1 ? 's' : ''} ago`;
         if (diffDays === 1) return 'Yesterday';
         if (diffDays < 7) return `${diffDays} days ago`;
-        
+
         return lastUsed.toLocaleDateString();
     }
 
@@ -226,7 +226,7 @@ export class UsageTracker {
 
         const todayUsage = this.getTodayUsage(service);
         const used = todayUsage?.charactersUsed || 0;
-        
+
         return Math.max(0, limit - used);
     }
 
@@ -235,9 +235,9 @@ export class UsageTracker {
      */
     recordUsage(service: string, characters: number, strings: number, languages: string[]): void {
         const today = new Date().toISOString().split('T')[0];
-        
+
         let todayUsage = this.data.dailyUsage.find(u => u.date === today && u.service === service);
-        
+
         if (todayUsage) {
             todayUsage.charactersUsed += characters;
             todayUsage.stringsTranslated += strings;
@@ -270,7 +270,7 @@ export class UsageTracker {
         hasEmail: boolean = false
     ): TranslationEstimate {
         const limits = SERVICE_LIMITS[service] || SERVICE_LIMITS.mymemory;
-        
+
         const totalStrings = strings.length;
         const totalCharacters = strings.reduce((sum, s) => sum + s.value.length, 0);
         const languageCount = targetLanguages.length;
@@ -311,11 +311,11 @@ export class UsageTracker {
 
         if (exceedsLimit && dailyLimit !== Infinity) {
             warnings.push(`⚠️  Exceeds daily limit! Need ${totalCharsNeeded.toLocaleString()} chars, only ${remainingToday.toLocaleString()} remaining.`);
-            
+
             if (!hasEmail && emailBenefit > 0) {
                 recommendations.push(`💡 Add your email to get ${emailBenefit.toLocaleString()} more characters/day (${limitWithEmail.toLocaleString()} total)`);
             }
-            
+
             if (daysNeeded > 1) {
                 recommendations.push(`📅 Split translation over ${daysNeeded} days, or use queue feature`);
             }
@@ -360,7 +360,7 @@ export class UsageTracker {
      */
     addToQueue(languages: string[], service: string, estimatedChars: number, priority: 'high' | 'medium' | 'low' = 'medium'): string {
         const id = `queue-${Date.now()}-${Math.random().toString(36).substr(2, 9)}`;
-        
+
         this.data.translationQueue.push({
             id,
             languages,
@@ -370,7 +370,7 @@ export class UsageTracker {
             createdAt: new Date().toISOString(),
             status: 'pending',
         });
-        
+
         this.saveData();
         return id;
     }
@@ -411,7 +411,7 @@ export class UsageTracker {
      */
     static formatEstimateReport(estimate: TranslationEstimate, hasEmail: boolean = false): string {
         const lines: string[] = [];
-        
+
         lines.push('');
         lines.push('📊 Translation Estimate');
         lines.push('═'.repeat(50));
@@ -427,14 +427,14 @@ export class UsageTracker {
         lines.push('');
         lines.push(`📈 ${estimate.service} Usage`);
         lines.push('─'.repeat(50));
-        
+
         if (estimate.dailyLimit === Infinity) {
             lines.push('   Daily limit:          Unlimited');
         } else {
             lines.push(`   Daily limit:          ${estimate.dailyLimit.toLocaleString()} chars`);
             lines.push(`   Remaining today:      ${estimate.remainingToday.toLocaleString()} chars`);
             lines.push(`   Chars needed:         ${(estimate.totalCharacters * estimate.languageCount).toLocaleString()} chars`);
-            
+
             if (!hasEmail && estimate.emailBenefit > 0) {
                 lines.push('');
                 lines.push(`   💡 With email:        +${estimate.emailBenefit.toLocaleString()} chars/day`);
@@ -461,7 +461,7 @@ export class UsageTracker {
         }
 
         lines.push('');
-        
+
         return lines.join('\n');
     }
 }
@@ -471,16 +471,16 @@ export class UsageTracker {
  */
 export function formatTimeRemaining(completed: number, total: number, startTime: number): string {
     if (completed === 0) return 'Calculating...';
-    
+
     const elapsed = Date.now() - startTime;
     const avgPerItem = elapsed / completed;
     const remaining = total - completed;
     const msRemaining = remaining * avgPerItem;
-    
+
     const seconds = Math.round(msRemaining / 1000);
     const minutes = Math.floor(seconds / 60);
     const hours = Math.floor(minutes / 60);
-    
+
     if (hours > 0) {
         return `~${hours}h ${minutes % 60}m remaining`;
     } else if (minutes > 0) {
@@ -498,7 +498,7 @@ export function formatElapsedTime(startTime: number): string {
     const seconds = Math.round(elapsed / 1000);
     const minutes = Math.floor(seconds / 60);
     const hours = Math.floor(minutes / 60);
-    
+
     if (hours > 0) {
         return `${hours}h ${minutes % 60}m ${seconds % 60}s`;
     } else if (minutes > 0) {

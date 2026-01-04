@@ -3,7 +3,7 @@
     "features": "Savybės",
     "quickstart": "Greita pradžia",
     "languages": "Kalbos",
-    "examples": "Examples"
+    "examples": "Pavyzdžiai"
   },
   "hero": {
     "badge": "Sukūrimo laikas i18n ištraukimas ir vertimas",
@@ -64,39 +64,55 @@
   },
   "tooltip": "Išvertė pagal šį paketą",
   "examples": {
-    "badge": "Interactive Components",
-    "title": "Language Selector Examples",
-    "subtitle": "Copy-paste these UI components for your i18n implementation. All selectors are synchronized - try clicking any one!",
-    "back": "Back to Home",
-    "currentLang": "Current Language",
-    "selectorsTitle": "Choose Your Style",
-    "selectorsSubtitle": "6 different ways to let users switch languages",
+    "badge": "Interaktyvūs komponentai",
+    "title": "Kalbos parinkiklio pavyzdžiai",
+    "subtitle": "Nukopijuokite ir įklijuokite šiuos vartotojo sąsajos komponentus savo i18n diegimui. Visi rinkikliai yra sinchronizuoti - pabandykite spustelėti bet kurį!",
+    "back": "\"Grįžti į pradžią\"",
+    "currentLang": "Dabartinė kalba",
+    "selectorsTitle": "Pasirinkite savo stilių",
+    "selectorsSubtitle": "6 skirtingi būdai leisti vartotojams perjungti kalbas",
     "simple": {
-      "title": "Simple Dropdown",
-      "desc": "Best for settings pages and minimal footprint."
+      "title": "Paprastas išskleidžiamasis sąrašas",
+      "desc": "Tinka nustatymų puslapiams ir minimaliam pėdsakui."
     },
     "flags": {
-      "title": "Flag Buttons",
-      "desc": "Best for headers with 3-6 primary languages."
+      "title": "Žymėjimo mygtukai",
+      "desc": "Tinka antraštėms su 3-6 pagrindinėmis kalbomis."
     },
     "icons": {
-      "title": "Icon Grid",
-      "desc": "Best for compact headers and mobile navigation."
+      "title": "Ženkliko tinklelis",
+      "desc": "Geriausia kompaktiškoms antraštėms ir mobiliajai navigacijai."
     },
     "globe": {
-      "title": "Floating Globe",
-      "desc": "Best for fixed position with many languages."
+      "title": "Plūduriuojantis gaublys",
+      "desc": "Geriausia fiksuotai pozicijai su daugeliu kalbų."
     },
     "pills": {
-      "title": "Pill Selector",
-      "desc": "Best for modern apps with 3-5 languages."
+      "title": "Tablečių parinkiklis",
+      "desc": "Tinka modernioms programėlėms 3-5 kalbomis."
     },
     "carousel": {
-      "title": "Carousel",
-      "desc": "Best for interactive browsing of all languages."
+      "title": "Karuselė",
+      "desc": "Tinka interaktyviam visų kalbų naršymui."
     },
-    "codeTitle": "Integration Code",
-    "codeSubtitle": "Copy this code to add language switching to your project",
-    "footerText": "Generated with"
+    "codeTitle": "Integracijos kodas",
+    "codeSubtitle": "Nukopijuokite šį kodą, kad pridėtumėte kalbos perjungimą į savo projektą",
+    "footerText": "Sugeneruota naudojant"
+  },
+  "stats": {
+    "methods": "Vertimo būdai",
+    "languages": "Galimos kalbos",
+    "free": "Nemokamos parinktys",
+    "formats": "Eksportuoti formatus"
+  },
+  "demo": {
+    "title": "Išbandyti gyvai",
+    "subtitle": "Žiūrėti vertimus realiuoju laiku",
+    "preview": "Vertimo peržiūra",
+    "source": "Anglų k. (šaltinis)",
+    "translation": "Vertimas",
+    "placeholder": "Įveskite ką nors...",
+    "translating": "Verčiama",
+    "error": "Išversti nepavyko. Bandykite dar kartą."
   }
 }

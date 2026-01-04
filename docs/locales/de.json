@@ -81,38 +81,38 @@
   "tooltip": "Übersetzt von diesem Paket",
   "examples": {
     "badge": "Interaktive Komponenten",
-    "title": "Sprachauswahl Beispiele",
-    "subtitle": "Kopieren Sie diese UI-Komponenten. Alle sind synchronisiert!",
-    "back": "Zurück",
+    "title": "Beispiele für Sprachauswahl",
+    "subtitle": "Kopieren Sie diese UI-Komponenten für Ihre i18n-Implementierung. Alle Selektoren sind synchronisiert - versuchen Sie, auf einen zu klicken!",
+    "back": "Zurück zur Startseite",
     "currentLang": "Aktuelle Sprache",
-    "selectorsTitle": "Wählen Sie Ihren Stil",
-    "selectorsSubtitle": "6 Möglichkeiten zum Sprachwechsel",
+    "selectorsTitle": "Passen Sie Ihre Uhr an Ihren Stil an",
+    "selectorsSubtitle": "6 verschiedene Möglichkeiten, Benutzer die Sprache wechseln zu lassen",
     "simple": {
       "title": "Einfaches Dropdown",
-      "desc": "Ideal für Einstellungen."
+      "desc": "Ideal für Einstellungsseiten und minimalen Platzbedarf."
     },
     "flags": {
-      "title": "Flaggen-Buttons",
-      "desc": "Ideal für Header."
+      "title": "Flag Buttons",
+      "desc": "Ideal für Kopfzeilen mit 3-6 Hauptsprachen."
     },
     "icons": {
-      "title": "Symbol-Raster",
-      "desc": "Ideal für mobil."
+      "title": "Icon-Gitter",
+      "desc": "Ideal für kompakte Kopfzeilen und mobile Navigation."
     },
     "globe": {
       "title": "Schwebender Globus",
-      "desc": "Ideal für viele Sprachen."
+      "desc": "Ideal für feste Position mit vielen Sprachen."
     },
     "pills": {
-      "title": "Pillen-Auswahl",
-      "desc": "Ideal für moderne Apps."
+      "title": "Pillenauswahl",
+      "desc": "Ideal für moderne Apps mit 3-5 Sprachen."
     },
     "carousel": {
       "title": "Karussell",
-      "desc": "Ideal zum Durchsuchen."
+      "desc": "Ideal für interaktives Surfen in allen Sprachen."
     },
     "codeTitle": "Integrationscode",
-    "codeSubtitle": "Kopieren Sie diesen Code",
+    "codeSubtitle": "Kopieren Sie diesen Code, um Ihrem Projekt einen Sprachwechsel hinzuzufügen",
     "footerText": "Erstellt mit"
   }
 }

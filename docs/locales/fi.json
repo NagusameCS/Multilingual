@@ -3,7 +3,7 @@
     "features": "Ominaisuudet",
     "quickstart": "Pika-aloitus",
     "languages": "Kielet",
-    "examples": "Examples"
+    "examples": "Esimerkit"
   },
   "hero": {
     "badge": "Rakennusaikainen i18n-poiminta ja käännös",
@@ -64,39 +64,55 @@
   },
   "tooltip": "Tämän paketin kääntämä",
   "examples": {
-    "badge": "Interactive Components",
-    "title": "Language Selector Examples",
-    "subtitle": "Copy-paste these UI components for your i18n implementation. All selectors are synchronized - try clicking any one!",
-    "back": "Back to Home",
-    "currentLang": "Current Language",
-    "selectorsTitle": "Choose Your Style",
-    "selectorsSubtitle": "6 different ways to let users switch languages",
+    "badge": "Interaktiiviset komponentit",
+    "title": "Esimerkkejä kielenvalitsimesta",
+    "subtitle": "Kopioi ja liitä nämä käyttöliittymäkomponentit i18n-toteutukseesi. Kaikki valitsimet on synkronoitu - kokeile napsauttaa mitä tahansa!",
+    "back": "Etusivulle",
+    "currentLang": "Nykyinen kieli",
+    "selectorsTitle": "Valitse tyylisi",
+    "selectorsSubtitle": "6 erilaista tapaa antaa käyttäjien vaihtaa kieltä",
     "simple": {
-      "title": "Simple Dropdown",
-      "desc": "Best for settings pages and minimal footprint."
+      "title": "Yksinkertainen pudotusvalikko",
+      "desc": "Paras asetussivuille ja minimaalinen hiilijalanjälki."
     },
     "flags": {
-      "title": "Flag Buttons",
-      "desc": "Best for headers with 3-6 primary languages."
+      "title": "Merkitse painikkeet",
+      "desc": "Sopii parhaiten otsikoihin, joissa on 3-6 ensisijaista kieltä."
     },
     "icons": {
-      "title": "Icon Grid",
-      "desc": "Best for compact headers and mobile navigation."
+      "title": "Kuvakehila",
+      "desc": "Sopii parhaiten kompakteihin otsikoihin ja mobiiliin navigointiin."
     },
     "globe": {
-      "title": "Floating Globe",
-      "desc": "Best for fixed position with many languages."
+      "title": "Kelluva maapallo",
+      "desc": "Sopii parhaiten kiinteään asentoon monilla kielillä."
     },
     "pills": {
-      "title": "Pill Selector",
-      "desc": "Best for modern apps with 3-5 languages."
+      "title": "Pillerinvalitsin",
+      "desc": "Sopii parhaiten moderneille sovelluksille, joissa on 3-5 kieltä."
     },
     "carousel": {
-      "title": "Carousel",
-      "desc": "Best for interactive browsing of all languages."
+      "title": "Kuvakarusellin ohjaus",
+      "desc": "Sopii parhaiten kaikkien kielten interaktiiviseen selaamiseen."
     },
-    "codeTitle": "Integration Code",
-    "codeSubtitle": "Copy this code to add language switching to your project",
-    "footerText": "Generated with"
+    "codeTitle": "Integrointikoodi",
+    "codeSubtitle": "Kopioi tämä koodi lisätäksesi kielivaihdon projektiisi",
+    "footerText": "Luotu ohjelmalla"
+  },
+  "stats": {
+    "methods": "Käännösmenetelmät",
+    "languages": "Tuetut kielet",
+    "free": "Ilmaiset vaihtoehdot",
+    "formats": "Vie formaatit"
+  },
+  "demo": {
+    "title": "Kokeile livenä",
+    "subtitle": "Katso käännökset reaaliajassa",
+    "preview": "Käännöksen esikatselu",
+    "source": "English source",
+    "translation": "Käännös",
+    "placeholder": "Kirjoita jotakin",
+    "translating": "Kääntäminen",
+    "error": "Käännös epäonnistui. Yritä uudelleen."
   }
 }

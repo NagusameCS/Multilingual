@@ -38,7 +38,7 @@ const program = new Command();
 // ASCII Art Banner
 const banner = `
 ${chalk.cyan('╔════════════════════════════════════════════════════════════╗')}
-${chalk.cyan('║')}  ${chalk.bold.white('🌐 multilingual-cli')} ${chalk.gray('v2.1.0')}                            ${chalk.cyan('║')}
+${chalk.cyan('║')}  ${chalk.bold.white('🌐 multilingual-cli')} ${chalk.gray('v2.1.1')}                            ${chalk.cyan('║')}
 ${chalk.cyan('║')}  ${chalk.gray('Automated internationalization for any project')}            ${chalk.cyan('║')}
 ${chalk.cyan('╚════════════════════════════════════════════════════════════╝')}
 `;
@@ -46,7 +46,7 @@ ${chalk.cyan('╚═════════════════════
 program
     .name('multilingual')
     .description('Automated i18n detection and translation tool with free translation options')
-    .version('2.1.0');
+    .version('2.1.1');
 
 /**
  * Init command - Interactive setup wizard
@@ -431,6 +431,246 @@ program
             spinner.fail('Translation completed with errors');
             result.errors.forEach(e => console.log(chalk.red(`   ❌ ${e}`)));
         }
+    });
+
+/**
+ * Sync command - Translate only missing keys in existing locale files
+ */
+program
+    .command('sync')
+    .description('Sync translations - translate only new/missing keys in existing locale files')
+    .requiredOption('-d, --dir <dir>', 'Directory containing locale JSON files')
+    .option('-s, --source <lang>', 'Source language code (file must exist)', 'en')
+    .option('--service <service>', 'Translation service (mymemory|lingva|libretranslate|deepl|google)', 'mymemory')
+    .option('--api-key <key>', 'API key for translation service (optional for free services)')
+    .option('--dry-run', 'Show what would be translated without making changes')
+    .action(async (options) => {
+        console.log(banner);
+        console.log(chalk.blue('\n🔄 Translation Sync\n'));
+
+        const localesDir = path.resolve(options.dir);
+        if (!fs.existsSync(localesDir)) {
+            console.log(chalk.red(`\n❌ Directory not found: ${localesDir}`));
+            process.exit(1);
+        }
+
+        // Find source file
+        const sourceFile = path.join(localesDir, `${options.source}.json`);
+        if (!fs.existsSync(sourceFile)) {
+            console.log(chalk.red(`\n❌ Source locale file not found: ${sourceFile}`));
+            process.exit(1);
+        }
+
+        // Read source translations
+        let sourceData: Record<string, any>;
+        try {
+            sourceData = JSON.parse(fs.readFileSync(sourceFile, 'utf-8'));
+        } catch (e) {
+            console.log(chalk.red(`\n❌ Failed to parse source file: ${e}`));
+            process.exit(1);
+        }
+
+        // Flatten nested object for comparison
+        const flatten = (obj: any, prefix = ''): Record<string, string> => {
+            const result: Record<string, string> = {};
+            for (const [key, value] of Object.entries(obj)) {
+                const newKey = prefix ? `${prefix}.${key}` : key;
+                if (typeof value === 'string') {
+                    result[newKey] = value;
+                } else if (typeof value === 'object' && value !== null) {
+                    Object.assign(result, flatten(value, newKey));
+                }
+            }
+            return result;
+        };
+
+        // Unflatten back to nested object
+        const unflatten = (flat: Record<string, string>): Record<string, any> => {
+            const result: Record<string, any> = {};
+            for (const [key, value] of Object.entries(flat)) {
+                const parts = key.split('.');
+                let current = result;
+                for (let i = 0; i < parts.length - 1; i++) {
+                    if (!current[parts[i]]) current[parts[i]] = {};
+                    current = current[parts[i]];
+                }
+                current[parts[parts.length - 1]] = value;
+            }
+            return result;
+        };
+
+        const sourceFlat = flatten(sourceData);
+        const sourceKeys = Object.keys(sourceFlat);
+        console.log(chalk.blue(`📂 Source file: ${chalk.bold(sourceFile)} (${sourceKeys.length} keys)`));
+
+        // Find all target locale files
+        const files = fs.readdirSync(localesDir)
+            .filter(f => f.endsWith('.json') && f !== `${options.source}.json`);
+
+        if (files.length === 0) {
+            console.log(chalk.yellow('\n⚠️  No target locale files found.'));
+            process.exit(0);
+        }
+
+        console.log(chalk.blue(`🎯 Target files: ${chalk.bold(files.length)} languages`));
+        console.log(chalk.blue(`🔧 Translation service: ${chalk.bold(options.service)}`));
+
+        // Calculate missing keys per file
+        const missingPerFile: Map<string, string[]> = new Map();
+        let totalMissing = 0;
+
+        for (const file of files) {
+            const filePath = path.join(localesDir, file);
+            try {
+                const content = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
+                const targetFlat = flatten(content);
+                const missing = sourceKeys.filter(k => !(k in targetFlat));
+                if (missing.length > 0) {
+                    missingPerFile.set(file, missing);
+                    totalMissing += missing.length;
+                }
+            } catch (e) {
+                console.log(chalk.yellow(`   ⚠️  Skipping ${file}: ${e}`));
+            }
+        }
+
+        if (totalMissing === 0) {
+            console.log(chalk.green('\n✅ All locale files are in sync! No missing keys.'));
+            process.exit(0);
+        }
+
+        console.log(chalk.yellow(`\n📊 Found ${totalMissing} missing translations across ${missingPerFile.size} files:\n`));
+        for (const [file, missing] of missingPerFile) {
+            console.log(chalk.gray(`   ${file}: ${missing.length} missing keys`));
+            if (missing.length <= 5) {
+                missing.forEach(k => console.log(chalk.gray(`      - ${k}`)));
+            } else {
+                missing.slice(0, 3).forEach(k => console.log(chalk.gray(`      - ${k}`)));
+                console.log(chalk.gray(`      ... and ${missing.length - 3} more`));
+            }
+        }
+
+        if (options.dryRun) {
+            console.log(chalk.blue('\n🔍 Dry run complete. No changes made.'));
+            process.exit(0);
+        }
+
+        // Estimate time and characters
+        const stringsForEstimate = [...missingPerFile.entries()].flatMap(([_, keys]) =>
+            keys.map(k => ({ value: sourceFlat[k] || '' }))
+        );
+        const targetLangCodes = [...missingPerFile.keys()].map(f => f.replace('.json', ''));
+
+        const tracker = new UsageTracker();
+        const estimate = tracker.calculateEstimate(stringsForEstimate, targetLangCodes, options.service, false);
+
+        console.log(chalk.blue(`\n📊 Estimate:`));
+        console.log(chalk.gray(`   Characters: ${estimate.totalCharacters.toLocaleString()}`));
+        console.log(chalk.gray(`   Languages: ${missingPerFile.size}`));
+        console.log(chalk.gray(`   Est. time: ${estimate.formattedTime}`));
+
+        if (estimate.exceedsLimit) {
+            console.log(chalk.yellow(`\n⚠️  This may exceed the daily limit for ${options.service}.`));
+        }
+
+        // Confirm
+        const { proceed } = await inquirer.prompt([{
+            type: 'confirm',
+            name: 'proceed',
+            message: `Translate ${totalMissing} missing strings?`,
+            default: true
+        }]);
+
+        if (!proceed) {
+            console.log(chalk.yellow('\n⏹️  Cancelled.'));
+            process.exit(0);
+        }
+
+        // Setup translation manager
+        const targetLangs = [...missingPerFile.keys()].map(f => f.replace('.json', '')) as SupportedLanguage[];
+        const multilingual = new Multilingual({
+            config: {
+                sourceLanguage: options.source as SupportedLanguage,
+                targetLanguages: targetLangs,
+                translationService: ['deepl', 'google'].includes(options.service) ? options.service as TranslationService : 'none',
+                apiKey: options.apiKey,
+            }
+        });
+
+        // Set extended service for free services
+        (multilingual as any).translationManager?.setExtendedService?.(options.service);
+
+        const spinner = ora('Syncing translations...').start();
+        const startTime = Date.now();
+        let filesUpdated = 0;
+        let stringsTranslated = 0;
+        const errors: string[] = [];
+
+        for (const [file, missingKeys] of missingPerFile) {
+            const lang = file.replace('.json', '');
+            const filePath = path.join(localesDir, file);
+
+            try {
+                // Read existing translations
+                const existingData = JSON.parse(fs.readFileSync(filePath, 'utf-8'));
+                const existingFlat = flatten(existingData);
+
+                // Get strings to translate
+                const stringsToTranslate = missingKeys.map(k => sourceFlat[k]);
+
+                spinner.text = `Translating ${missingKeys.length} strings to ${lang}...`;
+
+                // Translate batch
+                const translations = await (multilingual as any).translationManager.translateBatch(
+                    stringsToTranslate,
+                    lang,
+                    options.source
+                );
+
+                // Merge translations
+                for (let i = 0; i < missingKeys.length; i++) {
+                    const key = missingKeys[i];
+                    const original = stringsToTranslate[i];
+                    const result = translations.get(original);
+                    if (result?.success && result.text) {
+                        existingFlat[key] = result.text;
+                        stringsTranslated++;
+                    } else {
+                        existingFlat[key] = original; // Fallback to source
+                    }
+                }
+
+                // Write back
+                const mergedData = unflatten(existingFlat);
+                fs.writeFileSync(filePath, JSON.stringify(mergedData, null, 2));
+                filesUpdated++;
+
+            } catch (e) {
+                errors.push(`${file}: ${e}`);
+            }
+        }
+
+        const totalTime = Date.now() - startTime;
+
+        // Update usage tracking
+        const translatedLangs = [...missingPerFile.keys()].map(f => f.replace('.json', ''));
+        tracker.recordUsage(options.service, estimate.totalCharacters, stringsTranslated, translatedLangs);
+
+        if (errors.length === 0) {
+            spinner.succeed(`Synced ${stringsTranslated} translations across ${filesUpdated} files in ${formatElapsedTime(startTime)}`);
+        } else {
+            spinner.warn(`Synced with ${errors.length} errors`);
+            errors.forEach(e => console.log(chalk.red(`   ❌ ${e}`)));
+        }
+
+        console.log(chalk.green('\n✅ Sync complete!'));
+        console.log(chalk.gray(`   Strings translated: ${stringsTranslated}`));
+        console.log(chalk.gray(`   Files updated: ${filesUpdated}`));
+        console.log(chalk.gray(`   Time: ${formatElapsedTime(startTime)}`));
+
+        // Show link to examples
+        console.log(chalk.blue('\n📚 See language selector examples:'));
+        console.log(chalk.gray('   https://nagusame.tech/Multilingual/examples.html'));
     });
 
 /**
@@ -1112,7 +1352,7 @@ async function runTranslation(
     if (limits) {
         console.log(chalk.blue(`\n📈 ${limits.name} Info`));
         console.log(chalk.gray('─'.repeat(55)));
-        
+
         if (limits.dailyLimit === Infinity) {
             console.log(`   Daily limit:     ${chalk.green('Unlimited')}`);
         } else {
@@ -1230,7 +1470,7 @@ async function runTranslation(
     try {
         const result = await multilingual.run((stage, message, progress) => {
             const now = Date.now();
-            
+
             // Extract language from message if available
             const langMatch = message.match(/to (\w+)/);
             if (langMatch && langMatch[1] !== currentLanguage) {
@@ -1242,7 +1482,7 @@ async function runTranslation(
                 const elapsed = now - startTime;
                 const estimatedTotal = (elapsed / progress) * 100;
                 const remaining = estimatedTotal - elapsed;
-                
+
                 let timeStr = '';
                 if (remaining > 0 && progress > 5) {
                     const seconds = Math.round(remaining / 1000);
@@ -1297,7 +1537,7 @@ async function runTranslation(
             // Ask about queuing more translations
             if (!auto) {
                 const pendingQueue = usageTracker.getPendingQueue();
-                
+
                 const { queueMore } = await inquirer.prompt([
                     {
                         type: 'confirm',
@@ -1356,14 +1596,14 @@ async function runTranslation(
                                 queueService,
                                 hasEmail
                             );
-                            
+
                             usageTracker.addToQueue(
                                 moreLanguages,
                                 queueService,
                                 queueEstimate.totalCharacters * moreLanguages.length,
                                 priority
                             );
-                            
+
                             console.log(chalk.green(`\n✅ Added ${moreLanguages.length} languages to queue`));
                             console.log(chalk.gray('   Run "multilingual queue --process" to translate them'));
                         }

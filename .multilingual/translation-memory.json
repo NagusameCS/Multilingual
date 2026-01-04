@@ -16,6 +16,4406 @@
       "targetLang": "es",
       "service": "mymemory",
       "timestamp": 1767513500523
+    },
+    {
+      "source": "Examples",
+      "target": "الأمثلة",
+      "sourceLang": "en",
+      "targetLang": "ar",
+      "service": "mymemory",
+      "timestamp": 1767535615715
+    },
+    {
+      "source": "Interactive Components",
+      "target": "المكونات التفاعلية",
+      "sourceLang": "en",
+      "targetLang": "ar",
+      "service": "mymemory",
+      "timestamp": 1767535616841
+    },
+    {
+      "source": "Language Selector Examples",
+      "target": "أمثلة على محدد اللغة",
+      "sourceLang": "en",
+      "targetLang": "ar",
+      "service": "mymemory",
+      "timestamp": 1767535617307
+    },
+    {
+      "source": "Copy-paste these UI components for your i18n implementation. All selectors are synchronized - try clicking any one!",
+      "target": "انسخ - الصق مكونات واجهة المستخدم هذه لتنفيذ i18n الخاص بك. تمت مزامنة جميع المحددات - حاول النقر فوق أي منها!",
+      "sourceLang": "en",
+      "targetLang": "ar",
+      "service": "mymemory",
+      "timestamp": 1767535617812
+    },
+    {
+      "source": "Back to Home",
+      "target": "العودة إلى الصفحة الرئيسية",
+      "sourceLang": "en",
+      "targetLang": "ar",
+      "service": "mymemory",
+      "timestamp": 1767535618261
+    },
+    {
+      "source": "Current Language",
+      "target": "اللغة الحالية",
+      "sourceLang": "en",
+      "targetLang": "ar",
+      "service": "mymemory",
+      "timestamp": 1767535619301
+    },
+    {
+      "source": "Choose Your Style",
+      "target": "إختر النمط.",
+      "sourceLang": "en",
+      "targetLang": "ar",
+      "service": "mymemory",
+      "timestamp": 1767535619773
+    },
+    {
+      "source": "6 different ways to let users switch languages",
+      "target": "6 طرق مختلفة للسماح للمستخدمين بالتبديل بين اللغات",
+      "sourceLang": "en",
+      "targetLang": "ar",
+      "service": "mymemory",
+      "timestamp": 1767535620333
+    },
+    {
+      "source": "Simple Dropdown",
+      "target": "القائمة المنسدلة البسيطة",
+      "sourceLang": "en",
+      "targetLang": "ar",
+      "service": "mymemory",
+      "timestamp": 1767535621241
+    },
+    {
+      "source": "Best for settings pages and minimal footprint.",
+      "target": "الأفضل لصفحات الإعدادات والحد الأدنى من المساحة.",
+      "sourceLang": "en",
+      "targetLang": "ar",
+      "service": "mymemory",
+      "timestamp": 1767535621811
+    },
+    {
+      "source": "Flag Buttons",
+      "target": "أزرار العلم",
+      "sourceLang": "en",
+      "targetLang": "ar",
+      "service": "mymemory",
+      "timestamp": 1767535622788
+    },
+    {
+      "source": "Best for headers with 3-6 primary languages.",
+      "target": "الأفضل للرؤوس التي تحتوي على 3-6 لغات أساسية.",
+      "sourceLang": "en",
+      "targetLang": "ar",
+      "service": "mymemory",
+      "timestamp": 1767535623543
+    },
+    {
+      "source": "Icon Grid",
+      "target": "شبيكة الأيقونة",
+      "sourceLang": "en",
+      "targetLang": "ar",
+      "service": "mymemory",
+      "timestamp": 1767535624377
+    },
+    {
+      "source": "Best for compact headers and mobile navigation.",
+      "target": "الأفضل للرؤوس المدمجة والتنقل عبر الهاتف المحمول.",
+      "sourceLang": "en",
+      "targetLang": "ar",
+      "service": "mymemory",
+      "timestamp": 1767535624844
+    },
+    {
+      "source": "Floating Globe",
+      "target": "الكرة الأرضية العائمة",
+      "sourceLang": "en",
+      "targetLang": "ar",
+      "service": "mymemory",
+      "timestamp": 1767535625905
+    },
+    {
+      "source": "Best for fixed position with many languages.",
+      "target": "الأفضل لوضع ثابت مع العديد من اللغات.",
+      "sourceLang": "en",
+      "targetLang": "ar",
+      "service": "mymemory",
+      "timestamp": 1767535626534
+    },
+    {
+      "source": "Pill Selector",
+      "target": "محدد حبوب منع الحمل",
+      "sourceLang": "en",
+      "targetLang": "ar",
+      "service": "mymemory",
+      "timestamp": 1767535627951
+    },
+    {
+      "source": "Best for modern apps with 3-5 languages.",
+      "target": "الأفضل للتطبيقات الحديثة مع 3-5 لغات.",
+      "sourceLang": "en",
+      "targetLang": "ar",
+      "service": "mymemory",
+      "timestamp": 1767535628611
+    },
+    {
+      "source": "Carousel",
+      "target": "Carousel",
+      "sourceLang": "en",
+      "targetLang": "ar",
+      "service": "mymemory",
+      "timestamp": 1767535629134
+    },
+    {
+      "source": "Best for interactive browsing of all languages.",
+      "target": "الأفضل للتصفح التفاعلي لجميع اللغات.",
+      "sourceLang": "en",
+      "targetLang": "ar",
+      "service": "mymemory",
+      "timestamp": 1767535629700
+    },
+    {
+      "source": "Integration Code",
+      "target": "رمز التكامل",
+      "sourceLang": "en",
+      "targetLang": "ar",
+      "service": "mymemory",
+      "timestamp": 1767535630785
+    },
+    {
+      "source": "Copy this code to add language switching to your project",
+      "target": "انسخ هذا الرمز لإضافة تبديل اللغة إلى مشروعك",
+      "sourceLang": "en",
+      "targetLang": "ar",
+      "service": "mymemory",
+      "timestamp": 1767535631330
+    },
+    {
+      "source": "Generated with",
+      "target": "تم إنشاؤه باستخدام",
+      "sourceLang": "en",
+      "targetLang": "ar",
+      "service": "mymemory",
+      "timestamp": 1767535632303
+    },
+    {
+      "source": "Examples",
+      "target": "Примери",
+      "sourceLang": "en",
+      "targetLang": "bg",
+      "service": "mymemory",
+      "timestamp": 1767535633009
+    },
+    {
+      "source": "Interactive Components",
+      "target": "Интерактивни компоненти",
+      "sourceLang": "en",
+      "targetLang": "bg",
+      "service": "mymemory",
+      "timestamp": 1767535634008
+    },
+    {
+      "source": "Language Selector Examples",
+      "target": "Примери за избор на език",
+      "sourceLang": "en",
+      "targetLang": "bg",
+      "service": "mymemory",
+      "timestamp": 1767535634594
+    },
+    {
+      "source": "Copy-paste these UI components for your i18n implementation. All selectors are synchronized - try clicking any one!",
+      "target": "Копирайте тези компоненти на потребителския интерфейс за вашата i18n имплементация. Всички селектори са синхронизирани - опитайте да щракнете върху който и да е от тях!",
+      "sourceLang": "en",
+      "targetLang": "bg",
+      "service": "mymemory",
+      "timestamp": 1767535635231
+    },
+    {
+      "source": "Back to Home",
+      "target": "Към началната страница",
+      "sourceLang": "en",
+      "targetLang": "bg",
+      "service": "mymemory",
+      "timestamp": 1767535635818
+    },
+    {
+      "source": "Current Language",
+      "target": "ТЕКУЩ ЕЗИК",
+      "sourceLang": "en",
+      "targetLang": "bg",
+      "service": "mymemory",
+      "timestamp": 1767535636385
+    },
+    {
+      "source": "Choose Your Style",
+      "target": "ИЗБЕРЕТЕ ВАШИЯ СТИЛ",
+      "sourceLang": "en",
+      "targetLang": "bg",
+      "service": "mymemory",
+      "timestamp": 1767535636994
+    },
+    {
+      "source": "6 different ways to let users switch languages",
+      "target": "6 различни начина да позволите на потребителите да сменят езиците",
+      "sourceLang": "en",
+      "targetLang": "bg",
+      "service": "mymemory",
+      "timestamp": 1767535637804
+    },
+    {
+      "source": "Simple Dropdown",
+      "target": "Обикновено падащо меню",
+      "sourceLang": "en",
+      "targetLang": "bg",
+      "service": "mymemory",
+      "timestamp": 1767535638394
+    },
+    {
+      "source": "Best for settings pages and minimal footprint.",
+      "target": "Най - подходящ за страници с настройки и минимален отпечатък.",
+      "sourceLang": "en",
+      "targetLang": "bg",
+      "service": "mymemory",
+      "timestamp": 1767535638967
+    },
+    {
+      "source": "Flag Buttons",
+      "target": "Бутони за сигнализиране",
+      "sourceLang": "en",
+      "targetLang": "bg",
+      "service": "mymemory",
+      "timestamp": 1767535639541
+    },
+    {
+      "source": "Best for headers with 3-6 primary languages.",
+      "target": "Най - подходящ за хедъри с 3 -6 основни езика.",
+      "sourceLang": "en",
+      "targetLang": "bg",
+      "service": "mymemory",
+      "timestamp": 1767535640014
+    },
+    {
+      "source": "Icon Grid",
+      "target": "Мрежа",
+      "sourceLang": "en",
+      "targetLang": "bg",
+      "service": "mymemory",
+      "timestamp": 1767535640904
+    },
+    {
+      "source": "Best for compact headers and mobile navigation.",
+      "target": "Най - подходящ за компактни заглавки и мобилна навигация.",
+      "sourceLang": "en",
+      "targetLang": "bg",
+      "service": "mymemory",
+      "timestamp": 1767535641410
+    },
+    {
+      "source": "Floating Globe",
+      "target": "Плаващ глобус",
+      "sourceLang": "en",
+      "targetLang": "bg",
+      "service": "mymemory",
+      "timestamp": 1767535642023
+    },
+    {
+      "source": "Best for fixed position with many languages.",
+      "target": "Най - подходящ за фиксирана позиция с много езици.",
+      "sourceLang": "en",
+      "targetLang": "bg",
+      "service": "mymemory",
+      "timestamp": 1767535642626
+    },
+    {
+      "source": "Pill Selector",
+      "target": "Селектор на хапчета",
+      "sourceLang": "en",
+      "targetLang": "bg",
+      "service": "mymemory",
+      "timestamp": 1767535643739
+    },
+    {
+      "source": "Best for modern apps with 3-5 languages.",
+      "target": "Най - подходящ за модерни приложения с 3 - 5 езика.",
+      "sourceLang": "en",
+      "targetLang": "bg",
+      "service": "mymemory",
+      "timestamp": 1767535644187
+    },
+    {
+      "source": "Carousel",
+      "target": "Карусел",
+      "sourceLang": "en",
+      "targetLang": "bg",
+      "service": "mymemory",
+      "timestamp": 1767535644661
+    },
+    {
+      "source": "Best for interactive browsing of all languages.",
+      "target": "Най - подходящ за интерактивно сърфиране на всички езици.",
+      "sourceLang": "en",
+      "targetLang": "bg",
+      "service": "mymemory",
+      "timestamp": 1767535645166
+    },
+    {
+      "source": "Integration Code",
+      "target": "Интеграционен код",
+      "sourceLang": "en",
+      "targetLang": "bg",
+      "service": "mymemory",
+      "timestamp": 1767535646272
+    },
+    {
+      "source": "Copy this code to add language switching to your project",
+      "target": "Копирайте този код, за да добавите превключване на езика към проекта си",
+      "sourceLang": "en",
+      "targetLang": "bg",
+      "service": "mymemory",
+      "timestamp": 1767535646768
+    },
+    {
+      "source": "Generated with",
+      "target": "Генерирано с",
+      "sourceLang": "en",
+      "targetLang": "bg",
+      "service": "mymemory",
+      "timestamp": 1767535647516
+    },
+    {
+      "source": "Translation Methods",
+      "target": "Методи за превод",
+      "sourceLang": "en",
+      "targetLang": "bg",
+      "service": "mymemory",
+      "timestamp": 1767535648467
+    },
+    {
+      "source": "Supported Languages",
+      "target": "Поддържани езици",
+      "sourceLang": "en",
+      "targetLang": "bg",
+      "service": "mymemory",
+      "timestamp": 1767535649517
+    },
+    {
+      "source": "Free Options",
+      "target": "Безплатни опции",
+      "sourceLang": "en",
+      "targetLang": "bg",
+      "service": "mymemory",
+      "timestamp": 1767535650706
+    },
+    {
+      "source": "Export Formats",
+      "target": "Експортиране на формати",
+      "sourceLang": "en",
+      "targetLang": "bg",
+      "service": "mymemory",
+      "timestamp": 1767535651695
+    },
+    {
+      "source": "Try it Live",
+      "target": "Изпробвайте на живо",
+      "sourceLang": "en",
+      "targetLang": "bg",
+      "service": "mymemory",
+      "timestamp": 1767535652391
+    },
+    {
+      "source": "See translations happen in real-time",
+      "target": "Вижте преводите в реално време",
+      "sourceLang": "en",
+      "targetLang": "bg",
+      "service": "mymemory",
+      "timestamp": 1767535652997
+    },
+    {
+      "source": "Translation Preview",
+      "target": "Преглед на превода",
+      "sourceLang": "en",
+      "targetLang": "bg",
+      "service": "mymemory",
+      "timestamp": 1767535653911
+    },
+    {
+      "source": "English (Source)",
+      "target": "Английски (източник)",
+      "sourceLang": "en",
+      "targetLang": "bg",
+      "service": "mymemory",
+      "timestamp": 1767535655058
+    },
+    {
+      "source": "Translation",
+      "target": "Превод",
+      "sourceLang": "en",
+      "targetLang": "bg",
+      "service": "mymemory",
+      "timestamp": 1767535655532
+    },
+    {
+      "source": "Type something...",
+      "target": "Въведете нещо",
+      "sourceLang": "en",
+      "targetLang": "bg",
+      "service": "mymemory",
+      "timestamp": 1767535656546
+    },
+    {
+      "source": "Translating...",
+      "target": "Превод...",
+      "sourceLang": "en",
+      "targetLang": "bg",
+      "service": "mymemory",
+      "timestamp": 1767535657660
+    },
+    {
+      "source": "Translation failed. Try again.",
+      "target": "Неуспешен превод. Опитайте отново.",
+      "sourceLang": "en",
+      "targetLang": "bg",
+      "service": "mymemory",
+      "timestamp": 1767535658197
+    },
+    {
+      "source": "Examples",
+      "target": "Příklady",
+      "sourceLang": "en",
+      "targetLang": "cs",
+      "service": "mymemory",
+      "timestamp": 1767535658834
+    },
+    {
+      "source": "Interactive Components",
+      "target": "Interaktivní komponenty",
+      "sourceLang": "en",
+      "targetLang": "cs",
+      "service": "mymemory",
+      "timestamp": 1767535659567
+    },
+    {
+      "source": "Language Selector Examples",
+      "target": "Příklady výběru jazyka",
+      "sourceLang": "en",
+      "targetLang": "cs",
+      "service": "mymemory",
+      "timestamp": 1767535660036
+    },
+    {
+      "source": "Copy-paste these UI components for your i18n implementation. All selectors are synchronized - try clicking any one!",
+      "target": "Zkopírujte a vložte tyto součásti uživatelského rozhraní pro implementaci i18n. Všechny selektory jsou synchronizovány - zkuste kliknout na některý z nich!",
+      "sourceLang": "en",
+      "targetLang": "cs",
+      "service": "mymemory",
+      "timestamp": 1767535660624
+    },
+    {
+      "source": "Back to Home",
+      "target": "Zpět na úvodní stránku",
+      "sourceLang": "en",
+      "targetLang": "cs",
+      "service": "mymemory",
+      "timestamp": 1767535661188
+    },
+    {
+      "source": "Current Language",
+      "target": "Současný jazyk",
+      "sourceLang": "en",
+      "targetLang": "cs",
+      "service": "mymemory",
+      "timestamp": 1767535662267
+    },
+    {
+      "source": "Choose Your Style",
+      "target": "Vyberte si svůj styl",
+      "sourceLang": "en",
+      "targetLang": "cs",
+      "service": "mymemory",
+      "timestamp": 1767535663009
+    },
+    {
+      "source": "6 different ways to let users switch languages",
+      "target": "6 různých způsobů, jak umožnit uživatelům přepínat jazyky",
+      "sourceLang": "en",
+      "targetLang": "cs",
+      "service": "mymemory",
+      "timestamp": 1767535663609
+    },
+    {
+      "source": "Simple Dropdown",
+      "target": "Jednoduchá rozbalovací nabídka",
+      "sourceLang": "en",
+      "targetLang": "cs",
+      "service": "mymemory",
+      "timestamp": 1767535664243
+    },
+    {
+      "source": "Best for settings pages and minimal footprint.",
+      "target": "Nejlepší pro stránky nastavení a minimální půdorys.",
+      "sourceLang": "en",
+      "targetLang": "cs",
+      "service": "mymemory",
+      "timestamp": 1767535664781
+    },
+    {
+      "source": "Flag Buttons",
+      "target": "Tlačítka vlajky",
+      "sourceLang": "en",
+      "targetLang": "cs",
+      "service": "mymemory",
+      "timestamp": 1767535665931
+    },
+    {
+      "source": "Best for headers with 3-6 primary languages.",
+      "target": "Nejlepší pro hlavičky s 3-6 primárními jazyky.",
+      "sourceLang": "en",
+      "targetLang": "cs",
+      "service": "mymemory",
+      "timestamp": 1767535666426
+    },
+    {
+      "source": "Icon Grid",
+      "target": "Mřížka ikony",
+      "sourceLang": "en",
+      "targetLang": "cs",
+      "service": "mymemory",
+      "timestamp": 1767535666916
+    },
+    {
+      "source": "Best for compact headers and mobile navigation.",
+      "target": "Ideální pro kompaktní hlavičky a mobilní navigaci.",
+      "sourceLang": "en",
+      "targetLang": "cs",
+      "service": "mymemory",
+      "timestamp": 1767535667398
+    },
+    {
+      "source": "Floating Globe",
+      "target": "Plovoucí glóbus",
+      "sourceLang": "en",
+      "targetLang": "cs",
+      "service": "mymemory",
+      "timestamp": 1767535668384
+    },
+    {
+      "source": "Best for fixed position with many languages.",
+      "target": "Nejlepší pro pevnou pozici s mnoha jazyky.",
+      "sourceLang": "en",
+      "targetLang": "cs",
+      "service": "mymemory",
+      "timestamp": 1767535668836
+    },
+    {
+      "source": "Pill Selector",
+      "target": "Volič pilulek",
+      "sourceLang": "en",
+      "targetLang": "cs",
+      "service": "mymemory",
+      "timestamp": 1767535669434
+    },
+    {
+      "source": "Best for modern apps with 3-5 languages.",
+      "target": "Nejlepší pro moderní aplikace s 3-5 jazyky.",
+      "sourceLang": "en",
+      "targetLang": "cs",
+      "service": "mymemory",
+      "timestamp": 1767535669959
+    },
+    {
+      "source": "Carousel",
+      "target": "Karusel",
+      "sourceLang": "en",
+      "targetLang": "cs",
+      "service": "mymemory",
+      "timestamp": 1767535670428
+    },
+    {
+      "source": "Best for interactive browsing of all languages.",
+      "target": "Ideální pro interaktivní prohlížení všech jazyků.",
+      "sourceLang": "en",
+      "targetLang": "cs",
+      "service": "mymemory",
+      "timestamp": 1767535670972
+    },
+    {
+      "source": "Integration Code",
+      "target": "Integrační kód",
+      "sourceLang": "en",
+      "targetLang": "cs",
+      "service": "mymemory",
+      "timestamp": 1767535671464
+    },
+    {
+      "source": "Copy this code to add language switching to your project",
+      "target": "Zkopírujte tento kód pro přidání jazyka přepínání do projektu",
+      "sourceLang": "en",
+      "targetLang": "cs",
+      "service": "mymemory",
+      "timestamp": 1767535672014
+    },
+    {
+      "source": "Generated with",
+      "target": "Vygenerováno pomocí",
+      "sourceLang": "en",
+      "targetLang": "cs",
+      "service": "mymemory",
+      "timestamp": 1767535673011
+    },
+    {
+      "source": "Translation Methods",
+      "target": "Metody překladu",
+      "sourceLang": "en",
+      "targetLang": "cs",
+      "service": "mymemory",
+      "timestamp": 1767535673625
+    },
+    {
+      "source": "Supported Languages",
+      "target": "Podporované jazyky",
+      "sourceLang": "en",
+      "targetLang": "cs",
+      "service": "mymemory",
+      "timestamp": 1767535674627
+    },
+    {
+      "source": "Free Options",
+      "target": "Možnosti zdarma",
+      "sourceLang": "en",
+      "targetLang": "cs",
+      "service": "mymemory",
+      "timestamp": 1767535675789
+    },
+    {
+      "source": "Export Formats",
+      "target": "Formáty pro export",
+      "sourceLang": "en",
+      "targetLang": "cs",
+      "service": "mymemory",
+      "timestamp": 1767535676271
+    },
+    {
+      "source": "Try it Live",
+      "target": "Vyzkoušej to naživo",
+      "sourceLang": "en",
+      "targetLang": "cs",
+      "service": "mymemory",
+      "timestamp": 1767535676793
+    },
+    {
+      "source": "See translations happen in real-time",
+      "target": "Zobrazit překlady probíhající v reálném čase",
+      "sourceLang": "en",
+      "targetLang": "cs",
+      "service": "mymemory",
+      "timestamp": 1767535677371
+    },
+    {
+      "source": "Translation Preview",
+      "target": "Náhled překladu",
+      "sourceLang": "en",
+      "targetLang": "cs",
+      "service": "mymemory",
+      "timestamp": 1767535677978
+    },
+    {
+      "source": "English (Source)",
+      "target": "English - Source",
+      "sourceLang": "en",
+      "targetLang": "cs",
+      "service": "mymemory",
+      "timestamp": 1767535679042
+    },
+    {
+      "source": "Translation",
+      "target": "Translation",
+      "sourceLang": "en",
+      "targetLang": "cs",
+      "service": "mymemory",
+      "timestamp": 1767535679523
+    },
+    {
+      "source": "Type something...",
+      "target": "Napište něco…",
+      "sourceLang": "en",
+      "targetLang": "cs",
+      "service": "mymemory",
+      "timestamp": 1767535680463
+    },
+    {
+      "source": "Translating...",
+      "target": "Překládání",
+      "sourceLang": "en",
+      "targetLang": "cs",
+      "service": "mymemory",
+      "timestamp": 1767535680920
+    },
+    {
+      "source": "Translation failed. Try again.",
+      "target": "Překlad se nezdařil. Zkuste to znovu.",
+      "sourceLang": "en",
+      "targetLang": "cs",
+      "service": "mymemory",
+      "timestamp": 1767535681493
+    },
+    {
+      "source": "Examples",
+      "target": "Eksempler",
+      "sourceLang": "en",
+      "targetLang": "da",
+      "service": "mymemory",
+      "timestamp": 1767535682377
+    },
+    {
+      "source": "Interactive Components",
+      "target": "Interaktive komponenter",
+      "sourceLang": "en",
+      "targetLang": "da",
+      "service": "mymemory",
+      "timestamp": 1767535683515
+    },
+    {
+      "source": "Language Selector Examples",
+      "target": "Eksempler på sprogvælger",
+      "sourceLang": "en",
+      "targetLang": "da",
+      "service": "mymemory",
+      "timestamp": 1767535684063
+    },
+    {
+      "source": "Copy-paste these UI components for your i18n implementation. All selectors are synchronized - try clicking any one!",
+      "target": "Kopier og indsæt disse brugergrænsefladekomponenter til din i18n-implementering. Alle selektorer er synkroniseret - prøv at klikke på en af dem!",
+      "sourceLang": "en",
+      "targetLang": "da",
+      "service": "mymemory",
+      "timestamp": 1767535684692
+    },
+    {
+      "source": "Back to Home",
+      "target": "Gå tilbage til Start",
+      "sourceLang": "en",
+      "targetLang": "da",
+      "service": "mymemory",
+      "timestamp": 1767535685516
+    },
+    {
+      "source": "Current Language",
+      "target": "Nuværende Sprog",
+      "sourceLang": "en",
+      "targetLang": "da",
+      "service": "mymemory",
+      "timestamp": 1767535686118
+    },
+    {
+      "source": "Choose Your Style",
+      "target": "Vælg din style",
+      "sourceLang": "en",
+      "targetLang": "da",
+      "service": "mymemory",
+      "timestamp": 1767535686798
+    },
+    {
+      "source": "6 different ways to let users switch languages",
+      "target": "6 forskellige måder at lade brugere skifte sprog på",
+      "sourceLang": "en",
+      "targetLang": "da",
+      "service": "mymemory",
+      "timestamp": 1767535687622
+    },
+    {
+      "source": "Simple Dropdown",
+      "target": "Enkel rullemenu",
+      "sourceLang": "en",
+      "targetLang": "da",
+      "service": "mymemory",
+      "timestamp": 1767535688243
+    },
+    {
+      "source": "Best for settings pages and minimal footprint.",
+      "target": "Bedst til indstillingssider og minimalt fodaftryk.",
+      "sourceLang": "en",
+      "targetLang": "da",
+      "service": "mymemory",
+      "timestamp": 1767535688812
+    },
+    {
+      "source": "Flag Buttons",
+      "target": "Flagknapper",
+      "sourceLang": "en",
+      "targetLang": "da",
+      "service": "mymemory",
+      "timestamp": 1767535689386
+    },
+    {
+      "source": "Best for headers with 3-6 primary languages.",
+      "target": "Bedst til overskrifter med 3-6 primære sprog.",
+      "sourceLang": "en",
+      "targetLang": "da",
+      "service": "mymemory",
+      "timestamp": 1767535689869
+    },
+    {
+      "source": "Icon Grid",
+      "target": "Ikongitter",
+      "sourceLang": "en",
+      "targetLang": "da",
+      "service": "mymemory",
+      "timestamp": 1767535690389
+    },
+    {
+      "source": "Best for compact headers and mobile navigation.",
+      "target": "Bedst til kompakte overskrifter og mobil navigation.",
+      "sourceLang": "en",
+      "targetLang": "da",
+      "service": "mymemory",
+      "timestamp": 1767535690844
+    },
+    {
+      "source": "Floating Globe",
+      "target": "Flydende klode",
+      "sourceLang": "en",
+      "targetLang": "da",
+      "service": "mymemory",
+      "timestamp": 1767535691429
+    },
+    {
+      "source": "Best for fixed position with many languages.",
+      "target": "Bedst til fast position med mange sprog.",
+      "sourceLang": "en",
+      "targetLang": "da",
+      "service": "mymemory",
+      "timestamp": 1767535691935
+    },
+    {
+      "source": "Pill Selector",
+      "target": "Pillevælger",
+      "sourceLang": "en",
+      "targetLang": "da",
+      "service": "mymemory",
+      "timestamp": 1767535692486
+    },
+    {
+      "source": "Best for modern apps with 3-5 languages.",
+      "target": "Bedst til moderne apps med 3-5 sprog.",
+      "sourceLang": "en",
+      "targetLang": "da",
+      "service": "mymemory",
+      "timestamp": 1767535693081
+    },
+    {
+      "source": "Carousel",
+      "target": "Karousel",
+      "sourceLang": "en",
+      "targetLang": "da",
+      "service": "mymemory",
+      "timestamp": 1767535693561
+    },
+    {
+      "source": "Best for interactive browsing of all languages.",
+      "target": "Bedst til interaktiv browsing på alle sprog.",
+      "sourceLang": "en",
+      "targetLang": "da",
+      "service": "mymemory",
+      "timestamp": 1767535694176
+    },
+    {
+      "source": "Integration Code",
+      "target": "Integrationskode",
+      "sourceLang": "en",
+      "targetLang": "da",
+      "service": "mymemory",
+      "timestamp": 1767535694758
+    },
+    {
+      "source": "Copy this code to add language switching to your project",
+      "target": "Kopier denne kode for at føje sprogskifte til dit projekt",
+      "sourceLang": "en",
+      "targetLang": "da",
+      "service": "mymemory",
+      "timestamp": 1767535695271
+    },
+    {
+      "source": "Generated with",
+      "target": "Genereret med",
+      "sourceLang": "en",
+      "targetLang": "da",
+      "service": "mymemory",
+      "timestamp": 1767535695858
+    },
+    {
+      "source": "Translation Methods",
+      "target": "Oversættelsesmetoder",
+      "sourceLang": "en",
+      "targetLang": "da",
+      "service": "mymemory",
+      "timestamp": 1767535696446
+    },
+    {
+      "source": "Supported Languages",
+      "target": "Understøttede sprog",
+      "sourceLang": "en",
+      "targetLang": "da",
+      "service": "mymemory",
+      "timestamp": 1767535697033
+    },
+    {
+      "source": "Free Options",
+      "target": "Gratis muligheder",
+      "sourceLang": "en",
+      "targetLang": "da",
+      "service": "mymemory",
+      "timestamp": 1767535697856
+    },
+    {
+      "source": "Export Formats",
+      "target": "Eksportformater",
+      "sourceLang": "en",
+      "targetLang": "da",
+      "service": "mymemory",
+      "timestamp": 1767535698771
+    },
+    {
+      "source": "Try it Live",
+      "target": "Prøv det live",
+      "sourceLang": "en",
+      "targetLang": "da",
+      "service": "mymemory",
+      "timestamp": 1767535699416
+    },
+    {
+      "source": "See translations happen in real-time",
+      "target": "Se oversættelser ske i realtid",
+      "sourceLang": "en",
+      "targetLang": "da",
+      "service": "mymemory",
+      "timestamp": 1767535700006
+    },
+    {
+      "source": "Translation Preview",
+      "target": "Forhåndsvisning af oversættelse",
+      "sourceLang": "en",
+      "targetLang": "da",
+      "service": "mymemory",
+      "timestamp": 1767535700577
+    },
+    {
+      "source": "English (Source)",
+      "target": "Engelsk (kilde)",
+      "sourceLang": "en",
+      "targetLang": "da",
+      "service": "mymemory",
+      "timestamp": 1767535701076
+    },
+    {
+      "source": "Translation",
+      "target": "Oversættelse",
+      "sourceLang": "en",
+      "targetLang": "da",
+      "service": "mymemory",
+      "timestamp": 1767535701581
+    },
+    {
+      "source": "Type something...",
+      "target": "Skriv noget",
+      "sourceLang": "en",
+      "targetLang": "da",
+      "service": "mymemory",
+      "timestamp": 1767535702092
+    },
+    {
+      "source": "Translating...",
+      "target": "Oversætter",
+      "sourceLang": "en",
+      "targetLang": "da",
+      "service": "mymemory",
+      "timestamp": 1767535702541
+    },
+    {
+      "source": "Translation failed. Try again.",
+      "target": "Oversættelse mislykkedes. Prøv igen.",
+      "sourceLang": "en",
+      "targetLang": "da",
+      "service": "mymemory",
+      "timestamp": 1767535703100
+    },
+    {
+      "source": "Examples",
+      "target": "Beispiele",
+      "sourceLang": "en",
+      "targetLang": "de",
+      "service": "mymemory",
+      "timestamp": 1767535703691
+    },
+    {
+      "source": "Interactive Components",
+      "target": "Interaktive Komponenten",
+      "sourceLang": "en",
+      "targetLang": "de",
+      "service": "mymemory",
+      "timestamp": 1767535704296
+    },
+    {
+      "source": "Language Selector Examples",
+      "target": "Beispiele für Sprachauswahl",
+      "sourceLang": "en",
+      "targetLang": "de",
+      "service": "mymemory",
+      "timestamp": 1767535704884
+    },
+    {
+      "source": "Copy-paste these UI components for your i18n implementation. All selectors are synchronized - try clicking any one!",
+      "target": "Kopieren Sie diese UI-Komponenten für Ihre i18n-Implementierung. Alle Selektoren sind synchronisiert - versuchen Sie, auf einen zu klicken!",
+      "sourceLang": "en",
+      "targetLang": "de",
+      "service": "mymemory",
+      "timestamp": 1767535705487
+    },
+    {
+      "source": "Back to Home",
+      "target": "Zurück zur Startseite",
+      "sourceLang": "en",
+      "targetLang": "de",
+      "service": "mymemory",
+      "timestamp": 1767535706004
+    },
+    {
+      "source": "Current Language",
+      "target": "Aktuelle Sprache",
+      "sourceLang": "en",
+      "targetLang": "de",
+      "service": "mymemory",
+      "timestamp": 1767535706558
+    },
+    {
+      "source": "Choose Your Style",
+      "target": "Passen Sie Ihre Uhr an Ihren Stil an",
+      "sourceLang": "en",
+      "targetLang": "de",
+      "service": "mymemory",
+      "timestamp": 1767535707025
+    },
+    {
+      "source": "6 different ways to let users switch languages",
+      "target": "6 verschiedene Möglichkeiten, Benutzer die Sprache wechseln zu lassen",
+      "sourceLang": "en",
+      "targetLang": "de",
+      "service": "mymemory",
+      "timestamp": 1767535707722
+    },
+    {
+      "source": "Simple Dropdown",
+      "target": "Einfaches Dropdown",
+      "sourceLang": "en",
+      "targetLang": "de",
+      "service": "mymemory",
+      "timestamp": 1767535708287
+    },
+    {
+      "source": "Best for settings pages and minimal footprint.",
+      "target": "Ideal für Einstellungsseiten und minimalen Platzbedarf.",
+      "sourceLang": "en",
+      "targetLang": "de",
+      "service": "mymemory",
+      "timestamp": 1767535709033
+    },
+    {
+      "source": "Flag Buttons",
+      "target": "Flag Buttons",
+      "sourceLang": "en",
+      "targetLang": "de",
+      "service": "mymemory",
+      "timestamp": 1767535709728
+    },
+    {
+      "source": "Best for headers with 3-6 primary languages.",
+      "target": "Ideal für Kopfzeilen mit 3-6 Hauptsprachen.",
+      "sourceLang": "en",
+      "targetLang": "de",
+      "service": "mymemory",
+      "timestamp": 1767535710473
+    },
+    {
+      "source": "Icon Grid",
+      "target": "Icon-Gitter",
+      "sourceLang": "en",
+      "targetLang": "de",
+      "service": "mymemory",
+      "timestamp": 1767535710948
+    },
+    {
+      "source": "Best for compact headers and mobile navigation.",
+      "target": "Ideal für kompakte Kopfzeilen und mobile Navigation.",
+      "sourceLang": "en",
+      "targetLang": "de",
+      "service": "mymemory",
+      "timestamp": 1767535711458
+    },
+    {
+      "source": "Floating Globe",
+      "target": "Schwebender Globus",
+      "sourceLang": "en",
+      "targetLang": "de",
+      "service": "mymemory",
+      "timestamp": 1767535712020
+    },
+    {
+      "source": "Best for fixed position with many languages.",
+      "target": "Ideal für feste Position mit vielen Sprachen.",
+      "sourceLang": "en",
+      "targetLang": "de",
+      "service": "mymemory",
+      "timestamp": 1767535712610
+    },
+    {
+      "source": "Pill Selector",
+      "target": "Pillenauswahl",
+      "sourceLang": "en",
+      "targetLang": "de",
+      "service": "mymemory",
+      "timestamp": 1767535713189
+    },
+    {
+      "source": "Best for modern apps with 3-5 languages.",
+      "target": "Ideal für moderne Apps mit 3-5 Sprachen.",
+      "sourceLang": "en",
+      "targetLang": "de",
+      "service": "mymemory",
+      "timestamp": 1767535713750
+    },
+    {
+      "source": "Carousel",
+      "target": "Karussell",
+      "sourceLang": "en",
+      "targetLang": "de",
+      "service": "mymemory",
+      "timestamp": 1767535714213
+    },
+    {
+      "source": "Best for interactive browsing of all languages.",
+      "target": "Ideal für interaktives Surfen in allen Sprachen.",
+      "sourceLang": "en",
+      "targetLang": "de",
+      "service": "mymemory",
+      "timestamp": 1767535714774
+    },
+    {
+      "source": "Integration Code",
+      "target": "Integrationscode",
+      "sourceLang": "en",
+      "targetLang": "de",
+      "service": "mymemory",
+      "timestamp": 1767535715363
+    },
+    {
+      "source": "Copy this code to add language switching to your project",
+      "target": "Kopieren Sie diesen Code, um Ihrem Projekt einen Sprachwechsel hinzuzufügen",
+      "sourceLang": "en",
+      "targetLang": "de",
+      "service": "mymemory",
+      "timestamp": 1767535715978
+    },
+    {
+      "source": "Generated with",
+      "target": "Erstellt mit",
+      "sourceLang": "en",
+      "targetLang": "de",
+      "service": "mymemory",
+      "timestamp": 1767535716601
+    },
+    {
+      "source": "Examples",
+      "target": "Παραδείγματα",
+      "sourceLang": "en",
+      "targetLang": "el",
+      "service": "mymemory",
+      "timestamp": 1767535717255
+    },
+    {
+      "source": "Interactive Components",
+      "target": "Διαδραστικά στοιχεία",
+      "sourceLang": "en",
+      "targetLang": "el",
+      "service": "mymemory",
+      "timestamp": 1767535718078
+    },
+    {
+      "source": "Language Selector Examples",
+      "target": "Παραδείγματα επιλογέα γλώσσας",
+      "sourceLang": "en",
+      "targetLang": "el",
+      "service": "mymemory",
+      "timestamp": 1767535718520
+    },
+    {
+      "source": "Copy-paste these UI components for your i18n implementation. All selectors are synchronized - try clicking any one!",
+      "target": "Αντιγράψτε-επικόλληση αυτών των στοιχείων διεπαφής χρήστη για την υλοποίηση του i18n. Όλοι οι επιλογείς είναι συγχρονισμένοι - δοκιμάστε να κάνετε κλικ σε οποιονδήποτε!",
+      "sourceLang": "en",
+      "targetLang": "el",
+      "service": "mymemory",
+      "timestamp": 1767535719198
+    },
+    {
+      "source": "Back to Home",
+      "target": "Πίσω στην αρχική σελίδα",
+      "sourceLang": "en",
+      "targetLang": "el",
+      "service": "mymemory",
+      "timestamp": 1767535719820
+    },
+    {
+      "source": "Current Language",
+      "target": "Τρέχουσα γλώσσα",
+      "sourceLang": "en",
+      "targetLang": "el",
+      "service": "mymemory",
+      "timestamp": 1767535720552
+    },
+    {
+      "source": "Choose Your Style",
+      "target": "Επιλέξτε το στυλ φόρμας",
+      "sourceLang": "en",
+      "targetLang": "el",
+      "service": "mymemory",
+      "timestamp": 1767535721218
+    },
+    {
+      "source": "6 different ways to let users switch languages",
+      "target": "6 διαφορετικοί τρόποι για να επιτρέψετε στους χρήστες να αλλάξουν γλώσσα",
+      "sourceLang": "en",
+      "targetLang": "el",
+      "service": "mymemory",
+      "timestamp": 1767535721904
+    },
+    {
+      "source": "Simple Dropdown",
+      "target": "Απλό dropdown",
+      "sourceLang": "en",
+      "targetLang": "el",
+      "service": "mymemory",
+      "timestamp": 1767535722505
+    },
+    {
+      "source": "Best for settings pages and minimal footprint.",
+      "target": "Ιδανικό για σελίδες ρυθμίσεων και ελάχιστο αποτύπωμα.",
+      "sourceLang": "en",
+      "targetLang": "el",
+      "service": "mymemory",
+      "timestamp": 1767535723150
+    },
+    {
+      "source": "Flag Buttons",
+      "target": "Κουμπιά επισήμανσης",
+      "sourceLang": "en",
+      "targetLang": "el",
+      "service": "mymemory",
+      "timestamp": 1767535723723
+    },
+    {
+      "source": "Best for headers with 3-6 primary languages.",
+      "target": "Ιδανικό για κεφαλίδες με 3-6 κύριες γλώσσες.",
+      "sourceLang": "en",
+      "targetLang": "el",
+      "service": "mymemory",
+      "timestamp": 1767535724213
+    },
+    {
+      "source": "Icon Grid",
+      "target": "Κάνναβος εικονιδίου",
+      "sourceLang": "en",
+      "targetLang": "el",
+      "service": "mymemory",
+      "timestamp": 1767535724695
+    },
+    {
+      "source": "Best for compact headers and mobile navigation.",
+      "target": "Ιδανικό για συμπαγείς κεφαλίδες και πλοήγηση μέσω κινητού.",
+      "sourceLang": "en",
+      "targetLang": "el",
+      "service": "mymemory",
+      "timestamp": 1767535725160
+    },
+    {
+      "source": "Floating Globe",
+      "target": "Πλωτή υδρόγειος σφαίρα",
+      "sourceLang": "en",
+      "targetLang": "el",
+      "service": "mymemory",
+      "timestamp": 1767535725757
+    },
+    {
+      "source": "Best for fixed position with many languages.",
+      "target": "Ιδανικό για σταθερή θέση με πολλές γλώσσες.",
+      "sourceLang": "en",
+      "targetLang": "el",
+      "service": "mymemory",
+      "timestamp": 1767535726278
+    },
+    {
+      "source": "Pill Selector",
+      "target": "Επιλογέας χαπιών",
+      "sourceLang": "en",
+      "targetLang": "el",
+      "service": "mymemory",
+      "timestamp": 1767535726936
+    },
+    {
+      "source": "Best for modern apps with 3-5 languages.",
+      "target": "Ιδανικό για σύγχρονες εφαρμογές με 3-5 γλώσσες.",
+      "sourceLang": "en",
+      "targetLang": "el",
+      "service": "mymemory",
+      "timestamp": 1767535727524
+    },
+    {
+      "source": "Carousel",
+      "target": "Καρουζέλ",
+      "sourceLang": "en",
+      "targetLang": "el",
+      "service": "mymemory",
+      "timestamp": 1767535727994
+    },
+    {
+      "source": "Best for interactive browsing of all languages.",
+      "target": "Το καλύτερο για διαδραστική περιήγηση όλων των γλωσσών.",
+      "sourceLang": "en",
+      "targetLang": "el",
+      "service": "mymemory",
+      "timestamp": 1767535728594
+    },
+    {
+      "source": "Integration Code",
+      "target": "Κωδικός ενσωμάτωσης",
+      "sourceLang": "en",
+      "targetLang": "el",
+      "service": "mymemory",
+      "timestamp": 1767535729196
+    },
+    {
+      "source": "Copy this code to add language switching to your project",
+      "target": "Αντιγράψτε αυτόν τον κωδικό για να προσθέσετε εναλλαγή γλώσσας στο έργο σας",
+      "sourceLang": "en",
+      "targetLang": "el",
+      "service": "mymemory",
+      "timestamp": 1767535729748
+    },
+    {
+      "source": "Generated with",
+      "target": "Δημιουργήθηκε με",
+      "sourceLang": "en",
+      "targetLang": "el",
+      "service": "mymemory",
+      "timestamp": 1767535730303
+    },
+    {
+      "source": "Translation Methods",
+      "target": "ΜΕΘΟΔΟΙ ΜΕΤΑΦΡΑΣ",
+      "sourceLang": "en",
+      "targetLang": "el",
+      "service": "mymemory",
+      "timestamp": 1767535730927
+    },
+    {
+      "source": "Supported Languages",
+      "target": "Υποστηριζόμενες γλώσσες",
+      "sourceLang": "en",
+      "targetLang": "el",
+      "service": "mymemory",
+      "timestamp": 1767535731460
+    },
+    {
+      "source": "Free Options",
+      "target": "Δωρεάν επιλογές",
+      "sourceLang": "en",
+      "targetLang": "el",
+      "service": "mymemory",
+      "timestamp": 1767535732133
+    },
+    {
+      "source": "Export Formats",
+      "target": "Εξαγωγή μορφών",
+      "sourceLang": "en",
+      "targetLang": "el",
+      "service": "mymemory",
+      "timestamp": 1767535732707
+    },
+    {
+      "source": "Try it Live",
+      "target": "Δοκιμάστε το ζωντανά",
+      "sourceLang": "en",
+      "targetLang": "el",
+      "service": "mymemory",
+      "timestamp": 1767535733246
+    },
+    {
+      "source": "See translations happen in real-time",
+      "target": "Δείτε τις μεταφράσεις να γίνονται σε πραγματικό χρόνο",
+      "sourceLang": "en",
+      "targetLang": "el",
+      "service": "mymemory",
+      "timestamp": 1767535733899
+    },
+    {
+      "source": "Translation Preview",
+      "target": "Προεπισκόπηση μετάφρασης",
+      "sourceLang": "en",
+      "targetLang": "el",
+      "service": "mymemory",
+      "timestamp": 1767535734646
+    },
+    {
+      "source": "English (Source)",
+      "target": "English source",
+      "sourceLang": "en",
+      "targetLang": "el",
+      "service": "mymemory",
+      "timestamp": 1767535735130
+    },
+    {
+      "source": "Translation",
+      "target": "Μετάφραση",
+      "sourceLang": "en",
+      "targetLang": "el",
+      "service": "mymemory",
+      "timestamp": 1767535735667
+    },
+    {
+      "source": "Type something...",
+      "target": "Πληκτρολογήστε κάτι",
+      "sourceLang": "en",
+      "targetLang": "el",
+      "service": "mymemory",
+      "timestamp": 1767535736304
+    },
+    {
+      "source": "Translating...",
+      "target": "μεταφράζεται…",
+      "sourceLang": "en",
+      "targetLang": "el",
+      "service": "mymemory",
+      "timestamp": 1767535736795
+    },
+    {
+      "source": "Translation failed. Try again.",
+      "target": "Η μετάφραση απέτυχε. Δοκιμάστε ξανά.",
+      "sourceLang": "en",
+      "targetLang": "el",
+      "service": "mymemory",
+      "timestamp": 1767535737433
+    },
+    {
+      "source": "Examples",
+      "target": "Ejemplos",
+      "sourceLang": "en",
+      "targetLang": "es",
+      "service": "mymemory",
+      "timestamp": 1767535737981
+    },
+    {
+      "source": "Interactive Components",
+      "target": "Componentes interactivos",
+      "sourceLang": "en",
+      "targetLang": "es",
+      "service": "mymemory",
+      "timestamp": 1767535738556
+    },
+    {
+      "source": "Language Selector Examples",
+      "target": "Ejemplos de selectores de idioma",
+      "sourceLang": "en",
+      "targetLang": "es",
+      "service": "mymemory",
+      "timestamp": 1767535739071
+    },
+    {
+      "source": "Copy-paste these UI components for your i18n implementation. All selectors are synchronized - try clicking any one!",
+      "target": "Copia y pega estos componentes de la interfaz de usuario para tu implementación de i18n. Todos los selectores están sincronizados, ¡intente hacer clic en cualquiera!",
+      "sourceLang": "en",
+      "targetLang": "es",
+      "service": "mymemory",
+      "timestamp": 1767535739594
+    },
+    {
+      "source": "Back to Home",
+      "target": "Volver al Inicio",
+      "sourceLang": "en",
+      "targetLang": "es",
+      "service": "mymemory",
+      "timestamp": 1767535740043
+    },
+    {
+      "source": "Current Language",
+      "target": "Idioma actual",
+      "sourceLang": "en",
+      "targetLang": "es",
+      "service": "mymemory",
+      "timestamp": 1767535740549
+    },
+    {
+      "source": "Choose Your Style",
+      "target": "Escoge tu estilo",
+      "sourceLang": "en",
+      "targetLang": "es",
+      "service": "mymemory",
+      "timestamp": 1767535740992
+    },
+    {
+      "source": "6 different ways to let users switch languages",
+      "target": "6 formas diferentes de permitir que los usuarios cambien de idioma",
+      "sourceLang": "en",
+      "targetLang": "es",
+      "service": "mymemory",
+      "timestamp": 1767535741663
+    },
+    {
+      "source": "Simple Dropdown",
+      "target": "Despliegue simple",
+      "sourceLang": "en",
+      "targetLang": "es",
+      "service": "mymemory",
+      "timestamp": 1767535742668
+    },
+    {
+      "source": "Best for settings pages and minimal footprint.",
+      "target": "Ideal para páginas de configuración y huella mínima.",
+      "sourceLang": "en",
+      "targetLang": "es",
+      "service": "mymemory",
+      "timestamp": 1767535743563
+    },
+    {
+      "source": "Flag Buttons",
+      "target": "Botones de bandera",
+      "sourceLang": "en",
+      "targetLang": "es",
+      "service": "mymemory",
+      "timestamp": 1767535744224
+    },
+    {
+      "source": "Best for headers with 3-6 primary languages.",
+      "target": "Ideal para encabezados con 3-6 idiomas principales.",
+      "sourceLang": "en",
+      "targetLang": "es",
+      "service": "mymemory",
+      "timestamp": 1767535745145
+    },
+    {
+      "source": "Icon Grid",
+      "target": "Rejilla de icono",
+      "sourceLang": "en",
+      "targetLang": "es",
+      "service": "mymemory",
+      "timestamp": 1767535745614
+    },
+    {
+      "source": "Best for compact headers and mobile navigation.",
+      "target": "Ideal para encabezados compactos y navegación móvil.",
+      "sourceLang": "en",
+      "targetLang": "es",
+      "service": "mymemory",
+      "timestamp": 1767535746078
+    },
+    {
+      "source": "Floating Globe",
+      "target": "Globo flotante",
+      "sourceLang": "en",
+      "targetLang": "es",
+      "service": "mymemory",
+      "timestamp": 1767535746624
+    },
+    {
+      "source": "Best for fixed position with many languages.",
+      "target": "Ideal para una posición fija con muchos idiomas.",
+      "sourceLang": "en",
+      "targetLang": "es",
+      "service": "mymemory",
+      "timestamp": 1767535747433
+    },
+    {
+      "source": "Pill Selector",
+      "target": "Selector de píldoras",
+      "sourceLang": "en",
+      "targetLang": "es",
+      "service": "mymemory",
+      "timestamp": 1767535748037
+    },
+    {
+      "source": "Best for modern apps with 3-5 languages.",
+      "target": "Ideal para aplicaciones modernas con 3-5 idiomas.",
+      "sourceLang": "en",
+      "targetLang": "es",
+      "service": "mymemory",
+      "timestamp": 1767535748587
+    },
+    {
+      "source": "Carousel",
+      "target": "Carousel",
+      "sourceLang": "en",
+      "targetLang": "es",
+      "service": "mymemory",
+      "timestamp": 1767535749050
+    },
+    {
+      "source": "Best for interactive browsing of all languages.",
+      "target": "Ideal para la navegación interactiva en todos los idiomas.",
+      "sourceLang": "en",
+      "targetLang": "es",
+      "service": "mymemory",
+      "timestamp": 1767535749841
+    },
+    {
+      "source": "Integration Code",
+      "target": "Código de integración",
+      "sourceLang": "en",
+      "targetLang": "es",
+      "service": "mymemory",
+      "timestamp": 1767535750793
+    },
+    {
+      "source": "Copy this code to add language switching to your project",
+      "target": "Copia este código para añadir el cambio de idioma a tu proyecto",
+      "sourceLang": "en",
+      "targetLang": "es",
+      "service": "mymemory",
+      "timestamp": 1767535751490
+    },
+    {
+      "source": "Generated with",
+      "target": "Generado con",
+      "sourceLang": "en",
+      "targetLang": "es",
+      "service": "mymemory",
+      "timestamp": 1767535752023
+    },
+    {
+      "source": "Examples",
+      "target": "Näited",
+      "sourceLang": "en",
+      "targetLang": "et",
+      "service": "mymemory",
+      "timestamp": 1767535752680
+    },
+    {
+      "source": "Interactive Components",
+      "target": "Interaktiivsed komponendid",
+      "sourceLang": "en",
+      "targetLang": "et",
+      "service": "mymemory",
+      "timestamp": 1767535753536
+    },
+    {
+      "source": "Language Selector Examples",
+      "target": "Keelevaliku näited",
+      "sourceLang": "en",
+      "targetLang": "et",
+      "service": "mymemory",
+      "timestamp": 1767535754041
+    },
+    {
+      "source": "Copy-paste these UI components for your i18n implementation. All selectors are synchronized - try clicking any one!",
+      "target": "Kopeeri-kleebi need kasutajaliidese komponendid oma i18n juurutusse. Kõik valijad on sünkroonitud - proovige klõpsata ükskõik millisel!",
+      "sourceLang": "en",
+      "targetLang": "et",
+      "service": "mymemory",
+      "timestamp": 1767535754723
+    },
+    {
+      "source": "Back to Home",
+      "target": "Tagasi avalehele",
+      "sourceLang": "en",
+      "targetLang": "et",
+      "service": "mymemory",
+      "timestamp": 1767535755319
+    },
+    {
+      "source": "Current Language",
+      "target": "Praegune keel",
+      "sourceLang": "en",
+      "targetLang": "et",
+      "service": "mymemory",
+      "timestamp": 1767535756090
+    },
+    {
+      "source": "Choose Your Style",
+      "target": "Vali oma stiil",
+      "sourceLang": "en",
+      "targetLang": "et",
+      "service": "mymemory",
+      "timestamp": 1767535756918
+    },
+    {
+      "source": "6 different ways to let users switch languages",
+      "target": "6 erinevat viisi, kuidas kasutajatel keeli vahetada lasta",
+      "sourceLang": "en",
+      "targetLang": "et",
+      "service": "mymemory",
+      "timestamp": 1767535757541
+    },
+    {
+      "source": "Simple Dropdown",
+      "target": "Lihtne rippmenüü",
+      "sourceLang": "en",
+      "targetLang": "et",
+      "service": "mymemory",
+      "timestamp": 1767535758147
+    },
+    {
+      "source": "Best for settings pages and minimal footprint.",
+      "target": "Parimad seadete lehed ja minimaalne jalajälg.",
+      "sourceLang": "en",
+      "targetLang": "et",
+      "service": "mymemory",
+      "timestamp": 1767535758649
+    },
+    {
+      "source": "Flag Buttons",
+      "target": "Märgistamisnupud",
+      "sourceLang": "en",
+      "targetLang": "et",
+      "service": "mymemory",
+      "timestamp": 1767535759235
+    },
+    {
+      "source": "Best for headers with 3-6 primary languages.",
+      "target": "Parim 3-6 peamise keelega päistele.",
+      "sourceLang": "en",
+      "targetLang": "et",
+      "service": "mymemory",
+      "timestamp": 1767535759704
+    },
+    {
+      "source": "Icon Grid",
+      "target": "Ikoonivõrk",
+      "sourceLang": "en",
+      "targetLang": "et",
+      "service": "mymemory",
+      "timestamp": 1767535760184
+    },
+    {
+      "source": "Best for compact headers and mobile navigation.",
+      "target": "Parim kompaktsete päiste ja mobiilse navigeerimise jaoks.",
+      "sourceLang": "en",
+      "targetLang": "et",
+      "service": "mymemory",
+      "timestamp": 1767535760662
+    },
+    {
+      "source": "Floating Globe",
+      "target": "Ujuvgloobus",
+      "sourceLang": "en",
+      "targetLang": "et",
+      "service": "mymemory",
+      "timestamp": 1767535761227
+    },
+    {
+      "source": "Best for fixed position with many languages.",
+      "target": "Parim fikseeritud positsiooni jaoks paljudes keeltes.",
+      "sourceLang": "en",
+      "targetLang": "et",
+      "service": "mymemory",
+      "timestamp": 1767535761710
+    },
+    {
+      "source": "Pill Selector",
+      "target": "Pillide valija",
+      "sourceLang": "en",
+      "targetLang": "et",
+      "service": "mymemory",
+      "timestamp": 1767535762262
+    },
+    {
+      "source": "Best for modern apps with 3-5 languages.",
+      "target": "Parim kaasaegsete rakenduste jaoks 3-5 keeles.",
+      "sourceLang": "en",
+      "targetLang": "et",
+      "service": "mymemory",
+      "timestamp": 1767535762732
+    },
+    {
+      "source": "Carousel",
+      "target": "Karussell",
+      "sourceLang": "en",
+      "targetLang": "et",
+      "service": "mymemory",
+      "timestamp": 1767535763210
+    },
+    {
+      "source": "Best for interactive browsing of all languages.",
+      "target": "Parim kõigi keelte interaktiivseks sirvimiseks.",
+      "sourceLang": "en",
+      "targetLang": "et",
+      "service": "mymemory",
+      "timestamp": 1767535763718
+    },
+    {
+      "source": "Integration Code",
+      "target": "Integratsioonikood",
+      "sourceLang": "en",
+      "targetLang": "et",
+      "service": "mymemory",
+      "timestamp": 1767535764347
+    },
+    {
+      "source": "Copy this code to add language switching to your project",
+      "target": "Kopeeri see kood, et lisada oma projektile keele vahetamine",
+      "sourceLang": "en",
+      "targetLang": "et",
+      "service": "mymemory",
+      "timestamp": 1767535764841
+    },
+    {
+      "source": "Generated with",
+      "target": "Loodud kasutajaga",
+      "sourceLang": "en",
+      "targetLang": "et",
+      "service": "mymemory",
+      "timestamp": 1767535765398
+    },
+    {
+      "source": "Translation Methods",
+      "target": "Tõlkimismeetodid",
+      "sourceLang": "en",
+      "targetLang": "et",
+      "service": "mymemory",
+      "timestamp": 1767535765979
+    },
+    {
+      "source": "Supported Languages",
+      "target": "TOETATUD KEELED",
+      "sourceLang": "en",
+      "targetLang": "et",
+      "service": "mymemory",
+      "timestamp": 1767535766591
+    },
+    {
+      "source": "Free Options",
+      "target": "Tasuta valikud",
+      "sourceLang": "en",
+      "targetLang": "et",
+      "service": "mymemory",
+      "timestamp": 1767535767206
+    },
+    {
+      "source": "Export Formats",
+      "target": "Ekspordivormingud",
+      "sourceLang": "en",
+      "targetLang": "et",
+      "service": "mymemory",
+      "timestamp": 1767535767721
+    },
+    {
+      "source": "Try it Live",
+      "target": "Proovi seda reaalajas",
+      "sourceLang": "en",
+      "targetLang": "et",
+      "service": "mymemory",
+      "timestamp": 1767535768271
+    },
+    {
+      "source": "See translations happen in real-time",
+      "target": "Vaata, kuidas tõlked toimuvad reaalajas",
+      "sourceLang": "en",
+      "targetLang": "et",
+      "service": "mymemory",
+      "timestamp": 1767535768857
+    },
+    {
+      "source": "Translation Preview",
+      "target": "Tõlke eelvaade",
+      "sourceLang": "en",
+      "targetLang": "et",
+      "service": "mymemory",
+      "timestamp": 1767535769417
+    },
+    {
+      "source": "English (Source)",
+      "target": "English Source",
+      "sourceLang": "en",
+      "targetLang": "et",
+      "service": "mymemory",
+      "timestamp": 1767535769911
+    },
+    {
+      "source": "Translation",
+      "target": "Translation",
+      "sourceLang": "en",
+      "targetLang": "et",
+      "service": "mymemory",
+      "timestamp": 1767535770390
+    },
+    {
+      "source": "Type something...",
+      "target": "Sisesta midagi...",
+      "sourceLang": "en",
+      "targetLang": "et",
+      "service": "mymemory",
+      "timestamp": 1767535770991
+    },
+    {
+      "source": "Translating...",
+      "target": "Tõlkimine...",
+      "sourceLang": "en",
+      "targetLang": "et",
+      "service": "mymemory",
+      "timestamp": 1767535771534
+    },
+    {
+      "source": "Translation failed. Try again.",
+      "target": "Tõlkimine nurjus. Proovige uuesti.",
+      "sourceLang": "en",
+      "targetLang": "et",
+      "service": "mymemory",
+      "timestamp": 1767535772081
+    },
+    {
+      "source": "Examples",
+      "target": "Esimerkit",
+      "sourceLang": "en",
+      "targetLang": "fi",
+      "service": "mymemory",
+      "timestamp": 1767535772729
+    },
+    {
+      "source": "Interactive Components",
+      "target": "Interaktiiviset komponentit",
+      "sourceLang": "en",
+      "targetLang": "fi",
+      "service": "mymemory",
+      "timestamp": 1767535773486
+    },
+    {
+      "source": "Language Selector Examples",
+      "target": "Esimerkkejä kielenvalitsimesta",
+      "sourceLang": "en",
+      "targetLang": "fi",
+      "service": "mymemory",
+      "timestamp": 1767535773944
+    },
+    {
+      "source": "Copy-paste these UI components for your i18n implementation. All selectors are synchronized - try clicking any one!",
+      "target": "Kopioi ja liitä nämä käyttöliittymäkomponentit i18n-toteutukseesi. Kaikki valitsimet on synkronoitu - kokeile napsauttaa mitä tahansa!",
+      "sourceLang": "en",
+      "targetLang": "fi",
+      "service": "mymemory",
+      "timestamp": 1767535774973
+    },
+    {
+      "source": "Back to Home",
+      "target": "Etusivulle",
+      "sourceLang": "en",
+      "targetLang": "fi",
+      "service": "mymemory",
+      "timestamp": 1767535775479
+    },
+    {
+      "source": "Current Language",
+      "target": "Nykyinen kieli",
+      "sourceLang": "en",
+      "targetLang": "fi",
+      "service": "mymemory",
+      "timestamp": 1767535776194
+    },
+    {
+      "source": "Choose Your Style",
+      "target": "Valitse tyylisi",
+      "sourceLang": "en",
+      "targetLang": "fi",
+      "service": "mymemory",
+      "timestamp": 1767535776807
+    },
+    {
+      "source": "6 different ways to let users switch languages",
+      "target": "6 erilaista tapaa antaa käyttäjien vaihtaa kieltä",
+      "sourceLang": "en",
+      "targetLang": "fi",
+      "service": "mymemory",
+      "timestamp": 1767535777400
+    },
+    {
+      "source": "Simple Dropdown",
+      "target": "Yksinkertainen pudotusvalikko",
+      "sourceLang": "en",
+      "targetLang": "fi",
+      "service": "mymemory",
+      "timestamp": 1767535777990
+    },
+    {
+      "source": "Best for settings pages and minimal footprint.",
+      "target": "Paras asetussivuille ja minimaalinen hiilijalanjälki.",
+      "sourceLang": "en",
+      "targetLang": "fi",
+      "service": "mymemory",
+      "timestamp": 1767535778566
+    },
+    {
+      "source": "Flag Buttons",
+      "target": "Merkitse painikkeet",
+      "sourceLang": "en",
+      "targetLang": "fi",
+      "service": "mymemory",
+      "timestamp": 1767535779138
+    },
+    {
+      "source": "Best for headers with 3-6 primary languages.",
+      "target": "Sopii parhaiten otsikoihin, joissa on 3-6 ensisijaista kieltä.",
+      "sourceLang": "en",
+      "targetLang": "fi",
+      "service": "mymemory",
+      "timestamp": 1767535779920
+    },
+    {
+      "source": "Icon Grid",
+      "target": "Kuvakehila",
+      "sourceLang": "en",
+      "targetLang": "fi",
+      "service": "mymemory",
+      "timestamp": 1767535780405
+    },
+    {
+      "source": "Best for compact headers and mobile navigation.",
+      "target": "Sopii parhaiten kompakteihin otsikoihin ja mobiiliin navigointiin.",
+      "sourceLang": "en",
+      "targetLang": "fi",
+      "service": "mymemory",
+      "timestamp": 1767535780927
+    },
+    {
+      "source": "Floating Globe",
+      "target": "Kelluva maapallo",
+      "sourceLang": "en",
+      "targetLang": "fi",
+      "service": "mymemory",
+      "timestamp": 1767535781476
+    },
+    {
+      "source": "Best for fixed position with many languages.",
+      "target": "Sopii parhaiten kiinteään asentoon monilla kielillä.",
+      "sourceLang": "en",
+      "targetLang": "fi",
+      "service": "mymemory",
+      "timestamp": 1767535782050
+    },
+    {
+      "source": "Pill Selector",
+      "target": "Pillerinvalitsin",
+      "sourceLang": "en",
+      "targetLang": "fi",
+      "service": "mymemory",
+      "timestamp": 1767535782609
+    },
+    {
+      "source": "Best for modern apps with 3-5 languages.",
+      "target": "Sopii parhaiten moderneille sovelluksille, joissa on 3-5 kieltä.",
+      "sourceLang": "en",
+      "targetLang": "fi",
+      "service": "mymemory",
+      "timestamp": 1767535783401
+    },
+    {
+      "source": "Carousel",
+      "target": "Kuvakarusellin ohjaus",
+      "sourceLang": "en",
+      "targetLang": "fi",
+      "service": "mymemory",
+      "timestamp": 1767535783872
+    },
+    {
+      "source": "Best for interactive browsing of all languages.",
+      "target": "Sopii parhaiten kaikkien kielten interaktiiviseen selaamiseen.",
+      "sourceLang": "en",
+      "targetLang": "fi",
+      "service": "mymemory",
+      "timestamp": 1767535784520
+    },
+    {
+      "source": "Integration Code",
+      "target": "Integrointikoodi",
+      "sourceLang": "en",
+      "targetLang": "fi",
+      "service": "mymemory",
+      "timestamp": 1767535785092
+    },
+    {
+      "source": "Copy this code to add language switching to your project",
+      "target": "Kopioi tämä koodi lisätäksesi kielivaihdon projektiisi",
+      "sourceLang": "en",
+      "targetLang": "fi",
+      "service": "mymemory",
+      "timestamp": 1767535785591
+    },
+    {
+      "source": "Generated with",
+      "target": "Luotu ohjelmalla",
+      "sourceLang": "en",
+      "targetLang": "fi",
+      "service": "mymemory",
+      "timestamp": 1767535786481
+    },
+    {
+      "source": "Translation Methods",
+      "target": "Käännösmenetelmät",
+      "sourceLang": "en",
+      "targetLang": "fi",
+      "service": "mymemory",
+      "timestamp": 1767535787046
+    },
+    {
+      "source": "Supported Languages",
+      "target": "Tuetut kielet",
+      "sourceLang": "en",
+      "targetLang": "fi",
+      "service": "mymemory",
+      "timestamp": 1767535788014
+    },
+    {
+      "source": "Free Options",
+      "target": "Ilmaiset vaihtoehdot",
+      "sourceLang": "en",
+      "targetLang": "fi",
+      "service": "mymemory",
+      "timestamp": 1767535788699
+    },
+    {
+      "source": "Export Formats",
+      "target": "Vie formaatit",
+      "sourceLang": "en",
+      "targetLang": "fi",
+      "service": "mymemory",
+      "timestamp": 1767535789265
+    },
+    {
+      "source": "Try it Live",
+      "target": "Kokeile livenä",
+      "sourceLang": "en",
+      "targetLang": "fi",
+      "service": "mymemory",
+      "timestamp": 1767535789868
+    },
+    {
+      "source": "See translations happen in real-time",
+      "target": "Katso käännökset reaaliajassa",
+      "sourceLang": "en",
+      "targetLang": "fi",
+      "service": "mymemory",
+      "timestamp": 1767535790570
+    },
+    {
+      "source": "Translation Preview",
+      "target": "Käännöksen esikatselu",
+      "sourceLang": "en",
+      "targetLang": "fi",
+      "service": "mymemory",
+      "timestamp": 1767535791611
+    },
+    {
+      "source": "English (Source)",
+      "target": "English source",
+      "sourceLang": "en",
+      "targetLang": "fi",
+      "service": "mymemory",
+      "timestamp": 1767535792107
+    },
+    {
+      "source": "Translation",
+      "target": "Käännös",
+      "sourceLang": "en",
+      "targetLang": "fi",
+      "service": "mymemory",
+      "timestamp": 1767535792578
+    },
+    {
+      "source": "Type something...",
+      "target": "Kirjoita jotakin",
+      "sourceLang": "en",
+      "targetLang": "fi",
+      "service": "mymemory",
+      "timestamp": 1767535793154
+    },
+    {
+      "source": "Translating...",
+      "target": "Kääntäminen",
+      "sourceLang": "en",
+      "targetLang": "fi",
+      "service": "mymemory",
+      "timestamp": 1767535793631
+    },
+    {
+      "source": "Translation failed. Try again.",
+      "target": "Käännös epäonnistui. Yritä uudelleen.",
+      "sourceLang": "en",
+      "targetLang": "fi",
+      "service": "mymemory",
+      "timestamp": 1767535794234
+    },
+    {
+      "source": "Examples",
+      "target": "Exemples",
+      "sourceLang": "en",
+      "targetLang": "fr",
+      "service": "mymemory",
+      "timestamp": 1767535794820
+    },
+    {
+      "source": "Interactive Components",
+      "target": "Composants interactifs",
+      "sourceLang": "en",
+      "targetLang": "fr",
+      "service": "mymemory",
+      "timestamp": 1767535795439
+    },
+    {
+      "source": "Language Selector Examples",
+      "target": "Exemples de sélecteur de langue",
+      "sourceLang": "en",
+      "targetLang": "fr",
+      "service": "mymemory",
+      "timestamp": 1767535796589
+    },
+    {
+      "source": "Copy-paste these UI components for your i18n implementation. All selectors are synchronized - try clicking any one!",
+      "target": "Copiez-collez ces composants de l'interface utilisateur pour votre implémentation i18n. Tous les sélecteurs sont synchronisés - essayez de cliquer sur l'un d'entre eux !",
+      "sourceLang": "en",
+      "targetLang": "fr",
+      "service": "mymemory",
+      "timestamp": 1767535797206
+    },
+    {
+      "source": "Back to Home",
+      "target": "Retour à la Page d'Accueil",
+      "sourceLang": "en",
+      "targetLang": "fr",
+      "service": "mymemory",
+      "timestamp": 1767535797668
+    },
+    {
+      "source": "Current Language",
+      "target": "Langage Actuel",
+      "sourceLang": "en",
+      "targetLang": "fr",
+      "service": "mymemory",
+      "timestamp": 1767535798251
+    },
+    {
+      "source": "Choose Your Style",
+      "target": "Choisir le style de l'article",
+      "sourceLang": "en",
+      "targetLang": "fr",
+      "service": "mymemory",
+      "timestamp": 1767535798687
+    },
+    {
+      "source": "6 different ways to let users switch languages",
+      "target": "6 façons différentes de permettre aux utilisateurs de changer de langue",
+      "sourceLang": "en",
+      "targetLang": "fr",
+      "service": "mymemory",
+      "timestamp": 1767535799301
+    },
+    {
+      "source": "Simple Dropdown",
+      "target": "Menu déroulant simple",
+      "sourceLang": "en",
+      "targetLang": "fr",
+      "service": "mymemory",
+      "timestamp": 1767535799776
+    },
+    {
+      "source": "Best for settings pages and minimal footprint.",
+      "target": "Idéal pour les pages de paramètres et un encombrement minimal.",
+      "sourceLang": "en",
+      "targetLang": "fr",
+      "service": "mymemory",
+      "timestamp": 1767535800375
+    },
+    {
+      "source": "Flag Buttons",
+      "target": "BOUTONS « FLAG »",
+      "sourceLang": "en",
+      "targetLang": "fr",
+      "service": "mymemory",
+      "timestamp": 1767535800966
+    },
+    {
+      "source": "Best for headers with 3-6 primary languages.",
+      "target": "Idéal pour les en-têtes avec 3 à 6 langues principales.",
+      "sourceLang": "en",
+      "targetLang": "fr",
+      "service": "mymemory",
+      "timestamp": 1767535801765
+    },
+    {
+      "source": "Icon Grid",
+      "target": "Grille d&apos; icône",
+      "sourceLang": "en",
+      "targetLang": "fr",
+      "service": "mymemory",
+      "timestamp": 1767535802369
+    },
+    {
+      "source": "Best for compact headers and mobile navigation.",
+      "target": "Idéal pour les en-têtes compacts et la navigation mobile.",
+      "sourceLang": "en",
+      "targetLang": "fr",
+      "service": "mymemory",
+      "timestamp": 1767535802914
+    },
+    {
+      "source": "Floating Globe",
+      "target": "Globe flottant",
+      "sourceLang": "en",
+      "targetLang": "fr",
+      "service": "mymemory",
+      "timestamp": 1767535803475
+    },
+    {
+      "source": "Best for fixed position with many languages.",
+      "target": "Idéal pour une position fixe avec de nombreuses langues.",
+      "sourceLang": "en",
+      "targetLang": "fr",
+      "service": "mymemory",
+      "timestamp": 1767535804119
+    },
+    {
+      "source": "Pill Selector",
+      "target": "Sélecteur de pilule",
+      "sourceLang": "en",
+      "targetLang": "fr",
+      "service": "mymemory",
+      "timestamp": 1767535804671
+    },
+    {
+      "source": "Best for modern apps with 3-5 languages.",
+      "target": "Idéal pour les applications modernes avec 3 à 5 langues.",
+      "sourceLang": "en",
+      "targetLang": "fr",
+      "service": "mymemory",
+      "timestamp": 1767535805246
+    },
+    {
+      "source": "Carousel",
+      "target": "Carrousel",
+      "sourceLang": "en",
+      "targetLang": "fr",
+      "service": "mymemory",
+      "timestamp": 1767535805713
+    },
+    {
+      "source": "Best for interactive browsing of all languages.",
+      "target": "Idéal pour la navigation interactive dans toutes les langues.",
+      "sourceLang": "en",
+      "targetLang": "fr",
+      "service": "mymemory",
+      "timestamp": 1767535806269
+    },
+    {
+      "source": "Integration Code",
+      "target": "Code d'intégration",
+      "sourceLang": "en",
+      "targetLang": "fr",
+      "service": "mymemory",
+      "timestamp": 1767535806934
+    },
+    {
+      "source": "Copy this code to add language switching to your project",
+      "target": "Copiez ce code pour ajouter le changement de langue à votre projet",
+      "sourceLang": "en",
+      "targetLang": "fr",
+      "service": "mymemory",
+      "timestamp": 1767535807718
+    },
+    {
+      "source": "Generated with",
+      "target": "Généré avec",
+      "sourceLang": "en",
+      "targetLang": "fr",
+      "service": "mymemory",
+      "timestamp": 1767535808254
+    },
+    {
+      "source": "Examples",
+      "target": "דוגמאות",
+      "sourceLang": "en",
+      "targetLang": "he",
+      "service": "mymemory",
+      "timestamp": 1767535808776
+    },
+    {
+      "source": "Interactive Components",
+      "target": "רכיבים אינטראקטיביים",
+      "sourceLang": "en",
+      "targetLang": "he",
+      "service": "mymemory",
+      "timestamp": 1767535809438
+    },
+    {
+      "source": "Language Selector Examples",
+      "target": "דוגמאות לבורר שפות",
+      "sourceLang": "en",
+      "targetLang": "he",
+      "service": "mymemory",
+      "timestamp": 1767535809929
+    },
+    {
+      "source": "Copy-paste these UI components for your i18n implementation. All selectors are synchronized - try clicking any one!",
+      "target": "העתק והדבק רכיבי ממשק משתמש אלה ליישום i18n שלך. כל הבוחרים מסונכרנים - נסו ללחוץ על כל אחד מהם!",
+      "sourceLang": "en",
+      "targetLang": "he",
+      "service": "mymemory",
+      "timestamp": 1767535810600
+    },
+    {
+      "source": "Back to Home",
+      "target": "חזור לדף הבית",
+      "sourceLang": "en",
+      "targetLang": "he",
+      "service": "mymemory",
+      "timestamp": 1767535811139
+    },
+    {
+      "source": "Current Language",
+      "target": "שפה נוכחית",
+      "sourceLang": "en",
+      "targetLang": "he",
+      "service": "mymemory",
+      "timestamp": 1767535811800
+    },
+    {
+      "source": "Choose Your Style",
+      "target": "בחירת הסגנון שלך",
+      "sourceLang": "en",
+      "targetLang": "he",
+      "service": "mymemory",
+      "timestamp": 1767535812275
+    },
+    {
+      "source": "6 different ways to let users switch languages",
+      "target": "6 דרכים שונות לאפשר למשתמשים להחליף שפות",
+      "sourceLang": "en",
+      "targetLang": "he",
+      "service": "mymemory",
+      "timestamp": 1767535812888
+    },
+    {
+      "source": "Simple Dropdown",
+      "target": "תפריט נפתח פשוט",
+      "sourceLang": "en",
+      "targetLang": "he",
+      "service": "mymemory",
+      "timestamp": 1767535813475
+    },
+    {
+      "source": "Best for settings pages and minimal footprint.",
+      "target": "מומלץ עבור דפי הגדרות וטביעת רגל מינימלית.",
+      "sourceLang": "en",
+      "targetLang": "he",
+      "service": "mymemory",
+      "timestamp": 1767535813926
+    },
+    {
+      "source": "Flag Buttons",
+      "target": "לחצני סימון",
+      "sourceLang": "en",
+      "targetLang": "he",
+      "service": "mymemory",
+      "timestamp": 1767535814589
+    },
+    {
+      "source": "Best for headers with 3-6 primary languages.",
+      "target": "מומלץ לכותרות עם 3 -6 שפות עיקריות.",
+      "sourceLang": "en",
+      "targetLang": "he",
+      "service": "mymemory",
+      "timestamp": 1767535815118
+    },
+    {
+      "source": "Icon Grid",
+      "target": "רשת הסמל",
+      "sourceLang": "en",
+      "targetLang": "he",
+      "service": "mymemory",
+      "timestamp": 1767535815591
+    },
+    {
+      "source": "Best for compact headers and mobile navigation.",
+      "target": "מומלץ לכותרות קומפקטיות ולניווט במכשירים ניידים.",
+      "sourceLang": "en",
+      "targetLang": "he",
+      "service": "mymemory",
+      "timestamp": 1767535816029
+    },
+    {
+      "source": "Floating Globe",
+      "target": "גלובוס צף",
+      "sourceLang": "en",
+      "targetLang": "he",
+      "service": "mymemory",
+      "timestamp": 1767535816590
+    },
+    {
+      "source": "Best for fixed position with many languages.",
+      "target": "מומלץ למיקום קבוע עם שפות רבות.",
+      "sourceLang": "en",
+      "targetLang": "he",
+      "service": "mymemory",
+      "timestamp": 1767535817026
+    },
+    {
+      "source": "Pill Selector",
+      "target": "בורר הגלולות",
+      "sourceLang": "en",
+      "targetLang": "he",
+      "service": "mymemory",
+      "timestamp": 1767535817611
+    },
+    {
+      "source": "Best for modern apps with 3-5 languages.",
+      "target": "מומלץ לאפליקציות מודרניות עם 3 -5 שפות.",
+      "sourceLang": "en",
+      "targetLang": "he",
+      "service": "mymemory",
+      "timestamp": 1767535818072
+    },
+    {
+      "source": "Carousel",
+      "target": "קרוסלה",
+      "sourceLang": "en",
+      "targetLang": "he",
+      "service": "mymemory",
+      "timestamp": 1767535818529
+    },
+    {
+      "source": "Best for interactive browsing of all languages.",
+      "target": "מומלץ לגלישה אינטראקטיבית בכל השפות.",
+      "sourceLang": "en",
+      "targetLang": "he",
+      "service": "mymemory",
+      "timestamp": 1767535818976
+    },
+    {
+      "source": "Integration Code",
+      "target": "קוד אינטגרציה",
+      "sourceLang": "en",
+      "targetLang": "he",
+      "service": "mymemory",
+      "timestamp": 1767535819537
+    },
+    {
+      "source": "Copy this code to add language switching to your project",
+      "target": "העתק קוד זה כדי להוסיף מעבר שפה לפרויקט שלך",
+      "sourceLang": "en",
+      "targetLang": "he",
+      "service": "mymemory",
+      "timestamp": 1767535820024
+    },
+    {
+      "source": "Generated with",
+      "target": "נוצר עם",
+      "sourceLang": "en",
+      "targetLang": "he",
+      "service": "mymemory",
+      "timestamp": 1767535820460
+    },
+    {
+      "source": "Translation Methods",
+      "target": "שיטות תרגום",
+      "sourceLang": "en",
+      "targetLang": "he",
+      "service": "mymemory",
+      "timestamp": 1767535821184
+    },
+    {
+      "source": "Supported Languages",
+      "target": "שפות נתמכות",
+      "sourceLang": "en",
+      "targetLang": "he",
+      "service": "mymemory",
+      "timestamp": 1767535821778
+    },
+    {
+      "source": "Free Options",
+      "target": "אפשרויות חינמיות",
+      "sourceLang": "en",
+      "targetLang": "he",
+      "service": "mymemory",
+      "timestamp": 1767535822383
+    },
+    {
+      "source": "Export Formats",
+      "target": "ייצוא תבניות",
+      "sourceLang": "en",
+      "targetLang": "he",
+      "service": "mymemory",
+      "timestamp": 1767535822925
+    },
+    {
+      "source": "Try it Live",
+      "target": "נסה את זה בשידור חי",
+      "sourceLang": "en",
+      "targetLang": "he",
+      "service": "mymemory",
+      "timestamp": 1767535823491
+    },
+    {
+      "source": "See translations happen in real-time",
+      "target": "ראה תרגומים המתבצעים בזמן אמת",
+      "sourceLang": "en",
+      "targetLang": "he",
+      "service": "mymemory",
+      "timestamp": 1767535824095
+    },
+    {
+      "source": "Translation Preview",
+      "target": "תצוגה מקדימה של התרגום",
+      "sourceLang": "en",
+      "targetLang": "he",
+      "service": "mymemory",
+      "timestamp": 1767535824625
+    },
+    {
+      "source": "English (Source)",
+      "target": "אנגלית (מקור)",
+      "sourceLang": "en",
+      "targetLang": "he",
+      "service": "mymemory",
+      "timestamp": 1767535825272
+    },
+    {
+      "source": "Translation",
+      "target": "תרגום",
+      "sourceLang": "en",
+      "targetLang": "he",
+      "service": "mymemory",
+      "timestamp": 1767535825737
+    },
+    {
+      "source": "Type something...",
+      "target": "יש להקליד משהו...",
+      "sourceLang": "en",
+      "targetLang": "he",
+      "service": "mymemory",
+      "timestamp": 1767535826227
+    },
+    {
+      "source": "Translating...",
+      "target": "תרגום",
+      "sourceLang": "en",
+      "targetLang": "he",
+      "service": "mymemory",
+      "timestamp": 1767535827179
+    },
+    {
+      "source": "Translation failed. Try again.",
+      "target": "התרגום נכשל. נסה שוב.",
+      "sourceLang": "en",
+      "targetLang": "he",
+      "service": "mymemory",
+      "timestamp": 1767535827692
+    },
+    {
+      "source": "Examples",
+      "target": "उदाहरण",
+      "sourceLang": "en",
+      "targetLang": "hi",
+      "service": "mymemory",
+      "timestamp": 1767535828152
+    },
+    {
+      "source": "Interactive Components",
+      "target": "इंटरएक्टिव अवयव",
+      "sourceLang": "en",
+      "targetLang": "hi",
+      "service": "mymemory",
+      "timestamp": 1767535828784
+    },
+    {
+      "source": "Language Selector Examples",
+      "target": "भाषा चयनकर्ता के उदाहरण",
+      "sourceLang": "en",
+      "targetLang": "hi",
+      "service": "mymemory",
+      "timestamp": 1767535829289
+    },
+    {
+      "source": "Copy-paste these UI components for your i18n implementation. All selectors are synchronized - try clicking any one!",
+      "target": "अपने i18n कार्यान्वयन के लिए इन UI घटकों को कॉपी - पेस्ट करें। सभी चयनकर्ता सिंक्रनाइज़ किए गए हैं - किसी एक पर क्लिक करके देखें!",
+      "sourceLang": "en",
+      "targetLang": "hi",
+      "service": "mymemory",
+      "timestamp": 1767535829775
+    },
+    {
+      "source": "Back to Home",
+      "target": "होम पर वापस जाएं",
+      "sourceLang": "en",
+      "targetLang": "hi",
+      "service": "mymemory",
+      "timestamp": 1767535830232
+    },
+    {
+      "source": "Current Language",
+      "target": "वर्तमान भाषा:",
+      "sourceLang": "en",
+      "targetLang": "hi",
+      "service": "mymemory",
+      "timestamp": 1767535830696
+    },
+    {
+      "source": "Choose Your Style",
+      "target": "अपनी शैली चुनें",
+      "sourceLang": "en",
+      "targetLang": "hi",
+      "service": "mymemory",
+      "timestamp": 1767535831211
+    },
+    {
+      "source": "6 different ways to let users switch languages",
+      "target": "यूज़र को भाषाएँ बदलने के 6 अलग - अलग तरीके",
+      "sourceLang": "en",
+      "targetLang": "hi",
+      "service": "mymemory",
+      "timestamp": 1767535831848
+    },
+    {
+      "source": "Simple Dropdown",
+      "target": "साधारण ड्रॉपडाउन",
+      "sourceLang": "en",
+      "targetLang": "hi",
+      "service": "mymemory",
+      "timestamp": 1767535832394
+    },
+    {
+      "source": "Best for settings pages and minimal footprint.",
+      "target": "सेटिंग पेज और न्यूनतम फ़ुटप्रिंट के लिए सबसे अच्छा।",
+      "sourceLang": "en",
+      "targetLang": "hi",
+      "service": "mymemory",
+      "timestamp": 1767535832861
+    },
+    {
+      "source": "Flag Buttons",
+      "target": "फ़्लैग बटन",
+      "sourceLang": "en",
+      "targetLang": "hi",
+      "service": "mymemory",
+      "timestamp": 1767535833394
+    },
+    {
+      "source": "Best for headers with 3-6 primary languages.",
+      "target": "3 -6 प्राथमिक भाषाओं वाले हेडर के लिए सबसे अच्छा।",
+      "sourceLang": "en",
+      "targetLang": "hi",
+      "service": "mymemory",
+      "timestamp": 1767535833840
+    },
+    {
+      "source": "Icon Grid",
+      "target": "प्रतीक ग्रिड",
+      "sourceLang": "en",
+      "targetLang": "hi",
+      "service": "mymemory",
+      "timestamp": 1767535834285
+    },
+    {
+      "source": "Best for compact headers and mobile navigation.",
+      "target": "कॉम्पैक्ट हेडर और मोबाइल नेविगेशन के लिए सबसे अच्छा।",
+      "sourceLang": "en",
+      "targetLang": "hi",
+      "service": "mymemory",
+      "timestamp": 1767535834790
+    },
+    {
+      "source": "Floating Globe",
+      "target": "फ़्लोटिंग ग्लोब",
+      "sourceLang": "en",
+      "targetLang": "hi",
+      "service": "mymemory",
+      "timestamp": 1767535835359
+    },
+    {
+      "source": "Best for fixed position with many languages.",
+      "target": "कई भाषाओं के साथ निश्चित स्थिति के लिए सबसे अच्छा।",
+      "sourceLang": "en",
+      "targetLang": "hi",
+      "service": "mymemory",
+      "timestamp": 1767535835826
+    },
+    {
+      "source": "Pill Selector",
+      "target": "पिल सेलेक्टर",
+      "sourceLang": "en",
+      "targetLang": "hi",
+      "service": "mymemory",
+      "timestamp": 1767535836396
+    },
+    {
+      "source": "Best for modern apps with 3-5 languages.",
+      "target": "3 -5 भाषाओं वाले आधुनिक ऐप के लिए सबसे अच्छा।",
+      "sourceLang": "en",
+      "targetLang": "hi",
+      "service": "mymemory",
+      "timestamp": 1767535836844
+    },
+    {
+      "source": "Carousel",
+      "target": "कैरसेल",
+      "sourceLang": "en",
+      "targetLang": "hi",
+      "service": "mymemory",
+      "timestamp": 1767535837251
+    },
+    {
+      "source": "Best for interactive browsing of all languages.",
+      "target": "सभी भाषाओं की इंटरैक्टिव ब्राउज़िंग के लिए सबसे अच्छा।",
+      "sourceLang": "en",
+      "targetLang": "hi",
+      "service": "mymemory",
+      "timestamp": 1767535837739
+    },
+    {
+      "source": "Integration Code",
+      "target": "इंटीग्रेशन कोड",
+      "sourceLang": "en",
+      "targetLang": "hi",
+      "service": "mymemory",
+      "timestamp": 1767535838277
+    },
+    {
+      "source": "Copy this code to add language switching to your project",
+      "target": "अपने प्रोजेक्ट में भाषा स्विचिंग जोड़ने के लिए इस कोड को कॉपी करें",
+      "sourceLang": "en",
+      "targetLang": "hi",
+      "service": "mymemory",
+      "timestamp": 1767535838770
+    },
+    {
+      "source": "Generated with",
+      "target": "इससे जनरेट किया गया",
+      "sourceLang": "en",
+      "targetLang": "hi",
+      "service": "mymemory",
+      "timestamp": 1767535839220
+    },
+    {
+      "source": "Translation Methods",
+      "target": "अनुवाद के तरीके",
+      "sourceLang": "en",
+      "targetLang": "hi",
+      "service": "mymemory",
+      "timestamp": 1767535840756
+    },
+    {
+      "source": "Supported Languages",
+      "target": "समर्थित भाषाएँ",
+      "sourceLang": "en",
+      "targetLang": "hi",
+      "service": "mymemory",
+      "timestamp": 1767535841394
+    },
+    {
+      "source": "Free Options",
+      "target": "मुफ़्त विकल्प",
+      "sourceLang": "en",
+      "targetLang": "hi",
+      "service": "mymemory",
+      "timestamp": 1767535841976
+    },
+    {
+      "source": "Export Formats",
+      "target": "फ़ॉर्मेट एक्सपोर्ट करें",
+      "sourceLang": "en",
+      "targetLang": "hi",
+      "service": "mymemory",
+      "timestamp": 1767535842583
+    },
+    {
+      "source": "Try it Live",
+      "target": "इसे लाइव आज़माएँ",
+      "sourceLang": "en",
+      "targetLang": "hi",
+      "service": "mymemory",
+      "timestamp": 1767535843157
+    },
+    {
+      "source": "See translations happen in real-time",
+      "target": "देखें कि अनुवाद रीयल - टाइम में होते हैं",
+      "sourceLang": "en",
+      "targetLang": "hi",
+      "service": "mymemory",
+      "timestamp": 1767535843771
+    },
+    {
+      "source": "Translation Preview",
+      "target": "अनुवाद पूर्वावलोकन",
+      "sourceLang": "en",
+      "targetLang": "hi",
+      "service": "mymemory",
+      "timestamp": 1767535844321
+    },
+    {
+      "source": "English (Source)",
+      "target": "ENGLISH (SOURCE)",
+      "sourceLang": "en",
+      "targetLang": "hi",
+      "service": "mymemory",
+      "timestamp": 1767535844834
+    },
+    {
+      "source": "Translation",
+      "target": "अनुवाद",
+      "sourceLang": "en",
+      "targetLang": "hi",
+      "service": "mymemory",
+      "timestamp": 1767535845302
+    },
+    {
+      "source": "Type something...",
+      "target": "कुछ लिखें",
+      "sourceLang": "en",
+      "targetLang": "hi",
+      "service": "mymemory",
+      "timestamp": 1767535845850
+    },
+    {
+      "source": "Translating...",
+      "target": "अनुवाद किया जा रहा है",
+      "sourceLang": "en",
+      "targetLang": "hi",
+      "service": "mymemory",
+      "timestamp": 1767535846509
+    },
+    {
+      "source": "Translation failed. Try again.",
+      "target": "अनुवाद विफल। फिर से कोशिश करें।",
+      "sourceLang": "en",
+      "targetLang": "hi",
+      "service": "mymemory",
+      "timestamp": 1767535847135
+    },
+    {
+      "source": "Examples",
+      "target": "Példák",
+      "sourceLang": "en",
+      "targetLang": "hu",
+      "service": "mymemory",
+      "timestamp": 1767535847823
+    },
+    {
+      "source": "Interactive Components",
+      "target": "Interaktív komponensek",
+      "sourceLang": "en",
+      "targetLang": "hu",
+      "service": "mymemory",
+      "timestamp": 1767535848655
+    },
+    {
+      "source": "Language Selector Examples",
+      "target": "Példák a nyelvválasztóra",
+      "sourceLang": "en",
+      "targetLang": "hu",
+      "service": "mymemory",
+      "timestamp": 1767535849194
+    },
+    {
+      "source": "Copy-paste these UI components for your i18n implementation. All selectors are synchronized - try clicking any one!",
+      "target": "Másolja be ezeket az UI-összetevőket az i18n megvalósításához. Minden kiválasztó szinkronizálva van - próbáljon meg bármelyikre kattintani!",
+      "sourceLang": "en",
+      "targetLang": "hu",
+      "service": "mymemory",
+      "timestamp": 1767535849779
+    },
+    {
+      "source": "Back to Home",
+      "target": "Vissza a főoldalra",
+      "sourceLang": "en",
+      "targetLang": "hu",
+      "service": "mymemory",
+      "timestamp": 1767535850469
+    },
+    {
+      "source": "Current Language",
+      "target": "Aktuális nyelv",
+      "sourceLang": "en",
+      "targetLang": "hu",
+      "service": "mymemory",
+      "timestamp": 1767535850999
+    },
+    {
+      "source": "Choose Your Style",
+      "target": "Válassz stílust",
+      "sourceLang": "en",
+      "targetLang": "hu",
+      "service": "mymemory",
+      "timestamp": 1767535851487
+    },
+    {
+      "source": "6 different ways to let users switch languages",
+      "target": "6 különböző módja annak, hogy a felhasználók nyelvet válthassanak",
+      "sourceLang": "en",
+      "targetLang": "hu",
+      "service": "mymemory",
+      "timestamp": 1767535852253
+    },
+    {
+      "source": "Simple Dropdown",
+      "target": "Egyszerű legördülő menü",
+      "sourceLang": "en",
+      "targetLang": "hu",
+      "service": "mymemory",
+      "timestamp": 1767535852843
+    },
+    {
+      "source": "Best for settings pages and minimal footprint.",
+      "target": "A legjobb beállítási oldalakhoz és minimális alapterülethez.",
+      "sourceLang": "en",
+      "targetLang": "hu",
+      "service": "mymemory",
+      "timestamp": 1767535853408
+    },
+    {
+      "source": "Flag Buttons",
+      "target": "Zászlógombok",
+      "sourceLang": "en",
+      "targetLang": "hu",
+      "service": "mymemory",
+      "timestamp": 1767535854037
+    },
+    {
+      "source": "Best for headers with 3-6 primary languages.",
+      "target": "A legjobb a 3-6 elsődleges nyelvvel rendelkező fejlécekhez.",
+      "sourceLang": "en",
+      "targetLang": "hu",
+      "service": "mymemory",
+      "timestamp": 1767535854661
+    },
+    {
+      "source": "Icon Grid",
+      "target": "Ikonrács",
+      "sourceLang": "en",
+      "targetLang": "hu",
+      "service": "mymemory",
+      "timestamp": 1767535855157
+    },
+    {
+      "source": "Best for compact headers and mobile navigation.",
+      "target": "A legjobb a kompakt fejlécekhez és a mobil navigációhoz.",
+      "sourceLang": "en",
+      "targetLang": "hu",
+      "service": "mymemory",
+      "timestamp": 1767535855653
+    },
+    {
+      "source": "Floating Globe",
+      "target": "Lebegő gömb",
+      "sourceLang": "en",
+      "targetLang": "hu",
+      "service": "mymemory",
+      "timestamp": 1767535856231
+    },
+    {
+      "source": "Best for fixed position with many languages.",
+      "target": "A legjobb a többnyelvű fix pozícióhoz.",
+      "sourceLang": "en",
+      "targetLang": "hu",
+      "service": "mymemory",
+      "timestamp": 1767535856703
+    },
+    {
+      "source": "Pill Selector",
+      "target": "Tablettaválasztó",
+      "sourceLang": "en",
+      "targetLang": "hu",
+      "service": "mymemory",
+      "timestamp": 1767535857245
+    },
+    {
+      "source": "Best for modern apps with 3-5 languages.",
+      "target": "A legjobb a 3-5 nyelven elérhető modern alkalmazásokhoz.",
+      "sourceLang": "en",
+      "targetLang": "hu",
+      "service": "mymemory",
+      "timestamp": 1767535857727
+    },
+    {
+      "source": "Carousel",
+      "target": "Körhinta",
+      "sourceLang": "en",
+      "targetLang": "hu",
+      "service": "mymemory",
+      "timestamp": 1767535858190
+    },
+    {
+      "source": "Best for interactive browsing of all languages.",
+      "target": "A legjobb az összes nyelv interaktív böngészéséhez.",
+      "sourceLang": "en",
+      "targetLang": "hu",
+      "service": "mymemory",
+      "timestamp": 1767535858698
+    },
+    {
+      "source": "Integration Code",
+      "target": "Integrációs kód",
+      "sourceLang": "en",
+      "targetLang": "hu",
+      "service": "mymemory",
+      "timestamp": 1767535859186
+    },
+    {
+      "source": "Copy this code to add language switching to your project",
+      "target": "Másolja ezt a kódot, hogy nyelvváltást adjon a projekthez",
+      "sourceLang": "en",
+      "targetLang": "hu",
+      "service": "mymemory",
+      "timestamp": 1767535859702
+    },
+    {
+      "source": "Generated with",
+      "target": "Létrehozva ezzel:",
+      "sourceLang": "en",
+      "targetLang": "hu",
+      "service": "mymemory",
+      "timestamp": 1767535860300
+    },
+    {
+      "source": "Translation Methods",
+      "target": "Fordítási módszerek",
+      "sourceLang": "en",
+      "targetLang": "hu",
+      "service": "mymemory",
+      "timestamp": 1767535860909
+    },
+    {
+      "source": "Supported Languages",
+      "target": "Támogatott nyelvek",
+      "sourceLang": "en",
+      "targetLang": "hu",
+      "service": "mymemory",
+      "timestamp": 1767535861487
+    },
+    {
+      "source": "Free Options",
+      "target": "Ingyenes beállítások",
+      "sourceLang": "en",
+      "targetLang": "hu",
+      "service": "mymemory",
+      "timestamp": 1767535862138
+    },
+    {
+      "source": "Export Formats",
+      "target": "Formátumok exportálása",
+      "sourceLang": "en",
+      "targetLang": "hu",
+      "service": "mymemory",
+      "timestamp": 1767535862704
+    },
+    {
+      "source": "Try it Live",
+      "target": "Próbáld ki élőben",
+      "sourceLang": "en",
+      "targetLang": "hu",
+      "service": "mymemory",
+      "timestamp": 1767535863264
+    },
+    {
+      "source": "See translations happen in real-time",
+      "target": "Tekintse meg a valós idejű fordításokat",
+      "sourceLang": "en",
+      "targetLang": "hu",
+      "service": "mymemory",
+      "timestamp": 1767535863878
+    },
+    {
+      "source": "Translation Preview",
+      "target": "Fordítási előnézet",
+      "sourceLang": "en",
+      "targetLang": "hu",
+      "service": "mymemory",
+      "timestamp": 1767535864450
+    },
+    {
+      "source": "English (Source)",
+      "target": "Angol (Forrás)",
+      "sourceLang": "en",
+      "targetLang": "hu",
+      "service": "mymemory",
+      "timestamp": 1767535865080
+    },
+    {
+      "source": "Translation",
+      "target": "Translation",
+      "sourceLang": "en",
+      "targetLang": "hu",
+      "service": "mymemory",
+      "timestamp": 1767535865602
+    },
+    {
+      "source": "Type something...",
+      "target": "Írjon be valamit...",
+      "sourceLang": "en",
+      "targetLang": "hu",
+      "service": "mymemory",
+      "timestamp": 1767535866202
+    },
+    {
+      "source": "Translating...",
+      "target": "Fordítás",
+      "sourceLang": "en",
+      "targetLang": "hu",
+      "service": "mymemory",
+      "timestamp": 1767535866733
+    },
+    {
+      "source": "Translation failed. Try again.",
+      "target": "A fordítás nem sikerült. Próbálkozz újra.",
+      "sourceLang": "en",
+      "targetLang": "hu",
+      "service": "mymemory",
+      "timestamp": 1767535867223
+    },
+    {
+      "source": "Examples",
+      "target": "Contoh",
+      "sourceLang": "en",
+      "targetLang": "id",
+      "service": "mymemory",
+      "timestamp": 1767535867798
+    },
+    {
+      "source": "Interactive Components",
+      "target": "Komponen Interaktif",
+      "sourceLang": "en",
+      "targetLang": "id",
+      "service": "mymemory",
+      "timestamp": 1767535868375
+    },
+    {
+      "source": "Language Selector Examples",
+      "target": "Contoh Pemilih Bahasa",
+      "sourceLang": "en",
+      "targetLang": "id",
+      "service": "mymemory",
+      "timestamp": 1767535868782
+    },
+    {
+      "source": "Copy-paste these UI components for your i18n implementation. All selectors are synchronized - try clicking any one!",
+      "target": "Salin tempel komponen UI ini untuk implementasi i18n Anda. Semua pemilih disinkronkan - coba klik salah satu!",
+      "sourceLang": "en",
+      "targetLang": "id",
+      "service": "mymemory",
+      "timestamp": 1767535869290
+    },
+    {
+      "source": "Back to Home",
+      "target": "Kembali ke Home",
+      "sourceLang": "en",
+      "targetLang": "id",
+      "service": "mymemory",
+      "timestamp": 1767535869782
+    },
+    {
+      "source": "Current Language",
+      "target": "Bahasa Saat Ini",
+      "sourceLang": "en",
+      "targetLang": "id",
+      "service": "mymemory",
+      "timestamp": 1767535870361
+    },
+    {
+      "source": "Choose Your Style",
+      "target": "Pilih Gaya Anda",
+      "sourceLang": "en",
+      "targetLang": "id",
+      "service": "mymemory",
+      "timestamp": 1767535870847
+    },
+    {
+      "source": "6 different ways to let users switch languages",
+      "target": "6 cara berbeda untuk membiarkan pengguna beralih bahasa",
+      "sourceLang": "en",
+      "targetLang": "id",
+      "service": "mymemory",
+      "timestamp": 1767535871440
+    },
+    {
+      "source": "Simple Dropdown",
+      "target": "Dropdown Sederhana",
+      "sourceLang": "en",
+      "targetLang": "id",
+      "service": "mymemory",
+      "timestamp": 1767535872091
+    },
+    {
+      "source": "Best for settings pages and minimal footprint.",
+      "target": "Cocok untuk halaman pengaturan dan footprint minimal.",
+      "sourceLang": "en",
+      "targetLang": "id",
+      "service": "mymemory",
+      "timestamp": 1767535872569
+    },
+    {
+      "source": "Flag Buttons",
+      "target": "Tombol Bendera",
+      "sourceLang": "en",
+      "targetLang": "id",
+      "service": "mymemory",
+      "timestamp": 1767535873133
+    },
+    {
+      "source": "Best for headers with 3-6 primary languages.",
+      "target": "Terbaik untuk header dengan 3 -6 bahasa utama.",
+      "sourceLang": "en",
+      "targetLang": "id",
+      "service": "mymemory",
+      "timestamp": 1767535873602
+    },
+    {
+      "source": "Icon Grid",
+      "target": "Ikon Grid",
+      "sourceLang": "en",
+      "targetLang": "id",
+      "service": "mymemory",
+      "timestamp": 1767535874164
+    },
+    {
+      "source": "Best for compact headers and mobile navigation.",
+      "target": "Cocok untuk header ringkas dan navigasi seluler.",
+      "sourceLang": "en",
+      "targetLang": "id",
+      "service": "mymemory",
+      "timestamp": 1767535874609
+    },
+    {
+      "source": "Floating Globe",
+      "target": "Floating Globe",
+      "sourceLang": "en",
+      "targetLang": "id",
+      "service": "mymemory",
+      "timestamp": 1767535875170
+    },
+    {
+      "source": "Best for fixed position with many languages.",
+      "target": "Terbaik untuk posisi tetap dengan banyak bahasa.",
+      "sourceLang": "en",
+      "targetLang": "id",
+      "service": "mymemory",
+      "timestamp": 1767535875661
+    },
+    {
+      "source": "Pill Selector",
+      "target": "Pemilih Pil",
+      "sourceLang": "en",
+      "targetLang": "id",
+      "service": "mymemory",
+      "timestamp": 1767535876247
+    },
+    {
+      "source": "Best for modern apps with 3-5 languages.",
+      "target": "Terbaik untuk aplikasi modern dengan 3 -5 bahasa.",
+      "sourceLang": "en",
+      "targetLang": "id",
+      "service": "mymemory",
+      "timestamp": 1767535876681
+    },
+    {
+      "source": "Carousel",
+      "target": "Karusel",
+      "sourceLang": "en",
+      "targetLang": "id",
+      "service": "mymemory",
+      "timestamp": 1767535877111
+    },
+    {
+      "source": "Best for interactive browsing of all languages.",
+      "target": "Terbaik untuk penjelajahan interaktif semua bahasa.",
+      "sourceLang": "en",
+      "targetLang": "id",
+      "service": "mymemory",
+      "timestamp": 1767535877678
+    },
+    {
+      "source": "Integration Code",
+      "target": "Kode Integrasi",
+      "sourceLang": "en",
+      "targetLang": "id",
+      "service": "mymemory",
+      "timestamp": 1767535878328
+    },
+    {
+      "source": "Copy this code to add language switching to your project",
+      "target": "Salin kode ini untuk menambahkan pengalihan bahasa ke proyek Anda",
+      "sourceLang": "en",
+      "targetLang": "id",
+      "service": "mymemory",
+      "timestamp": 1767535878922
+    },
+    {
+      "source": "Generated with",
+      "target": "Dibuat dengan",
+      "sourceLang": "en",
+      "targetLang": "id",
+      "service": "mymemory",
+      "timestamp": 1767535879737
+    },
+    {
+      "source": "Translation Methods",
+      "target": "Metode Penerjemhaan",
+      "sourceLang": "en",
+      "targetLang": "id",
+      "service": "mymemory",
+      "timestamp": 1767535880315
+    },
+    {
+      "source": "Supported Languages",
+      "target": "Bahasa yang didukung",
+      "sourceLang": "en",
+      "targetLang": "id",
+      "service": "mymemory",
+      "timestamp": 1767535880794
+    },
+    {
+      "source": "Free Options",
+      "target": "Opsi Gratis",
+      "sourceLang": "en",
+      "targetLang": "id",
+      "service": "mymemory",
+      "timestamp": 1767535881480
+    },
+    {
+      "source": "Export Formats",
+      "target": "Ekspor Format",
+      "sourceLang": "en",
+      "targetLang": "id",
+      "service": "mymemory",
+      "timestamp": 1767535882053
+    },
+    {
+      "source": "Try it Live",
+      "target": "Coba Langsung",
+      "sourceLang": "en",
+      "targetLang": "id",
+      "service": "mymemory",
+      "timestamp": 1767535882598
+    },
+    {
+      "source": "See translations happen in real-time",
+      "target": "Lihat terjemahan terjadi secara real - time",
+      "sourceLang": "en",
+      "targetLang": "id",
+      "service": "mymemory",
+      "timestamp": 1767535883220
+    },
+    {
+      "source": "Translation Preview",
+      "target": "Pratinjau Terjemahan",
+      "sourceLang": "en",
+      "targetLang": "id",
+      "service": "mymemory",
+      "timestamp": 1767535883829
+    },
+    {
+      "source": "English (Source)",
+      "target": "Teks Sumber Bahasa Inggris",
+      "sourceLang": "en",
+      "targetLang": "id",
+      "service": "mymemory",
+      "timestamp": 1767535884492
+    },
+    {
+      "source": "Translation",
+      "target": "Terjemahan",
+      "sourceLang": "en",
+      "targetLang": "id",
+      "service": "mymemory",
+      "timestamp": 1767535884995
+    },
+    {
+      "source": "Type something...",
+      "target": "Ketikkan sesuatu",
+      "sourceLang": "en",
+      "targetLang": "id",
+      "service": "mymemory",
+      "timestamp": 1767535885513
+    },
+    {
+      "source": "Translating...",
+      "target": "Translating",
+      "sourceLang": "en",
+      "targetLang": "id",
+      "service": "mymemory",
+      "timestamp": 1767535886007
+    },
+    {
+      "source": "Translation failed. Try again.",
+      "target": "Terjemahan gagal. Coba lagi.",
+      "sourceLang": "en",
+      "targetLang": "id",
+      "service": "mymemory",
+      "timestamp": 1767535887047
+    },
+    {
+      "source": "Examples",
+      "target": "Esempi",
+      "sourceLang": "en",
+      "targetLang": "it",
+      "service": "mymemory",
+      "timestamp": 1767535887711
+    },
+    {
+      "source": "Interactive Components",
+      "target": "Componenti interattivi",
+      "sourceLang": "en",
+      "targetLang": "it",
+      "service": "mymemory",
+      "timestamp": 1767535888423
+    },
+    {
+      "source": "Language Selector Examples",
+      "target": "Esempi di selettori di lingua",
+      "sourceLang": "en",
+      "targetLang": "it",
+      "service": "mymemory",
+      "timestamp": 1767535888973
+    },
+    {
+      "source": "Copy-paste these UI components for your i18n implementation. All selectors are synchronized - try clicking any one!",
+      "target": "Copia e incolla questi componenti dell'interfaccia utente per l'implementazione i18n. Tutti i selettori sono sincronizzati - prova a fare clic su uno qualsiasi!",
+      "sourceLang": "en",
+      "targetLang": "it",
+      "service": "mymemory",
+      "timestamp": 1767535889558
+    },
+    {
+      "source": "Back to Home",
+      "target": "Torna alla Home",
+      "sourceLang": "en",
+      "targetLang": "it",
+      "service": "mymemory",
+      "timestamp": 1767535890185
+    },
+    {
+      "source": "Current Language",
+      "target": "Lingua corrente",
+      "sourceLang": "en",
+      "targetLang": "it",
+      "service": "mymemory",
+      "timestamp": 1767535890810
+    },
+    {
+      "source": "Choose Your Style",
+      "target": "Scegli il tuo stile",
+      "sourceLang": "en",
+      "targetLang": "it",
+      "service": "mymemory",
+      "timestamp": 1767535891422
+    },
+    {
+      "source": "6 different ways to let users switch languages",
+      "target": "6 modi diversi per consentire agli utenti di cambiare lingua",
+      "sourceLang": "en",
+      "targetLang": "it",
+      "service": "mymemory",
+      "timestamp": 1767535892114
+    },
+    {
+      "source": "Simple Dropdown",
+      "target": "Semplice discesa",
+      "sourceLang": "en",
+      "targetLang": "it",
+      "service": "mymemory",
+      "timestamp": 1767535892786
+    },
+    {
+      "source": "Best for settings pages and minimal footprint.",
+      "target": "Ideale per pagine di impostazioni e ingombro minimo.",
+      "sourceLang": "en",
+      "targetLang": "it",
+      "service": "mymemory",
+      "timestamp": 1767535893462
+    },
+    {
+      "source": "Flag Buttons",
+      "target": "Pulsanti bandiera",
+      "sourceLang": "en",
+      "targetLang": "it",
+      "service": "mymemory",
+      "timestamp": 1767535894085
+    },
+    {
+      "source": "Best for headers with 3-6 primary languages.",
+      "target": "Ideale per intestazioni con 3-6 lingue primarie.",
+      "sourceLang": "en",
+      "targetLang": "it",
+      "service": "mymemory",
+      "timestamp": 1767535894615
+    },
+    {
+      "source": "Icon Grid",
+      "target": "icon-grid",
+      "sourceLang": "en",
+      "targetLang": "it",
+      "service": "mymemory",
+      "timestamp": 1767535895303
+    },
+    {
+      "source": "Best for compact headers and mobile navigation.",
+      "target": "Ideale per intestazioni compatte e navigazione mobile.",
+      "sourceLang": "en",
+      "targetLang": "it",
+      "service": "mymemory",
+      "timestamp": 1767535895853
+    },
+    {
+      "source": "Floating Globe",
+      "target": "Globo galleggiante",
+      "sourceLang": "en",
+      "targetLang": "it",
+      "service": "mymemory",
+      "timestamp": 1767535896429
+    },
+    {
+      "source": "Best for fixed position with many languages.",
+      "target": "Ideale per posizioni fisse con molte lingue.",
+      "sourceLang": "en",
+      "targetLang": "it",
+      "service": "mymemory",
+      "timestamp": 1767535896984
+    },
+    {
+      "source": "Pill Selector",
+      "target": "Selettore pillole",
+      "sourceLang": "en",
+      "targetLang": "it",
+      "service": "mymemory",
+      "timestamp": 1767535897583
+    },
+    {
+      "source": "Best for modern apps with 3-5 languages.",
+      "target": "Ideale per app moderne con 3-5 lingue.",
+      "sourceLang": "en",
+      "targetLang": "it",
+      "service": "mymemory",
+      "timestamp": 1767535898143
+    },
+    {
+      "source": "Carousel",
+      "target": "Carousel",
+      "sourceLang": "en",
+      "targetLang": "it",
+      "service": "mymemory",
+      "timestamp": 1767535898675
+    },
+    {
+      "source": "Best for interactive browsing of all languages.",
+      "target": "Ideale per la navigazione interattiva di tutte le lingue.",
+      "sourceLang": "en",
+      "targetLang": "it",
+      "service": "mymemory",
+      "timestamp": 1767535899225
+    },
+    {
+      "source": "Integration Code",
+      "target": "Codice integrazione",
+      "sourceLang": "en",
+      "targetLang": "it",
+      "service": "mymemory",
+      "timestamp": 1767535899903
+    },
+    {
+      "source": "Copy this code to add language switching to your project",
+      "target": "Copia questo codice per aggiungere il cambio di lingua al tuo progetto",
+      "sourceLang": "en",
+      "targetLang": "it",
+      "service": "mymemory",
+      "timestamp": 1767535900611
+    },
+    {
+      "source": "Generated with",
+      "target": "Generato con",
+      "sourceLang": "en",
+      "targetLang": "it",
+      "service": "mymemory",
+      "timestamp": 1767535901246
+    },
+    {
+      "source": "Examples",
+      "target": "例",
+      "sourceLang": "en",
+      "targetLang": "ja",
+      "service": "mymemory",
+      "timestamp": 1767535901753
+    },
+    {
+      "source": "Interactive Components",
+      "target": "インタラクティブコンポーネント",
+      "sourceLang": "en",
+      "targetLang": "ja",
+      "service": "mymemory",
+      "timestamp": 1767535902380
+    },
+    {
+      "source": "Language Selector Examples",
+      "target": "言語セレクターの例",
+      "sourceLang": "en",
+      "targetLang": "ja",
+      "service": "mymemory",
+      "timestamp": 1767535902900
+    },
+    {
+      "source": "Copy-paste these UI components for your i18n implementation. All selectors are synchronized - try clicking any one!",
+      "target": "これらのUIコンポーネントをコピーして、I 18 N実装に貼り付けます。すべてのセレクターが同期されています。いずれかをクリックしてみてください！",
+      "sourceLang": "en",
+      "targetLang": "ja",
+      "service": "mymemory",
+      "timestamp": 1767535903507
+    },
+    {
+      "source": "Back to Home",
+      "target": "ホームに戻る",
+      "sourceLang": "en",
+      "targetLang": "ja",
+      "service": "mymemory",
+      "timestamp": 1767535903992
+    },
+    {
+      "source": "Current Language",
+      "target": "現在の言語",
+      "sourceLang": "en",
+      "targetLang": "ja",
+      "service": "mymemory",
+      "timestamp": 1767535904524
+    },
+    {
+      "source": "Choose Your Style",
+      "target": "スタイルを選択",
+      "sourceLang": "en",
+      "targetLang": "ja",
+      "service": "mymemory",
+      "timestamp": 1767535904988
+    },
+    {
+      "source": "6 different ways to let users switch languages",
+      "target": "ユーザーが言語を切り替える6つの方法",
+      "sourceLang": "en",
+      "targetLang": "ja",
+      "service": "mymemory",
+      "timestamp": 1767535905664
+    },
+    {
+      "source": "Simple Dropdown",
+      "target": "シンプルなドロップダウン",
+      "sourceLang": "en",
+      "targetLang": "ja",
+      "service": "mymemory",
+      "timestamp": 1767535906260
+    },
+    {
+      "source": "Best for settings pages and minimal footprint.",
+      "target": "設定ページと最小限のフットプリントに最適です。",
+      "sourceLang": "en",
+      "targetLang": "ja",
+      "service": "mymemory",
+      "timestamp": 1767535906831
+    },
+    {
+      "source": "Flag Buttons",
+      "target": "フラグボタン",
+      "sourceLang": "en",
+      "targetLang": "ja",
+      "service": "mymemory",
+      "timestamp": 1767535907410
+    },
+    {
+      "source": "Best for headers with 3-6 primary languages.",
+      "target": "3〜6の主要言語のヘッダーに最適です。",
+      "sourceLang": "en",
+      "targetLang": "ja",
+      "service": "mymemory",
+      "timestamp": 1767535907908
+    },
+    {
+      "source": "Icon Grid",
+      "target": "アイコングリッド",
+      "sourceLang": "en",
+      "targetLang": "ja",
+      "service": "mymemory",
+      "timestamp": 1767535908405
+    },
+    {
+      "source": "Best for compact headers and mobile navigation.",
+      "target": "コンパクトなヘッダーとモバイルナビゲーションに最適です。",
+      "sourceLang": "en",
+      "targetLang": "ja",
+      "service": "mymemory",
+      "timestamp": 1767535908884
+    },
+    {
+      "source": "Floating Globe",
+      "target": "フローティング・グローブ",
+      "sourceLang": "en",
+      "targetLang": "ja",
+      "service": "mymemory",
+      "timestamp": 1767535909413
+    },
+    {
+      "source": "Best for fixed position with many languages.",
+      "target": "多言語の固定ポジションに最適です。",
+      "sourceLang": "en",
+      "targetLang": "ja",
+      "service": "mymemory",
+      "timestamp": 1767535909879
+    },
+    {
+      "source": "Pill Selector",
+      "target": "ピルセレクター",
+      "sourceLang": "en",
+      "targetLang": "ja",
+      "service": "mymemory",
+      "timestamp": 1767535910449
+    },
+    {
+      "source": "Best for modern apps with 3-5 languages.",
+      "target": "3〜5言語のモダンアプリに最適です。",
+      "sourceLang": "en",
+      "targetLang": "ja",
+      "service": "mymemory",
+      "timestamp": 1767535910939
+    },
+    {
+      "source": "Carousel",
+      "target": "カルーセル",
+      "sourceLang": "en",
+      "targetLang": "ja",
+      "service": "mymemory",
+      "timestamp": 1767535911418
+    },
+    {
+      "source": "Best for interactive browsing of all languages.",
+      "target": "すべての言語のインタラクティブなブラウジングに最適です。",
+      "sourceLang": "en",
+      "targetLang": "ja",
+      "service": "mymemory",
+      "timestamp": 1767535911892
+    },
+    {
+      "source": "Integration Code",
+      "target": "統合コード",
+      "sourceLang": "en",
+      "targetLang": "ja",
+      "service": "mymemory",
+      "timestamp": 1767535912739
+    },
+    {
+      "source": "Copy this code to add language switching to your project",
+      "target": "このコードをコピーして、プロジェクトに言語切り替えを追加します",
+      "sourceLang": "en",
+      "targetLang": "ja",
+      "service": "mymemory",
+      "timestamp": 1767535913332
+    },
+    {
+      "source": "Generated with",
+      "target": "を使用して生成されました",
+      "sourceLang": "en",
+      "targetLang": "ja",
+      "service": "mymemory",
+      "timestamp": 1767535913932
+    },
+    {
+      "source": "Examples",
+      "target": "예",
+      "sourceLang": "en",
+      "targetLang": "ko",
+      "service": "mymemory",
+      "timestamp": 1767535914420
+    },
+    {
+      "source": "Interactive Components",
+      "target": "대화형 구성 요소",
+      "sourceLang": "en",
+      "targetLang": "ko",
+      "service": "mymemory",
+      "timestamp": 1767535915087
+    },
+    {
+      "source": "Language Selector Examples",
+      "target": "언어 선택기 예제",
+      "sourceLang": "en",
+      "targetLang": "ko",
+      "service": "mymemory",
+      "timestamp": 1767535915595
+    },
+    {
+      "source": "Copy-paste these UI components for your i18n implementation. All selectors are synchronized - try clicking any one!",
+      "target": "I18n 구현을 위해 이러한 UI 구성 요소를 복사하여 붙여넣습니다. 모든 선택기가 동기화되었습니다. 아무거나 클릭해 보세요!",
+      "sourceLang": "en",
+      "targetLang": "ko",
+      "service": "mymemory",
+      "timestamp": 1767535916179
+    },
+    {
+      "source": "Back to Home",
+      "target": "집으로 돌아가기",
+      "sourceLang": "en",
+      "targetLang": "ko",
+      "service": "mymemory",
+      "timestamp": 1767535916677
+    },
+    {
+      "source": "Current Language",
+      "target": "현재 언어",
+      "sourceLang": "en",
+      "targetLang": "ko",
+      "service": "mymemory",
+      "timestamp": 1767535917197
+    },
+    {
+      "source": "Choose Your Style",
+      "target": "스타일 선택",
+      "sourceLang": "en",
+      "targetLang": "ko",
+      "service": "mymemory",
+      "timestamp": 1767535917713
+    },
+    {
+      "source": "6 different ways to let users switch languages",
+      "target": "사용자가 언어를 변경할 수 있는 6가지 방법",
+      "sourceLang": "en",
+      "targetLang": "ko",
+      "service": "mymemory",
+      "timestamp": 1767535918374
+    },
+    {
+      "source": "Simple Dropdown",
+      "target": "간단한 드롭다운",
+      "sourceLang": "en",
+      "targetLang": "ko",
+      "service": "mymemory",
+      "timestamp": 1767535918951
+    },
+    {
+      "source": "Best for settings pages and minimal footprint.",
+      "target": "설정 페이지와 최소 설치 공간에 가장 적합합니다.",
+      "sourceLang": "en",
+      "targetLang": "ko",
+      "service": "mymemory",
+      "timestamp": 1767535919419
+    },
+    {
+      "source": "Flag Buttons",
+      "target": "플래그 버튼",
+      "sourceLang": "en",
+      "targetLang": "ko",
+      "service": "mymemory",
+      "timestamp": 1767535919985
+    },
+    {
+      "source": "Best for headers with 3-6 primary languages.",
+      "target": "기본 언어가 3 ~ 6개인 헤더에 가장 적합합니다.",
+      "sourceLang": "en",
+      "targetLang": "ko",
+      "service": "mymemory",
+      "timestamp": 1767535920582
+    },
+    {
+      "source": "Icon Grid",
+      "target": "아이콘 격자",
+      "sourceLang": "en",
+      "targetLang": "ko",
+      "service": "mymemory",
+      "timestamp": 1767535921052
+    },
+    {
+      "source": "Best for compact headers and mobile navigation.",
+      "target": "컴팩트한 헤더와 모바일 내비게이션에 적합합니다.",
+      "sourceLang": "en",
+      "targetLang": "ko",
+      "service": "mymemory",
+      "timestamp": 1767535921543
+    },
+    {
+      "source": "Floating Globe",
+      "target": "플로팅 글로브",
+      "sourceLang": "en",
+      "targetLang": "ko",
+      "service": "mymemory",
+      "timestamp": 1767535922177
+    },
+    {
+      "source": "Best for fixed position with many languages.",
+      "target": "다양한 언어로 고정된 위치에 가장 적합합니다.",
+      "sourceLang": "en",
+      "targetLang": "ko",
+      "service": "mymemory",
+      "timestamp": 1767535922708
+    },
+    {
+      "source": "Pill Selector",
+      "target": "알약 선택기",
+      "sourceLang": "en",
+      "targetLang": "ko",
+      "service": "mymemory",
+      "timestamp": 1767535923302
+    },
+    {
+      "source": "Best for modern apps with 3-5 languages.",
+      "target": "3 ~ 5개 언어를 지원하는 최신 앱에 적합합니다.",
+      "sourceLang": "en",
+      "targetLang": "ko",
+      "service": "mymemory",
+      "timestamp": 1767535923787
+    },
+    {
+      "source": "Carousel",
+      "target": "캐러셀",
+      "sourceLang": "en",
+      "targetLang": "ko",
+      "service": "mymemory",
+      "timestamp": 1767535924256
+    },
+    {
+      "source": "Best for interactive browsing of all languages.",
+      "target": "모든 언어의 대화형 브라우징에 적합합니다.",
+      "sourceLang": "en",
+      "targetLang": "ko",
+      "service": "mymemory",
+      "timestamp": 1767535924737
+    },
+    {
+      "source": "Integration Code",
+      "target": "통합 코드",
+      "sourceLang": "en",
+      "targetLang": "ko",
+      "service": "mymemory",
+      "timestamp": 1767535925360
+    },
+    {
+      "source": "Copy this code to add language switching to your project",
+      "target": "프로젝트에 언어 전환을 추가하려면 이 코드를 복사하세요",
+      "sourceLang": "en",
+      "targetLang": "ko",
+      "service": "mymemory",
+      "timestamp": 1767535925970
+    },
+    {
+      "source": "Generated with",
+      "target": "다음으로 생성됨",
+      "sourceLang": "en",
+      "targetLang": "ko",
+      "service": "mymemory",
+      "timestamp": 1767535926518
+    },
+    {
+      "source": "Examples",
+      "target": "Pavyzdžiai",
+      "sourceLang": "en",
+      "targetLang": "lt",
+      "service": "mymemory",
+      "timestamp": 1767535927171
+    },
+    {
+      "source": "Interactive Components",
+      "target": "Interaktyvūs komponentai",
+      "sourceLang": "en",
+      "targetLang": "lt",
+      "service": "mymemory",
+      "timestamp": 1767535927996
+    },
+    {
+      "source": "Language Selector Examples",
+      "target": "Kalbos parinkiklio pavyzdžiai",
+      "sourceLang": "en",
+      "targetLang": "lt",
+      "service": "mymemory",
+      "timestamp": 1767535928492
+    },
+    {
+      "source": "Copy-paste these UI components for your i18n implementation. All selectors are synchronized - try clicking any one!",
+      "target": "Nukopijuokite ir įklijuokite šiuos vartotojo sąsajos komponentus savo i18n diegimui. Visi rinkikliai yra sinchronizuoti - pabandykite spustelėti bet kurį!",
+      "sourceLang": "en",
+      "targetLang": "lt",
+      "service": "mymemory",
+      "timestamp": 1767535929212
+    },
+    {
+      "source": "Back to Home",
+      "target": "\"Grįžti į pradžią\"",
+      "sourceLang": "en",
+      "targetLang": "lt",
+      "service": "mymemory",
+      "timestamp": 1767535929890
+    },
+    {
+      "source": "Current Language",
+      "target": "Dabartinė kalba",
+      "sourceLang": "en",
+      "targetLang": "lt",
+      "service": "mymemory",
+      "timestamp": 1767535930477
+    },
+    {
+      "source": "Choose Your Style",
+      "target": "Pasirinkite savo stilių",
+      "sourceLang": "en",
+      "targetLang": "lt",
+      "service": "mymemory",
+      "timestamp": 1767535931030
+    },
+    {
+      "source": "6 different ways to let users switch languages",
+      "target": "6 skirtingi būdai leisti vartotojams perjungti kalbas",
+      "sourceLang": "en",
+      "targetLang": "lt",
+      "service": "mymemory",
+      "timestamp": 1767535931788
+    },
+    {
+      "source": "Simple Dropdown",
+      "target": "Paprastas išskleidžiamasis sąrašas",
+      "sourceLang": "en",
+      "targetLang": "lt",
+      "service": "mymemory",
+      "timestamp": 1767535932394
+    },
+    {
+      "source": "Best for settings pages and minimal footprint.",
+      "target": "Tinka nustatymų puslapiams ir minimaliam pėdsakui.",
+      "sourceLang": "en",
+      "targetLang": "lt",
+      "service": "mymemory",
+      "timestamp": 1767535932925
+    },
+    {
+      "source": "Flag Buttons",
+      "target": "Žymėjimo mygtukai",
+      "sourceLang": "en",
+      "targetLang": "lt",
+      "service": "mymemory",
+      "timestamp": 1767535933647
+    },
+    {
+      "source": "Best for headers with 3-6 primary languages.",
+      "target": "Tinka antraštėms su 3-6 pagrindinėmis kalbomis.",
+      "sourceLang": "en",
+      "targetLang": "lt",
+      "service": "mymemory",
+      "timestamp": 1767535934178
+    },
+    {
+      "source": "Icon Grid",
+      "target": "Ženkliko tinklelis",
+      "sourceLang": "en",
+      "targetLang": "lt",
+      "service": "mymemory",
+      "timestamp": 1767535934670
+    },
+    {
+      "source": "Best for compact headers and mobile navigation.",
+      "target": "Geriausia kompaktiškoms antraštėms ir mobiliajai navigacijai.",
+      "sourceLang": "en",
+      "targetLang": "lt",
+      "service": "mymemory",
+      "timestamp": 1767535935162
+    },
+    {
+      "source": "Floating Globe",
+      "target": "Plūduriuojantis gaublys",
+      "sourceLang": "en",
+      "targetLang": "lt",
+      "service": "mymemory",
+      "timestamp": 1767535935834
+    },
+    {
+      "source": "Best for fixed position with many languages.",
+      "target": "Geriausia fiksuotai pozicijai su daugeliu kalbų.",
+      "sourceLang": "en",
+      "targetLang": "lt",
+      "service": "mymemory",
+      "timestamp": 1767535936365
+    },
+    {
+      "source": "Pill Selector",
+      "target": "Tablečių parinkiklis",
+      "sourceLang": "en",
+      "targetLang": "lt",
+      "service": "mymemory",
+      "timestamp": 1767535936943
+    },
+    {
+      "source": "Best for modern apps with 3-5 languages.",
+      "target": "Tinka modernioms programėlėms 3-5 kalbomis.",
+      "sourceLang": "en",
+      "targetLang": "lt",
+      "service": "mymemory",
+      "timestamp": 1767535937418
+    },
+    {
+      "source": "Carousel",
+      "target": "Karuselė",
+      "sourceLang": "en",
+      "targetLang": "lt",
+      "service": "mymemory",
+      "timestamp": 1767535937969
+    },
+    {
+      "source": "Best for interactive browsing of all languages.",
+      "target": "Tinka interaktyviam visų kalbų naršymui.",
+      "sourceLang": "en",
+      "targetLang": "lt",
+      "service": "mymemory",
+      "timestamp": 1767535938586
+    },
+    {
+      "source": "Integration Code",
+      "target": "Integracijos kodas",
+      "sourceLang": "en",
+      "targetLang": "lt",
+      "service": "mymemory",
+      "timestamp": 1767535939161
+    },
+    {
+      "source": "Copy this code to add language switching to your project",
+      "target": "Nukopijuokite šį kodą, kad pridėtumėte kalbos perjungimą į savo projektą",
+      "sourceLang": "en",
+      "targetLang": "lt",
+      "service": "mymemory",
+      "timestamp": 1767535939666
+    },
+    {
+      "source": "Generated with",
+      "target": "Sugeneruota naudojant",
+      "sourceLang": "en",
+      "targetLang": "lt",
+      "service": "mymemory",
+      "timestamp": 1767535940202
+    },
+    {
+      "source": "Translation Methods",
+      "target": "Vertimo būdai",
+      "sourceLang": "en",
+      "targetLang": "lt",
+      "service": "mymemory",
+      "timestamp": 1767535940797
+    },
+    {
+      "source": "Supported Languages",
+      "target": "Galimos kalbos",
+      "sourceLang": "en",
+      "targetLang": "lt",
+      "service": "mymemory",
+      "timestamp": 1767535941326
+    },
+    {
+      "source": "Free Options",
+      "target": "Nemokamos parinktys",
+      "sourceLang": "en",
+      "targetLang": "lt",
+      "service": "mymemory",
+      "timestamp": 1767535941920
+    },
+    {
+      "source": "Export Formats",
+      "target": "Eksportuoti formatus",
+      "sourceLang": "en",
+      "targetLang": "lt",
+      "service": "mymemory",
+      "timestamp": 1767535942931
+    },
+    {
+      "source": "Try it Live",
+      "target": "Išbandyti gyvai",
+      "sourceLang": "en",
+      "targetLang": "lt",
+      "service": "mymemory",
+      "timestamp": 1767535943643
+    },
+    {
+      "source": "See translations happen in real-time",
+      "target": "Žiūrėti vertimus realiuoju laiku",
+      "sourceLang": "en",
+      "targetLang": "lt",
+      "service": "mymemory",
+      "timestamp": 1767535944210
+    },
+    {
+      "source": "Translation Preview",
+      "target": "Vertimo peržiūra",
+      "sourceLang": "en",
+      "targetLang": "lt",
+      "service": "mymemory",
+      "timestamp": 1767535944740
+    },
+    {
+      "source": "English (Source)",
+      "target": "Anglų k. (šaltinis)",
+      "sourceLang": "en",
+      "targetLang": "lt",
+      "service": "mymemory",
+      "timestamp": 1767535945878
+    },
+    {
+      "source": "Translation",
+      "target": "Vertimas",
+      "sourceLang": "en",
+      "targetLang": "lt",
+      "service": "mymemory",
+      "timestamp": 1767535946348
+    },
+    {
+      "source": "Type something...",
+      "target": "Įveskite ką nors...",
+      "sourceLang": "en",
+      "targetLang": "lt",
+      "service": "mymemory",
+      "timestamp": 1767535946982
+    },
+    {
+      "source": "Translating...",
+      "target": "Verčiama",
+      "sourceLang": "en",
+      "targetLang": "lt",
+      "service": "mymemory",
+      "timestamp": 1767535947454
+    },
+    {
+      "source": "Translation failed. Try again.",
+      "target": "Išversti nepavyko. Bandykite dar kartą.",
+      "sourceLang": "en",
+      "targetLang": "lt",
+      "service": "mymemory",
+      "timestamp": 1767535948052
+    },
+    {
+      "source": "Examples",
+      "target": "Piemēri",
+      "sourceLang": "en",
+      "targetLang": "lv",
+      "service": "mymemory",
+      "timestamp": 1767535948722
+    },
+    {
+      "source": "Interactive Components",
+      "target": "Interaktīvie komponenti",
+      "sourceLang": "en",
+      "targetLang": "lv",
+      "service": "mymemory",
+      "timestamp": 1767535949350
+    },
+    {
+      "source": "Language Selector Examples",
+      "target": "Valodas atlasītāja piemēri",
+      "sourceLang": "en",
+      "targetLang": "lv",
+      "service": "mymemory",
+      "timestamp": 1767535949820
+    },
+    {
+      "source": "Copy-paste these UI components for your i18n implementation. All selectors are synchronized - try clicking any one!",
+      "target": "Kopējiet un ielīmējiet šos lietotāja interfeisa komponentus savai i18n ieviešanai. Visi atlasītāji ir sinhronizēti - mēģiniet noklikšķināt uz jebkura no tiem!",
+      "sourceLang": "en",
+      "targetLang": "lv",
+      "service": "mymemory",
+      "timestamp": 1767535950489
     }
   ]
 }

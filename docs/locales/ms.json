@@ -98,5 +98,21 @@
     "codeTitle": "Integration Code",
     "codeSubtitle": "Copy this code to add language switching to your project",
     "footerText": "Generated with"
+  },
+  "stats": {
+    "methods": "Translation Methods",
+    "languages": "Supported Languages",
+    "free": "Free Options",
+    "formats": "Export Formats"
+  },
+  "demo": {
+    "title": "Try it Live",
+    "subtitle": "See translations happen in real-time",
+    "preview": "Translation Preview",
+    "source": "English (Source)",
+    "translation": "Translation",
+    "placeholder": "Type something...",
+    "translating": "Translating...",
+    "error": "Translation failed. Try again."
   }
 }

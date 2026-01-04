@@ -3,7 +3,7 @@
     "features": "विशेषताएँ",
     "quickstart": "त्वरित शुरुआत",
     "languages": "बोली",
-    "examples": "Examples"
+    "examples": "उदाहरण"
   },
   "hero": {
     "badge": "बिल्ड-टाइम i18n निष्कर्षण और अनुवाद",
@@ -64,39 +64,55 @@
   },
   "tooltip": "इस पैकेज द्वारा अनुवादित",
   "examples": {
-    "badge": "Interactive Components",
-    "title": "Language Selector Examples",
-    "subtitle": "Copy-paste these UI components for your i18n implementation. All selectors are synchronized - try clicking any one!",
-    "back": "Back to Home",
-    "currentLang": "Current Language",
-    "selectorsTitle": "Choose Your Style",
-    "selectorsSubtitle": "6 different ways to let users switch languages",
+    "badge": "इंटरएक्टिव अवयव",
+    "title": "भाषा चयनकर्ता के उदाहरण",
+    "subtitle": "अपने i18n कार्यान्वयन के लिए इन UI घटकों को कॉपी - पेस्ट करें। सभी चयनकर्ता सिंक्रनाइज़ किए गए हैं - किसी एक पर क्लिक करके देखें!",
+    "back": "होम पर वापस जाएं",
+    "currentLang": "वर्तमान भाषा:",
+    "selectorsTitle": "अपनी शैली चुनें",
+    "selectorsSubtitle": "यूज़र को भाषाएँ बदलने के 6 अलग - अलग तरीके",
     "simple": {
-      "title": "Simple Dropdown",
-      "desc": "Best for settings pages and minimal footprint."
+      "title": "साधारण ड्रॉपडाउन",
+      "desc": "सेटिंग पेज और न्यूनतम फ़ुटप्रिंट के लिए सबसे अच्छा।"
     },
     "flags": {
-      "title": "Flag Buttons",
-      "desc": "Best for headers with 3-6 primary languages."
+      "title": "फ़्लैग बटन",
+      "desc": "3 -6 प्राथमिक भाषाओं वाले हेडर के लिए सबसे अच्छा।"
     },
     "icons": {
-      "title": "Icon Grid",
-      "desc": "Best for compact headers and mobile navigation."
+      "title": "प्रतीक ग्रिड",
+      "desc": "कॉम्पैक्ट हेडर और मोबाइल नेविगेशन के लिए सबसे अच्छा।"
     },
     "globe": {
-      "title": "Floating Globe",
-      "desc": "Best for fixed position with many languages."
+      "title": "फ़्लोटिंग ग्लोब",
+      "desc": "कई भाषाओं के साथ निश्चित स्थिति के लिए सबसे अच्छा।"
     },
     "pills": {
-      "title": "Pill Selector",
-      "desc": "Best for modern apps with 3-5 languages."
+      "title": "पिल सेलेक्टर",
+      "desc": "3 -5 भाषाओं वाले आधुनिक ऐप के लिए सबसे अच्छा।"
     },
     "carousel": {
-      "title": "Carousel",
-      "desc": "Best for interactive browsing of all languages."
+      "title": "कैरसेल",
+      "desc": "सभी भाषाओं की इंटरैक्टिव ब्राउज़िंग के लिए सबसे अच्छा।"
     },
-    "codeTitle": "Integration Code",
-    "codeSubtitle": "Copy this code to add language switching to your project",
-    "footerText": "Generated with"
+    "codeTitle": "इंटीग्रेशन कोड",
+    "codeSubtitle": "अपने प्रोजेक्ट में भाषा स्विचिंग जोड़ने के लिए इस कोड को कॉपी करें",
+    "footerText": "इससे जनरेट किया गया"
+  },
+  "stats": {
+    "methods": "अनुवाद के तरीके",
+    "languages": "समर्थित भाषाएँ",
+    "free": "मुफ़्त विकल्प",
+    "formats": "फ़ॉर्मेट एक्सपोर्ट करें"
+  },
+  "demo": {
+    "title": "इसे लाइव आज़माएँ",
+    "subtitle": "देखें कि अनुवाद रीयल - टाइम में होते हैं",
+    "preview": "अनुवाद पूर्वावलोकन",
+    "source": "ENGLISH (SOURCE)",
+    "translation": "अनुवाद",
+    "placeholder": "कुछ लिखें",
+    "translating": "अनुवाद किया जा रहा है",
+    "error": "अनुवाद विफल। फिर से कोशिश करें।"
   }
 }

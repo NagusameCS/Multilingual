@@ -3,7 +3,7 @@
     "features": "Характеристики",
     "quickstart": "Бърз старт",
     "languages": "Езици",
-    "examples": "Examples"
+    "examples": "Примери"
   },
   "hero": {
     "badge": "Извличане и превод на i18n по време на изграждане",
@@ -64,39 +64,55 @@
   },
   "tooltip": "Преведено от този пакет",
   "examples": {
-    "badge": "Interactive Components",
-    "title": "Language Selector Examples",
-    "subtitle": "Copy-paste these UI components for your i18n implementation. All selectors are synchronized - try clicking any one!",
-    "back": "Back to Home",
-    "currentLang": "Current Language",
-    "selectorsTitle": "Choose Your Style",
-    "selectorsSubtitle": "6 different ways to let users switch languages",
+    "badge": "Интерактивни компоненти",
+    "title": "Примери за избор на език",
+    "subtitle": "Копирайте тези компоненти на потребителския интерфейс за вашата i18n имплементация. Всички селектори са синхронизирани - опитайте да щракнете върху който и да е от тях!",
+    "back": "Към началната страница",
+    "currentLang": "ТЕКУЩ ЕЗИК",
+    "selectorsTitle": "ИЗБЕРЕТЕ ВАШИЯ СТИЛ",
+    "selectorsSubtitle": "6 различни начина да позволите на потребителите да сменят езиците",
     "simple": {
-      "title": "Simple Dropdown",
-      "desc": "Best for settings pages and minimal footprint."
+      "title": "Обикновено падащо меню",
+      "desc": "Най - подходящ за страници с настройки и минимален отпечатък."
     },
     "flags": {
-      "title": "Flag Buttons",
-      "desc": "Best for headers with 3-6 primary languages."
+      "title": "Бутони за сигнализиране",
+      "desc": "Най - подходящ за хедъри с 3 -6 основни езика."
     },
     "icons": {
-      "title": "Icon Grid",
-      "desc": "Best for compact headers and mobile navigation."
+      "title": "Мрежа",
+      "desc": "Най - подходящ за компактни заглавки и мобилна навигация."
     },
     "globe": {
-      "title": "Floating Globe",
-      "desc": "Best for fixed position with many languages."
+      "title": "Плаващ глобус",
+      "desc": "Най - подходящ за фиксирана позиция с много езици."
     },
     "pills": {
-      "title": "Pill Selector",
-      "desc": "Best for modern apps with 3-5 languages."
+      "title": "Селектор на хапчета",
+      "desc": "Най - подходящ за модерни приложения с 3 - 5 езика."
     },
     "carousel": {
-      "title": "Carousel",
-      "desc": "Best for interactive browsing of all languages."
+      "title": "Карусел",
+      "desc": "Най - подходящ за интерактивно сърфиране на всички езици."
     },
-    "codeTitle": "Integration Code",
-    "codeSubtitle": "Copy this code to add language switching to your project",
-    "footerText": "Generated with"
+    "codeTitle": "Интеграционен код",
+    "codeSubtitle": "Копирайте този код, за да добавите превключване на езика към проекта си",
+    "footerText": "Генерирано с"
+  },
+  "stats": {
+    "methods": "Методи за превод",
+    "languages": "Поддържани езици",
+    "free": "Безплатни опции",
+    "formats": "Експортиране на формати"
+  },
+  "demo": {
+    "title": "Изпробвайте на живо",
+    "subtitle": "Вижте преводите в реално време",
+    "preview": "Преглед на превода",
+    "source": "Английски (източник)",
+    "translation": "Превод",
+    "placeholder": "Въведете нещо",
+    "translating": "Превод...",
+    "error": "Неуспешен превод. Опитайте отново."
   }
 }

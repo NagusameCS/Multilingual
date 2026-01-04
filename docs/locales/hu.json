@@ -3,7 +3,7 @@
     "features": "Jellemzők",
     "quickstart": "Gyors kezdés",
     "languages": "Nyelvek",
-    "examples": "Examples"
+    "examples": "Példák"
   },
   "hero": {
     "badge": "Építési idejű i18n kinyerés és fordítás",
@@ -64,39 +64,55 @@
   },
   "tooltip": "Ezzel a csomaggal fordította",
   "examples": {
-    "badge": "Interactive Components",
-    "title": "Language Selector Examples",
-    "subtitle": "Copy-paste these UI components for your i18n implementation. All selectors are synchronized - try clicking any one!",
-    "back": "Back to Home",
-    "currentLang": "Current Language",
-    "selectorsTitle": "Choose Your Style",
-    "selectorsSubtitle": "6 different ways to let users switch languages",
+    "badge": "Interaktív komponensek",
+    "title": "Példák a nyelvválasztóra",
+    "subtitle": "Másolja be ezeket az UI-összetevőket az i18n megvalósításához. Minden kiválasztó szinkronizálva van - próbáljon meg bármelyikre kattintani!",
+    "back": "Vissza a főoldalra",
+    "currentLang": "Aktuális nyelv",
+    "selectorsTitle": "Válassz stílust",
+    "selectorsSubtitle": "6 különböző módja annak, hogy a felhasználók nyelvet válthassanak",
     "simple": {
-      "title": "Simple Dropdown",
-      "desc": "Best for settings pages and minimal footprint."
+      "title": "Egyszerű legördülő menü",
+      "desc": "A legjobb beállítási oldalakhoz és minimális alapterülethez."
     },
     "flags": {
-      "title": "Flag Buttons",
-      "desc": "Best for headers with 3-6 primary languages."
+      "title": "Zászlógombok",
+      "desc": "A legjobb a 3-6 elsődleges nyelvvel rendelkező fejlécekhez."
     },
     "icons": {
-      "title": "Icon Grid",
-      "desc": "Best for compact headers and mobile navigation."
+      "title": "Ikonrács",
+      "desc": "A legjobb a kompakt fejlécekhez és a mobil navigációhoz."
     },
     "globe": {
-      "title": "Floating Globe",
-      "desc": "Best for fixed position with many languages."
+      "title": "Lebegő gömb",
+      "desc": "A legjobb a többnyelvű fix pozícióhoz."
     },
     "pills": {
-      "title": "Pill Selector",
-      "desc": "Best for modern apps with 3-5 languages."
+      "title": "Tablettaválasztó",
+      "desc": "A legjobb a 3-5 nyelven elérhető modern alkalmazásokhoz."
     },
     "carousel": {
-      "title": "Carousel",
-      "desc": "Best for interactive browsing of all languages."
+      "title": "Körhinta",
+      "desc": "A legjobb az összes nyelv interaktív böngészéséhez."
     },
-    "codeTitle": "Integration Code",
-    "codeSubtitle": "Copy this code to add language switching to your project",
-    "footerText": "Generated with"
+    "codeTitle": "Integrációs kód",
+    "codeSubtitle": "Másolja ezt a kódot, hogy nyelvváltást adjon a projekthez",
+    "footerText": "Létrehozva ezzel:"
+  },
+  "stats": {
+    "methods": "Fordítási módszerek",
+    "languages": "Támogatott nyelvek",
+    "free": "Ingyenes beállítások",
+    "formats": "Formátumok exportálása"
+  },
+  "demo": {
+    "title": "Próbáld ki élőben",
+    "subtitle": "Tekintse meg a valós idejű fordításokat",
+    "preview": "Fordítási előnézet",
+    "source": "Angol (Forrás)",
+    "translation": "Translation",
+    "placeholder": "Írjon be valamit...",
+    "translating": "Fordítás",
+    "error": "A fordítás nem sikerült. Próbálkozz újra."
   }
 }
