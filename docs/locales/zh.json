@@ -12,6 +12,22 @@
     "github": "在 GitHub 上查看",
     "notice": "多语言是一种构建时工具。它扫描您的源文件，提取可翻译的字符串，并生成静态翻译文件。它不提供运行时翻译或实时语言切换。"
   },
+  "stats": {
+    "methods": "翻译方法",
+    "languages": "支持的语言",
+    "free": "免费选项",
+    "formats": "导出格式"
+  },
+  "demo": {
+    "title": "现场尝试",
+    "subtitle": "查看实时翻译",
+    "preview": "翻译预览",
+    "source": "英文（来源）",
+    "translation": "翻译",
+    "placeholder": "输入一些东西...",
+    "translating": "翻译...",
+    "error": "翻译失败。再试一次。"
+  },
   "features": {
     "title": "它是如何运作的",
     "subtitle": "项目国际化的简化工作流程",

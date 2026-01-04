@@ -37,7 +37,7 @@ const program = new Command();
 // ASCII Art Banner
 const banner = `
 ${chalk.cyan('╔════════════════════════════════════════════════════════════╗')}
-${chalk.cyan('║')}  ${chalk.bold.white('🌐 multilingual-cli')} ${chalk.gray('v2.0.2')}                            ${chalk.cyan('║')}
+${chalk.cyan('║')}  ${chalk.bold.white('🌐 multilingual-cli')} ${chalk.gray('v2.0.3')}                            ${chalk.cyan('║')}
 ${chalk.cyan('║')}  ${chalk.gray('Automated internationalization for any project')}            ${chalk.cyan('║')}
 ${chalk.cyan('╚════════════════════════════════════════════════════════════╝')}
 `;
@@ -45,7 +45,7 @@ ${chalk.cyan('╚═════════════════════
 program
     .name('multilingual')
     .description('Automated i18n detection and translation tool with free translation options')
-    .version('2.0.2');
+    .version('2.0.3');
 
 /**
  * Init command - Interactive setup wizard
@@ -357,6 +357,27 @@ program
         // Set extended service
         (multilingual as any).translationManager?.setExtendedService?.(service);
 
+        // Handle graceful shutdown
+        let isInterrupted = false;
+        const handleInterrupt = () => {
+            if (isInterrupted) {
+                console.log(chalk.red('\n\n⚠️  Force quit. Some translations may be lost.'));
+                process.exit(1);
+            }
+            isInterrupted = true;
+            console.log(chalk.yellow('\n\n⏸️  Interrupted! Saving translation memory...'));
+            console.log(chalk.gray('   Press Ctrl+C again to force quit.'));
+            // Save translation memory
+            try {
+                (multilingual as any).translationManager?.saveTranslationMemory?.();
+                console.log(chalk.green('   ✓ Translation memory saved. Resume later to continue.'));
+            } catch {
+                console.log(chalk.yellow('   ⚠️  Could not save translation memory.'));
+            }
+            process.exit(0);
+        };
+        process.on('SIGINT', handleInterrupt);
+
         const spinner = ora('Translating...').start();
         const startTime = Date.now();
         let languagesCompleted = 0;
@@ -391,6 +412,16 @@ program
         );
 
         const totalTime = Date.now() - startTime;
+
+        // Save translation memory
+        try {
+            (multilingual as any).translationManager?.saveTranslationMemory?.();
+        } catch {
+            // Silently ignore
+        }
+        
+        // Remove interrupt handler
+        process.removeListener('SIGINT', handleInterrupt);
 
         if (result.success) {
             spinner.succeed(`Successfully translated to ${result.files.length} files in ${formatTime(totalTime)}`);

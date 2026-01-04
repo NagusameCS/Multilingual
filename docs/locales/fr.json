@@ -12,6 +12,22 @@
     "github": "Voir sur GitHub",
     "notice": "Multilingue est un outil de construction. Il analyse vos fichiers sources, extrait les chaînes traduisibles et génère des fichiers de traduction statiques. Il ne fournit pas de traduction d'exécution ni de changement de langue en direct."
   },
+  "stats": {
+    "methods": "Méthodes de traduction",
+    "languages": "Langues prises en charge",
+    "free": "Options gratuites",
+    "formats": "Formats d'exportation"
+  },
+  "demo": {
+    "title": "Essayez-le en direct",
+    "subtitle": "Voir les traductions se produire en temps réel",
+    "preview": "Aperçu de la traduction",
+    "source": "Anglais (Source)",
+    "translation": "Traduction",
+    "placeholder": "Tapez quelque chose...",
+    "translating": "Traduire...",
+    "error": "La traduction a échoué. Essayer à nouveau."
+  },
   "features": {
     "title": "Comment ça marche",
     "subtitle": "Un flux de travail rationalisé pour l’internationalisation des projets",

@@ -12,6 +12,22 @@
     "github": "Zobacz na GitHubie",
     "notice": "Wielojęzyczny to narzędzie stosowane w czasie kompilacji. Skanuje pliki źródłowe, wyodrębnia ciągi znaków do przetłumaczenia i generuje statyczne pliki tłumaczeń. Nie zapewnia tłumaczenia w czasie wykonywania ani przełączania języków na żywo."
   },
+  "stats": {
+    "methods": "Metody tłumaczenia",
+    "languages": "Obsługiwane języki",
+    "free": "Bezpłatne opcje",
+    "formats": "Formaty eksportu"
+  },
+  "demo": {
+    "title": "Wypróbuj na żywo",
+    "subtitle": "Zobacz, jak tłumaczenia powstają w czasie rzeczywistym",
+    "preview": "Podgląd tłumaczenia",
+    "source": "angielski (źródło)",
+    "translation": "Tłumaczenie",
+    "placeholder": "Wpisz coś...",
+    "translating": "Tłumaczenie...",
+    "error": "Tłumaczenie nie powiodło się. Spróbuj ponownie."
+  },
   "features": {
     "title": "Jak to działa",
     "subtitle": "Usprawniony przepływ pracy w zakresie internacjonalizacji projektu",

@@ -12,6 +12,22 @@
     "github": "Visa på GitHub",
     "notice": "Flerspråkig är ett byggtidsverktyg. Den skannar dina källfiler, extraherar översättbara strängar och genererar statiska översättningsfiler. Det ger inte körtidsöversättning eller live språkväxling."
   },
+  "stats": {
+    "methods": "Översättningsmetoder",
+    "languages": "Språk som stöds",
+    "free": "Gratis alternativ",
+    "formats": "Exportera format"
+  },
+  "demo": {
+    "title": "Prova Live",
+    "subtitle": "Se översättningar ske i realtid",
+    "preview": "Förhandsgranskning av översättning",
+    "source": "engelska (källa)",
+    "translation": "Översättning",
+    "placeholder": "Skriv något...",
+    "translating": "Översätter...",
+    "error": "Översättning misslyckades. Försök igen."
+  },
   "features": {
     "title": "Hur det fungerar",
     "subtitle": "Ett strömlinjeformat arbetsflöde för projektinternationalisering",

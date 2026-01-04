@@ -12,6 +12,22 @@
     "github": "Bekijk op GitHub",
     "notice": "Meertalig is een hulpmiddel tijdens het bouwen. Het scant uw bronbestanden, extraheert vertaalbare tekenreeksen en genereert statische vertaalbestanden. Het biedt geen runtimevertaling of live taalwisseling."
   },
+  "stats": {
+    "methods": "Vertaalmethoden",
+    "languages": "Ondersteunde talen",
+    "free": "Gratis opties",
+    "formats": "Exportformaten"
+  },
+  "demo": {
+    "title": "Probeer het live",
+    "subtitle": "Zie vertalingen in realtime plaatsvinden",
+    "preview": "Voorbeeld van vertaling",
+    "source": "Engels (Bron)",
+    "translation": "Vertaling",
+    "placeholder": "Typ iets...",
+    "translating": "Vertalen...",
+    "error": "Vertaling mislukt. Probeer het opnieuw."
+  },
   "features": {
     "title": "Hoe het werkt",
     "subtitle": "Een gestroomlijnde workflow voor projectinternationalisering",

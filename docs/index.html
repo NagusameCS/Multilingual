@@ -772,19 +772,19 @@
                 <div class="stats-grid">
                     <div class="stat-item">
                         <div class="stat-number" data-count="15">0</div>
-                        <div class="stat-label">Translation Methods</div>
+                        <div class="stat-label" data-i18n="stats.methods">Translation Methods</div>
                     </div>
                     <div class="stat-item">
                         <div class="stat-number" data-count="37">0</div>
-                        <div class="stat-label">Supported Languages</div>
+                        <div class="stat-label" data-i18n="stats.languages">Supported Languages</div>
                     </div>
                     <div class="stat-item">
                         <div class="stat-number" data-count="12">0</div>
-                        <div class="stat-label">Free Options</div>
+                        <div class="stat-label" data-i18n="stats.free">Free Options</div>
                     </div>
                     <div class="stat-item">
                         <div class="stat-number" data-count="7">0</div>
-                        <div class="stat-label">Export Formats</div>
+                        <div class="stat-label" data-i18n="stats.formats">Export Formats</div>
                     </div>
                 </div>
             </div>
@@ -794,8 +794,8 @@
         <section class="demo-section" id="demo">
             <div class="container">
                 <div class="section-header">
-                    <h2>Try it Live</h2>
-                    <p>See translations happen in real-time</p>
+                    <h2 data-i18n="demo.title">Try it Live</h2>
+                    <p data-i18n="demo.subtitle">See translations happen in real-time</p>
                 </div>
                 <div class="demo-container">
                     <div class="demo-header">
@@ -804,15 +804,15 @@
                             <span class="demo-dot"></span>
                             <span class="demo-dot"></span>
                         </div>
-                        <span class="demo-title">Translation Preview</span>
+                        <span class="demo-title" data-i18n="demo.preview">Translation Preview</span>
                     </div>
                     <div class="demo-body">
                         <div class="demo-panel">
-                            <div class="demo-panel-title">English (Source)</div>
-                            <textarea class="demo-input" id="demo-input" rows="3" placeholder="Type something...">Hello World! Welcome to our application.</textarea>
+                            <div class="demo-panel-title" data-i18n="demo.source">English (Source)</div>
+                            <textarea class="demo-input" id="demo-input" rows="3" placeholder="Type something..." data-i18n-placeholder="demo.placeholder">Hello World! Welcome to our application.</textarea>
                         </div>
                         <div class="demo-panel">
-                            <div class="demo-panel-title">Translation (<span id="demo-target-lang">Spanish</span>)</div>
+                            <div class="demo-panel-title"><span data-i18n="demo.translation">Translation</span> (<span id="demo-target-lang">Spanish</span>)</div>
                             <div class="demo-output" id="demo-output">¡Hola Mundo! Bienvenido a nuestra aplicación.</div>
                         </div>
                     </div>
@@ -1065,6 +1065,13 @@
                 const value = getNestedValue(t, key);
                 if (value) el.textContent = value;
             });
+            
+            // Update placeholders
+            document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+                const key = el.getAttribute('data-i18n-placeholder');
+                const value = getNestedValue(t, key);
+                if (value) el.placeholder = value;
+            });
 
             // Update select
             document.getElementById('language-select').value = lang;
@@ -1160,23 +1167,53 @@
         }
 
         // =============================================
-        // LIVE DEMO TRANSLATIONS
+        // LIVE DEMO TRANSLATIONS (Using Lingva API)
         // =============================================
-        const demoTranslations = {
-            'Hello World! Welcome to our application.': {
-                es: '¡Hola Mundo! Bienvenido a nuestra aplicación.',
-                fr: 'Bonjour le monde! Bienvenue dans notre application.',
-                de: 'Hallo Welt! Willkommen in unserer Anwendung.',
-                ja: 'こんにちは世界！アプリケーションへようこそ。',
-                zh: '你好世界！欢迎使用我们的应用程序。',
-                ar: 'مرحبا بالعالم! مرحبا بكم في تطبيقنا.',
-                ko: '안녕하세요 세계! 저희 애플리케이션에 오신 것을 환영합니다.',
-                piglatin: 'Ellohay Orldway! Elcomeway otay ouray applicationway.',
-                leet: '#3110 w0r1d! w31(0m3 70 0ur 4pp11(4710n.'
-            }
-        };
-
+        const demoCache = {};
         let currentDemoLang = 'es';
+        let isTranslating = false;
+        
+        async function translateWithLingva(text, targetLang, sourceLang = 'en') {
+            const cacheKey = `${sourceLang}:${targetLang}:${text}`;
+            if (demoCache[cacheKey]) {
+                return demoCache[cacheKey];
+            }
+            
+            // Special handling for creative modes
+            if (targetLang === 'piglatin') {
+                const result = toPigLatin(text);
+                demoCache[cacheKey] = result;
+                return result;
+            }
+            if (targetLang === 'leet') {
+                const result = toLeet(text);
+                demoCache[cacheKey] = result;
+                return result;
+            }
+            
+            try {
+                const response = await fetch(`https://lingva.ml/api/v1/${sourceLang}/${targetLang}/${encodeURIComponent(text)}`);
+                if (!response.ok) throw new Error('Translation failed');
+                const data = await response.json();
+                const result = data.translation || text;
+                demoCache[cacheKey] = result;
+                return result;
+            } catch (error) {
+                console.error('Lingva translation error:', error);
+                // Fallback: try alternative instance
+                try {
+                    const altResponse = await fetch(`https://lingva.lunar.icu/api/v1/${sourceLang}/${targetLang}/${encodeURIComponent(text)}`);
+                    if (!altResponse.ok) throw new Error('Alt translation failed');
+                    const altData = await altResponse.json();
+                    const result = altData.translation || text;
+                    demoCache[cacheKey] = result;
+                    return result;
+                } catch (altError) {
+                    console.error('Alt Lingva error:', altError);
+                    return text; // Return original on error
+                }
+            }
+        }
         
         function initDemo() {
             const input = document.getElementById('demo-input');
@@ -1200,11 +1237,14 @@
             input.addEventListener('input', () => {
                 output.innerHTML = '<span class="translating">Translating...</span>';
                 clearTimeout(debounceTimer);
-                debounceTimer = setTimeout(updateDemoOutput, 500);
+                debounceTimer = setTimeout(updateDemoOutput, 800);
             });
+            
+            // Translate initial text
+            updateDemoOutput();
         }
         
-        function updateDemoOutput() {
+        async function updateDemoOutput() {
             const input = document.getElementById('demo-input');
             const output = document.getElementById('demo-output');
             const text = input.value.trim();
@@ -1214,28 +1254,19 @@
                 return;
             }
             
-            // Check cache first
-            if (demoTranslations[text] && demoTranslations[text][currentDemoLang]) {
-                output.textContent = demoTranslations[text][currentDemoLang];
-                return;
+            if (isTranslating) return;
+            isTranslating = true;
+            output.innerHTML = '<span class="translating">Translating...</span>';
+            
+            try {
+                const translated = await translateWithLingva(text, currentDemoLang, 'en');
+                output.textContent = translated;
+            } catch (error) {
+                output.textContent = text;
+            } finally {
+                isTranslating = false;
             }
-            
-            // For custom text, apply transformations
-            let translated = text;
-            
-            switch(currentDemoLang) {
-                case 'piglatin':
-                    translated = toPigLatin(text);
-                    break;
-                case 'leet':
-                    translated = toLeet(text);
-                    break;
-                default:
-                    // For real languages, show a simulated translation
-                    translated = simulateTranslation(text, currentDemoLang);
-            }
-            
-            output.textContent = translated;
+        }
         }
         
         function toPigLatin(text) {
@@ -1269,15 +1300,6 @@
         function toLeet(text) {
             const map = { a: '4', b: '8', c: '(', e: '3', g: '9', h: '#', i: '1', l: '1', o: '0', s: '5', t: '7', z: '2' };
             return text.toLowerCase().split('').map(c => map[c] || c).join('');
-        }
-        
-        function simulateTranslation(text, lang) {
-            // Add language-specific markers to simulate translation
-            const markers = {
-                es: '¡', fr: '«', de: '»', ja: '【', zh: '「', ar: '؟', ko: '『'
-            };
-            const marker = markers[lang] || '';
-            return marker + text + (marker ? (lang === 'ar' ? '' : marker) : '');
         }
 
         // Init

@@ -12,6 +12,22 @@
     "github": "GitHub'da görüntüle",
     "notice": "Çok dilli bir yapım zamanı aracıdır. Kaynak dosyalarınızı tarar, çevrilebilir dizeleri çıkarır ve statik çeviri dosyaları oluşturur. Çalışma zamanı çevirisi veya canlı dil geçişi sağlamaz."
   },
+  "stats": {
+    "methods": "Çeviri Yöntemleri",
+    "languages": "Desteklenen Diller",
+    "free": "Ücretsiz Seçenekler",
+    "formats": "Dışa Aktarma Formatları"
+  },
+  "demo": {
+    "title": "Canlı Deneyin",
+    "subtitle": "Çevirilerin gerçek zamanlı olarak gerçekleştiğini görün",
+    "preview": "Çeviri Önizlemesi",
+    "source": "İngilizce (Kaynak)",
+    "translation": "Çeviri",
+    "placeholder": "Bir şeyler yazın...",
+    "translating": "Çeviri...",
+    "error": "Çeviri başarısız oldu. Tekrar deneyin."
+  },
   "features": {
     "title": "Nasıl çalışır?",
     "subtitle": "Projenin uluslararası hale getirilmesi için kolaylaştırılmış bir iş akışı",

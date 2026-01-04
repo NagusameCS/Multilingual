@@ -390,6 +390,9 @@ export class TranslationManager {
         return 1 - matrix[b.length][a.length] / maxLen;
     }
 
+    private saveCounter = 0;
+    private readonly SAVE_INTERVAL = 10; // Save every 10 translations
+
     /**
      * Add entry to translation memory
      */
@@ -414,6 +417,13 @@ export class TranslationManager {
                 service,
                 timestamp: Date.now(),
             });
+
+            // Auto-save periodically to prevent data loss on interruption
+            this.saveCounter++;
+            if (this.saveCounter >= this.SAVE_INTERVAL) {
+                this.saveTranslationMemory();
+                this.saveCounter = 0;
+            }
         }
     }
 

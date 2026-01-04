@@ -12,6 +12,22 @@
     "github": "Auf GitHub ansehen",
     "notice": "Multilingual ist ein Build-Time-Tool. Es scannt Ihre Quelldateien, extrahiert übersetzbare Zeichenfolgen und generiert statische Übersetzungsdateien. Es bietet keine Laufzeitübersetzung oder Live-Sprachumschaltung."
   },
+  "stats": {
+    "methods": "Übersetzungsmethoden",
+    "languages": "Unterstützte Sprachen",
+    "free": "Kostenlose Optionen",
+    "formats": "Exportformate"
+  },
+  "demo": {
+    "title": "Probieren Sie es live aus",
+    "subtitle": "Sehen Sie, wie Übersetzungen in Echtzeit erfolgen",
+    "preview": "Übersetzungsvorschau",
+    "source": "Englisch (Quelle)",
+    "translation": "Übersetzung",
+    "placeholder": "Geben Sie etwas ein...",
+    "translating": "Übersetzen...",
+    "error": "Die Übersetzung ist fehlgeschlagen. Versuchen Sie es erneut."
+  },
   "features": {
     "title": "Wie es funktioniert",
     "subtitle": "Ein optimierter Arbeitsablauf für die Projektinternationalisierung",

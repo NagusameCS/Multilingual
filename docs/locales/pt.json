@@ -12,6 +12,22 @@
     "github": "Ver no GitHub",
     "notice": "Multilíngue é uma ferramenta de tempo de construção. Ele verifica seus arquivos de origem, extrai strings traduzíveis e gera arquivos de tradução estáticos. Ele não fornece tradução em tempo de execução ou troca de idioma ao vivo."
   },
+  "stats": {
+    "methods": "Métodos de tradução",
+    "languages": "Idiomas Suportados",
+    "free": "Opções gratuitas",
+    "formats": "Exportar formatos"
+  },
+  "demo": {
+    "title": "Experimente ao vivo",
+    "subtitle": "Veja as traduções acontecerem em tempo real",
+    "preview": "Visualização da tradução",
+    "source": "Inglês (Fonte)",
+    "translation": "Tradução",
+    "placeholder": "Digite algo...",
+    "translating": "Traduzindo...",
+    "error": "A tradução falhou. Tente novamente."
+  },
   "features": {
     "title": "Como funciona",
     "subtitle": "Um fluxo de trabalho simplificado para internacionalização de projetos",

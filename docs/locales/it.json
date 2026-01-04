@@ -12,6 +12,22 @@
     "github": "Visualizza su GitHub",
     "notice": "Multilingual è uno strumento in fase di creazione. Esegue la scansione dei file sorgente, estrae stringhe traducibili e genera file di traduzione statici. Non fornisce la traduzione in fase di esecuzione o il cambio di lingua in tempo reale."
   },
+  "stats": {
+    "methods": "Metodi di traduzione",
+    "languages": "Lingue supportate",
+    "free": "Opzioni gratuite",
+    "formats": "Formati di esportazione"
+  },
+  "demo": {
+    "title": "Provalo dal vivo",
+    "subtitle": "Guarda le traduzioni avvenire in tempo reale",
+    "preview": "Anteprima della traduzione",
+    "source": "Inglese (fonte)",
+    "translation": "Traduzione",
+    "placeholder": "Scrivi qualcosa...",
+    "translating": "Traduzione...",
+    "error": "Traduzione fallita. Riprova."
+  },
   "features": {
     "title": "Come funziona",
     "subtitle": "Un flusso di lavoro semplificato per l’internazionalizzazione dei progetti",

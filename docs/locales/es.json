@@ -12,6 +12,22 @@
     "github": "Ver en GitHub",
     "notice": "Multilingüe es una herramienta de tiempo de construcción. Escanea sus archivos fuente, extrae cadenas traducibles y genera archivos de traducción estáticos. No proporciona traducción en tiempo de ejecución ni cambio de idioma en vivo."
   },
+  "stats": {
+    "methods": "Métodos de traducción",
+    "languages": "Idiomas admitidos",
+    "free": "Opciones gratuitas",
+    "formats": "Formatos de exportación"
+  },
+  "demo": {
+    "title": "Pruébalo en vivo",
+    "subtitle": "Vea cómo se realizan las traducciones en tiempo real",
+    "preview": "Vista previa de traducción",
+    "source": "Inglés (Fuente)",
+    "translation": "Traducción",
+    "placeholder": "Escribe algo...",
+    "translating": "Traductorio...",
+    "error": "La traducción falló. Intentar otra vez."
+  },
   "features": {
     "title": "como funciona",
     "subtitle": "Un flujo de trabajo optimizado para la internacionalización de proyectos",
