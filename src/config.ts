@@ -246,7 +246,7 @@ export class ConfigManager {
     createEnvTemplate(): string {
         const envPath = path.join(this.config.projectRoot, '.env.example');
 
-        const content = `# Multilingual Auto-i18n Configuration
+        const content = `# multilingual-cli Configuration
 # Copy this file to .env and fill in your API keys
 
 # DeepL API Key (get one at https://www.deepl.com/pro-api)
@@ -271,7 +271,7 @@ MULTILINGUAL_API_KEY=
 
         const entriesToAdd = [
             '',
-            '# Multilingual Auto-i18n',
+            '# multilingual-cli',
             '.env',
             '.env.local',
         ];

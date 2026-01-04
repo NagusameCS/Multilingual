@@ -1,5 +1,5 @@
 /**
- * Multilingual Auto-i18n v2.0.0
+ * multilingual-cli v2.0.0
  * Automated i18n with FREE translation options
  * 
  * Features:

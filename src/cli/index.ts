@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /**
- * Multilingual Auto-i18n CLI v2.0
+ * multilingual-cli v2.0.0
  * Interactive command-line interface for automated internationalization
  * 
  * Features:
@@ -37,7 +37,7 @@ const program = new Command();
 // ASCII Art Banner
 const banner = `
 ${chalk.cyan('╔══════════════════════════════════════════════════════════════╗')}
-${chalk.cyan('║')}  ${chalk.bold.white('🌐 Multilingual Auto-i18n')} ${chalk.gray('v2.0')}                           ${chalk.cyan('║')}
+${chalk.cyan('║')}  ${chalk.bold.white('🌐 multilingual-cli')} ${chalk.gray('v2.0.0')}                              ${chalk.cyan('║')}
 ${chalk.cyan('║')}  ${chalk.gray('Automated internationalization for any project')}              ${chalk.cyan('║')}
 ${chalk.cyan('╚══════════════════════════════════════════════════════════════╝')}
 `;

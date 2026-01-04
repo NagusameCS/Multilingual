@@ -1,6 +1,6 @@
 {
     "$schema": "https://json-schema.org/draft-07/schema#",
-    "title": "Multilingual Auto-i18n Configuration",
+    "title": "multilingual-cli Configuration",
     "description": "Configuration file for multilingual-auto-i18n",
     "type": "object",
     "properties": {

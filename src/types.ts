@@ -1,5 +1,5 @@
 /**
- * Multilingual Auto-i18n - Type Definitions
+ * multilingual-cli - Type Definitions
  */
 
 export type TranslationService = 'deepl' | 'google' | 'none';
