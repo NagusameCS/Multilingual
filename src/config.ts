@@ -230,7 +230,9 @@ export class ConfigManager {
         }
 
         // Check translation service configuration
-        if (this.config.translationService !== 'none' && !this.config.apiKey) {
+        // Only paid services (deepl, google) require API keys
+        const paidServices = ['deepl', 'google'];
+        if (paidServices.includes(this.config.translationService) && !this.config.apiKey) {
             errors.push(`API key is required for ${this.config.translationService} translation service`);
         }
 

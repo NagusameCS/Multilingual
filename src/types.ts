@@ -6,7 +6,7 @@
 export type BaseTranslationService = 'deepl' | 'google' | 'none';
 
 // Extended translation services (includes free online, offline, and creative)
-export type TranslationService = 
+export type TranslationService =
     | BaseTranslationService
     // Free online services
     | 'lingva' | 'libretranslate' | 'mymemory' | 'argos'
