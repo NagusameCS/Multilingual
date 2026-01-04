@@ -2,7 +2,8 @@
   "nav": {
     "features": "特徴",
     "quickstart": "クイックスタート",
-    "languages": "言語"
+    "languages": "言語",
+    "examples": "例"
   },
   "hero": {
     "badge": "ビルド時の i18n 抽出と変換",
@@ -77,5 +78,41 @@
     "text": "NagusameCS によって構築されました。 MITライセンス。",
     "translated": "このページは多言語を使用して翻訳されました。"
   },
-  "tooltip": "このパッケージで翻訳"
+  "tooltip": "このパッケージで翻訳",
+  "examples": {
+    "badge": "インタラクティブコンポーネント",
+    "title": "言語セレクターの例",
+    "subtitle": "これらのUIコンポーネントをコピー＆ペースト。すべて同期されています！",
+    "back": "ホームに戻る",
+    "currentLang": "現在の言語",
+    "selectorsTitle": "スタイルを選択",
+    "selectorsSubtitle": "言語を切り替える6つの方法",
+    "simple": {
+      "title": "シンプルドロップダウン",
+      "desc": "設定に最適。"
+    },
+    "flags": {
+      "title": "フラグボタン",
+      "desc": "ヘッダーに最適。"
+    },
+    "icons": {
+      "title": "アイコングリッド",
+      "desc": "モバイルに最適。"
+    },
+    "globe": {
+      "title": "フローティンググローブ",
+      "desc": "多言語に最適。"
+    },
+    "pills": {
+      "title": "ピルセレクター",
+      "desc": "モダンアプリに最適。"
+    },
+    "carousel": {
+      "title": "カルーセル",
+      "desc": "閲覧に最適。"
+    },
+    "codeTitle": "統合コード",
+    "codeSubtitle": "このコードをコピー",
+    "footerText": "作成者"
+  }
 }

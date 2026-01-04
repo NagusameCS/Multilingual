@@ -2,7 +2,8 @@
   "nav": {
     "features": "Caractéristiques",
     "quickstart": "Démarrage rapide",
-    "languages": "Langues"
+    "languages": "Langues",
+    "examples": "Exemples"
   },
   "hero": {
     "badge": "Extraction et traduction d'i18n au moment de la construction",
@@ -77,5 +78,41 @@
     "text": "Construit par NagusameCS. Licence MIT.",
     "translated": "Cette page a été traduite en multilingue."
   },
-  "tooltip": "Traduit par ce package"
+  "tooltip": "Traduit par ce package",
+  "examples": {
+    "badge": "Composants Interactifs",
+    "title": "Exemples de Sélecteurs de Langue",
+    "subtitle": "Copiez-collez ces composants UI. Tous sont synchronisés - essayez!",
+    "back": "Retour",
+    "currentLang": "Langue Actuelle",
+    "selectorsTitle": "Choisissez Votre Style",
+    "selectorsSubtitle": "6 façons de changer de langue",
+    "simple": {
+      "title": "Menu Déroulant",
+      "desc": "Idéal pour les paramètres."
+    },
+    "flags": {
+      "title": "Boutons Drapeaux",
+      "desc": "Idéal pour les en-têtes."
+    },
+    "icons": {
+      "title": "Grille Icônes",
+      "desc": "Idéal pour mobile."
+    },
+    "globe": {
+      "title": "Globe Flottant",
+      "desc": "Idéal pour plusieurs langues."
+    },
+    "pills": {
+      "title": "Sélecteur Pastilles",
+      "desc": "Idéal pour apps modernes."
+    },
+    "carousel": {
+      "title": "Carrousel",
+      "desc": "Idéal pour parcourir."
+    },
+    "codeTitle": "Code Intégration",
+    "codeSubtitle": "Copiez ce code pour votre projet",
+    "footerText": "Généré avec"
+  }
 }

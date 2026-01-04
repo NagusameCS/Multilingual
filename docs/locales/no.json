@@ -2,7 +2,8 @@
   "nav": {
     "features": "Funksjoner",
     "quickstart": "Rask start",
-    "languages": "Språk"
+    "languages": "Språk",
+    "examples": "Examples"
   },
   "hero": {
     "badge": "Byggetid i18n utvinning og oversettelse",
@@ -61,5 +62,41 @@
     "text": "Bygget av NagusameCS. MIT-lisens.",
     "translated": "Denne siden ble oversatt med flerspråklig."
   },
-  "tooltip": "Oversatt av denne pakken"
+  "tooltip": "Oversatt av denne pakken",
+  "examples": {
+    "badge": "Interactive Components",
+    "title": "Language Selector Examples",
+    "subtitle": "Copy-paste these UI components for your i18n implementation. All selectors are synchronized - try clicking any one!",
+    "back": "Back to Home",
+    "currentLang": "Current Language",
+    "selectorsTitle": "Choose Your Style",
+    "selectorsSubtitle": "6 different ways to let users switch languages",
+    "simple": {
+      "title": "Simple Dropdown",
+      "desc": "Best for settings pages and minimal footprint."
+    },
+    "flags": {
+      "title": "Flag Buttons",
+      "desc": "Best for headers with 3-6 primary languages."
+    },
+    "icons": {
+      "title": "Icon Grid",
+      "desc": "Best for compact headers and mobile navigation."
+    },
+    "globe": {
+      "title": "Floating Globe",
+      "desc": "Best for fixed position with many languages."
+    },
+    "pills": {
+      "title": "Pill Selector",
+      "desc": "Best for modern apps with 3-5 languages."
+    },
+    "carousel": {
+      "title": "Carousel",
+      "desc": "Best for interactive browsing of all languages."
+    },
+    "codeTitle": "Integration Code",
+    "codeSubtitle": "Copy this code to add language switching to your project",
+    "footerText": "Generated with"
+  }
 }

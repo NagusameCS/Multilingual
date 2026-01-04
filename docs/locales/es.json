@@ -2,7 +2,8 @@
   "nav": {
     "features": "Características",
     "quickstart": "Inicio rápido",
-    "languages": "Idiomas"
+    "languages": "Idiomas",
+    "examples": "Ejemplos"
   },
   "hero": {
     "badge": "Extracción y traducción de i18n en tiempo de compilación",
@@ -77,5 +78,41 @@
     "text": "Construido por NagusameCS. Licencia MIT.",
     "translated": "Esta página fue traducida usando multilingüe."
   },
-  "tooltip": "Traducido por este paquete"
+  "tooltip": "Traducido por este paquete",
+  "examples": {
+    "badge": "Componentes Interactivos",
+    "title": "Ejemplos de Selectores de Idioma",
+    "subtitle": "Copia y pega estos componentes UI. Todos están sincronizados - ¡prueba a hacer clic!",
+    "back": "Volver al Inicio",
+    "currentLang": "Idioma Actual",
+    "selectorsTitle": "Elige Tu Estilo",
+    "selectorsSubtitle": "6 formas de cambiar de idioma",
+    "simple": {
+      "title": "Desplegable Simple",
+      "desc": "Ideal para configuración."
+    },
+    "flags": {
+      "title": "Botones con Banderas",
+      "desc": "Ideal para cabeceras."
+    },
+    "icons": {
+      "title": "Cuadrícula de Iconos",
+      "desc": "Ideal para móvil."
+    },
+    "globe": {
+      "title": "Globo Flotante",
+      "desc": "Ideal para muchos idiomas."
+    },
+    "pills": {
+      "title": "Selector de Píldoras",
+      "desc": "Ideal para apps modernas."
+    },
+    "carousel": {
+      "title": "Carrusel",
+      "desc": "Ideal para explorar idiomas."
+    },
+    "codeTitle": "Código de Integración",
+    "codeSubtitle": "Copia este código para tu proyecto",
+    "footerText": "Generado con"
+  }
 }

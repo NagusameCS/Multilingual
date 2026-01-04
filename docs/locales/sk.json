@@ -2,7 +2,8 @@
   "nav": {
     "features": "Vlastnosti",
     "quickstart": "Rýchly štart",
-    "languages": "Jazyky"
+    "languages": "Jazyky",
+    "examples": "Examples"
   },
   "hero": {
     "badge": "Extrakcia a preklad i18n v čase zostavenia",
@@ -61,5 +62,41 @@
     "text": "Postavený spoločnosťou NagusameCS. Licencia MIT.",
     "translated": "Táto stránka bola preložená vo viacerých jazykoch."
   },
-  "tooltip": "Preložené týmto balíkom"
+  "tooltip": "Preložené týmto balíkom",
+  "examples": {
+    "badge": "Interactive Components",
+    "title": "Language Selector Examples",
+    "subtitle": "Copy-paste these UI components for your i18n implementation. All selectors are synchronized - try clicking any one!",
+    "back": "Back to Home",
+    "currentLang": "Current Language",
+    "selectorsTitle": "Choose Your Style",
+    "selectorsSubtitle": "6 different ways to let users switch languages",
+    "simple": {
+      "title": "Simple Dropdown",
+      "desc": "Best for settings pages and minimal footprint."
+    },
+    "flags": {
+      "title": "Flag Buttons",
+      "desc": "Best for headers with 3-6 primary languages."
+    },
+    "icons": {
+      "title": "Icon Grid",
+      "desc": "Best for compact headers and mobile navigation."
+    },
+    "globe": {
+      "title": "Floating Globe",
+      "desc": "Best for fixed position with many languages."
+    },
+    "pills": {
+      "title": "Pill Selector",
+      "desc": "Best for modern apps with 3-5 languages."
+    },
+    "carousel": {
+      "title": "Carousel",
+      "desc": "Best for interactive browsing of all languages."
+    },
+    "codeTitle": "Integration Code",
+    "codeSubtitle": "Copy this code to add language switching to your project",
+    "footerText": "Generated with"
+  }
 }

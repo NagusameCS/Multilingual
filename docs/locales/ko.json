@@ -2,7 +2,8 @@
   "nav": {
     "features": "특징",
     "quickstart": "빠른 시작",
-    "languages": "언어"
+    "languages": "언어",
+    "examples": "예제"
   },
   "hero": {
     "badge": "빌드 타임 i18n 추출 및 번역",
@@ -77,5 +78,41 @@
     "text": "NagusameCS가 제작했습니다. MIT 라이센스.",
     "translated": "이 페이지는 다국어를 사용하여 번역되었습니다."
   },
-  "tooltip": "이 패키지로 번역됨"
+  "tooltip": "이 패키지로 번역됨",
+  "examples": {
+    "badge": "인터랙티브 컴포넌트",
+    "title": "언어 선택기 예제",
+    "subtitle": "i18n 구현을 위한 UI 컴포넌트. 모두 동기화됩니다!",
+    "back": "홈으로",
+    "currentLang": "현재 언어",
+    "selectorsTitle": "스타일 선택",
+    "selectorsSubtitle": "언어 전환 6가지 방법",
+    "simple": {
+      "title": "간단한 드롭다운",
+      "desc": "설정에 적합."
+    },
+    "flags": {
+      "title": "플래그 버튼",
+      "desc": "헤더에 적합."
+    },
+    "icons": {
+      "title": "아이콘 그리드",
+      "desc": "모바일에 적합."
+    },
+    "globe": {
+      "title": "플로팅 글로브",
+      "desc": "다국어에 적합."
+    },
+    "pills": {
+      "title": "필 선택기",
+      "desc": "모던 앱에 적합."
+    },
+    "carousel": {
+      "title": "캐러셀",
+      "desc": "탐색에 적합."
+    },
+    "codeTitle": "통합 코드",
+    "codeSubtitle": "이 코드를 복사하세요",
+    "footerText": "생성:"
+  }
 }

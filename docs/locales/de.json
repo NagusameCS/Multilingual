@@ -2,7 +2,8 @@
   "nav": {
     "features": "Merkmale",
     "quickstart": "Schnellstart",
-    "languages": "Sprachen"
+    "languages": "Sprachen",
+    "examples": "Beispiele"
   },
   "hero": {
     "badge": "i18n-Extraktion und -Übersetzung zur Build-Zeit",
@@ -77,5 +78,41 @@
     "text": "Gebaut von NagusameCS. MIT-Lizenz.",
     "translated": "Diese Seite wurde mit Multilingual übersetzt."
   },
-  "tooltip": "Übersetzt von diesem Paket"
+  "tooltip": "Übersetzt von diesem Paket",
+  "examples": {
+    "badge": "Interaktive Komponenten",
+    "title": "Sprachauswahl Beispiele",
+    "subtitle": "Kopieren Sie diese UI-Komponenten. Alle sind synchronisiert!",
+    "back": "Zurück",
+    "currentLang": "Aktuelle Sprache",
+    "selectorsTitle": "Wählen Sie Ihren Stil",
+    "selectorsSubtitle": "6 Möglichkeiten zum Sprachwechsel",
+    "simple": {
+      "title": "Einfaches Dropdown",
+      "desc": "Ideal für Einstellungen."
+    },
+    "flags": {
+      "title": "Flaggen-Buttons",
+      "desc": "Ideal für Header."
+    },
+    "icons": {
+      "title": "Symbol-Raster",
+      "desc": "Ideal für mobil."
+    },
+    "globe": {
+      "title": "Schwebender Globus",
+      "desc": "Ideal für viele Sprachen."
+    },
+    "pills": {
+      "title": "Pillen-Auswahl",
+      "desc": "Ideal für moderne Apps."
+    },
+    "carousel": {
+      "title": "Karussell",
+      "desc": "Ideal zum Durchsuchen."
+    },
+    "codeTitle": "Integrationscode",
+    "codeSubtitle": "Kopieren Sie diesen Code",
+    "footerText": "Erstellt mit"
+  }
 }
