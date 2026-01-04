@@ -1189,16 +1189,6 @@
         let currentDemoLang = 'es';
         let isTranslating = false;
 
-        // Fetch with timeout
-        function fetchWithTimeout(url, timeout = 3000) {
-            return Promise.race([
-                fetch(url),
-                new Promise((_, reject) => 
-                    setTimeout(() => reject(new Error('Timeout')), timeout)
-                )
-            ]);
-        }
-
         async function translateWithLingva(text, targetLang, sourceLang = 'en') {
             const cacheKey = `${sourceLang}:${targetLang}:${text}`;
             if (demoCache[cacheKey]) {
@@ -1217,31 +1207,29 @@
                 return result;
             }
 
-            // Race multiple instances in parallel - fastest wins!
-            const instances = [
-                'lingva.lunar.icu',
-                'lingva.garuber.eu'
-            ];
-
+            // Use lingva.lunar.icu (most reliable instance)
             try {
-                const result = await Promise.any(
-                    instances.map(async (instance) => {
-                        const response = await fetchWithTimeout(
-                            `https://${instance}/api/v1/${sourceLang}/${targetLang}/${encodeURIComponent(text)}`,
-                            3000
-                        );
-                        if (!response.ok) throw new Error('Bad response');
-                        const data = await response.json();
-                        if (!data.translation) throw new Error('No translation');
-                        return data.translation;
-                    })
+                const controller = new AbortController();
+                const timeoutId = setTimeout(() => controller.abort(), 5000);
+                
+                const response = await fetch(
+                    `https://lingva.lunar.icu/api/v1/${sourceLang}/${targetLang}/${encodeURIComponent(text)}`,
+                    { signal: controller.signal }
                 );
-                demoCache[cacheKey] = result;
-                return result;
+                clearTimeout(timeoutId);
+                
+                if (!response.ok) throw new Error('Bad response');
+                const data = await response.json();
+                if (data.translation) {
+                    demoCache[cacheKey] = data.translation;
+                    return data.translation;
+                }
             } catch (error) {
-                console.error('All Lingva instances failed:', error);
-                return text;
+                console.error('Lingva translation error:', error.message);
             }
+            
+            // Fallback: return original text
+            return text;
         }
 
         function initDemo() {
