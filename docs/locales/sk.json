@@ -1,65 +1,65 @@
 {
   "nav": {
-    "features": "Features",
-    "quickstart": "Quick Start",
-    "languages": "Languages"
+    "features": "Vlastnosti",
+    "quickstart": "Rýchly štart",
+    "languages": "Jazyky"
   },
   "hero": {
-    "badge": "Build-time i18n extraction & translation",
-    "title": "Internationalize any project in minutes",
-    "subtitle": "Extract user-facing strings from your codebase, translate them with DeepL or Google Translate, and generate production-ready i18n files. No runtime overhead.",
+    "badge": "Extrakcia a preklad i18n v čase zostavenia",
+    "title": "Internacionalizujte akýkoľvek projekt v priebehu niekoľkých minút",
+    "subtitle": "Extrahujte používateľské reťazce zo svojej kódovej základne, preložte ich pomocou DeepL alebo Google Translate a generujte súbory i18n pripravené na výrobu. Žiadna prevádzková réžia.",
     "install": "npm install -g multilingual-cli",
-    "github": "View on GitHub",
-    "notice": "Multilingual is a build-time tool. It scans your source files, extracts translatable strings, and generates static translation files. It does not provide runtime translation or live language switching."
+    "github": "Zobraziť na GitHub",
+    "notice": "Viacjazyčný je nástroj na čas zostavenia. Skenuje vaše zdrojové súbory, extrahuje preložiteľné reťazce a generuje statické prekladové súbory. Neposkytuje preklad za behu ani živé prepínanie jazykov."
   },
   "features": {
-    "title": "How it works",
-    "subtitle": "A streamlined workflow for project internationalization",
+    "title": "Ako to funguje",
+    "subtitle": "Zjednodušený pracovný postup pre internacionalizáciu projektu",
     "scan": {
-      "title": "Scan",
-      "desc": "Automatically detects user-facing strings in JavaScript, TypeScript, Vue, Svelte, React, HTML, PHP, Python, Ruby, Go, and Java files."
+      "title": "skenovať",
+      "desc": "Automaticky zisťuje používateľské reťazce v súboroch JavaScript, TypeScript, Vue, Svelte, React, HTML, PHP, Python, Ruby, Go a Java."
     },
     "translate": {
-      "title": "Translate",
-      "desc": "Integrates with DeepL or Google Cloud Translation APIs for high-quality machine translation with batch processing and caching."
+      "title": "Preložiť",
+      "desc": "Integruje sa s rozhraniami DeepL alebo Google Cloud Translation API pre vysokokvalitný strojový preklad s dávkovým spracovaním a ukladaním do vyrovnávacej pamäte."
     },
     "generate": {
-      "title": "Generate",
-      "desc": "Outputs translation files in JSON, TypeScript, or JavaScript format. Preserves existing translations and supports nested or flat key structures."
+      "title": "Generovať",
+      "desc": "Výstupy prekladových súborov vo formáte JSON, TypeScript alebo JavaScript. Zachováva existujúce preklady a podporuje vnorené alebo ploché kľúčové štruktúry."
     },
     "preserve": {
-      "title": "Preserve",
-      "desc": "Never overwrites manually edited translations. Merges new strings intelligently while keeping your customizations intact."
+      "title": "Zachovať",
+      "desc": "Nikdy neprepíše ručne upravené preklady. Inteligentne zlučuje nové reťazce, pričom zachová vaše prispôsobenia nedotknuté."
     },
     "ci": {
-      "title": "Automate",
-      "desc": "Generate GitHub Actions workflows for automated translation on every push. Direct commit or pull request based workflows."
+      "title": "Automatizovať",
+      "desc": "Generujte pracovné postupy GitHub Actions pre automatický preklad pri každom stlačení. Pracovné postupy založené na priamom potvrdení alebo žiadosti o stiahnutie."
     },
     "typed": {
-      "title": "Type Safe",
-      "desc": "Full TypeScript support with generated type definitions. Get autocomplete and compile-time checking for translation keys."
+      "title": "Typ Bezpečný",
+      "desc": "Plná podpora TypeScript s vygenerovanými definíciami typov. Získajte automatické dopĺňanie a kontrolu prekladových kľúčov počas kompilácie."
     }
   },
   "code": {
-    "title": "Quick Start",
-    "subtitle": "Get started in under a minute",
+    "title": "Rýchly štart",
+    "subtitle": "Začnite za menej ako minútu",
     "tab": {
       "cli": "CLI",
-      "api": "Programmatic"
+      "api": "Programové"
     }
   },
   "languages": {
-    "title": "37+ Supported Languages",
-    "subtitle": "All major languages with RTL support for Arabic and Hebrew"
+    "title": "37+ podporovaných jazykov",
+    "subtitle": "Všetky hlavné jazyky s podporou RTL pre arabčinu a hebrejčinu"
   },
   "cta": {
-    "title": "Ready to go global?",
-    "subtitle": "Start translating your project today.",
-    "button": "Get Started"
+    "title": "Ste pripravení ísť globálne?",
+    "subtitle": "Začnite prekladať svoj projekt ešte dnes.",
+    "button": "Začíname"
   },
   "footer": {
-    "text": "Built by NagusameCS. MIT License.",
-    "translated": "This page was translated using Multilingual."
+    "text": "Postavený spoločnosťou NagusameCS. Licencia MIT.",
+    "translated": "Táto stránka bola preložená vo viacerých jazykoch."
   },
-  "tooltip": "Translated by this package"
+  "tooltip": "Preložené týmto balíkom"
 }

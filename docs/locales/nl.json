@@ -1,65 +1,65 @@
 {
-    "nav": {
-        "features": "Features",
-        "quickstart": "Quick Start",
-        "languages": "Languages"
+  "nav": {
+    "features": "Functies",
+    "quickstart": "Snel beginnen",
+    "languages": "Talen"
+  },
+  "hero": {
+    "badge": "Build-time i18n-extractie en vertaling",
+    "title": "Internationaliseer elk project in enkele minuten",
+    "subtitle": "Extraheer gebruikersgerichte tekenreeksen uit uw codebase, vertaal ze met DeepL of Google Translate en genereer productieklare i18n-bestanden. Geen runtime-overhead.",
+    "install": "npm install -g meertalige-cli",
+    "github": "Bekijk op GitHub",
+    "notice": "Meertalig is een hulpmiddel tijdens het bouwen. Het scant uw bronbestanden, extraheert vertaalbare tekenreeksen en genereert statische vertaalbestanden. Het biedt geen runtimevertaling of live taalwisseling."
+  },
+  "features": {
+    "title": "Hoe het werkt",
+    "subtitle": "Een gestroomlijnde workflow voor projectinternationalisering",
+    "scan": {
+      "title": "Scannen",
+      "desc": "Detecteert automatisch gebruikersgerichte tekenreeksen in JavaScript-, TypeScript-, Vue-, Svelte-, React-, HTML-, PHP-, Python-, Ruby-, Go- en Java-bestanden."
     },
-    "hero": {
-        "badge": "Build-time i18n extraction & translation",
-        "title": "Internationalize any project in minutes",
-        "subtitle": "Extract user-facing strings from your codebase, translate them with DeepL or Google Translate, and generate production-ready i18n files. No runtime overhead.",
-        "install": "npm install -g multilingual-cli",
-        "github": "View on GitHub",
-        "notice": "Multilingual is a build-time tool. It scans your source files, extracts translatable strings, and generates static translation files. It does not provide runtime translation or live language switching."
+    "translate": {
+      "title": "Vertalen",
+      "desc": "Integreert met DeepL of Google Cloud Translation API's voor hoogwaardige machinevertalingen met batchverwerking en caching."
     },
-    "features": {
-        "title": "How it works",
-        "subtitle": "A streamlined workflow for project internationalization",
-        "scan": {
-            "title": "Scan",
-            "desc": "Automatically detects user-facing strings in JavaScript, TypeScript, Vue, Svelte, React, HTML, PHP, Python, Ruby, Go, and Java files."
-        },
-        "translate": {
-            "title": "Translate",
-            "desc": "Integrates with DeepL or Google Cloud Translation APIs for high-quality machine translation with batch processing and caching."
-        },
-        "generate": {
-            "title": "Generate",
-            "desc": "Outputs translation files in JSON, TypeScript, or JavaScript format. Preserves existing translations and supports nested or flat key structures."
-        },
-        "preserve": {
-            "title": "Preserve",
-            "desc": "Never overwrites manually edited translations. Merges new strings intelligently while keeping your customizations intact."
-        },
-        "ci": {
-            "title": "Automate",
-            "desc": "Generate GitHub Actions workflows for automated translation on every push. Direct commit or pull request based workflows."
-        },
-        "typed": {
-            "title": "Type Safe",
-            "desc": "Full TypeScript support with generated type definitions. Get autocomplete and compile-time checking for translation keys."
-        }
+    "generate": {
+      "title": "Genereer",
+      "desc": "Voert vertaalbestanden uit in JSON-, TypeScript- of JavaScript-indeling. Behoudt bestaande vertalingen en ondersteunt geneste of platte sleutelstructuren."
     },
-    "code": {
-        "title": "Quick Start",
-        "subtitle": "Get started in under a minute",
-        "tab": {
-            "cli": "CLI",
-            "api": "Programmatic"
-        }
+    "preserve": {
+      "title": "Beschermen",
+      "desc": "Overschrijft nooit handmatig bewerkte vertalingen. Voegt op intelligente wijze nieuwe snaren samen terwijl uw aanpassingen intact blijven."
     },
-    "languages": {
-        "title": "37+ Supported Languages",
-        "subtitle": "All major languages with RTL support for Arabic and Hebrew"
+    "ci": {
+      "title": "Automatiseer",
+      "desc": "Genereer GitHub Actions-workflows voor geautomatiseerde vertaling bij elke push. Op directe commit- of pull-request gebaseerde workflows."
     },
-    "cta": {
-        "title": "Ready to go global?",
-        "subtitle": "Start translating your project today.",
-        "button": "Get Started"
-    },
-    "footer": {
-        "text": "Built by NagusameCS. MIT License.",
-        "translated": "This page was translated using Multilingual."
-    },
-    "tooltip": "Translated by this package"
+    "typed": {
+      "title": "Typ Veilig",
+      "desc": "Volledige TypeScript-ondersteuning met gegenereerde typedefinities. Krijg automatisch aanvullen en controle tijdens het compileren van vertaalsleutels."
+    }
+  },
+  "code": {
+    "title": "Snel beginnen",
+    "subtitle": "Ga binnen een minuut aan de slag",
+    "tab": {
+      "cli": "CLI",
+      "api": "Programmatisch"
+    }
+  },
+  "languages": {
+    "title": "37+ ondersteunde talen",
+    "subtitle": "Alle belangrijke talen met RTL-ondersteuning voor Arabisch en Hebreeuws"
+  },
+  "cta": {
+    "title": "Klaar om mondiaal te gaan?",
+    "subtitle": "Begin vandaag nog met het vertalen van uw project.",
+    "button": "Aan de slag"
+  },
+  "footer": {
+    "text": "Gebouwd door NagusameCS. MIT-licentie.",
+    "translated": "Deze pagina is vertaald met behulp van meertalig."
+  },
+  "tooltip": "Vertaald door dit pakket"
 }

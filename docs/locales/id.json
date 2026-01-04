@@ -1,65 +1,65 @@
 {
   "nav": {
-    "features": "Features",
-    "quickstart": "Quick Start",
-    "languages": "Languages"
+    "features": "Fitur",
+    "quickstart": "Mulai Cepat",
+    "languages": "Bahasa"
   },
   "hero": {
-    "badge": "Build-time i18n extraction & translation",
-    "title": "Internationalize any project in minutes",
-    "subtitle": "Extract user-facing strings from your codebase, translate them with DeepL or Google Translate, and generate production-ready i18n files. No runtime overhead.",
-    "install": "npm install -g multilingual-cli",
-    "github": "View on GitHub",
-    "notice": "Multilingual is a build-time tool. It scans your source files, extracts translatable strings, and generates static translation files. It does not provide runtime translation or live language switching."
+    "badge": "Ekstraksi & terjemahan i18n waktu pembuatan",
+    "title": "Internasionalisasikan proyek apa pun dalam hitungan menit",
+    "subtitle": "Ekstrak string yang dapat dilihat pengguna dari basis kode Anda, terjemahkan dengan DeepL atau Google Terjemahan, dan buat file i18n siap produksi. Tidak ada overhead waktu proses.",
+    "install": "npm install -g multibahasa-cli",
+    "github": "Lihat di GitHub",
+    "notice": "Multibahasa adalah alat waktu pembangunan. Ini memindai file sumber Anda, mengekstrak string yang dapat diterjemahkan, dan menghasilkan file terjemahan statis. Itu tidak menyediakan terjemahan runtime atau peralihan bahasa langsung."
   },
   "features": {
-    "title": "How it works",
-    "subtitle": "A streamlined workflow for project internationalization",
+    "title": "Bagaimana cara kerjanya",
+    "subtitle": "Alur kerja yang efisien untuk internasionalisasi proyek",
     "scan": {
-      "title": "Scan",
-      "desc": "Automatically detects user-facing strings in JavaScript, TypeScript, Vue, Svelte, React, HTML, PHP, Python, Ruby, Go, and Java files."
+      "title": "Pindai",
+      "desc": "Secara otomatis mendeteksi string yang dilihat pengguna dalam file JavaScript, TypeScript, Vue, Svelte, React, HTML, PHP, Python, Ruby, Go, dan Java."
     },
     "translate": {
-      "title": "Translate",
-      "desc": "Integrates with DeepL or Google Cloud Translation APIs for high-quality machine translation with batch processing and caching."
+      "title": "Menerjemahkan",
+      "desc": "Terintegrasi dengan DeepL atau Google Cloud Translation API untuk terjemahan mesin berkualitas tinggi dengan pemrosesan batch dan caching."
     },
     "generate": {
-      "title": "Generate",
-      "desc": "Outputs translation files in JSON, TypeScript, or JavaScript format. Preserves existing translations and supports nested or flat key structures."
+      "title": "Menghasilkan",
+      "desc": "Menghasilkan file terjemahan dalam format JSON, TypeScript, atau JavaScript. Mempertahankan terjemahan yang sudah ada dan mendukung struktur kunci bertingkat atau datar."
     },
     "preserve": {
-      "title": "Preserve",
-      "desc": "Never overwrites manually edited translations. Merges new strings intelligently while keeping your customizations intact."
+      "title": "Melestarikan",
+      "desc": "Jangan pernah menimpa terjemahan yang diedit secara manual. Menggabungkan string baru secara cerdas sambil menjaga penyesuaian Anda tetap utuh."
     },
     "ci": {
-      "title": "Automate",
-      "desc": "Generate GitHub Actions workflows for automated translation on every push. Direct commit or pull request based workflows."
+      "title": "Mengotomatisasikan",
+      "desc": "Hasilkan alur kerja GitHub Actions untuk terjemahan otomatis di setiap dorongan. Alur kerja berbasis komit atau tarik langsung."
     },
     "typed": {
-      "title": "Type Safe",
-      "desc": "Full TypeScript support with generated type definitions. Get autocomplete and compile-time checking for translation keys."
+      "title": "Ketik Aman",
+      "desc": "Dukungan penuh TypeScript dengan definisi tipe yang dihasilkan. Dapatkan pelengkapan otomatis dan pemeriksaan waktu kompilasi untuk kunci terjemahan."
     }
   },
   "code": {
-    "title": "Quick Start",
-    "subtitle": "Get started in under a minute",
+    "title": "Mulai Cepat",
+    "subtitle": "Mulailah dalam waktu kurang dari satu menit",
     "tab": {
       "cli": "CLI",
-      "api": "Programmatic"
+      "api": "Terprogram"
     }
   },
   "languages": {
-    "title": "37+ Supported Languages",
-    "subtitle": "All major languages with RTL support for Arabic and Hebrew"
+    "title": "37+ Bahasa yang Didukung",
+    "subtitle": "Semua bahasa utama dengan dukungan RTL untuk bahasa Arab dan Ibrani"
   },
   "cta": {
-    "title": "Ready to go global?",
-    "subtitle": "Start translating your project today.",
-    "button": "Get Started"
+    "title": "Siap untuk mendunia?",
+    "subtitle": "Mulailah menerjemahkan proyek Anda hari ini.",
+    "button": "Memulai"
   },
   "footer": {
-    "text": "Built by NagusameCS. MIT License.",
-    "translated": "This page was translated using Multilingual."
+    "text": "Dibangun oleh NagusameCS. Lisensi MIT.",
+    "translated": "Halaman ini diterjemahkan menggunakan Multibahasa."
   },
-  "tooltip": "Translated by this package"
+  "tooltip": "Diterjemahkan oleh paket ini"
 }

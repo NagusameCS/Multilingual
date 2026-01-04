@@ -1,65 +1,65 @@
 {
   "nav": {
-    "features": "Features",
-    "quickstart": "Quick Start",
-    "languages": "Languages"
+    "features": "Jellemzők",
+    "quickstart": "Gyors kezdés",
+    "languages": "Nyelvek"
   },
   "hero": {
-    "badge": "Build-time i18n extraction & translation",
-    "title": "Internationalize any project in minutes",
-    "subtitle": "Extract user-facing strings from your codebase, translate them with DeepL or Google Translate, and generate production-ready i18n files. No runtime overhead.",
+    "badge": "Építési idejű i18n kinyerés és fordítás",
+    "title": "Bármilyen projektet percek alatt nemzetközivé tehet",
+    "subtitle": "Bontsa ki a felhasználóbarát karakterláncokat kódbázisából, fordítsa le őket a DeepL vagy a Google Fordító segítségével, és állítson elő éles használatra kész i18n fájlokat. Nincs futásidejű többletköltség.",
     "install": "npm install -g multilingual-cli",
-    "github": "View on GitHub",
-    "notice": "Multilingual is a build-time tool. It scans your source files, extracts translatable strings, and generates static translation files. It does not provide runtime translation or live language switching."
+    "github": "Megtekintés a GitHubon",
+    "notice": "A többnyelvűség egy építési idejű eszköz. Átvizsgálja a forrásfájlokat, kibontja a lefordítható karakterláncokat, és statikus fordítási fájlokat hoz létre. Nem biztosít futásidejű fordítást vagy élő nyelvváltást."
   },
   "features": {
-    "title": "How it works",
-    "subtitle": "A streamlined workflow for project internationalization",
+    "title": "Hogyan működik",
+    "subtitle": "Egyszerűsített munkafolyamat a projektek nemzetközivé tételéhez",
     "scan": {
-      "title": "Scan",
-      "desc": "Automatically detects user-facing strings in JavaScript, TypeScript, Vue, Svelte, React, HTML, PHP, Python, Ruby, Go, and Java files."
+      "title": "Letapogatás",
+      "desc": "Automatikusan észleli a felhasználó felé néző karakterláncokat JavaScript, TypeScript, Vue, Svelte, React, HTML, PHP, Python, Ruby, Go és Java fájlokban."
     },
     "translate": {
-      "title": "Translate",
-      "desc": "Integrates with DeepL or Google Cloud Translation APIs for high-quality machine translation with batch processing and caching."
+      "title": "Fordítás",
+      "desc": "Integrálható a DeepL vagy a Google Cloud Translation API-kkal a kiváló minőségű gépi fordítás érdekében kötegelt feldolgozással és gyorsítótárazással."
     },
     "generate": {
-      "title": "Generate",
-      "desc": "Outputs translation files in JSON, TypeScript, or JavaScript format. Preserves existing translations and supports nested or flat key structures."
+      "title": "Generál",
+      "desc": "A fordítási fájlokat JSON, TypeScript vagy JavaScript formátumban adja ki. Megőrzi a meglévő fordításokat, és támogatja a beágyazott vagy lapos kulcsstruktúrákat."
     },
     "preserve": {
-      "title": "Preserve",
-      "desc": "Never overwrites manually edited translations. Merges new strings intelligently while keeping your customizations intact."
+      "title": "Tartsa meg",
+      "desc": "Soha nem írja felül a kézzel szerkesztett fordításokat. Intelligensen egyesíti az új karakterláncokat, miközben a testreszabásait érintetlenül tartja."
     },
     "ci": {
-      "title": "Automate",
-      "desc": "Generate GitHub Actions workflows for automated translation on every push. Direct commit or pull request based workflows."
+      "title": "Automatizálni",
+      "desc": "Generáljon GitHub Actions munkafolyamatokat az automatikus fordításhoz minden lenyomáskor. Közvetlen véglegesítés vagy lekérés alapú munkafolyamatok."
     },
     "typed": {
-      "title": "Type Safe",
-      "desc": "Full TypeScript support with generated type definitions. Get autocomplete and compile-time checking for translation keys."
+      "title": "Írja be a Biztonságos lehetőséget",
+      "desc": "Teljes TypeScript támogatás generált típusdefiníciókkal. Kapjon automatikus kiegészítést és fordítási időellenőrzést a fordítási kulcsokhoz."
     }
   },
   "code": {
-    "title": "Quick Start",
-    "subtitle": "Get started in under a minute",
+    "title": "Gyors kezdés",
+    "subtitle": "Kezdje el egy percen belül",
     "tab": {
       "cli": "CLI",
-      "api": "Programmatic"
+      "api": "Programadó"
     }
   },
   "languages": {
-    "title": "37+ Supported Languages",
-    "subtitle": "All major languages with RTL support for Arabic and Hebrew"
+    "title": "37+ támogatott nyelv",
+    "subtitle": "Az összes fontosabb nyelv arab és héber RTL támogatással"
   },
   "cta": {
-    "title": "Ready to go global?",
-    "subtitle": "Start translating your project today.",
-    "button": "Get Started"
+    "title": "Készen áll a globális fellépésre?",
+    "subtitle": "Kezdje el projektje fordítását még ma.",
+    "button": "Kezdje el"
   },
   "footer": {
-    "text": "Built by NagusameCS. MIT License.",
-    "translated": "This page was translated using Multilingual."
+    "text": "A NagusameCS építette. MIT licenc.",
+    "translated": "Ezt az oldalt többnyelvűvel fordították le."
   },
-  "tooltip": "Translated by this package"
+  "tooltip": "Ezzel a csomaggal fordította"
 }

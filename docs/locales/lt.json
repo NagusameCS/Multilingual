@@ -1,65 +1,65 @@
 {
   "nav": {
-    "features": "Features",
-    "quickstart": "Quick Start",
-    "languages": "Languages"
+    "features": "Savybės",
+    "quickstart": "Greita pradžia",
+    "languages": "Kalbos"
   },
   "hero": {
-    "badge": "Build-time i18n extraction & translation",
-    "title": "Internationalize any project in minutes",
-    "subtitle": "Extract user-facing strings from your codebase, translate them with DeepL or Google Translate, and generate production-ready i18n files. No runtime overhead.",
+    "badge": "Sukūrimo laikas i18n ištraukimas ir vertimas",
+    "title": "Internacionalizuokite bet kurį projektą per kelias minutes",
+    "subtitle": "Ištraukite vartotojui skirtas eilutes iš savo kodų bazės, išverskite jas naudodami „DeepL“ arba „Google Translate“ ir generuokite gamybai paruoštus „i18n“ failus. Jokių vykdymo laiko papildomų išlaidų.",
     "install": "npm install -g multilingual-cli",
-    "github": "View on GitHub",
-    "notice": "Multilingual is a build-time tool. It scans your source files, extracts translatable strings, and generates static translation files. It does not provide runtime translation or live language switching."
+    "github": "Žiūrėti GitHub",
+    "notice": "Daugiakalbis yra kūrimo laiko įrankis. Jis nuskaito jūsų šaltinio failus, ištraukia išverčiamas eilutes ir generuoja statinius vertimo failus. Tai neteikia vykdymo laiko vertimo ar tiesioginio kalbos perjungimo."
   },
   "features": {
-    "title": "How it works",
-    "subtitle": "A streamlined workflow for project internationalization",
+    "title": "Kaip tai veikia",
+    "subtitle": "Supaprastinta projekto internacionalizavimo darbo eiga",
     "scan": {
-      "title": "Scan",
-      "desc": "Automatically detects user-facing strings in JavaScript, TypeScript, Vue, Svelte, React, HTML, PHP, Python, Ruby, Go, and Java files."
+      "title": "Nuskaityti",
+      "desc": "Automatiškai aptinka naudotojui skirtas eilutes JavaScript, TypeScript, Vue, Svelte, React, HTML, PHP, Python, Ruby, Go ir Java failuose."
     },
     "translate": {
-      "title": "Translate",
-      "desc": "Integrates with DeepL or Google Cloud Translation APIs for high-quality machine translation with batch processing and caching."
+      "title": "Išversti",
+      "desc": "Integruojamas su DeepL arba Google Cloud Translation API, kad būtų galima atlikti aukštos kokybės mašininį vertimą su paketiniu apdorojimu ir kaupimu talpykloje."
     },
     "generate": {
-      "title": "Generate",
-      "desc": "Outputs translation files in JSON, TypeScript, or JavaScript format. Preserves existing translations and supports nested or flat key structures."
+      "title": "Generuoti",
+      "desc": "Išveda vertimo failus JSON, TypeScript arba JavaScript formatu. Išsaugo esamus vertimus ir palaiko įdėtas arba plokščias raktų struktūras."
     },
     "preserve": {
-      "title": "Preserve",
-      "desc": "Never overwrites manually edited translations. Merges new strings intelligently while keeping your customizations intact."
+      "title": "Išsaugoti",
+      "desc": "Niekada neperrašo rankiniu būdu redaguotų vertimų. Išmaniai sujungia naujas eilutes, nepažeidžiant tinkinimų."
     },
     "ci": {
-      "title": "Automate",
-      "desc": "Generate GitHub Actions workflows for automated translation on every push. Direct commit or pull request based workflows."
+      "title": "Automatizuoti",
+      "desc": "Generuokite „GitHub Actions“ darbo eigas, kad būtų galima automatizuoti vertimą kiekvieną kartą. Tiesioginio įsipareigojimo arba ištraukimo užklausa pagrįstos darbo eigos."
     },
     "typed": {
-      "title": "Type Safe",
-      "desc": "Full TypeScript support with generated type definitions. Get autocomplete and compile-time checking for translation keys."
+      "title": "Tipas Safe",
+      "desc": "Visas „TypeScript“ palaikymas su sugeneruotais tipo apibrėžimais. Gaukite vertimo raktų automatinį užbaigimą ir kompiliavimo laiko patikrą."
     }
   },
   "code": {
-    "title": "Quick Start",
-    "subtitle": "Get started in under a minute",
+    "title": "Greita pradžia",
+    "subtitle": "Pradėkite greičiau nei per minutę",
     "tab": {
       "cli": "CLI",
-      "api": "Programmatic"
+      "api": "Programinis"
     }
   },
   "languages": {
-    "title": "37+ Supported Languages",
-    "subtitle": "All major languages with RTL support for Arabic and Hebrew"
+    "title": "37+ palaikomos kalbos",
+    "subtitle": "Visos pagrindinės kalbos su RTL palaikymu arabų ir hebrajų kalbomis"
   },
   "cta": {
-    "title": "Ready to go global?",
-    "subtitle": "Start translating your project today.",
-    "button": "Get Started"
+    "title": "Pasiruošę pasauliniam pasauliui?",
+    "subtitle": "Pradėkite versti savo projektą šiandien.",
+    "button": "Pradėkite"
   },
   "footer": {
-    "text": "Built by NagusameCS. MIT License.",
-    "translated": "This page was translated using Multilingual."
+    "text": "Sukūrė NagusameCS. MIT licencija.",
+    "translated": "Šis puslapis buvo išverstas naudojant daugiakalbį."
   },
-  "tooltip": "Translated by this package"
+  "tooltip": "Išvertė pagal šį paketą"
 }

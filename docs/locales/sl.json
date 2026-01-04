@@ -1,65 +1,65 @@
 {
   "nav": {
-    "features": "Features",
-    "quickstart": "Quick Start",
-    "languages": "Languages"
+    "features": "Lastnosti",
+    "quickstart": "Hitri začetek",
+    "languages": "Jeziki"
   },
   "hero": {
-    "badge": "Build-time i18n extraction & translation",
-    "title": "Internationalize any project in minutes",
-    "subtitle": "Extract user-facing strings from your codebase, translate them with DeepL or Google Translate, and generate production-ready i18n files. No runtime overhead.",
-    "install": "npm install -g multilingual-cli",
-    "github": "View on GitHub",
-    "notice": "Multilingual is a build-time tool. It scans your source files, extracts translatable strings, and generates static translation files. It does not provide runtime translation or live language switching."
+    "badge": "Ekstrakcija in prevajanje i18n v času gradnje",
+    "title": "Internacionalizirajte kateri koli projekt v nekaj minutah",
+    "subtitle": "Ekstrahirajte uporabniško usmerjene nize iz vaše kodne baze, jih prevedite z DeepL ali Google Translate in ustvarite datoteke i18n, pripravljene za proizvodnjo. Brez dodatnih stroškov izvajanja.",
+    "install": "npm install -g večjezični-cli",
+    "github": "Ogled na GitHub",
+    "notice": "Večjezičnost je orodje za gradnjo. Skenira vaše izvorne datoteke, ekstrahira prevedljive nize in ustvari statične prevodne datoteke. Ne zagotavlja prevajanja med izvajanjem ali preklapljanja med jeziki v živo."
   },
   "features": {
-    "title": "How it works",
-    "subtitle": "A streamlined workflow for project internationalization",
+    "title": "Kako deluje",
+    "subtitle": "Poenostavljen potek dela za internacionalizacijo projekta",
     "scan": {
-      "title": "Scan",
-      "desc": "Automatically detects user-facing strings in JavaScript, TypeScript, Vue, Svelte, React, HTML, PHP, Python, Ruby, Go, and Java files."
+      "title": "Skeniraj",
+      "desc": "Samodejno zazna nize, obrnjene k uporabniku, v datotekah JavaScript, TypeScript, Vue, Svelte, React, HTML, PHP, Python, Ruby, Go in Java."
     },
     "translate": {
-      "title": "Translate",
-      "desc": "Integrates with DeepL or Google Cloud Translation APIs for high-quality machine translation with batch processing and caching."
+      "title": "Prevajaj",
+      "desc": "Integrira se z API-ji DeepL ali Google Cloud Translation za visokokakovostno strojno prevajanje s paketno obdelavo in predpomnjenjem."
     },
     "generate": {
-      "title": "Generate",
-      "desc": "Outputs translation files in JSON, TypeScript, or JavaScript format. Preserves existing translations and supports nested or flat key structures."
+      "title": "Ustvari",
+      "desc": "Izpiše prevodne datoteke v formatu JSON, TypeScript ali JavaScript. Ohranja obstoječe prevode in podpira ugnezdene ali ravne ključne strukture."
     },
     "preserve": {
-      "title": "Preserve",
-      "desc": "Never overwrites manually edited translations. Merges new strings intelligently while keeping your customizations intact."
+      "title": "Ohranite",
+      "desc": "Nikoli ne prepiše ročno urejenih prevodov. Inteligentno združuje nove nize, medtem ko vaše prilagoditve ostanejo nedotaknjene."
     },
     "ci": {
-      "title": "Automate",
-      "desc": "Generate GitHub Actions workflows for automated translation on every push. Direct commit or pull request based workflows."
+      "title": "Avtomatiziraj",
+      "desc": "Ustvarite poteke dela GitHub Actions za samodejno prevajanje ob vsakem pritisku. Delovni tokovi, ki temeljijo na neposredni potrditvi ali zahtevi za vlečenje."
     },
     "typed": {
-      "title": "Type Safe",
-      "desc": "Full TypeScript support with generated type definitions. Get autocomplete and compile-time checking for translation keys."
+      "title": "Tip Safe",
+      "desc": "Popolna podpora za TypeScript z ustvarjenimi definicijami vrst. Pridobite samodokončanje in preverjanje med prevajanjem za prevodne ključe."
     }
   },
   "code": {
-    "title": "Quick Start",
-    "subtitle": "Get started in under a minute",
+    "title": "Hitri začetek",
+    "subtitle": "Začnite v manj kot minuti",
     "tab": {
       "cli": "CLI",
-      "api": "Programmatic"
+      "api": "Programsko"
     }
   },
   "languages": {
-    "title": "37+ Supported Languages",
-    "subtitle": "All major languages with RTL support for Arabic and Hebrew"
+    "title": "37+ podprtih jezikov",
+    "subtitle": "Vsi glavni jeziki s podporo RTL za arabščino in hebrejščino"
   },
   "cta": {
-    "title": "Ready to go global?",
-    "subtitle": "Start translating your project today.",
-    "button": "Get Started"
+    "title": "Ste pripravljeni postati globalni?",
+    "subtitle": "Začnite prevajati svoj projekt še danes.",
+    "button": "Začnite"
   },
   "footer": {
-    "text": "Built by NagusameCS. MIT License.",
-    "translated": "This page was translated using Multilingual."
+    "text": "Izdelal NagusameCS. Licenca MIT.",
+    "translated": "Ta stran je bila prevedena z uporabo večjezičnosti."
   },
-  "tooltip": "Translated by this package"
+  "tooltip": "Prevedeno s tem paketom"
 }

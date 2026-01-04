@@ -1,65 +1,65 @@
 {
   "nav": {
-    "features": "Features",
-    "quickstart": "Quick Start",
-    "languages": "Languages"
+    "features": "Χαρακτηριστικά",
+    "quickstart": "Γρήγορη εκκίνηση",
+    "languages": "Γλώσσες"
   },
   "hero": {
-    "badge": "Build-time i18n extraction & translation",
-    "title": "Internationalize any project in minutes",
-    "subtitle": "Extract user-facing strings from your codebase, translate them with DeepL or Google Translate, and generate production-ready i18n files. No runtime overhead.",
+    "badge": "Εξαγωγή & μετάφραση i18n σε χρόνο κατασκευής",
+    "title": "Διεθνοποιήστε οποιοδήποτε έργο μέσα σε λίγα λεπτά",
+    "subtitle": "Εξάγετε συμβολοσειρές που απευθύνονται στον χρήστη από τη βάση κωδίκων σας, μεταφράστε τες με το DeepL ή το Google Translate και δημιουργήστε αρχεία i18n έτοιμα για παραγωγή. Χωρίς επιβάρυνση χρόνου εκτέλεσης.",
     "install": "npm install -g multilingual-cli",
-    "github": "View on GitHub",
-    "notice": "Multilingual is a build-time tool. It scans your source files, extracts translatable strings, and generates static translation files. It does not provide runtime translation or live language switching."
+    "github": "Προβολή στο GitHub",
+    "notice": "Το Multilingual είναι ένα εργαλείο χρόνου κατασκευής. Σαρώνει τα αρχεία προέλευσης, εξάγει μεταφράσιμες συμβολοσειρές και δημιουργεί στατικά αρχεία μετάφρασης. Δεν παρέχει μετάφραση χρόνου εκτέλεσης ή ζωντανή εναλλαγή γλώσσας."
   },
   "features": {
-    "title": "How it works",
-    "subtitle": "A streamlined workflow for project internationalization",
+    "title": "Πώς λειτουργεί",
+    "subtitle": "Μια βελτιωμένη ροή εργασίας για τη διεθνοποίηση έργων",
     "scan": {
-      "title": "Scan",
-      "desc": "Automatically detects user-facing strings in JavaScript, TypeScript, Vue, Svelte, React, HTML, PHP, Python, Ruby, Go, and Java files."
+      "title": "Σάρωση",
+      "desc": "Εντοπίζει αυτόματα τις συμβολοσειρές που αντιμετωπίζουν ο χρήστης σε αρχεία JavaScript, TypeScript, Vue, Svelte, React, HTML, PHP, Python, Ruby, Go και Java."
     },
     "translate": {
-      "title": "Translate",
-      "desc": "Integrates with DeepL or Google Cloud Translation APIs for high-quality machine translation with batch processing and caching."
+      "title": "Μεταφράζω",
+      "desc": "Ενσωματώνεται με DeepL ή Google Cloud Translation API για αυτόματη μετάφραση υψηλής ποιότητας με μαζική επεξεργασία και προσωρινή αποθήκευση."
     },
     "generate": {
-      "title": "Generate",
-      "desc": "Outputs translation files in JSON, TypeScript, or JavaScript format. Preserves existing translations and supports nested or flat key structures."
+      "title": "Παράγω",
+      "desc": "Εξάγει αρχεία μετάφρασης σε μορφή JSON, TypeScript ή JavaScript. Διατηρεί τις υπάρχουσες μεταφράσεις και υποστηρίζει ένθετες ή επίπεδες δομές πλήκτρων."
     },
     "preserve": {
-      "title": "Preserve",
-      "desc": "Never overwrites manually edited translations. Merges new strings intelligently while keeping your customizations intact."
+      "title": "Διατηρώ",
+      "desc": "Ποτέ δεν αντικαθιστά μεταφράσεις που έχουν υποστεί μη αυτόματη επεξεργασία. Συγχωνεύει έξυπνα νέες συμβολοσειρές διατηρώντας ανέπαφες τις προσαρμογές σας."
     },
     "ci": {
-      "title": "Automate",
-      "desc": "Generate GitHub Actions workflows for automated translation on every push. Direct commit or pull request based workflows."
+      "title": "Αυτοματοποίηση",
+      "desc": "Δημιουργήστε ροές εργασιών GitHub Actions για αυτοματοποιημένη μετάφραση σε κάθε ώθηση. Άμεση δέσμευση ή έλξη ροών εργασιών βάσει αιτημάτων."
     },
     "typed": {
-      "title": "Type Safe",
-      "desc": "Full TypeScript support with generated type definitions. Get autocomplete and compile-time checking for translation keys."
+      "title": "Πληκτρολογήστε Safe",
+      "desc": "Πλήρης υποστήριξη TypeScript με δημιουργημένους ορισμούς τύπων. Λάβετε έλεγχο αυτόματης συμπλήρωσης και μεταγλώττισης για κλειδιά μετάφρασης."
     }
   },
   "code": {
-    "title": "Quick Start",
-    "subtitle": "Get started in under a minute",
+    "title": "Γρήγορη εκκίνηση",
+    "subtitle": "Ξεκινήστε σε λιγότερο από ένα λεπτό",
     "tab": {
       "cli": "CLI",
-      "api": "Programmatic"
+      "api": "Προγραμματικός"
     }
   },
   "languages": {
-    "title": "37+ Supported Languages",
-    "subtitle": "All major languages with RTL support for Arabic and Hebrew"
+    "title": "37+ υποστηριζόμενες γλώσσες",
+    "subtitle": "Όλες οι κύριες γλώσσες με υποστήριξη RTL για τα αραβικά και τα εβραϊκά"
   },
   "cta": {
-    "title": "Ready to go global?",
-    "subtitle": "Start translating your project today.",
-    "button": "Get Started"
+    "title": "Είστε έτοιμοι να μεταβείτε παγκοσμίως;",
+    "subtitle": "Ξεκινήστε τη μετάφραση του έργου σας σήμερα.",
+    "button": "Ξεκινήστε"
   },
   "footer": {
-    "text": "Built by NagusameCS. MIT License.",
-    "translated": "This page was translated using Multilingual."
+    "text": "Κατασκευάστηκε από την NagusameCS. Άδεια MIT.",
+    "translated": "Αυτή η σελίδα μεταφράστηκε χρησιμοποιώντας το Multilingual."
   },
-  "tooltip": "Translated by this package"
+  "tooltip": "Μεταφράστηκε από αυτό το πακέτο"
 }

@@ -1,65 +1,65 @@
 {
-    "nav": {
-        "features": "Features",
-        "quickstart": "Quick Start",
-        "languages": "Languages"
+  "nav": {
+    "features": "特征",
+    "quickstart": "快速入门",
+    "languages": "语言"
+  },
+  "hero": {
+    "badge": "构建时 i18n 提取和翻译",
+    "title": "在几分钟内国际化任何项目",
+    "subtitle": "从代码库中提取面向用户的字符串，使用 DeepL 或 Google Translate 进行翻译，并生成可用于生产的 i18n 文件。没有运行时开销。",
+    "install": "npm install -g 多语言-cli",
+    "github": "在 GitHub 上查看",
+    "notice": "多语言是一种构建时工具。它扫描您的源文件，提取可翻译的字符串，并生成静态翻译文件。它不提供运行时翻译或实时语言切换。"
+  },
+  "features": {
+    "title": "它是如何运作的",
+    "subtitle": "项目国际化的简化工作流程",
+    "scan": {
+      "title": "扫描",
+      "desc": "自动检测 JavaScript、TypeScript、Vue、Svelte、React、HTML、PHP、Python、Ruby、Go 和 Java 文件中面向用户的字符串。"
     },
-    "hero": {
-        "badge": "Build-time i18n extraction & translation",
-        "title": "Internationalize any project in minutes",
-        "subtitle": "Extract user-facing strings from your codebase, translate them with DeepL or Google Translate, and generate production-ready i18n files. No runtime overhead.",
-        "install": "npm install -g multilingual-cli",
-        "github": "View on GitHub",
-        "notice": "Multilingual is a build-time tool. It scans your source files, extracts translatable strings, and generates static translation files. It does not provide runtime translation or live language switching."
+    "translate": {
+      "title": "翻译",
+      "desc": "与 DeepL 或 Google Cloud Translation API 集成，通过批处理和缓存实现高质量机器翻译。"
     },
-    "features": {
-        "title": "How it works",
-        "subtitle": "A streamlined workflow for project internationalization",
-        "scan": {
-            "title": "Scan",
-            "desc": "Automatically detects user-facing strings in JavaScript, TypeScript, Vue, Svelte, React, HTML, PHP, Python, Ruby, Go, and Java files."
-        },
-        "translate": {
-            "title": "Translate",
-            "desc": "Integrates with DeepL or Google Cloud Translation APIs for high-quality machine translation with batch processing and caching."
-        },
-        "generate": {
-            "title": "Generate",
-            "desc": "Outputs translation files in JSON, TypeScript, or JavaScript format. Preserves existing translations and supports nested or flat key structures."
-        },
-        "preserve": {
-            "title": "Preserve",
-            "desc": "Never overwrites manually edited translations. Merges new strings intelligently while keeping your customizations intact."
-        },
-        "ci": {
-            "title": "Automate",
-            "desc": "Generate GitHub Actions workflows for automated translation on every push. Direct commit or pull request based workflows."
-        },
-        "typed": {
-            "title": "Type Safe",
-            "desc": "Full TypeScript support with generated type definitions. Get autocomplete and compile-time checking for translation keys."
-        }
+    "generate": {
+      "title": "产生",
+      "desc": "以 JSON、TypeScript 或 JavaScript 格式输出翻译文件。保留现有翻译并支持嵌套或平面键结构。"
     },
-    "code": {
-        "title": "Quick Start",
-        "subtitle": "Get started in under a minute",
-        "tab": {
-            "cli": "CLI",
-            "api": "Programmatic"
-        }
+    "preserve": {
+      "title": "保存",
+      "desc": "永远不会覆盖手动编辑的翻译。智能地合并新字符串，同时保持自定义完整。"
     },
-    "languages": {
-        "title": "37+ Supported Languages",
-        "subtitle": "All major languages with RTL support for Arabic and Hebrew"
+    "ci": {
+      "title": "自动化",
+      "desc": "生成 GitHub Actions 工作流程，以便在每次推送时进行自动翻译。基于直接提交或拉取请求的工作流程。"
     },
-    "cta": {
-        "title": "Ready to go global?",
-        "subtitle": "Start translating your project today.",
-        "button": "Get Started"
-    },
-    "footer": {
-        "text": "Built by NagusameCS. MIT License.",
-        "translated": "This page was translated using Multilingual."
-    },
-    "tooltip": "Translated by this package"
+    "typed": {
+      "title": "类型安全",
+      "desc": "完整的 TypeScript 支持以及生成的类型定义。获取翻译键的自动完成和编译时检查。"
+    }
+  },
+  "code": {
+    "title": "快速入门",
+    "subtitle": "一分钟内即可开始",
+    "tab": {
+      "cli": "命令行界面",
+      "api": "程序化"
+    }
+  },
+  "languages": {
+    "title": "支持 37 多种语言",
+    "subtitle": "所有主要语言均支持阿拉伯语和希伯来语的 RTL"
+  },
+  "cta": {
+    "title": "准备好走向全球了吗？",
+    "subtitle": "今天开始翻译您的项目。",
+    "button": "开始使用"
+  },
+  "footer": {
+    "text": "由 NagusameCS 建造。麻省理工学院许可证。",
+    "translated": "此页面已使用多语言翻译。"
+  },
+  "tooltip": "由该包翻译"
 }

@@ -1,65 +1,65 @@
 {
   "nav": {
-    "features": "Features",
-    "quickstart": "Quick Start",
-    "languages": "Languages"
+    "features": "Omadused",
+    "quickstart": "Kiire algus",
+    "languages": "Keeled"
   },
   "hero": {
-    "badge": "Build-time i18n extraction & translation",
-    "title": "Internationalize any project in minutes",
-    "subtitle": "Extract user-facing strings from your codebase, translate them with DeepL or Google Translate, and generate production-ready i18n files. No runtime overhead.",
+    "badge": "Ehitusaegne i18n ekstraheerimine ja tõlkimine",
+    "title": "Muutke mis tahes projekt mõne minutiga rahvusvahelisteks",
+    "subtitle": "Ekstraktige oma koodibaasist kasutajale suunatud stringid, tõlkige need DeepL-i või Google'i tõlke abil ja genereerige tootmisvalmis i18n-faile. Käitusaja üldkulud puuduvad.",
     "install": "npm install -g multilingual-cli",
-    "github": "View on GitHub",
-    "notice": "Multilingual is a build-time tool. It scans your source files, extracts translatable strings, and generates static translation files. It does not provide runtime translation or live language switching."
+    "github": "Vaadake GitHubis",
+    "notice": "Mitmekeelne on ehitusaegne tööriist. See skannib teie lähtefaile, ekstraheerib tõlgitavaid stringe ja genereerib staatilisi tõlkefaile. See ei paku käitusaegset tõlget ega reaalajas keelevahetust."
   },
   "features": {
-    "title": "How it works",
-    "subtitle": "A streamlined workflow for project internationalization",
+    "title": "Kuidas see toimib",
+    "subtitle": "Sujuv töövoog projektide rahvusvahelistumiseks",
     "scan": {
-      "title": "Scan",
-      "desc": "Automatically detects user-facing strings in JavaScript, TypeScript, Vue, Svelte, React, HTML, PHP, Python, Ruby, Go, and Java files."
+      "title": "Skaneeri",
+      "desc": "Tuvastab automaatselt kasutajale suunatud stringid JavaScripti, TypeScripti, Vue, Svelte, React, HTML, PHP, Python, Ruby, Go ja Java failides."
     },
     "translate": {
-      "title": "Translate",
-      "desc": "Integrates with DeepL or Google Cloud Translation APIs for high-quality machine translation with batch processing and caching."
+      "title": "Tõlgi",
+      "desc": "Integreerub DeepL-i või Google Cloud Translation API-dega kvaliteetse masintõlke jaoks koos pakktöötluse ja vahemällu salvestamisega."
     },
     "generate": {
-      "title": "Generate",
-      "desc": "Outputs translation files in JSON, TypeScript, or JavaScript format. Preserves existing translations and supports nested or flat key structures."
+      "title": "Genereeri",
+      "desc": "Väljastab tõlkefailid JSON-, TypeScript- või JavaScript-vormingus. Säilitab olemasolevad tõlked ja toetab pesastatud või lamedaid võtmestruktuure."
     },
     "preserve": {
-      "title": "Preserve",
-      "desc": "Never overwrites manually edited translations. Merges new strings intelligently while keeping your customizations intact."
+      "title": "Säilitada",
+      "desc": "Ei kirjuta kunagi käsitsi redigeeritud tõlkeid üle. Ühendab uued stringid nutikalt, säilitades samal ajal teie kohandused."
     },
     "ci": {
-      "title": "Automate",
-      "desc": "Generate GitHub Actions workflows for automated translation on every push. Direct commit or pull request based workflows."
+      "title": "Automatiseerida",
+      "desc": "Looge GitHub Actionsi töövooge automaatseks tõlkimiseks iga tõuke korral. Otse sidumise või tõmbamise päringupõhised töövood."
     },
     "typed": {
-      "title": "Type Safe",
-      "desc": "Full TypeScript support with generated type definitions. Get autocomplete and compile-time checking for translation keys."
+      "title": "Sisestage Safe",
+      "desc": "Täielik TypeScripti tugi koos loodud tüübimääratlustega. Saate tõlkevõtmete automaatse täitmise ja kompileerimisaja kontrolli."
     }
   },
   "code": {
-    "title": "Quick Start",
-    "subtitle": "Get started in under a minute",
+    "title": "Kiire algus",
+    "subtitle": "Alustage vähem kui minuti pärast",
     "tab": {
       "cli": "CLI",
-      "api": "Programmatic"
+      "api": "Programmiline"
     }
   },
   "languages": {
-    "title": "37+ Supported Languages",
-    "subtitle": "All major languages with RTL support for Arabic and Hebrew"
+    "title": "37+ toetatud keelt",
+    "subtitle": "Kõik suuremad keeled RTL-i toega araabia ja heebrea keeles"
   },
   "cta": {
-    "title": "Ready to go global?",
-    "subtitle": "Start translating your project today.",
-    "button": "Get Started"
+    "title": "Kas olete valmis globaalseks minema?",
+    "subtitle": "Alustage oma projekti tõlkimist juba täna.",
+    "button": "Alustage"
   },
   "footer": {
-    "text": "Built by NagusameCS. MIT License.",
-    "translated": "This page was translated using Multilingual."
+    "text": "Ehitas NagusameCS. MIT litsents.",
+    "translated": "See leht on tõlgitud mitmekeelsena."
   },
-  "tooltip": "Translated by this package"
+  "tooltip": "Selle paketiga tõlgitud"
 }

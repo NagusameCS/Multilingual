@@ -1,65 +1,65 @@
 {
-    "nav": {
-        "features": "Features",
-        "quickstart": "Quick Start",
-        "languages": "Languages"
+  "nav": {
+    "features": "Funktioner",
+    "quickstart": "Hurtig start",
+    "languages": "Sprog"
+  },
+  "hero": {
+    "badge": "Byggetid i18n udvinding og oversættelse",
+    "title": "Internationaliser ethvert projekt på få minutter",
+    "subtitle": "Udpak brugervendte strenge fra din kodebase, oversæt dem med DeepL eller Google Translate, og generer produktionsklare i18n-filer. Ingen køretid overhead.",
+    "install": "npm install -g multilingual-cli",
+    "github": "Se på GitHub",
+    "notice": "Flersproget er et byggetidsværktøj. Det scanner dine kildefiler, udtrækker oversættelige strenge og genererer statiske oversættelsesfiler. Det giver ikke runtime-oversættelse eller levende sprogskift."
+  },
+  "features": {
+    "title": "Hvordan det virker",
+    "subtitle": "En strømlinet arbejdsgang til projektinternationalisering",
+    "scan": {
+      "title": "Scan",
+      "desc": "Registrerer automatisk brugervendte strenge i JavaScript-, TypeScript-, Vue-, Svelte-, React-, HTML-, PHP-, Python-, Ruby-, Go- og Java-filer."
     },
-    "hero": {
-        "badge": "Build-time i18n extraction & translation",
-        "title": "Internationalize any project in minutes",
-        "subtitle": "Extract user-facing strings from your codebase, translate them with DeepL or Google Translate, and generate production-ready i18n files. No runtime overhead.",
-        "install": "npm install -g multilingual-cli",
-        "github": "View on GitHub",
-        "notice": "Multilingual is a build-time tool. It scans your source files, extracts translatable strings, and generates static translation files. It does not provide runtime translation or live language switching."
+    "translate": {
+      "title": "Oversætte",
+      "desc": "Integreres med DeepL eller Google Cloud Translation API'er til maskinoversættelse af høj kvalitet med batchbehandling og caching."
     },
-    "features": {
-        "title": "How it works",
-        "subtitle": "A streamlined workflow for project internationalization",
-        "scan": {
-            "title": "Scan",
-            "desc": "Automatically detects user-facing strings in JavaScript, TypeScript, Vue, Svelte, React, HTML, PHP, Python, Ruby, Go, and Java files."
-        },
-        "translate": {
-            "title": "Translate",
-            "desc": "Integrates with DeepL or Google Cloud Translation APIs for high-quality machine translation with batch processing and caching."
-        },
-        "generate": {
-            "title": "Generate",
-            "desc": "Outputs translation files in JSON, TypeScript, or JavaScript format. Preserves existing translations and supports nested or flat key structures."
-        },
-        "preserve": {
-            "title": "Preserve",
-            "desc": "Never overwrites manually edited translations. Merges new strings intelligently while keeping your customizations intact."
-        },
-        "ci": {
-            "title": "Automate",
-            "desc": "Generate GitHub Actions workflows for automated translation on every push. Direct commit or pull request based workflows."
-        },
-        "typed": {
-            "title": "Type Safe",
-            "desc": "Full TypeScript support with generated type definitions. Get autocomplete and compile-time checking for translation keys."
-        }
+    "generate": {
+      "title": "Frembringe",
+      "desc": "Udsender oversættelsesfiler i JSON-, TypeScript- eller JavaScript-format. Bevarer eksisterende oversættelser og understøtter indlejrede eller flade nøglestrukturer."
     },
-    "code": {
-        "title": "Quick Start",
-        "subtitle": "Get started in under a minute",
-        "tab": {
-            "cli": "CLI",
-            "api": "Programmatic"
-        }
+    "preserve": {
+      "title": "Bevare",
+      "desc": "Overskriver aldrig manuelt redigerede oversættelser. Fletter nye strenge intelligent, mens dine tilpasninger bevares intakte."
     },
-    "languages": {
-        "title": "37+ Supported Languages",
-        "subtitle": "All major languages with RTL support for Arabic and Hebrew"
+    "ci": {
+      "title": "Automatisere",
+      "desc": "Generer GitHub Actions-arbejdsgange til automatiseret oversættelse ved hvert tryk. Direkte commit- eller pull-anmodningsbaserede arbejdsgange."
     },
-    "cta": {
-        "title": "Ready to go global?",
-        "subtitle": "Start translating your project today.",
-        "button": "Get Started"
-    },
-    "footer": {
-        "text": "Built by NagusameCS. MIT License.",
-        "translated": "This page was translated using Multilingual."
-    },
-    "tooltip": "Translated by this package"
+    "typed": {
+      "title": "Skriv sikker",
+      "desc": "Fuld TypeScript-understøttelse med genererede typedefinitioner. Få autofuldførelse og kompileringstidskontrol for oversættelsesnøgler."
+    }
+  },
+  "code": {
+    "title": "Hurtig start",
+    "subtitle": "Kom i gang på under et minut",
+    "tab": {
+      "cli": "CLI",
+      "api": "Programmatisk"
+    }
+  },
+  "languages": {
+    "title": "37+ understøttede sprog",
+    "subtitle": "Alle større sprog med RTL-understøttelse af arabisk og hebraisk"
+  },
+  "cta": {
+    "title": "Klar til at blive global?",
+    "subtitle": "Begynd at oversætte dit projekt i dag.",
+    "button": "Kom i gang"
+  },
+  "footer": {
+    "text": "Bygget af NagusameCS. MIT-licens.",
+    "translated": "Denne side blev oversat med flersproget."
+  },
+  "tooltip": "Oversat af denne pakke"
 }

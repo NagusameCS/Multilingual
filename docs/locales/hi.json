@@ -1,65 +1,65 @@
 {
-    "nav": {
-        "features": "Features",
-        "quickstart": "Quick Start",
-        "languages": "Languages"
+  "nav": {
+    "features": "विशेषताएँ",
+    "quickstart": "त्वरित शुरुआत",
+    "languages": "बोली"
+  },
+  "hero": {
+    "badge": "बिल्ड-टाइम i18n निष्कर्षण और अनुवाद",
+    "title": "मिनटों में किसी भी प्रोजेक्ट का अंतर्राष्ट्रीयकरण करें",
+    "subtitle": "अपने कोडबेस से उपयोगकर्ता-सामना वाली स्ट्रिंग निकालें, उन्हें डीपएल या Google अनुवाद के साथ अनुवाद करें, और उत्पादन के लिए तैयार i18n फ़ाइलें उत्पन्न करें। कोई रनटाइम ओवरहेड नहीं.",
+    "install": "एनपीएम इंस्टॉल -जी बहुभाषी-सीएलआई",
+    "github": "GitHub पर देखें",
+    "notice": "बहुभाषी एक बिल्ड-टाइम टूल है। यह आपकी स्रोत फ़ाइलों को स्कैन करता है, अनुवाद योग्य स्ट्रिंग निकालता है, और स्थिर अनुवाद फ़ाइलें उत्पन्न करता है। यह रनटाइम अनुवाद या लाइव भाषा स्विचिंग प्रदान नहीं करता है।"
+  },
+  "features": {
+    "title": "यह काम किस प्रकार करता है",
+    "subtitle": "परियोजना अंतर्राष्ट्रीयकरण के लिए एक सुव्यवस्थित वर्कफ़्लो",
+    "scan": {
+      "title": "स्कैन",
+      "desc": "जावास्क्रिप्ट, टाइपस्क्रिप्ट, Vue, Svelte, React, HTML, PHP, Python, Ruby, Go और Java फ़ाइलों में उपयोगकर्ता-सामना वाले स्ट्रिंग का स्वचालित रूप से पता लगाता है।"
     },
-    "hero": {
-        "badge": "Build-time i18n extraction & translation",
-        "title": "Internationalize any project in minutes",
-        "subtitle": "Extract user-facing strings from your codebase, translate them with DeepL or Google Translate, and generate production-ready i18n files. No runtime overhead.",
-        "install": "npm install -g multilingual-cli",
-        "github": "View on GitHub",
-        "notice": "Multilingual is a build-time tool. It scans your source files, extracts translatable strings, and generates static translation files. It does not provide runtime translation or live language switching."
+    "translate": {
+      "title": "अनुवाद",
+      "desc": "बैच प्रोसेसिंग और कैशिंग के साथ उच्च गुणवत्ता वाले मशीन अनुवाद के लिए डीपएल या गूगल क्लाउड ट्रांसलेशन एपीआई के साथ एकीकृत होता है।"
     },
-    "features": {
-        "title": "How it works",
-        "subtitle": "A streamlined workflow for project internationalization",
-        "scan": {
-            "title": "Scan",
-            "desc": "Automatically detects user-facing strings in JavaScript, TypeScript, Vue, Svelte, React, HTML, PHP, Python, Ruby, Go, and Java files."
-        },
-        "translate": {
-            "title": "Translate",
-            "desc": "Integrates with DeepL or Google Cloud Translation APIs for high-quality machine translation with batch processing and caching."
-        },
-        "generate": {
-            "title": "Generate",
-            "desc": "Outputs translation files in JSON, TypeScript, or JavaScript format. Preserves existing translations and supports nested or flat key structures."
-        },
-        "preserve": {
-            "title": "Preserve",
-            "desc": "Never overwrites manually edited translations. Merges new strings intelligently while keeping your customizations intact."
-        },
-        "ci": {
-            "title": "Automate",
-            "desc": "Generate GitHub Actions workflows for automated translation on every push. Direct commit or pull request based workflows."
-        },
-        "typed": {
-            "title": "Type Safe",
-            "desc": "Full TypeScript support with generated type definitions. Get autocomplete and compile-time checking for translation keys."
-        }
+    "generate": {
+      "title": "उत्पन्न",
+      "desc": "JSON, टाइपस्क्रिप्ट, या जावास्क्रिप्ट प्रारूप में अनुवाद फ़ाइलों को आउटपुट करता है। मौजूदा अनुवादों को सुरक्षित रखता है और नेस्टेड या फ्लैट कुंजी संरचनाओं का समर्थन करता है।"
     },
-    "code": {
-        "title": "Quick Start",
-        "subtitle": "Get started in under a minute",
-        "tab": {
-            "cli": "CLI",
-            "api": "Programmatic"
-        }
+    "preserve": {
+      "title": "संरक्षित करना",
+      "desc": "मैन्युअल रूप से संपादित अनुवादों को कभी भी अधिलेखित न करें। आपके अनुकूलन को बरकरार रखते हुए समझदारी से नई स्ट्रिंग्स को मर्ज करता है।"
     },
-    "languages": {
-        "title": "37+ Supported Languages",
-        "subtitle": "All major languages with RTL support for Arabic and Hebrew"
+    "ci": {
+      "title": "को स्वचालित",
+      "desc": "प्रत्येक पुश पर स्वचालित अनुवाद के लिए GitHub क्रियाएँ वर्कफ़्लो उत्पन्न करें। डायरेक्ट कमिट या पुल अनुरोध आधारित वर्कफ़्लो।"
     },
-    "cta": {
-        "title": "Ready to go global?",
-        "subtitle": "Start translating your project today.",
-        "button": "Get Started"
-    },
-    "footer": {
-        "text": "Built by NagusameCS. MIT License.",
-        "translated": "This page was translated using Multilingual."
-    },
-    "tooltip": "Translated by this package"
+    "typed": {
+      "title": "सुरक्षित टाइप करें",
+      "desc": "उत्पन्न प्रकार परिभाषाओं के साथ पूर्ण टाइपस्क्रिप्ट समर्थन। अनुवाद कुंजियों के लिए स्वत: पूर्ण और संकलन-समय पर जाँच प्राप्त करें।"
+    }
+  },
+  "code": {
+    "title": "त्वरित शुरुआत",
+    "subtitle": "एक मिनट के अंदर आरंभ करें",
+    "tab": {
+      "cli": "सीएलआई",
+      "api": "कार्यक्रम संबंधी"
+    }
+  },
+  "languages": {
+    "title": "37+ समर्थित भाषाएँ",
+    "subtitle": "अरबी और हिब्रू के लिए RTL समर्थन वाली सभी प्रमुख भाषाएँ"
+  },
+  "cta": {
+    "title": "वैश्विक बनने के लिए तैयार हैं?",
+    "subtitle": "आज ही अपने प्रोजेक्ट का अनुवाद करना शुरू करें.",
+    "button": "शुरू हो जाओ"
+  },
+  "footer": {
+    "text": "नागुसेमसीएस द्वारा निर्मित। एमआईटी लाइसेंस.",
+    "translated": "इस पृष्ठ का अनुवाद बहुभाषी उपयोग से किया गया था।"
+  },
+  "tooltip": "इस पैकेज द्वारा अनुवादित"
 }
