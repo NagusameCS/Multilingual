@@ -38,14 +38,34 @@ npx multilingual-cli init
 
 ## 📋 Translation Services
 
-### 🆓 FREE (No Billing Required)
+### 🆓 FREE Online (No Billing Required)
 
 | Service | Description | Limit |
 |---------|-------------|-------|
-| **LibreTranslate** | Open source, uses public instances | Unlimited |
-| **Lingva** | Privacy-focused Google Translate proxy | Unlimited |
+| **Lingva** | Privacy-focused Google Translate proxy (recommended) | Unlimited |
 | **MyMemory** | Crowd-sourced + machine translation | 10k chars/day |
-| **Pseudo** | Fake translations for UI testing | N/A |
+| **LibreTranslate** | Open source, self-hostable | Unlimited |
+
+### 📂 Offline (No Internet Required)
+
+| Service | Description | Use Case |
+|---------|-------------|----------|
+| **Dictionary** | Built-in dictionaries for 10 languages | Quick translations, no API |
+| **Local** | Use your own JSON translation files | Custom terminology |
+
+### 🎨 Creative & Testing (Instant)
+
+| Service | Description | Example |
+|---------|-------------|---------|
+| **Pseudo** | Fake translations with accents | `[Ḥḛŀŀő Ẇőřŀḓ~~~]` |
+| **Piglatin** | Classic word game | `ellohay orldway` |
+| **Emoji** | Words → emojis | `👋 🌍` |
+| **Leet** | L33t sp34k | `h3ll0 w0rld` |
+| **Reverse** | Reversed text | `dlrow olleh` |
+| **Mirror** | Unicode mirror chars | `ꓭ⅃ꓤOW O⅃⅃ƎH` |
+| **Morse** | Morse code | `.... . .-.. .-.. ---` |
+| **NATO** | NATO phonetic alphabet | `Hotel Echo Lima Lima Oscar` |
+| **Uppercase** | ALL CAPS | `HELLO WORLD` |
 
 ### 💳 Paid (Free Tier Available)
 
@@ -55,8 +75,14 @@ npx multilingual-cli init
 | **Google** | Wide language support | 500k chars/month |
 
 ```bash
-# Use free LibreTranslate (no API key needed!)
-multilingual translate-file -s en.json -o ./locales --service libretranslate
+# Use free Lingva (recommended, no API key needed!)
+multilingual translate-file -s en.json -o ./locales --service lingva
+
+# Use offline dictionary (no internet required!)
+multilingual translate-file -s en.json -o ./locales --service dictionary
+
+# Fun: translate to Pig Latin
+multilingual translate-file -s en.json -o ./locales --service piglatin
 
 # View all service options
 multilingual services
@@ -340,7 +366,7 @@ MIT License — see [LICENSE](LICENSE) for details.
 
 - **npm:** [npmjs.com/package/multilingual-cli](https://www.npmjs.com/package/multilingual-cli)
 - **GitHub:** [github.com/NagusameCS/Multilingual](https://github.com/NagusameCS/Multilingual)
-- **Documentation:** [nagusame.github.io/Multilingual](https://nagusame.github.io/Multilingual)
+- **Documentation:** [NagusameCS.github.io/Multilingual](https://NagusameCS.github.io/Multilingual)
 
 ---
 

@@ -36,16 +36,16 @@ const program = new Command();
 
 // ASCII Art Banner
 const banner = `
-${chalk.cyan('╔══════════════════════════════════════════════════════════════╗')}
-${chalk.cyan('║')}  ${chalk.bold.white('🌐 multilingual-cli')} ${chalk.gray('v2.0.0')}                              ${chalk.cyan('║')}
-${chalk.cyan('║')}  ${chalk.gray('Automated internationalization for any project')}              ${chalk.cyan('║')}
-${chalk.cyan('╚══════════════════════════════════════════════════════════════╝')}
+${chalk.cyan('╔════════════════════════════════════════════════════════════╗')}
+${chalk.cyan('║')}  ${chalk.bold.white('🌐 multilingual-cli')} ${chalk.gray('v2.0.2')}                            ${chalk.cyan('║')}
+${chalk.cyan('║')}  ${chalk.gray('Automated internationalization for any project')}            ${chalk.cyan('║')}
+${chalk.cyan('╚════════════════════════════════════════════════════════════╝')}
 `;
 
 program
     .name('multilingual')
     .description('Automated i18n detection and translation tool with free translation options')
-    .version('2.0.0');
+    .version('2.0.2');
 
 /**
  * Init command - Interactive setup wizard
