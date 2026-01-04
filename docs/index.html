@@ -1207,28 +1207,31 @@
                 return result;
             }
 
-            try {
-                const response = await fetch(`https://lingva.ml/api/v1/${sourceLang}/${targetLang}/${encodeURIComponent(text)}`);
-                if (!response.ok) throw new Error('Translation failed');
-                const data = await response.json();
-                const result = data.translation || text;
-                demoCache[cacheKey] = result;
-                return result;
-            } catch (error) {
-                console.error('Lingva translation error:', error);
-                // Fallback: try alternative instance
+            // List of Lingva instances to try (lunar.icu works best)
+            const instances = [
+                'lingva.lunar.icu',
+                'lingva.garuber.eu',
+                'translate.plausibility.cloud'
+            ];
+
+            for (const instance of instances) {
                 try {
-                    const altResponse = await fetch(`https://lingva.lunar.icu/api/v1/${sourceLang}/${targetLang}/${encodeURIComponent(text)}`);
-                    if (!altResponse.ok) throw new Error('Alt translation failed');
-                    const altData = await altResponse.json();
-                    const result = altData.translation || text;
-                    demoCache[cacheKey] = result;
-                    return result;
-                } catch (altError) {
-                    console.error('Alt Lingva error:', altError);
-                    return text; // Return original on error
+                    const response = await fetch(`https://${instance}/api/v1/${sourceLang}/${targetLang}/${encodeURIComponent(text)}`);
+                    if (!response.ok) continue;
+                    const data = await response.json();
+                    if (data.translation) {
+                        demoCache[cacheKey] = data.translation;
+                        return data.translation;
+                    }
+                } catch (error) {
+                    console.error(`Lingva ${instance} error:`, error);
+                    continue;
                 }
             }
+
+            // All instances failed, return original
+            console.error('All Lingva instances failed');
+            return text;
         }
 
         function initDemo() {
