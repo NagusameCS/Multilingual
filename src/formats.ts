@@ -49,14 +49,14 @@ export const XLIFFFormat = {
 
     import(content: string): TranslationDocument {
         const units: TranslationUnit[] = [];
-        
+
         // Extract source and target languages
         const sourceMatch = content.match(/source-language="([^"]+)"/);
         const targetMatch = content.match(/target-language="([^"]+)"/);
-        
+
         // Extract trans-units
         const unitRegex = /<trans-unit[^>]*id="([^"]*)"[^>]*>[\s\S]*?<source>([\s\S]*?)<\/source>[\s\S]*?<target[^>]*>([\s\S]*?)<\/target>[\s\S]*?<\/trans-unit>/g;
-        
+
         let match;
         while ((match = unitRegex.exec(content)) !== null) {
             units.push({
@@ -101,12 +101,12 @@ export const XLIFF2Format = {
 
     import(content: string): TranslationDocument {
         const units: TranslationUnit[] = [];
-        
+
         const srcLangMatch = content.match(/srcLang="([^"]+)"/);
         const trgLangMatch = content.match(/trgLang="([^"]+)"/);
-        
+
         const unitRegex = /<unit[^>]*>[\s\S]*?<note category="key">([\s\S]*?)<\/note>[\s\S]*?<source>([\s\S]*?)<\/source>[\s\S]*?<target>([\s\S]*?)<\/target>[\s\S]*?<\/unit>/g;
-        
+
         let match;
         while ((match = unitRegex.exec(content)) !== null) {
             units.push({
@@ -143,14 +143,14 @@ msgstr ""
 
         const entries = doc.units.map(unit => {
             const lines: string[] = [];
-            
+
             if (unit.notes || unit.context) {
                 lines.push(`#. ${unit.notes || unit.context}`);
             }
-            
+
             // Add key as reference
             lines.push(`#: ${unit.key}`);
-            
+
             // Handle multiline strings
             if (unit.source.includes('\n')) {
                 lines.push('msgid ""');
@@ -160,7 +160,7 @@ msgstr ""
             } else {
                 lines.push(`msgid "${escapePO(unit.source)}"`);
             }
-            
+
             if (unit.target.includes('\n')) {
                 lines.push('msgstr ""');
                 unit.target.split('\n').forEach(line => {
@@ -169,7 +169,7 @@ msgstr ""
             } else {
                 lines.push(`msgstr "${escapePO(unit.target)}"`);
             }
-            
+
             return lines.join('\n');
         }).join('\n\n');
 
@@ -178,18 +178,18 @@ msgstr ""
 
     import(content: string): TranslationDocument {
         const units: TranslationUnit[] = [];
-        
+
         // Extract language from header
         const langMatch = content.match(/"Language:\s*([^\\]+)\\n"/);
-        
+
         // Split into entries
         const entries = content.split(/\n\n+/).filter(entry => entry.includes('msgid') && !entry.startsWith('msgid ""'));
-        
+
         for (const entry of entries) {
             const keyMatch = entry.match(/#:\s*(.+)/);
             const msgidMatch = entry.match(/msgid\s+"(.+)"/);
             const msgstrMatch = entry.match(/msgstr\s+"(.+)"/);
-            
+
             if (msgidMatch && msgstrMatch) {
                 units.push({
                     key: keyMatch?.[1] || msgidMatch[1],
@@ -212,12 +212,12 @@ msgstr ""
  */
 export const CSVFormat = {
     export(doc: TranslationDocument, includeNotes = true): string {
-        const headers = includeNotes 
+        const headers = includeNotes
             ? ['key', 'source', 'target', 'notes', 'state']
             : ['key', 'source', 'target'];
-        
+
         const rows = [headers.join(',')];
-        
+
         for (const unit of doc.units) {
             const row = includeNotes
                 ? [
@@ -234,14 +234,14 @@ export const CSVFormat = {
                 ];
             rows.push(row.join(','));
         }
-        
+
         return rows.join('\n');
     },
 
     import(content: string): TranslationDocument {
         const lines = content.split('\n').filter(line => line.trim());
         const units: TranslationUnit[] = [];
-        
+
         // Skip header row
         for (let i = 1; i < lines.length; i++) {
             const values = parseCSVLine(lines[i]);
@@ -273,7 +273,7 @@ export const AndroidXMLFormat = {
             const escapedValue = escapeXml(unit.target)
                 .replace(/'/g, "\\'")
                 .replace(/\n/g, '\\n');
-            
+
             const comment = unit.notes ? `    <!-- ${escapeXml(unit.notes)} -->\n` : '';
             return `${comment}    <string name="${escapeXml(unit.key)}">${escapedValue}</string>`;
         }).join('\n');
@@ -288,9 +288,9 @@ ${entries}
 
     import(content: string): TranslationDocument {
         const units: TranslationUnit[] = [];
-        
+
         const stringRegex = /<string\s+name="([^"]+)"[^>]*>([\s\S]*?)<\/string>/g;
-        
+
         let match;
         while ((match = stringRegex.exec(content)) !== null) {
             units.push({
@@ -320,7 +320,7 @@ export const IOSStringsFormat = {
 */
 
 `;
-        
+
         const entries = doc.units.map(unit => {
             const comment = unit.notes ? `/* ${unit.notes} */\n` : '';
             const key = escapeIOSString(unit.key);
@@ -333,9 +333,9 @@ export const IOSStringsFormat = {
 
     import(content: string): TranslationDocument {
         const units: TranslationUnit[] = [];
-        
+
         const stringRegex = /"([^"\\]*(?:\\.[^"\\]*)*)"\s*=\s*"([^"\\]*(?:\\.[^"\\]*)*)"/g;
-        
+
         let match;
         while ((match = stringRegex.exec(content)) !== null) {
             units.push({
@@ -365,7 +365,7 @@ export const ARBFormat = {
 
         for (const unit of doc.units) {
             arb[unit.key] = unit.target;
-            
+
             if (unit.notes || unit.context) {
                 arb[`@${unit.key}`] = {
                     description: unit.notes || unit.context,
@@ -448,10 +448,10 @@ function parseCSVLine(line: string): string[] {
     const result: string[] = [];
     let current = '';
     let inQuotes = false;
-    
+
     for (let i = 0; i < line.length; i++) {
         const char = line[i];
-        
+
         if (char === '"') {
             if (inQuotes && line[i + 1] === '"') {
                 current += '"';
@@ -466,7 +466,7 @@ function parseCSVLine(line: string): string[] {
             current += char;
         }
     }
-    
+
     result.push(current);
     return result;
 }
@@ -535,7 +535,7 @@ export function exportToFile(
     if (!fs.existsSync(dir)) {
         fs.mkdirSync(dir, { recursive: true });
     }
-    
+
     fs.writeFileSync(filePath, content, 'utf-8');
 }
 
@@ -564,7 +564,7 @@ export function importFromFile(filePath: string): TranslationDocument {
         default:
             const json = JSON.parse(content);
             const units: TranslationUnit[] = [];
-            
+
             for (const [key, value] of Object.entries(json)) {
                 if (typeof value === 'string') {
                     units.push({
@@ -574,7 +574,7 @@ export function importFromFile(filePath: string): TranslationDocument {
                     });
                 }
             }
-            
+
             return {
                 sourceLanguage: 'en',
                 targetLanguage: 'unknown',
@@ -586,7 +586,7 @@ export function importFromFile(filePath: string): TranslationDocument {
 function getFormatFromPath(filePath: string): string {
     const ext = path.extname(filePath).toLowerCase();
     const base = path.basename(filePath).toLowerCase();
-    
+
     if (ext === '.xliff' || ext === '.xlf') return 'xliff';
     if (ext === '.po') return 'po';
     if (ext === '.pot') return 'po';
@@ -594,7 +594,7 @@ function getFormatFromPath(filePath: string): string {
     if (ext === '.arb') return 'arb';
     if (base === 'strings.xml') return 'android';
     if (ext === '.strings') return 'ios';
-    
+
     return 'json';
 }
 
@@ -607,11 +607,11 @@ export function convertFormat(
     targetLanguage?: string
 ): void {
     const doc = importFromFile(inputPath);
-    
+
     if (targetLanguage) {
         doc.targetLanguage = targetLanguage;
     }
-    
+
     exportToFile(doc, outputPath);
 }
 
@@ -625,9 +625,9 @@ export function mergeTranslations(
 ): TranslationDocument {
     const base = importFromFile(basePath);
     const update = importFromFile(updatePath);
-    
+
     const updateMap = new Map(update.units.map(u => [u.key, u]));
-    
+
     for (const unit of base.units) {
         const updatedUnit = updateMap.get(unit.key);
         if (updatedUnit) {
@@ -636,15 +636,15 @@ export function mergeTranslations(
             updateMap.delete(unit.key);
         }
     }
-    
+
     // Add new translations
     for (const [, unit] of updateMap) {
         base.units.push(unit);
     }
-    
+
     if (outputPath) {
         exportToFile(base, outputPath);
     }
-    
+
     return base;
 }

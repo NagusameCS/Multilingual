@@ -42,8 +42,8 @@ interface QualityReport {
 }
 
 // Extended translation service types
-export type ExtendedTranslationService = 
-    | TranslationService 
+export type ExtendedTranslationService =
+    | TranslationService
     | 'libretranslate' | 'lingva' | 'mymemory' | 'argos' | 'pseudo'
     // Local/Offline methods
     | 'dictionary' | 'local'
@@ -338,7 +338,7 @@ export class TranslationManager {
         for (const entry of this.translationMemory.entries) {
             if (entry.sourceLang === sourceLang && entry.targetLang === targetLang) {
                 const normalizedSource = entry.source.toLowerCase().trim();
-                
+
                 // Exact match
                 if (normalizedSource === normalizedText) {
                     return { translation: entry.target, similarity: 1.0 };
@@ -453,7 +453,7 @@ export class TranslationManager {
             // Cache it
             if (!this.cache[cacheKey]) this.cache[cacheKey] = {};
             this.cache[cacheKey][targetLanguage] = memoryMatch.translation;
-            
+
             return {
                 success: true,
                 text: memoryMatch.translation,
@@ -626,7 +626,7 @@ export class TranslationManager {
         sourceLanguage: SupportedLanguage
     ): Promise<string> {
         // Try each instance until one works
-        const instances = this.config.apiKey 
+        const instances = this.config.apiKey
             ? [this.config.apiKey] // If API key is provided, treat it as a custom instance URL
             : this.libreTranslateInstances;
 
@@ -725,12 +725,12 @@ export class TranslationManager {
 
         if (response.data?.responseData?.translatedText) {
             const translated = response.data.responseData.translatedText;
-            
+
             // MyMemory returns error messages in the translation field
             if (translated.includes('MYMEMORY WARNING') || translated.includes('QUOTA EXCEEDED')) {
                 throw new Error('MyMemory quota exceeded. Register for higher limits.');
             }
-            
+
             return translated;
         }
 
@@ -835,7 +835,7 @@ export class TranslationManager {
         }
 
         const lowerText = text.toLowerCase().trim();
-        
+
         // Try exact match first
         if (dictionary[lowerText]) {
             // Preserve original casing pattern
@@ -880,7 +880,7 @@ export class TranslationManager {
             if (fs.existsSync(dictPath)) {
                 const dictionary = JSON.parse(fs.readFileSync(dictPath, 'utf-8'));
                 const lowerText = text.toLowerCase().trim();
-                
+
                 if (dictionary[lowerText]) {
                     return this.matchCase(text, dictionary[lowerText]);
                 }
@@ -888,14 +888,14 @@ export class TranslationManager {
                 // Word-by-word
                 const words = text.split(/(\s+)/);
                 let translated = '';
-                
+
                 for (const word of words) {
                     const lowerWord = word.toLowerCase();
-                    translated += dictionary[lowerWord] 
-                        ? this.matchCase(word, dictionary[lowerWord]) 
+                    translated += dictionary[lowerWord]
+                        ? this.matchCase(word, dictionary[lowerWord])
                         : word;
                 }
-                
+
                 return translated;
             }
         } catch {
@@ -942,23 +942,23 @@ export class TranslationManager {
 
         const vowels = 'aeiouAEIOU';
         const words = textWithPlaceholders.split(/(\s+)/);
-        
+
         const pigLatinWords = words.map(word => {
             // Skip whitespace
             if (/^\s+$/.test(word)) return word;
             // Skip placeholders
             if (/^\x00\d+\x00$/.test(word)) return word;
-            
+
             // Handle punctuation at end
             const punctMatch = word.match(/^([a-zA-Z]+)([^a-zA-Z]*)$/);
             if (!punctMatch) return word;
-            
+
             const [, letters, punct] = punctMatch;
             if (letters.length === 0) return word;
 
             const isUpperFirst = letters[0] === letters[0].toUpperCase();
             const lowerLetters = letters.toLowerCase();
-            
+
             let result: string;
             if (vowels.includes(lowerLetters[0])) {
                 result = lowerLetters + 'way';
@@ -1013,7 +1013,7 @@ export class TranslationManager {
         const emojiWords = words.map(word => {
             if (/^\s+$/.test(word)) return word;
             if (/^\x00\d+\x00$/.test(word)) return word;
-            
+
             const lowerWord = word.toLowerCase().replace(/[^a-z]/g, '');
             return EMOJI_MAP[lowerWord] || word;
         });
@@ -1629,7 +1629,7 @@ export class TranslationManager {
 
     getTranslationMemoryStats(): { entries: number; languages: Set<string> } {
         const languages = new Set<string>();
-        
+
         for (const entry of this.translationMemory.entries) {
             languages.add(entry.targetLang);
         }
@@ -1653,9 +1653,9 @@ export class TranslationManager {
     importTranslationMemory(tm: TranslationMemory): void {
         for (const entry of tm.entries) {
             const exists = this.translationMemory.entries.some(
-                e => e.source === entry.source && 
-                     e.targetLang === entry.targetLang && 
-                     e.sourceLang === entry.sourceLang
+                e => e.source === entry.source &&
+                    e.targetLang === entry.targetLang &&
+                    e.sourceLang === entry.sourceLang
             );
             if (!exists) {
                 this.translationMemory.entries.push(entry);
@@ -1869,13 +1869,13 @@ export const SecurityUtils = {
     looksLikeApiKey(str: string): boolean {
         // DeepL keys end with :fx
         if (str.endsWith(':fx')) return true;
-        
+
         // Long alphanumeric strings with dashes
         if (/^[a-zA-Z0-9-]{32,}$/.test(str)) return true;
-        
+
         // Google-style keys
         if (/^AIza[A-Za-z0-9_-]{35}$/.test(str)) return true;
-        
+
         return false;
     },
 

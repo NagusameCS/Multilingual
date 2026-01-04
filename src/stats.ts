@@ -98,10 +98,10 @@ export function calculateStats(
         const langInfo = SUPPORTED_LANGUAGES.find(l => l.code === code);
         const translations = existingTranslations.get(code) || {};
         const translatedKeys = Object.keys(translations);
-        
+
         const translated = strings.filter(s => translatedKeys.includes(s.key)).length;
         const untranslated = totalStrings - translated;
-        
+
         return {
             code,
             name: langInfo?.name || code,
@@ -247,7 +247,7 @@ export function formatStatsReport(stats: TranslationStats): string {
     lines.push('║              Translation Statistics Report                    ║');
     lines.push('╠══════════════════════════════════════════════════════════════╣');
     lines.push('');
-    
+
     lines.push('📊 SUMMARY');
     lines.push('─'.repeat(60));
     lines.push(`  Total strings:    ${stats.totalStrings.toLocaleString()}`);
@@ -258,7 +258,7 @@ export function formatStatsReport(stats: TranslationStats): string {
 
     lines.push('🌍 LANGUAGE COVERAGE');
     lines.push('─'.repeat(60));
-    
+
     for (const lang of stats.languages) {
         const bar = generateProgressBar(lang.coverage, 20);
         const status = lang.coverage >= 100 ? '✅' : lang.coverage > 50 ? '🔄' : '⏳';
@@ -337,7 +337,7 @@ export function formatStatsMarkdown(stats: TranslationStats, projectName = 'Proj
     lines.push('');
     lines.push('| Language | Translated | Remaining | Coverage |');
     lines.push('|----------|------------|-----------|----------|');
-    
+
     for (const lang of stats.languages) {
         const status = lang.coverage >= 100 ? '✅' : lang.coverage > 50 ? '🔄' : '⏳';
         lines.push(`| ${status} ${lang.name} | ${lang.translated} | ${lang.untranslated} | ${lang.coverage.toFixed(1)}% |`);

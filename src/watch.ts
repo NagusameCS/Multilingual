@@ -70,7 +70,7 @@ export function createWatcher(options: WatchOptions): FileWatcher {
             const watcher = fs.watch(dirPath, { recursive: true }, (eventType, filename) => {
                 if (filename) {
                     const fullPath = path.join(dirPath, filename);
-                    const event = eventType === 'rename' 
+                    const event = eventType === 'rename'
                         ? (fs.existsSync(fullPath) ? 'add' : 'unlink')
                         : 'change';
                     handleChange(fullPath, event);
@@ -116,7 +116,7 @@ export function createWatcher(options: WatchOptions): FileWatcher {
                 watcher.close();
             }
             watchers.length = 0;
-            
+
             // Clear pending timers
             for (const timer of changeTimers.values()) {
                 clearTimeout(timer);
@@ -170,7 +170,7 @@ export function createTranslationWatchSession(
             // Only process relevant file types
             const ext = path.extname(filePath).toLowerCase();
             const relevantExts = ['.js', '.jsx', '.ts', '.tsx', '.vue', '.svelte', '.html'];
-            
+
             if (!relevantExts.includes(ext)) return;
 
             stats.filesChanged++;

@@ -175,8 +175,8 @@ program
         multilingual.updateConfig({
             sourceLanguage: answers.sourceLanguage,
             targetLanguages: answers.targetLanguages,
-            translationService: ['deepl', 'google', 'none'].includes(answers.translationService) 
-                ? answers.translationService as TranslationService 
+            translationService: ['deepl', 'google', 'none'].includes(answers.translationService)
+                ? answers.translationService as TranslationService
                 : 'none',
             apiKey: answers.apiKey,
             outputDir: answers.outputDir,
@@ -328,7 +328,7 @@ program
         const service = options.service as ExtendedTranslationService;
         const freeServices = [
             'libretranslate', 'lingva', 'mymemory', 'pseudo',
-            'dictionary', 'local', 'piglatin', 'emoji', 'leet', 
+            'dictionary', 'local', 'piglatin', 'emoji', 'leet',
             'reverse', 'mirror', 'uppercase', 'morse', 'nato'
         ];
         const isFreeService = freeServices.includes(service);
@@ -358,19 +358,45 @@ program
         (multilingual as any).translationManager?.setExtendedService?.(service);
 
         const spinner = ora('Translating...').start();
+        const startTime = Date.now();
+        let languagesCompleted = 0;
+        const totalLanguages = targetLangs.length;
+
+        const formatTime = (ms: number): string => {
+            if (ms < 1000) return `${ms}ms`;
+            const seconds = Math.floor(ms / 1000);
+            if (seconds < 60) return `${seconds}s`;
+            const minutes = Math.floor(seconds / 60);
+            const remainingSeconds = seconds % 60;
+            return `${minutes}m ${remainingSeconds}s`;
+        };
 
         const result = await multilingual.translateFile(
             sourcePath,
             path.resolve(options.output),
             (lang, progress) => {
-                spinner.text = lang === 'done' ? 'Finalizing...' : `Translating to ${lang}... (${progress}%)`;
+                if (lang === 'done') {
+                    spinner.text = 'Finalizing...';
+                } else {
+                    languagesCompleted++;
+                    const elapsed = Date.now() - startTime;
+                    const avgTimePerLang = elapsed / languagesCompleted;
+                    const remainingLangs = totalLanguages - languagesCompleted;
+                    const eta = Math.round(avgTimePerLang * remainingLangs);
+                    
+                    const etaText = remainingLangs > 0 ? ` • ETA: ${formatTime(eta)}` : '';
+                    spinner.text = `Translating to ${lang}... (${languagesCompleted}/${totalLanguages})${etaText}`;
+                }
             }
         );
 
+        const totalTime = Date.now() - startTime;
+
         if (result.success) {
-            spinner.succeed(`Successfully translated to ${result.files.length} files`);
+            spinner.succeed(`Successfully translated to ${result.files.length} files in ${formatTime(totalTime)}`);
             console.log(chalk.green('\n✅ Generated files:'));
             result.files.forEach(f => console.log(`   ${chalk.gray(f)}`));
+            console.log(chalk.gray(`\n⏱️  Total time: ${formatTime(totalTime)} (${Math.round(totalTime / targetLangs.length)}ms per language)`));
         } else {
             spinner.fail('Translation completed with errors');
             result.errors.forEach(e => console.log(chalk.red(`   ❌ ${e}`)));
