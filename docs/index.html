@@ -1209,15 +1209,10 @@
 
             // Use lingva.lunar.icu (most reliable instance)
             try {
-                const controller = new AbortController();
-                const timeoutId = setTimeout(() => controller.abort(), 5000);
-                
                 const response = await fetch(
-                    `https://lingva.lunar.icu/api/v1/${sourceLang}/${targetLang}/${encodeURIComponent(text)}`,
-                    { signal: controller.signal }
+                    `https://lingva.lunar.icu/api/v1/${sourceLang}/${targetLang}/${encodeURIComponent(text)}`
                 );
-                clearTimeout(timeoutId);
-                
+
                 if (!response.ok) throw new Error('Bad response');
                 const data = await response.json();
                 if (data.translation) {
@@ -1227,7 +1222,7 @@
             } catch (error) {
                 console.error('Lingva translation error:', error.message);
             }
-            
+
             // Fallback: return original text
             return text;
         }
