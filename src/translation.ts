@@ -41,14 +41,8 @@ interface QualityReport {
     suggestions: string[];
 }
 
-// Extended translation service types
-export type ExtendedTranslationService =
-    | TranslationService
-    | 'libretranslate' | 'lingva' | 'mymemory' | 'argos' | 'pseudo'
-    // Local/Offline methods
-    | 'dictionary' | 'local'
-    // Creative/Fun methods  
-    | 'piglatin' | 'emoji' | 'leet' | 'reverse' | 'mirror' | 'uppercase' | 'morse' | 'nato';
+// Extended translation service types (now same as TranslationService for compatibility)
+export type ExtendedTranslationService = TranslationService;
 
 // Built-in dictionaries for common phrases (offline translation)
 const BUILT_IN_DICTIONARIES: Record<string, Record<string, Record<string, string>>> = {

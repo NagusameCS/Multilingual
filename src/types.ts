@@ -2,7 +2,18 @@
  * multilingual-cli - Type Definitions
  */
 
-export type TranslationService = 'deepl' | 'google' | 'none';
+// Base translation services (original API services)
+export type BaseTranslationService = 'deepl' | 'google' | 'none';
+
+// Extended translation services (includes free online, offline, and creative)
+export type TranslationService = 
+    | BaseTranslationService
+    // Free online services
+    | 'lingva' | 'libretranslate' | 'mymemory' | 'argos'
+    // Offline methods
+    | 'dictionary' | 'local'
+    // Creative/testing methods
+    | 'pseudo' | 'piglatin' | 'emoji' | 'leet' | 'reverse' | 'mirror' | 'uppercase' | 'morse' | 'nato';
 
 export type SupportedLanguage =
     | 'en' | 'es' | 'fr' | 'de' | 'it' | 'pt' | 'pt-BR' | 'ru' | 'zh' | 'zh-TW'
