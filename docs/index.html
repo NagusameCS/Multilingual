@@ -24,6 +24,10 @@
             --gradient-2: #764ba2;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         * {
             margin: 0;
             padding: 0;
@@ -1011,7 +1015,6 @@
             { code: 'pt-BR', name: 'Portuguese (Brazil)', nativeName: 'Português (Brasil)' },
             { code: 'ru', name: 'Russian', nativeName: 'Русский' },
             { code: 'zh', name: 'Chinese (Simplified)', nativeName: '中文(简体)' },
-            { code: 'zh-TW', name: 'Chinese (Traditional)', nativeName: '中文(繁體)' },
             { code: 'ja', name: 'Japanese', nativeName: '日本語' },
             { code: 'ko', name: 'Korean', nativeName: '한국어' },
             { code: 'ar', name: 'Arabic', nativeName: 'العربية', rtl: true },
@@ -1189,7 +1192,7 @@
         let currentDemoLang = 'es';
         let isTranslating = false;
 
-        async function translateWithLingva(text, targetLang, sourceLang = 'en') {
+        async function translateDemo(text, targetLang, sourceLang = 'en') {
             const cacheKey = `${sourceLang}:${targetLang}:${text}`;
             if (demoCache[cacheKey]) {
                 return demoCache[cacheKey];
@@ -1207,29 +1210,27 @@
                 return result;
             }
 
-            // Use lingva.lunar.icu API
-            const url = `https://lingva.lunar.icu/api/v1/${sourceLang}/${targetLang}/${encodeURIComponent(text)}`;
+            // Use MyMemory API (free, CORS-friendly, works from browsers)
+            const url = `https://api.mymemory.translated.net/get?q=${encodeURIComponent(text)}&langpair=${sourceLang}|${targetLang}`;
             
             try {
                 const response = await fetch(url);
                 
                 if (!response.ok) {
-                    console.error('Lingva response not ok:', response.status);
                     throw new Error(`HTTP ${response.status}`);
                 }
                 
                 const data = await response.json();
                 
-                if (data.translation) {
-                    demoCache[cacheKey] = data.translation;
-                    return data.translation;
+                if (data.responseData && data.responseData.translatedText) {
+                    const translation = data.responseData.translatedText;
+                    demoCache[cacheKey] = translation;
+                    return translation;
                 } else {
-                    console.error('No translation in response:', data);
                     throw new Error('No translation');
                 }
             } catch (error) {
-                console.error('Lingva translation failed:', error);
-                // Return original on error
+                console.error('Translation failed:', error);
                 return text;
             }
         }
@@ -1278,7 +1279,7 @@
             output.innerHTML = '<span class="translating">Translating...</span>';
 
             try {
-                const translated = await translateWithLingva(text, currentDemoLang, 'en');
+                const translated = await translateDemo(text, currentDemoLang, 'en');
                 output.textContent = translated;
             } catch (error) {
                 output.textContent = text;
